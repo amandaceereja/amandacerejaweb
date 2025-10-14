@@ -4,9 +4,9 @@
 /* Botão CTA do banner - largura aumentada para caber o texto completo */
 @media (min-width: 1025px) {
   .hero .hero__buttons .btn {
-    max-width: 220px !important;
-    min-width: 200px !important;
-    padding: 1rem 2rem !important;
+    max-width: 280px !important;
+    min-width: 250px !important;
+    padding: 1rem 3rem !important;
   }
 }
 
