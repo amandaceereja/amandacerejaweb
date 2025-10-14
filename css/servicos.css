@@ -497,7 +497,7 @@
 
 /* Cards de Lojas Online - Idênticos aos de Restaurantes */
 .solucoes-lojas .servico-loja-card {
-  flex: 0 0 calc(32% - 0.5rem); /* Reduzido para caber no container expandido */
+  flex: 0 0 calc(33.333% - 0.333rem); /* Alinhado com 3 cards por view */
   min-height: 100%;
   box-sizing: border-box;
   padding: 2.5rem 1.8rem;

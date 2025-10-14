@@ -4040,6 +4040,29 @@ a:hover {
   }
 }
 
+/* ======== BOTÃO CTA RESPONSIVO ======== */
+/* Desktop: mostra "Checklist Online" */
+@media (min-width: 1025px) {
+  .btn-text-desktop {
+    display: inline;
+  }
+  
+  .btn-text-mobile {
+    display: none;
+  }
+}
+
+/* Mobile/Tablet: mostra apenas "Checklist" */
+@media (max-width: 1024px) {
+  .btn-text-desktop {
+    display: none;
+  }
+  
+  .btn-text-mobile {
+    display: inline;
+  }
+}
+
 /* Desktop responsive: botões CTA lado a lado com largura reduzida */
 @media (min-width: 1025px) {
   .hero .hero__buttons {

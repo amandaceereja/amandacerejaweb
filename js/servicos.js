@@ -130,8 +130,9 @@ function initRestaurantesCarousel() {
     let offset;
     
     if (isDesktop) {
-      // Desktop: navegação por grupos de slides
-      offset = -(currentSlide * 100) / slidesPerView;
+      // Desktop: navegação por grupos de slides (3 containers por bolinha)
+      // Cada bolinha move o carrossel por 3 containers (33.333% cada)
+      offset = -(currentSlide * 100);
     } else {
       // Móvel/Tablet: navegação por cards individuais (1 por vez)
       // Como slidesPerView = 1, cada container ocupa 100% da largura
@@ -213,6 +214,51 @@ function initRestaurantesCarousel() {
   // Reinicializar eventos das setas no resize
   window.addEventListener("resize", initArrowEvents);
 
+  // Funcionalidade de swipe para mobile/tablet
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let isTouching = false;
+
+  function handleTouchStart(e) {
+    // Só funciona em mobile/tablet
+    if (window.innerWidth >= 1025) return;
+    
+    touchStartX = e.touches[0].clientX;
+    isTouching = true;
+  }
+
+  function handleTouchMove(e) {
+    if (!isTouching || window.innerWidth >= 1025) return;
+    
+    // Previne o scroll da página durante o swipe
+    e.preventDefault();
+  }
+
+  function handleTouchEnd(e) {
+    if (!isTouching || window.innerWidth >= 1025) return;
+    
+    touchEndX = e.changedTouches[0].clientX;
+    isTouching = false;
+    
+    const swipeDistance = touchStartX - touchEndX;
+    const minSwipeDistance = 50; // Distância mínima para considerar um swipe
+    
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+      if (swipeDistance > 0) {
+        // Swipe para a esquerda - próximo slide
+        nextSlide();
+      } else {
+        // Swipe para a direita - slide anterior
+        prevSlide();
+      }
+    }
+  }
+
+  // Adicionar event listeners para touch
+  slider.addEventListener('touchstart', handleTouchStart, { passive: true });
+  slider.addEventListener('touchmove', handleTouchMove, { passive: false });
+  slider.addEventListener('touchend', handleTouchEnd, { passive: true });
+
   // Eventos de deslize desativados para permitir navegação apenas com bolinhas
   // Removendo cursor de arrastar
   slider.style.cursor = "default";
@@ -261,8 +307,9 @@ function initLojasCarousel() {
     let offset;
     
     if (isDesktop) {
-      // Desktop: navegação por grupos de slides
-      offset = -(currentSlide * 100) / slidesPerView;
+      // Desktop: navegação por grupos de slides (3 containers por bolinha)
+      // Cada bolinha move o carrossel por 3 containers (33.333% cada)
+      offset = -(currentSlide * 100);
     } else {
       // Móvel/Tablet: navegação por cards individuais (1 por vez)
       // Como slidesPerView = 1, cada container ocupa 100% da largura
@@ -409,6 +456,51 @@ function initLojasCarousel() {
   
   // Reinicializar eventos das setas no resize
   window.addEventListener("resize", initLojasArrowEvents);
+
+  // Funcionalidade de swipe para mobile/tablet
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let isTouching = false;
+
+  function handleTouchStart(e) {
+    // Só funciona em mobile/tablet
+    if (window.innerWidth >= 1025) return;
+    
+    touchStartX = e.touches[0].clientX;
+    isTouching = true;
+  }
+
+  function handleTouchMove(e) {
+    if (!isTouching || window.innerWidth >= 1025) return;
+    
+    // Previne o scroll da página durante o swipe
+    e.preventDefault();
+  }
+
+  function handleTouchEnd(e) {
+    if (!isTouching || window.innerWidth >= 1025) return;
+    
+    touchEndX = e.changedTouches[0].clientX;
+    isTouching = false;
+    
+    const swipeDistance = touchStartX - touchEndX;
+    const minSwipeDistance = 50; // Distância mínima para considerar um swipe
+    
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+      if (swipeDistance > 0) {
+        // Swipe para a esquerda - próximo slide
+        nextSlide();
+      } else {
+        // Swipe para a direita - slide anterior
+        prevSlide();
+      }
+    }
+  }
+
+  // Adicionar event listeners para touch
+  slider.addEventListener('touchstart', handleTouchStart, { passive: true });
+  slider.addEventListener('touchmove', handleTouchMove, { passive: false });
+  slider.addEventListener('touchend', handleTouchEnd, { passive: true });
 
   // Eventos de swipe desativados para permitir navegação apenas com bolinhas
   

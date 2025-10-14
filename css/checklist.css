@@ -990,8 +990,8 @@ body.js .step.active {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: #25d366;
-  color: #0a0a0a;
+  background: #ffffff;
+  color: #000000;
   text-decoration: none;
   font-size: 20px;
   z-index: 60;
@@ -1066,5 +1066,32 @@ select:-webkit-autofill {
   .steps li:nth-child(3) {
     flex-basis: 100%;
     margin-top: 0.5rem;
+  }
+}
+
+/* Responsividade do nome na barra de navegação */
+.name-text-mobile {
+  display: none;
+}
+
+/* Tablet: 768px - 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .name-text-desktop {
+    display: none;
+  }
+  
+  .name-text-mobile {
+    display: inline;
+  }
+}
+
+/* Mobile: até 767px */
+@media (max-width: 767px) {
+  .name-text-desktop {
+    display: none;
+  }
+  
+  .name-text-mobile {
+    display: inline;
   }
 }
