@@ -1,0 +1,1833 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Orçamento | Amanda Cereja</title>
+
+    <meta
+      name="description"
+      content="Calcule o orçamento do seu projeto web e consulte minha disponibilidade. Obtenha uma cotação personalizada para sua landing page, website ou e-commerce."
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/presupuesto.css" />
+
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="js/presupuesto.js" defer></script>
+    <script src="js/presupuesto-pt.js" defer></script>
+    
+
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Calculadora de Orçamento | Amanda Cereja" />
+    <meta
+      property="og:description"
+      content="Calcule o orçamento do seu projeto web e consulte minha disponibilidade."
+    />
+
+    <!-- Fontes para os serviços -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/roxborough-cf" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/tt-drugs" rel="stylesheet">
+                
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="img/simplelogo.png" type="image/png" />
+
+    <link rel="canonical" href="https://amandaceereja.github.io/Pagina-web/presupuesto_pt.html" />
+  </head>
+
+  <body>
+    <!-- Language Bar -->
+    <div class="language-bar">
+      <div class="language-bar__container">
+        <div class="language-bar__social">
+          <a href="https://www.instagram.com/amandacerejaweb/" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://github.com/amandaceereja" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="language-selector">
+          <button class="language-selector__toggle" aria-label="Selecionar idioma">
+            <span class="language-selector__current">BR</span>
+            <i class="fas fa-globe"></i>
+          </button>
+          <div class="language-selector__dropdown">
+            <button class="language-selector__option" data-lang="es">
+              <span>ES</span>
+            </button>
+            <button class="language-selector__option" data-lang="pt">
+              <span>BR</span>
+            </button>
+            <button class="language-selector__option" data-lang="en">
+              <span>EN</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar" aria-label="Principal">
+        <div class="navbar__logo">
+          <a href="index_pt.html"><span>Amanda</span> <strong>Cereja Diniz Alves</strong></a>
+        </div>
+        <button
+          type="button"
+          class="navbar__mobile-btn"
+          aria-label="Abrir/Fechar menu"
+          aria-controls="navmenu"
+          aria-expanded="false"
+        >
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="navbar__menu" id="navmenu">
+          <ul>
+            <li><a href="index_pt.html" data-translate="nav.home">Início</a></li>
+            <li><a href="servicos_pt.html">Serviços</a></li>
+            <li><a href="checklist_pt.html">Checklist</a></li>
+            <li><a href="presupuesto_pt.html">Orçamento</a></li>
+            <li><a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a></li>
+          </ul>
+        </div>
+        <div class="navbar-menu-icon">
+          <button class="menu-icon-btn" aria-label="Mais opções">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="menu-icon-dropdown">
+            <div class="menu-dropdown-logo">
+              <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
+            </div>
+            <a href="index_pt.html" data-translate="nav.home">Início</a>
+            <a href="servicos_pt.html">Serviços</a>
+            <a href="checklist_pt.html">Checklist</a>
+            <a href="presupuesto_pt.html">Orçamento</a>
+            <a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a>
+            <a href="proceso_pt.html">Meu processo</a>
+            <a href="index_pt.html#sobre" data-translate="nav.about">Sobre mim</a>
+            <a href="index_pt.html#contacto" data-translate="nav.contact">Contato</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-presupuesto" aria-label="Calculadora de orçamento">
+      <div class="container">
+        <div class="hero-content">
+          <h1><span class="typewriter">Calcula o Orçamento do seu Projeto</span></h1>
+          <p class="hero-subtitle">
+            Descubra o plano ideal para seu projeto com um cálculo imediato.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Calculator Section -->
+    <section class="calculator-section" aria-label="Calculadora interactiva">
+      <div class="container">
+        <div class="calculator-wrapper">
+          <div class="calculator-form">
+            <h2>Que tipo de projeto você precisa?</h2>
+
+            <!-- Project Type Selection -->
+            <div class="form-group">
+              <label class="form-label">Tipo de Projeto</label>
+              <div class="project-types">
+                <!-- Landing Page Card -->
+                <div class="project-card" data-type="landing">
+                  <div class="project-card-header">
+                    <div class="project-icon">
+                      <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="project-content">
+                      <div class="project-info">
+                        <h3>Landing Page</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="info-trigger" aria-label="Mais informações sobre Landing Page">
+                    <i class="fas fa-question"></i>
+                  </button>
+                  <div class="tooltip">
+                    <h4>Landing Page - Página única</h4>
+                    <p>
+                      Perfeita para promoções, campanhas de marketing, captação de clientes ou para negócios que precisam de uma solução simples e rápida.
+                    </p>
+                  </div>
+                  <div class="plan-buttons" style="display: none;">
+                    <button class="plan-btn" data-plan="basico">Básico</button>
+                    <button class="plan-btn" data-plan="estandar">Padrão</button>
+                    <button class="plan-btn" data-plan="premium">Premium</button>
+                  </div>
+                </div>
+
+                <!-- Website Corporativo Card -->
+                <div class="project-card" data-type="website">
+                  <div class="project-card-header">
+                    <div class="project-icon">
+                      <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="project-content">
+                      <div class="project-info">
+                        <h3>Website Corporativo</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="info-trigger"
+                    aria-label="Mais informações sobre Website Corporativo"
+                  >
+                    <i class="fas fa-question"></i>
+                  </button>
+                  <div class="tooltip">
+                    <h4>Web Page - Site Institucional</h4>
+                    <p>
+                      Ideal para empresas que desejam apresentar seus serviços, história, contatos e informações de forma profissional.
+                    </p>
+                  </div>
+                  <div class="plan-buttons" style="display: none;">
+                    <button class="plan-btn" data-plan="basico">Plano Básico</button>
+                    <button class="plan-btn" data-plan="estandar">Plano Padrão</button>
+                    <button class="plan-btn" data-plan="premium">Plano Premium</button>
+                  </div>
+                </div>
+
+                <!-- E-commerce Card -->
+                <div class="project-card" data-type="ecommerce">
+                  <div class="project-card-header">
+                    <div class="project-icon">
+                      <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                      <div class="project-info">
+                        <h3>Ecommerce</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="info-trigger" aria-label="Mais informações sobre E-commerce">
+                    <i class="fas fa-question"></i>
+                  </button>
+                  <div class="tooltip">
+                    <h4>E-commerce - Loja virtual</h4>
+                    <p>
+                      Solução completa para quem deseja vender online com catálogo de produtos, carrinho e checkout seguro.
+                    </p>
+                  </div>
+                  <div class="plan-buttons" style="display: none;">
+                    <button class="plan-btn" data-plan="basico">Plano Básico</button>
+                    <button class="plan-btn" data-plan="estandar">Plano Padrão</button>
+                    <button class="plan-btn" data-plan="premium">Plano Premium</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Selected Plan Details -->
+            <div class="form-group" id="selected-plan-section" style="display: none">
+              <label class="form-label">Plano Selecionado</label>
+              <div class="selected-plan-details">
+                <div id="plan-content">
+                  <!-- Plan details will be inserted here -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Additional Features with Tabs -->
+            <div class="form-group" id="features-section" style="display: none">
+              <!-- Tab Navigation -->
+              <div class="tab-navigation">
+                <button class="tab-button active" data-tab="features-tab">Funcionalidades Adicionais</button>
+                <button class="tab-button" data-tab="integrations-tab" id="integrations-tab-button" style="display: none;">Integrações</button>
+                <button class="tab-button" data-tab="systems-tab" id="systems-tab-button" style="display: none;">Sistemas</button>
+              </div>
+
+              <!-- Features Tab Content -->
+              <div class="tab-content active" id="features-tab">
+                <div class="features-grid">
+                <div class="feature-item">
+                  <input type="checkbox" id="seo" data-price="150" />
+                  <label for="seo">
+                    <i class="fas fa-search"></i>
+                    <span>Otimização SEO</span>
+                    <span class="feature-price">R$150</span>
+                  </label>
+                </div>
+
+                <div class="feature-item">
+                  <input type="checkbox" id="analytics" data-price="100" />
+                  <label for="analytics">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Google Analytics</span>
+                    <span class="feature-price">R$100</span>
+                  </label>
+                </div>
+
+
+
+                <!-- Funcionalidades específicas para Landing Page (ocultas por padrão) -->
+                <div class="feature-item landing-only" style="display: none;">
+                  <input type="checkbox" id="seo-landing" data-price="110" />
+                  <label for="seo-landing">
+                    <span>Otimização SEO</span>
+                    <span class="feature-price">R$110</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Otimização básica para motores de busca</div>
+                </div>
+
+                <div class="feature-item landing-only" style="display: none;">
+                  <input type="checkbox" id="analytics-landing" data-price="80" />
+                  <label for="analytics-landing">
+                    <span>Google Analytics</span>
+                    <span class="feature-price">R$80</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Integração com Google Analytics para métricas</div>
+                </div>
+
+                <div class="feature-item landing-only" style="display: none;">
+                  <input type="checkbox" id="multi-idioma-landing" data-price="200" />
+                  <label for="multi-idioma-landing">
+                    <span>Multi-idioma</span>
+                    <span class="feature-price">R$200</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Suporte para múltiplos idiomas na landing page</div>
+                </div>
+
+                <div class="feature-item landing-only" style="display: none;">
+                  <input type="checkbox" id="galeria-simple-landing" data-price="80" />
+                  <label for="galeria-simple-landing">
+                    <span>Galeria de fotos simples</span>
+                    <span class="feature-price">R$80</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Más información">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Até 10 imagens</div>
+                </div>
+
+                <div class="feature-item landing-only" style="display: none;">
+                  <input type="checkbox" id="galeria-extra-landing" data-price="50" />
+                  <label for="galeria-extra-landing">
+                    <span>Galeria extra por quantidade de imagens</span>
+                    <span class="feature-price">R$50</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Más información">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">+ 10 imagens</div>
+                </div>
+
+                <div class="feature-item landing-only" style="display: none;">
+                  <input type="checkbox" id="galeria-premium-landing" data-price="160" />
+                  <label for="galeria-premium-landing">
+                    <span>Galeria Premium</span>
+                    <span class="feature-price">R$160</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Más información">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Até 20 imagens ou vídeos</div>
+                </div>
+
+                <div class="feature-item landing-only" style="display: none;">
+                  <input type="checkbox" id="animaciones-landing" data-price="90" />
+                  <label for="animaciones-landing">
+                    <span>Animações simples ou efeitos visuais</span>
+                    <span class="feature-price">R$90</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Más información">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Efeitos de transição, hover, microinterações.</div>
+                </div>
+
+                <div class="feature-item landing-only" style="display: none;">
+                  <input type="checkbox" id="faq-landing" data-price="60" />
+                  <label for="faq-landing">
+                    <span>FAQ dinâmico</span>
+                    <span class="feature-price">R$150</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Más información">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Seção de perguntas frequentes com dropdowns</div>
+                </div>
+
+                <div class="feature-item landing-only" style="display: none;">
+                  <input type="checkbox" id="testimonios-landing" data-price="90" />
+                  <label for="testimonios-landing">
+                    <span>Depoimentos e Avaliações</span>
+                    <span class="feature-price">R$280</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Más información">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Seção de opiniões de clientes com design personalizado.</div>
+                </div>
+
+                <div class="feature-item landing-only" style="display: none;">
+                  <input type="checkbox" id="chat-landing" data-price="160" />
+                  <label for="chat-landing">
+                    <span>Chat online</span>
+                    <span class="feature-price">R$160</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Sistema de chat ao vivo para atendimento ao cliente.</div>
+                </div>
+
+                <div class="feature-item landing-only" style="display: none;">
+                  <input type="checkbox" id="accesibilidad-landing" data-price="90" />
+                  <label for="accesibilidad-landing">
+                    <span>Acessibilidade digital</span>
+                    <span class="feature-price">R$90</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Adaptações básicas para cumprir padrões de acessibilidade web</div>
+                </div>
+
+                <div class="feature-item landing-only" style="display: none;">
+                  <input type="checkbox" id="carrinho-simples" data-price="180" />
+                  <label for="carrinho-simples">
+                    <span>Carrinho simples</span>
+                    <span class="feature-price">R$180</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Funcionalidade que permite ao usuário comprar diretamente um produto único ou serviço a partir da landing page.</div>
+                </div>
+
+                <!-- Funcionalidades específicas para Website Corporativo (ocultas por padrão) -->
+                <div class="feature-item webpage-only" style="display: none;">
+                  <input type="checkbox" id="galeria-simple" data-price="100" />
+                  <label for="galeria-simple">
+                    <span>Galeria de fotos simples</span>
+                    <span class="feature-price">R$100</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Até 10 imagens</div>
+                </div>
+
+                <div class="feature-item webpage-only" style="display: none;">
+                  <input type="checkbox" id="galeria-extra" data-price="50" />
+                  <label for="galeria-extra">
+                    <span>Galeria extra por quantidade de imagens</span>
+                    <span class="feature-price">+R$50</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">+ 10 imagens</div>
+                </div>
+
+                <div class="feature-item webpage-only" style="display: none;">
+                  <input type="checkbox" id="galeria-premium" data-price="250" />
+                  <label for="galeria-premium">
+                    <span>Galeria Premium</span>
+                    <span class="feature-price">R$250</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Até 20 imagens ou vídeos</div>
+                </div>
+
+                <div class="feature-item webpage-only" style="display: none;">
+                  <input type="checkbox" id="animaciones" data-price="120" />
+                  <label for="animaciones">
+                    <span>Animações simples ou efeitos visuais</span>
+                    <span class="feature-price">R$120</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Efeitos de transição, hover, microinterações.</div>
+                </div>
+
+
+
+                <div class="feature-item webpage-only" style="display: none;">
+                  <input type="checkbox" id="timeline" data-price="200" />
+                  <label for="timeline">
+                    <span>Timeline interativa</span>
+                    <span class="feature-price">R$200</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">História da empresa ou linha do tempo</div>
+                </div>
+
+                <div class="feature-item webpage-only" style="display: none;">
+                  <input type="checkbox" id="faq" data-price="100" />
+                  <label for="faq">
+                    <span>FAQ dinâmico</span>
+                    <span class="feature-price">R$100</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Seção de perguntas frequentes com dropdowns</div>
+                </div>
+
+
+
+                <div class="feature-item webpage-only" style="display: none;">
+                  <input type="checkbox" id="chat" data-price="250" />
+                  <label for="chat">
+                    <span>Chat online</span>
+                    <span class="feature-price">R$250</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Sistema de chat ao vivo para atendimento ao cliente.</div>
+                </div>
+
+                <div class="feature-item webpage-only" style="display: none;">
+                  <input type="checkbox" id="accesibilidad" data-price="120" />
+                  <label for="accesibilidad">
+                    <span>Acessibilidade digital</span>
+                    <span class="feature-price">R$120</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Adaptações básicas para cumprir padrões de acessibilidade web</div>
+                </div>
+
+                <!-- Nuevas funcionalidades para Web Page -->
+
+
+
+                <div class="feature-item webpage-only" style="display: none;">
+                  <input type="checkbox" id="multiidioma-webpage" data-price="250" />
+                  <label for="multiidioma-webpage">
+                    <span>Multi-idioma</span>
+                    <span class="feature-price">R$250</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Site web disponível em múltiplos idiomas</div>
+                </div>
+
+                <!-- Funcionalidades específicas para E-commerce (ocultas por padrão) -->
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="galeria-productos" data-price="280" />
+                  <label for="galeria-productos">
+                    <span>Galeria de produtos interativa</span>
+                    <span class="feature-price">R$280</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Carrossel, modal flutuante, lightbox.</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="banner-slideshow" data-price="180" />
+                  <label for="banner-slideshow">
+                    <span>Banner/Slideshow avançado</span>
+                    <span class="feature-price">R$180</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Banner promocional com efeitos avançados</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="animaciones-ecommerce" data-price="150" />
+                  <label for="animaciones-ecommerce">
+                    <span>Animações simples ou efeitos visuais</span>
+                    <span class="feature-price">R$150</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Efeitos de transição, hover, microinterações.</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="pagina-producto" data-price="250" />
+                  <label for="pagina-producto">
+                    <span>Página de produto detalhada</span>
+                    <span class="feature-price">R$250</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Inclui descrição ampliada, especificações, imagens extras e avaliações de clientes</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="wishlist" data-price="100" />
+                  <label for="wishlist">
+                    <span>Wishlist / Lista de desejos</span>
+                    <span class="feature-price">R$100</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Permite aos clientes guardar produtos para futuras compras</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="filtro-avanzado" data-price="300" />
+                  <label for="filtro-avanzado">
+                    <span>Filtro avançado de produto</span>
+                    <span class="feature-price">R$300</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Filtragem por categorias, preços, cores, tamanhos ou outras características</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="blog-ecommerce" data-price="250" />
+                  <label for="blog-ecommerce">
+                    <span>Blog integrado</span>
+                    <span class="feature-price">R$250</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Sistema de publicações dentro da loja</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="faq-ecommerce" data-price="110" />
+                  <label for="faq-ecommerce">
+                    <span>FAQ dinâmico</span>
+                    <span class="feature-price">R$110</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Seção de perguntas frequentes com dropdowns</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="testimonios-ecommerce" data-price="110" />
+                  <label for="testimonios-ecommerce">
+                    <span>Depoimentos e Avaliações</span>
+                    <span class="feature-price">R$110</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Más información">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Seção de opiniões de clientes com design personalizado.</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="chat-ecommerce" data-price="250" />
+                  <label for="chat-ecommerce">
+                    <span>Chat online</span>
+                    <span class="feature-price">R$250</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Sistema de chat ao vivo para atendimento ao cliente.</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="accesibilidad-ecommerce" data-price="150" />
+                  <label for="accesibilidad-ecommerce">
+                    <span>Acessibilidade digital</span>
+                    <span class="feature-price">R$150</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Más información">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Adaptações básicas para cumprir padrões de acessibilidade web</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="galeria-zoom" data-price="180" />
+                  <label for="galeria-zoom">
+                    <span>Galeria de imagens do produto com zoom</span>
+                    <span class="feature-price">R$180</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Detalhes do produto com imagens ampliáveis e de alta qualidade.</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="video-produto" data-price="200" />
+                  <label for="video-produto">
+                    <span>Vídeo do produto</span>
+                    <span class="feature-price">R$200</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Mostra vídeos do produto em ação.</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="carrinho-abandonado" data-price="300" />
+                  <label for="carrinho-abandonado">
+                    <span>Recuperação de carrinho abandonado</span>
+                    <span class="feature-price">R$300</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Envia lembretes automáticos a clientes que não completaram a compra, ajudando a aumentar conversões.</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="cupom-desconto" data-price="200" />
+                  <label for="cupom-desconto">
+                    <span>Cupom de desconto / promoções</span>
+                    <span class="feature-price">R$200</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Permite criar códigos de desconto para atrair clientes e incentivar vendas.</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="programa-fidelidade" data-price="350" />
+                  <label for="programa-fidelidade">
+                    <span>Programa de fidelidade / pontos</span>
+                    <span class="feature-price">R$350</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Más información">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Sistema de pontos ou recompensas para clientes frequentes, fomentando compras repetidas.</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="seo-avancado" data-price="250" />
+                  <label for="seo-avancado">
+                    <span>SEO avançado de produtos e categorias</span>
+                    <span class="feature-price">R$250</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Otimiza produtos e categorias para motores de busca, aumentando a visibilidade da loja.</div>
+                </div>
+
+                <div class="feature-item ecommerce-only" style="display: none;">
+                  <input type="checkbox" id="calculo-frete" data-price="280" />
+                  <label for="calculo-frete">
+                    <span>Cálculo de envio automático</span>
+                    <span class="feature-price">R$280</span>
+                  </label>
+                  <button class="info-trigger" aria-label="Mais informação">
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <div class="tooltip">Calcula automaticamente o custo de envio segundo transportadora, código postal ou peso do pedido.</div>
+                </div>
+
+
+
+                </div>
+              </div>
+
+              <!-- Integrations Tab Content -->
+              <div class="tab-content" id="integrations-tab">
+                <div class="features-grid">
+                  
+                  <!-- Integración WhatsApp -->
+                  <div class="feature-item ecommerce-only" style="display: none;">
+                    <input type="checkbox" id="integracion-whatsapp" data-price="130" />
+                    <label for="integracion-whatsapp">
+                      <i class="fab fa-whatsapp"></i>
+                      <span>Integração WhatsApp</span>
+                      <span class="feature-price">R$130</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Integra o site com o WhatsApp do cliente. O visitante completa um formulário e a informação chega automaticamente ao WhatsApp do proprietário.</div>
+                  </div>
+
+                  <!-- Integración WhatsApp Business API -->
+                  <div class="feature-item ecommerce-only" style="display: none;">
+                    <input type="checkbox" id="integracion-whatsapp-business" data-price="280" />
+                    <label for="integracion-whatsapp-business">
+                      <i class="fab fa-whatsapp"></i>
+                      <span>Integração WhatsApp Business API</span>
+                      <span class="feature-price">R$280</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Usa os recursos avançados do WhatsApp Business. Permite mensagens automáticas de confirmação de pedidos, envio de lembretes de compromissos, visualização de catálogo de produtos diretamente no chat e integração com CRM.</div>
+                  </div>
+
+                  <!-- Integración Google Maps -->
+                  <div class="feature-item ecommerce-only" style="display: none;">
+                    <input type="checkbox" id="integracion-google-maps" data-price="150" />
+                    <label for="integracion-google-maps">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <span>Integração Google Maps</span>
+                      <span class="feature-price">R$150</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Mapa simples mostrando a localização da empresa. Permite ao visitante abrir rotas diretamente no Google Maps.</div>
+                  </div>
+
+                  <!-- Google Maps avanzado -->
+                  <div class="feature-item ecommerce-only" style="display: none;">
+                    <input type="checkbox" id="google-maps-avanzado" data-price="200" />
+                    <label for="google-maps-avanzado">
+                      <i class="fas fa-map"></i>
+                      <span>Google Maps avançado</span>
+                      <span class="feature-price">R$200</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Mapa com múltiplas localizações. Pode incluir filtragem interativa. Ideal para empresas com várias filiais.</div>
+                  </div>
+
+                  <!-- Integración feed Instagram Posts -->
+                  <div class="feature-item ecommerce-only" style="display: none;">
+                    <input type="checkbox" id="integracion-instagram-feed" data-price="200" />
+                    <label for="integracion-instagram-feed">
+                      <i class="fab fa-instagram"></i>
+                      <span>Integração feed Instagram Posts</span>
+                      <span class="feature-price">R$200</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Mostra automaticamente as últimas publicações do Instagram no site. Mantém o site atualizado sem edição manual.</div>
+                  </div>
+
+                  <!-- Publicaciones automáticas del sitio a redes sociales -->
+                  <div class="feature-item ecommerce-only" style="display: none;">
+                    <input type="checkbox" id="publicaciones-automaticas-redes" data-price="250" />
+                    <label for="publicaciones-automaticas-redes">
+                      <i class="fas fa-share-alt"></i>
+                      <span>Publicações automáticas do site a redes sociais</span>
+                      <span class="feature-price">R$250</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Cada vez que o site é atualizado, a atualização é compartilhada automaticamente no Facebook/Instagram. Garante consistência entre site e redes sociais.</div>
+                  </div>
+
+                  <!-- Integración Google Analytics -->
+                  <div class="feature-item ecommerce-only" style="display: none;">
+                    <input type="checkbox" id="integracion-google-analytics" data-price="120" />
+                    <label for="integracion-google-analytics">
+                      <i class="fas fa-chart-line"></i>
+                      <span>Integração Google Analytics</span>
+                      <span class="feature-price">R$120</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Conexão para medir tráfego, usuários, conversões e métricas do site.</div>
+                  </div>
+
+                  <!-- Integración con chatbot IA -->
+                  <div class="feature-item ecommerce-only" style="display: none;">
+                    <input type="checkbox" id="integracion-chatbot-ia" data-price="400" />
+                    <label for="integracion-chatbot-ia">
+                      <i class="fas fa-robot"></i>
+                      <span>Integração com chatbot IA</span>
+                      <span class="feature-price">R$400</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Chat automático com respostas inteligentes a perguntas frequentes. Pode recoletar contatos e derivar para um humano se necessário.</div>
+                  </div>
+
+                  <!-- Gateways de Pagamento -->
+                  <div class="feature-item ecommerce-only" style="display: none;">
+                    <input type="checkbox" id="gateways-pagamento" data-price="250" />
+                    <label for="gateways-pagamento">
+                      <i class="fas fa-credit-card"></i>
+                      <span>Gateways de Pagamento</span>
+                      <span class="feature-price">R$250</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Integração com múltiplos gateways de pagamento (Mercado Pago, PagSeguro, Stripe, PayPal) para processamento seguro de transações.</div>
+                  </div>
+
+                  <!-- Integração Marketplace -->
+                  <div class="feature-item ecommerce-only" style="display: none;">
+                    <input type="checkbox" id="integracao-marketplace" data-price="300" />
+                    <label for="integracao-marketplace">
+                      <i class="fas fa-store"></i>
+                      <span>Integração Marketplace</span>
+                      <span class="feature-price">R$300</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Conexão com marketplaces como Mercado Livre, Amazon, Magazine Luiza para sincronização de produtos, estoque e pedidos.</div>
+                  </div>
+
+                  <!-- Integração WhatsApp para Landing Page -->
+                  <div class="feature-item landing-only" style="display: none;">
+                    <input type="checkbox" id="integracion-whatsapp-landing" data-price="100" />
+                    <label for="integracion-whatsapp-landing">
+                      <i class="fab fa-whatsapp"></i>
+                      <span>Integração WhatsApp</span>
+                      <span class="feature-price">R$100</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Integra o site com o WhatsApp do cliente. O visitante completa um formulário e a informação chega automaticamente ao WhatsApp do proprietário.</div>
+                  </div>
+
+                  <!-- Integração WhatsApp Business API para Landing Page -->
+                  <div class="feature-item landing-only" style="display: none;">
+                    <input type="checkbox" id="integracion-whatsapp-business-landing" data-price="200" />
+                    <label for="integracion-whatsapp-business-landing">
+                      <i class="fab fa-whatsapp"></i>
+                      <span>Integração WhatsApp Business API</span>
+                      <span class="feature-price">R$200</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Usa os recursos avançados do WhatsApp Business. Permite mensagens automáticas de confirmação, envio de lembretes de compromissos, visualização de catálogo de produtos diretamente no chat e integração com CRM.</div>
+                  </div>
+
+                  <!-- Integração Google Maps para Landing Page -->
+                  <div class="feature-item landing-only" style="display: none;">
+                    <input type="checkbox" id="integracion-google-maps-landing" data-price="100" />
+                    <label for="integracion-google-maps-landing">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <span>Integração Google Maps</span>
+                      <span class="feature-price">R$100</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Mapa simples mostrando a localização da empresa. Permite ao visitante abrir rotas diretamente no Google Maps.</div>
+                  </div>
+
+                  <!-- Google Maps avançado para Landing Page -->
+                  <div class="feature-item landing-only" style="display: none;">
+                    <input type="checkbox" id="google-maps-avanzado-landing" data-price="140" />
+                    <label for="google-maps-avanzado-landing">
+                      <i class="fas fa-map"></i>
+                      <span>Google Maps avançado</span>
+                      <span class="feature-price">R$140</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Mapa com múltiplas localizações. Pode incluir filtragem interativa. Ideal para empresas com várias filiais.</div>
+                  </div>
+
+                  <!-- Integração feed Instagram Posts para Landing Page -->
+                  <div class="feature-item landing-only" style="display: none;">
+                    <input type="checkbox" id="integracion-instagram-feed-landing" data-price="150" />
+                    <label for="integracion-instagram-feed-landing">
+                      <i class="fab fa-instagram"></i>
+                      <span>Integração feed Instagram Posts</span>
+                      <span class="feature-price">R$150</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Mostra automaticamente as últimas publicações do Instagram no site. Mantém o site atualizado sem edição manual.</div>
+                  </div>
+
+                  <!-- Publicações automáticas do site a redes sociais para Landing Page -->
+                  <div class="feature-item landing-only" style="display: none;">
+                    <input type="checkbox" id="publicaciones-automaticas-redes-landing" data-price="150" />
+                    <label for="publicaciones-automaticas-redes-landing">
+                      <i class="fas fa-share-alt"></i>
+                      <span>Publicações automáticas do site a redes sociais</span>
+                      <span class="feature-price">R$150</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Cada vez que o site é atualizado, a atualização é compartilhada automaticamente no Facebook/Instagram. Garante consistência entre site e redes sociais.</div>
+                  </div>
+
+                  <!-- Integração Google Analytics para Landing Page -->
+                  <div class="feature-item landing-only" style="display: none;">
+                    <input type="checkbox" id="integracion-google-analytics-landing" data-price="80" />
+                    <label for="integracion-google-analytics-landing">
+                      <i class="fas fa-chart-line"></i>
+                      <span>Integração Google Analytics</span>
+                      <span class="feature-price">R$80</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Conexão para medir tráfego, usuários, conversões e métricas do site.</div>
+                  </div>
+
+                  <!-- Integração com chatbot IA para Landing Page -->
+                  <div class="feature-item landing-only" style="display: none;">
+                    <input type="checkbox" id="integracion-chatbot-ia-landing" data-price="250" />
+                    <label for="integracion-chatbot-ia-landing">
+                      <i class="fas fa-robot"></i>
+                      <span>Integração com chatbot IA</span>
+                      <span class="feature-price">R$250</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Chat automático com respostas inteligentes a perguntas frequentes. Pode coletar contatos e encaminhar para um humano se necessário.</div>
+                  </div>
+
+                  <!-- Integração WhatsApp para Web Page -->
+                  <div class="feature-item webpage-only" style="display: none;">
+                    <input type="checkbox" id="integracion-whatsapp-webpage" data-price="120" />
+                    <label for="integracion-whatsapp-webpage">
+                      <i class="fab fa-whatsapp"></i>
+                      <span>Integração WhatsApp</span>
+                      <span class="feature-price">R$120</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Integra o site com o WhatsApp do cliente. O visitante completa um formulário e a informação chega automaticamente ao WhatsApp do proprietário.</div>
+                  </div>
+
+                  <!-- Integração WhatsApp Business API para Web Page -->
+                  <div class="feature-item webpage-only" style="display: none;">
+                    <input type="checkbox" id="integracion-whatsapp-business-webpage" data-price="200" />
+                    <label for="integracion-whatsapp-business-webpage">
+                      <i class="fab fa-whatsapp"></i>
+                      <span>Integração WhatsApp Business API</span>
+                      <span class="feature-price">R$200</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Usa os recursos avançados do WhatsApp Business. Permite mensagens automáticas de confirmação, envio de lembretes de compromissos, visualização de catálogo de produtos diretamente no chat e integração com CRM.</div>
+                  </div>
+
+                  <!-- Integração Google Maps para Web Page -->
+                  <div class="feature-item webpage-only" style="display: none;">
+                    <input type="checkbox" id="integracion-google-maps-webpage" data-price="100" />
+                    <label for="integracion-google-maps-webpage">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <span>Integração Google Maps</span>
+                      <span class="feature-price">R$100</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Mapa simples mostrando a localização da empresa. Permite ao visitante abrir rotas diretamente no Google Maps.</div>
+                  </div>
+
+                  <!-- Google Maps avançado para Web Page -->
+                  <div class="feature-item webpage-only" style="display: none;">
+                    <input type="checkbox" id="google-maps-avanzado-webpage" data-price="160" />
+                    <label for="google-maps-avanzado-webpage">
+                      <i class="fas fa-map"></i>
+                      <span>Google Maps avançado</span>
+                      <span class="feature-price">R$160</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Mapa com múltiplas localizações. Pode incluir filtragem interativa. Ideal para empresas com várias filiais.</div>
+                  </div>
+
+                  <!-- Integração Delivery Online para Web Page -->
+                  <div class="feature-item webpage-only" style="display: none;">
+                    <input type="checkbox" id="integracao-delivery-webpage" data-price="200" />
+                    <label for="integracao-delivery-webpage">
+                      <i class="fas fa-motorcycle"></i>
+                      <span>Integração Delivery Online</span>
+                      <span class="feature-price">R$200</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Sistema de delivery integrado ao website para pedidos online com acompanhamento em tempo real.</div>
+                  </div>
+
+                  <!-- Cardápio digital interativo para Web Page -->
+                  <div class="feature-item webpage-only" style="display: none;">
+                    <input type="checkbox" id="cardapio-digital-webpage" data-price="250" />
+                    <label for="cardapio-digital-webpage">
+                      <i class="fas fa-utensils"></i>
+                      <span>Cardápio digital interativo</span>
+                      <span class="feature-price">R$250</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Cardápio digital com fotos, descrições e preços, permitindo navegação intuitiva pelos produtos.</div>
+                  </div>
+
+                  <!-- Reserva online com confirmação automática para Web Page -->
+                  <div class="feature-item webpage-only" style="display: none;">
+                    <input type="checkbox" id="reserva-online-webpage" data-price="280" />
+                    <label for="reserva-online-webpage">
+                      <i class="fas fa-calendar-check"></i>
+                      <span>Reserva online com confirmação automática</span>
+                      <span class="feature-price">R$280</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Sistema de reservas online com confirmação automática por email/SMS e integração com calendário.</div>
+                  </div>
+
+                  <!-- Integração feed Instagram Posts para Web Page -->
+                  <div class="feature-item webpage-only" style="display: none;">
+                    <input type="checkbox" id="integracion-instagram-feed-webpage" data-price="150" />
+                    <label for="integracion-instagram-feed-webpage">
+                      <i class="fab fa-instagram"></i>
+                      <span>Integração feed Instagram Posts</span>
+                      <span class="feature-price">R$150</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Mostra automaticamente as últimas publicações do Instagram no site. Mantém o site atualizado sem edição manual.</div>
+                  </div>
+
+                  <!-- Publicações automáticas do site a redes sociais para Web Page -->
+                  <div class="feature-item webpage-only" style="display: none;">
+                    <input type="checkbox" id="publicaciones-automaticas-redes-webpage" data-price="180" />
+                    <label for="publicaciones-automaticas-redes-webpage">
+                      <i class="fas fa-share-alt"></i>
+                      <span>Publicações automáticas do site a redes sociais</span>
+                      <span class="feature-price">R$180</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Cada vez que o site é atualizado, a atualização é compartilhada automaticamente no Facebook/Instagram. Garante consistência entre site e redes sociais.</div>
+                  </div>
+
+                  <!-- Integração Google Analytics para Web Page -->
+                  <div class="feature-item webpage-only" style="display: none;">
+                    <input type="checkbox" id="integracion-google-analytics-webpage" data-price="90" />
+                    <label for="integracion-google-analytics-webpage">
+                      <i class="fas fa-chart-line"></i>
+                      <span>Integração Google Analytics</span>
+                      <span class="feature-price">R$90</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Conexão para medir tráfego, usuários, conversões e métricas do site.</div>
+                  </div>
+
+                  <!-- Integração com chatbot IA para Web Page -->
+                  <div class="feature-item webpage-only" style="display: none;">
+                    <input type="checkbox" id="integracion-chatbot-ia-webpage" data-price="300" />
+                    <label for="integracion-chatbot-ia-webpage">
+                      <i class="fas fa-robot"></i>
+                      <span>Integração com chatbot IA</span>
+                      <span class="feature-price">R$300</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Chat automático com respostas inteligentes a perguntas frequentes. Pode coletar contatos e encaminhar para um humano se necessário.</div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Systems Tab Content -->
+              <div class="tab-content" id="systems-tab">
+                <div class="features-grid">
+                  
+                  <!-- Sistema de pedidos online e delivery -->
+                  <div class="feature-item webpage-system landing-system">
+                    <input type="checkbox" id="sistema-pedidos-delivery" data-price="400" />
+                    <label for="sistema-pedidos-delivery">
+                      <i class="fas fa-shopping-cart"></i>
+                      <span>Sistema de pedidos online e delivery</span>
+                      <span class="feature-price">R$400</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Plataforma de pedidos via website ou app, com integração a gateways de pagamento e controle de entrega.</div>
+                  </div>
+
+                  <!-- Sistema de reservas de mesas online -->
+                  <div class="feature-item webpage-system landing-system">
+                    <input type="checkbox" id="sistema-reservas-mesas" data-price="350" />
+                    <label for="sistema-reservas-mesas">
+                      <i class="fas fa-utensils"></i>
+                      <span>Sistema de reservas de mesas online</span>
+                      <span class="feature-price">R$350</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Permite que clientes reservem mesas pelo site ou app, com confirmação automática e calendário de disponibilidade.</div>
+                  </div>
+
+                  <!-- Gestão de reservas de eventos privados -->
+                  <div class="feature-item webpage-system landing-system">
+                    <input type="checkbox" id="gestao-eventos-privados" data-price="350" />
+                    <label for="gestao-eventos-privados">
+                      <i class="fas fa-calendar-alt"></i>
+                      <span>Gestão de reservas de eventos privados</span>
+                      <span class="feature-price">R$350</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Ferramenta para reservar mesas ou espaços para festas, com contrato e pagamento online.</div>
+                  </div>
+
+                  <!-- Gerenciamento de pedidos internos -->
+                  <div class="feature-item webpage-system landing-system">
+                    <input type="checkbox" id="gerenciamento-pedidos-internos" data-price="350" />
+                    <label for="gerenciamento-pedidos-internos">
+                      <i class="fas fa-clipboard-list"></i>
+                      <span>Gerenciamento de pedidos internos</span>
+                      <span class="feature-price">R$350</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">App para garçons registrarem pedidos em tablets ou smartphones, integrando cozinha e atendimento.</div>
+                  </div>
+
+                  <!-- APP de pedidos para garçons -->
+                  <div class="feature-item webpage-system landing-system">
+                    <input type="checkbox" id="app-pedidos-garcons" data-price="600" />
+                    <label for="app-pedidos-garcons">
+                      <i class="fas fa-mobile-alt"></i>
+                      <span>APP de pedidos para garçons</span>
+                      <span class="feature-price">R$600</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Interface mobile para registro rápido de pedidos, integração com cozinha e pagamento.</div>
+                  </div>
+
+                  <!-- Sistema de agendamento de posts -->
+                  <div class="feature-item">
+                    <input type="checkbox" id="sistema-agendamento-posts" data-price="300" />
+                    <label for="sistema-agendamento-posts">
+                      <i class="fas fa-calendar-check"></i>
+                      <span>Sistema de programação de posts</span>
+                      <span class="feature-price">R$300</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Permite programar publicações em diferentes redes sociais, garantindo consistência no conteúdo.</div>
+                  </div>
+
+                  <!-- Painel de analytics de seguidores -->
+                  <div class="feature-item">
+                    <input type="checkbox" id="painel-analytics-seguidores" data-price="350" />
+                    <label for="painel-analytics-seguidores">
+                      <i class="fas fa-chart-line"></i>
+                      <span>Painel de analytics de seguidores</span>
+                      <span class="feature-price">R$350</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Informações detalhadas sobre comportamento, localização e preferências do público.</div>
+                  </div>
+
+                  <!-- Sistema de reservas de serviços -->
+                  <div class="feature-item webpage-system landing-system">
+                    <input type="checkbox" id="sistema-reservas-servicos" data-price="300" />
+                    <label for="sistema-reservas-servicos">
+                      <i class="fas fa-concierge-bell"></i>
+                      <span>Sistema de reservas de serviços</span>
+                      <span class="feature-price">R$300</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Agenda online para programação de serviços, consultas ou atendimentos.</div>
+                  </div>
+
+                  <!-- Sistema de agendamento de sessões -->
+                  <div class="feature-item webpage-system landing-system">
+                    <input type="checkbox" id="sistema-agendamento-sessoes" data-price="350" />
+                    <label for="sistema-agendamento-sessoes">
+                      <i class="fas fa-dumbbell"></i>
+                      <span>Sistema de programação de sessões</span>
+                      <span class="feature-price">R$350</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Permite que clientes programem treinos ou consultas diretamente pelo site/app.</div>
+                  </div>
+
+                  <!-- Gestão de clientes e planos de treino -->
+                  <div class="feature-item webpage-system landing-system">
+                    <input type="checkbox" id="gestao-clientes-treino" data-price="400" />
+                    <label for="gestao-clientes-treino">
+                      <i class="fas fa-users"></i>
+                      <span>Gestão de clientes e planos de treinamento</span>
+                      <span class="feature-price">R$400</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Registro de histórico, evolução e planos personalizados para cada cliente.</div>
+                  </div>
+
+                  <!-- App de acompanhamento de dieta / nutrição -->
+                  <div class="feature-item webpage-system landing-system">
+                    <input type="checkbox" id="app-acompanhamento-dieta" data-price="650" />
+                    <label for="app-acompanhamento-dieta">
+                      <i class="fas fa-apple-alt"></i>
+                      <span>App de acompanhamento de dieta ou nutrição</span>
+                      <span class="feature-price">R$650</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Sistema para registrar refeições, calorias e metas nutricionais.</div>
+                  </div>
+
+                  <!-- E-commerce Systems -->
+                  <!-- Controle de estoque e reposição automática -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="controle-estoque-reposicao" data-price="150" />
+                    <label for="controle-estoque-reposicao">
+                      <i class="fas fa-boxes"></i>
+                      <span>Control de stock y reposición automática</span>
+                      <span class="feature-price">€150</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Sistema que monitora produtos, envia alertas de reposição e atualiza inventário em tempo real.</div>
+                  </div>
+
+                  <!-- Painel de vendas físicas e online integradas -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="painel-vendas-integradas" data-price="200" />
+                    <label for="painel-vendas-integradas">
+                      <i class="fas fa-chart-bar"></i>
+                      <span>Painel de vendas físicas e online integradas</span>
+                      <span class="feature-price">€200</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Dashboard unificado para controlar vendas da loja física e online.</div>
+                  </div>
+
+                  <!-- Inventário automático e alertas de falta -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="inventario-automatico-alertas" data-price="100" />
+                    <label for="inventario-automatico-alertas">
+                      <i class="fas fa-warehouse"></i>
+                      <span>Inventário automático e alertas de falta</span>
+                      <span class="feature-price">€100</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Atualização contínua do inventário com notificações automáticas.</div>
+                  </div>
+
+                  <!-- Gestão de devoluções e trocas -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="gestao-devolucoes-trocas" data-price="150" />
+                    <label for="gestao-devolucoes-trocas">
+                      <i class="fas fa-undo"></i>
+                      <span>Gestión de devoluciones e intercambios</span>
+                      <span class="feature-price">€150</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Registro y seguimiento de devoluciones y reembolsos.</div>
+                  </div>
+
+                  <!-- Integração com redes sociais para vendas -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="integracao-redes-sociais-vendas" data-price="150" />
+                    <label for="integracao-redes-sociais-vendas">
+                      <i class="fas fa-share-alt"></i>
+                      <span>Integração com redes sociais para vendas</span>
+                      <span class="feature-price">€150</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Venda direta via Instagram, Facebook ou WhatsApp.</div>
+                  </div>
+
+                  <!-- Painel Administrativo Simples -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="painel-administrativo-simples" data-price="400" />
+                    <label for="painel-administrativo-simples">
+                      <i class="fas fa-edit"></i>
+                      <span>Painel Administrativo Simples</span>
+                      <span class="feature-price">R$400</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Permite ao cliente editar conteúdos básicos do site - textos, imagens, banners e informações institucionais, de forma prática e rápida, sem precisar de suporte técnico.</div>
+                  </div>
+
+                  <!-- Painel administrativo completo -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="painel-administrativo-completo" data-price="700" />
+                    <label for="painel-administrativo-completo">
+                      <i class="fas fa-cogs"></i>
+                      <span>Painel administrativo completo</span>
+                      <span class="feature-price">R$700</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Permite ao cliente gerenciar produtos, categorias, preços, estoque, descrições e imagens sem depender de terceiros.</div>
+                  </div>
+
+                  <!-- Sistema de estoque automático -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="sistema-estoque-automatico" data-price="550" />
+                    <label for="sistema-estoque-automatico">
+                      <i class="fas fa-boxes"></i>
+                      <span>Sistema de estoque automático</span>
+                      <span class="feature-price">R$550</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Controle de quantidade de produtos, alertas de reposição, atualização automática após venda.</div>
+                  </div>
+
+                  <!-- Carrinho de compras avançado -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="carrinho-compras-avancado" data-price="400" />
+                    <label for="carrinho-compras-avancado">
+                      <i class="fas fa-shopping-cart"></i>
+                      <span>Carrinho de compras avançado</span>
+                      <span class="feature-price">R$400</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Carrinho persistente, cálculo de total em tempo real e integração com descontos.</div>
+                  </div>
+
+                  <!-- Checkout otimizado -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="checkout-otimizado" data-price="450" />
+                    <label for="checkout-otimizado">
+                      <i class="fas fa-credit-card"></i>
+                      <span>Checkout otimizado</span>
+                      <span class="feature-price">R$450</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Processo de pagamento simplificado, com menos cliques, integrado a gateways de pagamento.</div>
+                  </div>
+
+                  <!-- Recuperação de carrinho abandonado -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="recuperacao-carrinho-abandonado" data-price="400" />
+                    <label for="recuperacao-carrinho-abandonado">
+                      <i class="fas fa-envelope"></i>
+                      <span>Recuperação de carrinho abandonado</span>
+                      <span class="feature-price">R$400</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">E-mails ou mensagens automáticas para clientes que não finalizaram a compra.</div>
+                  </div>
+
+                  <!-- Sistema de cupons e promoções -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="sistema-cupons-promocoes" data-price="350" />
+                    <label for="sistema-cupons-promocoes">
+                      <i class="fas fa-tag"></i>
+                      <span>Sistema de cupons e promoções</span>
+                      <span class="feature-price">R$350</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Criação e gestão de cupons de desconto, promoções e campanhas sazonais.</div>
+                  </div>
+
+                  <!-- Gerador automático de boletos e PIX -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="gerador-boletos-pix" data-price="350" />
+                    <label for="gerador-boletos-pix">
+                      <i class="fas fa-barcode"></i>
+                      <span>Gerador automático de boletos e PIX</span>
+                      <span class="feature-price">R$350</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Emissão de boletos e integração com pagamentos instantâneos (PIX).</div>
+                  </div>
+
+                  <!-- Sistema de avaliação de produtos -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="sistema-avaliacao-produtos" data-price="250" />
+                    <label for="sistema-avaliacao-produtos">
+                      <i class="fas fa-star"></i>
+                      <span>Sistema de avaliação de produtos</span>
+                      <span class="feature-price">R$250</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Área para clientes deixarem notas e comentários nos produtos.</div>
+                  </div>
+
+                  <!-- Área do cliente / pedidos -->
+                  <div class="feature-item ecommerce-system" style="display: none;">
+                    <input type="checkbox" id="area-cliente-pedidos" data-price="400" />
+                    <label for="area-cliente-pedidos">
+                      <i class="fas fa-user"></i>
+                      <span>Área do cliente / pedidos</span>
+                      <span class="feature-price">R$400</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Espaço para cliente acompanhar histórico de compras, faturas e status de pedidos.</div>
+                  </div>
+
+                  <!-- Panel administrativo para Web Page -->
+                  <div class="feature-item webpage-system" style="display: none;">
+                    <input type="checkbox" id="panel-administrativo-webpage" data-price="450" />
+                    <label for="panel-administrativo-webpage">
+                      <i class="fas fa-cogs"></i>
+                      <span>Panel administrativo</span>
+                      <span class="feature-price">€450</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Área interna do site que permite ao cliente atualizar textos, imagens, produtos e páginas sem depender de terceiros.</div>
+                  </div>
+
+                  <!-- Área restringida con login para Web Page -->
+                  <div class="feature-item webpage-system" style="display: none;">
+                    <input type="checkbox" id="area-restringida-webpage" data-price="300" />
+                    <label for="area-restringida-webpage">
+                      <i class="fas fa-lock"></i>
+                      <span>Área restringida con login</span>
+                      <span class="feature-price">€300</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Criação de seções privadas para usuários autorizados, como clientes, colaboradores ou alunos. Pode incluir diferentes níveis de acesso e proteção de dados sensíveis.</div>
+                  </div>
+
+                  <!-- Panel administrativo simple para Landing Page -->
+                  <div class="feature-item landing-system" style="display: none;">
+                    <input type="checkbox" id="panel-administrativo-landing" data-price="350" />
+                    <label for="panel-administrativo-landing">
+                      <i class="fas fa-cogs"></i>
+                      <span>Painel administrativo simples</span>
+                      <span class="feature-price">R$350</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Com este painel, você pode atualizar textos, imagens, formulários e conteúdos básicos da sua landing page sem depender de terceiros, mantendo sua página sempre atualizada e sob seu controle.</div>
+                  </div>
+
+                  <!-- Área restringida con login para Landing Page -->
+                  <div class="feature-item landing-system" style="display: none;">
+                    <input type="checkbox" id="area-restringida-landing" data-price="300" />
+                    <label for="area-restringida-landing">
+                      <i class="fas fa-lock"></i>
+                      <span>Área restrita com login</span>
+                      <span class="feature-price">R$300</span>
+                    </label>
+                    <button class="info-trigger" aria-label="Mais informação">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">Com esta funcionalidade, você pode criar seções privadas para usuários autorizados, como clientes ou colaboradores, controlando quem tem acesso e protegendo informação sensível de forma segura.</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="form-group" id="timeline-section" style="display: none">
+              <label class="form-label">Quando você precisa do projeto?</label>
+              <div class="timeline-options">
+                <div class="timeline-option" data-multiplier="1.35">
+                  <i class="fas fa-bolt"></i>
+                  <span>Urgente (1 semana)</span>
+                  <span class="timeline-price">+35%</span>
+                </div>
+                <div class="timeline-option" data-multiplier="1.2">
+                  <i class="fas fa-clock"></i>
+                  <span>Rápido (2 semanas)</span>
+                  <span class="timeline-price">+20%</span>
+                </div>
+                <div class="timeline-option selected" data-multiplier="1">
+                  <i class="fas fa-calendar-check"></i>
+                  <span>Normal (3-4 semanas)</span>
+                  <span class="timeline-price">Preço base</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Summary -->
+          <div class="price-summary">
+            <div class="summary-header">
+              <h3>Resumo do Orçamento</h3>
+            </div>
+
+            <div class="price-breakdown">
+              <div class="price-item">
+                <span>Projeto base</span>
+                <span id="base-price">€0</span>
+              </div>
+              <div class="price-item" id="features-cost" style="display: none">
+                <span>Funcionalidades adicionais</span>
+                <span id="features-price">€0</span>
+              </div>
+              <div class="price-item" id="timeline-cost" style="display: none">
+                <span>Ajuste por tempo</span>
+                <span id="timeline-price">€0</span>
+              </div>
+
+              <div class="price-total">
+                <span>Total estimado</span>
+                <span id="total-price">€0</span>
+              </div>
+            </div>
+
+            <div class="estimated-delivery" id="delivery-info" style="display: none">
+              <i class="fas fa-calendar"></i>
+              <span id="delivery-text">Entrega estimada: --</span>
+            </div>
+
+            <button class="btn btn--primary" id="check-availability" disabled>
+              Ver Disponibilidade
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Availability Section -->
+    <section
+      class="availability-section"
+      id="availability-section"
+      style="display: none"
+      aria-label="Consultar disponibilidade"
+    >
+      <div class="container">
+        <h2>Minha Disponibilidade</h2>
+        <p class="muted">Consulte quando posso começar seu projeto</p>
+
+        <div class="availability-wrapper">
+          <div class="calendar-container">
+            <div class="calendar-header">
+              <button class="calendar-nav" id="prev-month">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <h3 id="current-month">Janeiro 2025</h3>
+              <button class="calendar-nav" id="next-month">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+
+            <div class="calendar-grid" id="calendar-grid">
+              <!-- Calendar will be generated by JavaScript -->
+            </div>
+
+            <div class="calendar-legend">
+              <div class="legend-item">
+                <div class="legend-color available"></div>
+                <span>Disponível</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color busy"></div>
+                <span>Ocupado</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color selected"></div>
+                <span>Data selecionada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="availability-info">
+            <div class="availability-status">
+              <h4>Estado Atual</h4>
+              <div class="status-indicator available">
+                <i class="fas fa-check-circle"></i>
+                <span>Disponível para novos projetos</span>
+              </div>
+            </div>
+
+            <div class="next-available">
+              <h4>Próxima data disponível</h4>
+              <div class="date-info">
+                <i class="fas fa-calendar-plus"></i>
+                <span id="next-date">15 de Janeiro, 2025</span>
+              </div>
+            </div>
+
+            <div class="project-queue">
+              <h4>Projetos na fila</h4>
+              <div class="queue-count">
+                <i class="fas fa-list"></i>
+                <span>2 projetos programados</span>
+              </div>
+            </div>
+
+            <button class="btn btn--primary" id="contact-btn">Contactar para Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Custom Budget Section -->
+    <section class="custom-budget-section" aria-label="Orçamento personalizado">
+      <div class="container">
+        <div class="calculator-wrapper">
+          <div></div> <!-- Espaço vazio para a primeira coluna -->
+          <div class="custom-budget-content">
+            <div class="custom-budget-header">
+              <div class="custom-budget-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <h2>Quer um orçamento personalizado?</h2>
+              <p class="custom-budget-subtitle">
+                A calculadora dá uma estimativa, mas cada projeto é único. Entre em contato e vamos criar um orçamento feito sob medida, com o que você realmente precisa – e possivelmente um preço melhor!
+              </p>
+            </div>
+
+            <div class="custom-budget-actions">
+              <div class="cta-buttons-custom">
+                <a href="checklist_pt.html" class="btn btn--primary btn--custom">
+                  <i class="fas fa-clipboard-list"></i>
+                  <span>Checklist Online</span>
+                </a>
+                <a href="index_pt.html#contacto" class="btn btn--secondary btn--custom">
+                  <i class="fas fa-comments"></i>
+                  <span>Contato Direto</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="custom-budget-note">
+              <div class="note-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <p>
+                <strong>Dica:</strong> "Os orçamentos personalizados geralmente são mais vantajosos que os planos pré-definidos."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" aria-label="Chamada para ação">
+      <div class="container">
+        <h2>Pronto para começar?</h2>
+        <p>O orçamento é orientativo. Entremos em contato para afinar os detalhes do seu projeto.</p>
+
+        <div class="cta-buttons">
+          <a href="index_pt.html#contacto" class="btn btn--primary">Contactar Agora</a>
+          <a href="proceso_pt.html" class="btn btn--secondary">Ver meu Processo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal de Información de Funcionalidades -->
+    <div id="feature-info-modal" class="modal-overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modal-feature-title">Informação da Funcionalidade</h2>
+          <button class="modal-close" aria-label="Fechar modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="modal-feature-description">Descrição da funcionalidade</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>2025 Amanda Cereja — Desenvolvedora Frontend</p>
+      </div>
+    </footer>
+
+
+    
+    <script src="js/scripts.js"></script>
+    
+    <!-- Sistema de Seletor de Idiomas -->
+    <script src="js/language-selector.js"></script>
+  </body>
+</html>

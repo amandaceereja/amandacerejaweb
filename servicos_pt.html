@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amanda Cereja | Serviços</title>
+
+    <meta
+      name="description"
+      content="Serviços de desenvolvimento web, sistemas personalizados e soluções digitais para restaurantes."
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/servicos.css" />
+
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+
+    <script src="js/translations/pt.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Amanda Cereja | Serviços" />
+    <meta
+      property="og:description"
+      content="Serviços de desenvolvimento web, sistemas personalizados e soluções digitais para restaurantes."
+    />
+    <meta property="og:url" content="https://amandaceereja.github.io/Pagina-web/servicos_pt.html" />
+    <meta
+      property="og:image"
+      content="https://amandaceereja.github.io/Pagina-web/img/social-share.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Amanda Cereja | Serviços" />
+    <meta
+      name="twitter:description"
+      content="Serviços de desenvolvimento web, sistemas personalizados e soluções digitais para restaurantes."
+    />
+    <meta
+      name="twitter:image"
+      content="https://amandaceereja.github.io/Pagina-web/img/social-share.jpg?v=1"
+    />
+
+    <!-- Fontes -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/roxborough-cf" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/tt-drugs" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" href="img/simplelogo.png" type="image/png" />
+
+    <link rel="canonical" href="https://amandaceereja.github.io/Pagina-web/servicos_pt.html" />
+  </head>
+
+  <body class="page-pt">
+    <!-- Language Bar -->
+    <div class="language-bar">
+      <div class="language-bar__container">
+        <div class="language-bar__social">
+          <a
+            href="https://www.instagram.com/amandacerejaweb/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://github.com/amandaceereja"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="language-selector">
+          <button class="language-selector__toggle" aria-label="Selecionar idioma">
+            <span class="language-selector__current">BR</span>
+            <i class="fas fa-globe"></i>
+          </button>
+          <div class="language-selector__dropdown">
+            <button class="language-selector__option" data-lang="es">
+              <span>ES</span>
+            </button>
+            <button class="language-selector__option" data-lang="pt">
+              <span>BR</span>
+            </button>
+            <button class="language-selector__option" data-lang="en">
+              <span>EN</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar" aria-label="Principal">
+        <div class="navbar__logo">
+          <a href="index_pt.html"><span>Amanda</span> <strong>Cereja Diniz Alves</strong></a>
+        </div>
+        <button
+          type="button"
+          class="navbar__mobile-btn"
+          aria-label="Abrir/Fechar menu"
+          aria-controls="navmenu"
+          aria-expanded="false"
+        >
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="navbar__menu" id="navmenu">
+          <ul>
+            <li><a href="index_pt.html" data-translate="nav.home">Início</a></li>
+            <li><a href="servicos_pt.html">Serviços</a></li>
+            <li><a href="checklist_pt.html">Checklist</a></li>
+            <li><a href="presupuesto_pt.html">Orçamento</a></li>
+            <li><a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a></li>
+          </ul>
+        </div>
+        <div class="navbar-menu-icon">
+          <button class="menu-icon-btn" aria-label="Mais opções">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="menu-icon-dropdown">
+            <div class="menu-dropdown-logo">
+              <img src="img/simplelogo.png" alt="Logo Amanda Cereja" />
+            </div>
+            <a href="index_pt.html" data-translate="nav.home">Início</a>
+            <a href="servicos_pt.html">Serviços</a>
+            <a href="checklist_pt.html">Checklist</a>
+            <a href="presupuesto_pt.html">Orçamento</a>
+            <a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a>
+            <a href="proceso_pt.html">Meu processo</a>
+            <a href="index_pt.html#sobre" data-translate="nav.about">Sobre mim</a>
+            <a href="index_pt.html#contacto" data-translate="nav.contact">Contato</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-servicos" aria-label="Serviços">
+      <div class="hero-servicos__content">
+        <h1 class="hero-servicos__title">
+          <span id="typer-servicos" class="typer" aria-live="polite"></span>
+        </h1>
+        <p id="hero-servicos-subtitle" class="hero-servicos__subtitle">
+          Soluções completas para presença digital — do desenvolvimento à manutenção.
+        </p>
+      </div>
+    </section>
+
+    <!-- Serviços Gerais -->
+    <section class="servicos-gerais" aria-label="Serviços Gerais">
+      <div class="container">
+        <div class="servicos-grid">
+          <!-- Serviço 1: Criação de Páginas Web -->
+          <div class="servico-card">
+            <div class="servico-header">
+              <div class="servico-icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h3>Criação de Páginas Web</h3>
+            </div>
+            <p>
+              Desenvolvo páginas web modernas, rápidas e responsivas, adaptadas ao seu negócio e
+              público. Uso tecnologias atuais e boas práticas de SEO, garantindo que seu site seja
+              bonito e fácil de navegar em qualquer dispositivo.
+            </p>
+            <div class="servico-inclui">
+              <h4>Inclui:</h4>
+              <ul>
+                <li>Sites institucionais</li>
+                <li>Páginas pessoais ou profissionais</li>
+                <li>Landing pages (páginas de vendas ou captura)</li>
+                <li>Lojas virtuais (E-commerce)</li>
+              </ul>
+            </div>
+            <div class="servico-ideal">
+              <p>Ideal para quem quer presença digital de impacto e resultados reais.</p>
+            </div>
+          </div>
+
+          <!-- Serviço 2: Desenvolvimento de Sistemas -->
+          <div class="servico-card">
+            <div class="servico-header">
+              <div class="servico-icon">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <h3>Desenvolvimento de Sistemas e Integrações</h3>
+            </div>
+            <p>
+              Crio sistemas personalizados e integrações entre plataformas (como ERPs, CRMs,
+              gateways de pagamento, automações, etc.), sob medida para o fluxo do seu negócio.
+            </p>
+            <div class="servico-exemplos">
+              <h4>Exemplos:</h4>
+              <ul>
+                <li>Painéis administrativos</li>
+                <li>Sistemas internos de gestão</li>
+                <li>Integração com APIs ou ferramentas externas</li>
+                <li>Automação de processos</li>
+              </ul>
+            </div>
+            <div class="servico-ideal">
+              <p>
+                Perfeito para empresas que precisam de soluções sob medida para ganhar eficiência.
+              </p>
+            </div>
+          </div>
+
+          <!-- Serviço 3: Restauração e Melhoria -->
+          <div class="servico-card">
+            <div class="servico-header">
+              <div class="servico-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <h3>Restauração e Melhoria de Sites</h3>
+            </div>
+            <p>
+              Se você já tem um site, mas ele está lento, desatualizado ou mal estruturado, eu
+              restauro, otimizo e modernizo o projeto.
+            </p>
+            <div class="servico-inclui">
+              <h4>Serviços incluídos:</h4>
+              <ul>
+                <li>Reestruturação de layout e navegação</li>
+                <li>Correção de erros e bugs</li>
+                <li>Melhoria de desempenho e velocidade</li>
+                <li>Atualização visual e técnica</li>
+              </ul>
+            </div>
+            <div class="servico-ideal">
+              <p>Transformo seu site antigo em uma página profissional, moderna e funcional.</p>
+            </div>
+          </div>
+
+          <!-- Serviço 4: Suporte e Manutenção -->
+          <div class="servico-card">
+            <div class="servico-header">
+              <div class="servico-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>Suporte e Manutenção Contínua</h3>
+            </div>
+            <p>
+              Ofereço planos de manutenção, atualização e monitoramento, para que seu site ou
+              sistema continue funcionando perfeitamente ao longo do tempo.
+            </p>
+            <div class="servico-inclui">
+              <h4>Inclui:</h4>
+              <ul>
+                <li>Backups automáticos</li>
+                <li>Atualizações de conteúdo</li>
+                <li>Monitoramento de segurança</li>
+                <li>Ajustes técnicos sob demanda</li>
+              </ul>
+            </div>
+            <div class="servico-ideal">
+              <p>Ideal para quem quer tranquilidade e suporte contínuo após o lançamento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Soluções para Lojas Online -->
+    <section class="solucoes-lojas" aria-label="Soluções para Lojas Online">
+      <div class="container">
+        <div class="lojas-header">
+          <h2 class="lojas-title">Soluções Digitais para Lojas Online</h2>
+          <p class="lojas-subtitle">Transforme sua loja em uma experiência digital completa</p>
+          <p class="lojas-desc">
+            Soluções pensadas para lojas online que querem crescer de forma rápida, segura e
+            profissional.
+          </p>
+        </div>
+
+        <div class="servicos-lojas-grid">
+          <!-- Carrossel de Serviços para Lojas Online -->
+          <div class="services-lojas-wrapper">
+            <div class="services-lojas-container">
+              <div class="services-lojas-slider">
+                <!-- Serviço 1: Criação de Loja Online -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Criação de Loja Online</h3>
+                  </div>
+                  <p>
+                    Desenvolvemos e-commerces personalizados, responsivos e otimizados para SEO,
+                    garantindo que seus clientes encontrem facilmente seus produtos e tenham uma
+                    experiência de compra fluida.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Loja online totalmente personalizada de acordo com sua marca</li>
+                      <li>Navegação intuitiva e otimizada para mobile</li>
+                      <li>Integração com meios de pagamento (cartão, PIX, PayPal, etc.)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Serviço 2: Gestão de Produtos e Estoque -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Gestão de Produtos e Estoque</h3>
+                  </div>
+                  <p>
+                    Criamos painéis de controle simples e eficientes para você gerenciar produtos,
+                    categorias, estoques e preços sem depender de terceiros.
+                  </p>
+                  <div class="servico-funcionalidades">
+                    <h4>Funcionalidades:</h4>
+                    <ul>
+                      <li>Cadastro rápido de produtos</li>
+                      <li>Controle de estoque em tempo real</li>
+                      <li>Atualização de preços e promoções de forma automática</li>
+                    </ul>
+                  </div>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Redução de erros na venda de produtos</li>
+                      <li>Economia de tempo na gestão da loja</li>
+                      <li>Mais autonomia para o dono da loja</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Serviço 3: Sistemas de Pagamento e Checkout Inteligente -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Sistemas de Pagamento e Checkout Inteligente</h3>
+                  </div>
+                  <p>
+                    Oferecemos soluções de pagamento seguras e eficientes, incluindo checkout rápido
+                    e integração com gateways de pagamento nacionais e internacionais.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Redução de abandono de carrinho</li>
+                      <li>Experiência de compra rápida e segura</li>
+                      <li>Suporte a diversos métodos de pagamento</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Serviço 4: Automação de Entregas e Integrações -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Automação de Entregas e Integrações</h3>
+                  </div>
+                  <p>
+                    Conectamos sua loja com sistemas de entrega, logística e comunicação, incluindo
+                    integrações com WhatsApp, e-mail e apps de delivery.
+                  </p>
+                  <div class="servico-funcionalidades">
+                    <h4>Funcionalidades:</h4>
+                    <ul>
+                      <li>Notificações automáticas de pedidos</li>
+                      <li>Integração com transportadoras ou serviços de entrega</li>
+                      <li>Rastreamento de pedidos em tempo real</li>
+                    </ul>
+                  </div>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Gestão de entregas mais eficiente</li>
+                      <li>Melhora da experiência do cliente</li>
+                      <li>Economia de tempo na operação da loja</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Serviço 5: Marketing Digital e SEO -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Marketing Digital e SEO</h3>
+                  </div>
+                  <p>
+                    Fortaleça sua loja online com estratégias de marketing digital e SEO para
+                    aumentar visibilidade e vendas.
+                  </p>
+                  <div class="servico-inclui">
+                    <h4>Inclui:</h4>
+                    <ul>
+                      <li>SEO para produtos e categorias</li>
+                      <li>Campanhas de redes sociais e Google Ads</li>
+                      <li>E-mail marketing e remarketing</li>
+                    </ul>
+                  </div>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Mais tráfego qualificado para a loja</li>
+                      <li>Aumento de conversões e faturamento</li>
+                      <li>Fidelização de clientes</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Serviço 6: Design Visual e Experiência do Usuário -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Design Visual e Experiência do Usuário</h3>
+                  </div>
+                  <p>
+                    Criamos identidade visual consistente e interface atraente para sua loja,
+                    garantindo que o design seja moderno, intuitivo e confiável.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Diferenciação da concorrência</li>
+                      <li>Confiança e percepção de qualidade pelos clientes</li>
+                      <li>Experiência de compra agradável e intuitiva</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Serviço 7: Painel de Administração e Manutenção -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Painel de Administração e Manutenção</h3>
+                  </div>
+                  <p>
+                    Fornecemos painel intuitivo para controlar toda a loja, além de planos de
+                    manutenção contínua.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Atualização rápida de produtos e promoções</li>
+                      <li>Monitoramento de performance e relatórios de vendas</li>
+                      <li>Suporte técnico e segurança contínua</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fecha lojas-carousel -->
+          </div>
+          <!-- Fecha lojas-carousel-wrapper -->
+        </div>
+        <!-- Fecha lojas-carousel-container -->
+
+        <!-- Setas de navegação modernas -->
+        <button class="slider-arrow slider-arrow-left" aria-label="Anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-arrow slider-arrow-right" aria-label="Próximo">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Indicadores de navegação - 3 grupos de slides -->
+        <div class="services-lojas-indicators">
+          <div class="indicator-loja active" data-slide="0"></div>
+          <div class="indicator-loja" data-slide="1"></div>
+          <div class="indicator-loja" data-slide="2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Soluções para Restaurantes -->
+    <section class="solucoes-restaurantes" aria-label="Soluções para Restaurantes">
+      <div class="container">
+        <div class="restaurantes-header">
+          <h2 class="restaurantes-title">Soluções Digitais para Restaurantes</h2>
+          <p class="restaurantes-subtitle">
+            Transforme seu restaurante em uma experiência digital completa
+          </p>
+          <p class="restaurantes-desc">
+            Soluções pensadas para restaurantes modernos que querem atrair clientes e facilitar a
+            gestão do dia a dia.
+          </p>
+        </div>
+
+        <div class="servicos-restaurantes-grid">
+          <!-- Carrossel de Serviços para Restaurantes -->
+          <div class="services-restaurantes-wrapper">
+            <div class="services-restaurantes-container">
+              <div class="services-restaurantes-slider">
+                <!-- Serviço 1: Página Web para Restaurantes -->
+                <div class="servico-restaurante-card">
+                  <div class="servico-header-restaurante">
+                    <div class="servico-icon">
+                      <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Criação de Página Web para Restaurantes</h3>
+                  </div>
+                  <p>
+                    Desenvolvemos sites modernos, responsivos e otimizados para SEO local,
+                    garantindo que clientes encontrem facilmente seu restaurante no Google e em
+                    dispositivos móveis.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Presença online profissional e confiável</li>
+                      <li>
+                        Exibição de cardápio digital, fotos de pratos e horários de funcionamento
+                      </li>
+                      <li>Integração com Google Maps para localização rápida</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Serviço 2: Cardápio Digital -->
+                <div class="servico-restaurante-card">
+                  <div class="servico-header-restaurante">
+                    <div class="servico-icon">
+                      <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3>Cardápio Digital Interativo</h3>
+                  </div>
+                  <p>
+                    Transforme seu cardápio em uma experiência 100% digital, acessível pelo celular
+                    ou computador.
+                  </p>
+                  <div class="servico-opcoes">
+                    <h4>Opções de pacote:</h4>
+                    <ul>
+                      <li>
+                        <strong>Cardápio digital + Google Maps</strong> → clientes veem os pratos e
+                        encontram sua localização facilmente
+                      </li>
+                      <li>
+                        <strong>Cardápio digital + QR Code + Google Maps</strong> → clientes acessam
+                        o cardápio escaneando o QR Code, sem contato físico, com localização
+                        integrada
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Atualização de preços e pratos em tempo real</li>
+                      <li>Redução de custos com cardápios impressos</li>
+                      <li>Experiência moderna e segura para clientes</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Serviço 3: Sistemas de Pedidos -->
+                <div class="servico-restaurante-card">
+                  <div class="servico-header-restaurante">
+                    <div class="servico-icon">
+                      <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Sistemas de Pedidos e Integrações</h3>
+                  </div>
+                  <p>
+                    Criamos sistemas sob medida para gerenciar pedidos online, delivery e integração
+                    com canais de comunicação, aumentando a eficiência do seu restaurante.
+                  </p>
+                  <div class="servico-funcionalidades">
+                    <h4>Funcionalidades:</h4>
+                    <ul>
+                      <li>Sistema de entrega próprio, integrado com WhatsApp</li>
+                      <li>Painéis de cozinha para organização de pedidos</li>
+                      <li>Notificações automáticas para clientes e equipe</li>
+                    </ul>
+                  </div>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Independência de aplicativos de terceiros como iFood ou Uber Eats</li>
+                      <li>Gestão mais rápida e organizada da cozinha e entregas</li>
+                      <li>Experiência completa do pedido digital ao consumo</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Serviço 4: Reservas Online -->
+                <div class="servico-restaurante-card">
+                  <div class="servico-header-restaurante">
+                    <div class="servico-icon">
+                      <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Reservas Online</h3>
+                  </div>
+                  <p>
+                    Permita que seus clientes façam reservas diretamente pelo site ou WhatsApp,
+                    evitando filas e overbooking.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Gestão simplificada de mesas e horários</li>
+                      <li>Redução de erros e sobreposições</li>
+                      <li>Experiência de cliente moderna e prática</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Serviço 5: Cardápio Multilíngue -->
+                <div class="servico-restaurante-card">
+                  <div class="servico-header-restaurante">
+                    <div class="servico-icon">
+                      <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Cardápio Multilíngue</h3>
+                  </div>
+                  <p>
+                    Ofereça cardápios em diversos idiomas, ideal para turistas e clientes
+                    internacionais.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Alcance maior para visitantes estrangeiros</li>
+                      <li>Experiência inclusiva e profissional</li>
+                      <li>Facilita pedidos corretos e evita confusões</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Serviço 6: Marketing Digital -->
+                <div class="servico-restaurante-card">
+                  <div class="servico-header-restaurante">
+                    <div class="servico-icon">
+                      <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Marketing Digital e Presença Online</h3>
+                  </div>
+                  <p>
+                    Fortaleça sua marca com SEO local, perfis otimizados em Google Business e redes
+                    sociais, aumentando a visibilidade e atraindo mais clientes.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Mais clientes encontrando seu restaurante online</li>
+                      <li>Aumento do engajamento em redes sociais</li>
+                      <li>Melhora da reputação e avaliações positivas</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Serviço 7: Identidade Visual -->
+                <div class="servico-restaurante-card">
+                  <div class="servico-header-restaurante">
+                    <div class="servico-icon">
+                      <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Identidade Visual Profissional</h3>
+                  </div>
+                  <p>
+                    Criação de logotipo, paleta de cores, design do cardápio e imagens de pratos,
+                    garantindo consistência visual e fortalecendo sua marca.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Diferenciação da concorrência</li>
+                      <li>Experiência visual coesa em todos os pontos de contato</li>
+                      <li>Maior percepção de qualidade e profissionalismo</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Serviço 8: Painel de Administração -->
+                <div class="servico-restaurante-card">
+                  <div class="servico-header-restaurante">
+                    <div class="servico-icon">
+                      <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Painel de Administração e Manutenção</h3>
+                  </div>
+                  <p>
+                    Fornecemos painel para atualizar cardápio, preços e disponibilidade sem
+                    necessidade de conhecimentos técnicos.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefícios:</h4>
+                    <ul>
+                      <li>Controle total do conteúdo do site</li>
+                      <li>Agilidade para promoções e mudanças de cardápio</li>
+                      <li>Redução de dependência de terceiros</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fecha restaurantes-carousel -->
+          </div>
+          <!-- Fecha restaurantes-carousel-wrapper -->
+        </div>
+        <!-- Fecha restaurantes-carousel-container -->
+
+        <!-- Setas de navegação modernas -->
+        <button class="slider-arrow slider-arrow-left" aria-label="Anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-arrow slider-arrow-right" aria-label="Próximo">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Indicadores de navegação - 3 grupos de slides -->
+        <div class="services-restaurantes-indicators">
+          <div class="indicator-restaurante active" data-slide="0"></div>
+          <div class="indicator-restaurante" data-slide="1"></div>
+          <div class="indicator-restaurante" data-slide="2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Principal -->
+    <section class="cta-principal cta-pos-carrossel">
+      <div class="container">
+        <h3>Quer saber qual serviço combina melhor com o seu projeto?</h3>
+        <a href="https://wa.me/34602614398" target="_blank" rel="noopener" class="btn btn--primary"
+          >Entre em contato</a
+        >
+        <p>e receba uma avaliação gratuita.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer footer-simple">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__logo">
+            <img src="img/simplelogo.png" alt="Amanda Cereja Logo" />
+          </div>
+          <div class="footer__social">
+            <a
+              href="https://www.instagram.com/amandacerejaweb/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://github.com/amandaceereja"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://wa.me/SEUNUMERO" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+          <div class="footer__copyright">
+            <p>&copy; 2024 Amanda Cereja. Todos os direitos reservados.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/language-selector.js"></script>
+    <script src="js/servicos.js"></script>
+  </body>
+</html>

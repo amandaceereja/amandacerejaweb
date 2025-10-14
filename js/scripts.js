@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Configurar efecto de expansión de servicios
+  setupServiceCardExpansion();
+  
   // --- Menú Móvil ---
   const mobileBtn = document.querySelector(".navbar__mobile-btn");
   const navbarMenu = document.querySelector(".navbar__menu");
@@ -9,28 +12,32 @@ document.addEventListener("DOMContentLoaded", () => {
     navbarMenu.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         setMenu(false);
-        mobileBtn.focus();
+        if (mobileBtn) mobileBtn.focus();
       }
     });
   }
 
   function setMenu(open) {
-    navbarMenu.classList.toggle("is-open", open);
-    mobileBtn.setAttribute("aria-expanded", open ? "true" : "false");
-    if (open) navbarMenu.querySelector("a")?.focus();
+    if (navbarMenu) navbarMenu.classList.toggle("is-open", open);
+    if (mobileBtn) mobileBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open && navbarMenu) navbarMenu.querySelector("a")?.focus();
   }
 
-  mobileBtn.addEventListener("click", () => {
-    const isOpen = navbarMenu.classList.contains("is-open");
-    setMenu(!isOpen);
-  });
+  if (mobileBtn) {
+    mobileBtn.addEventListener("click", () => {
+      const isOpen = navbarMenu.classList.contains("is-open");
+      setMenu(!isOpen);
+    });
+  }
 
-  navbarMenu.addEventListener("click", (e) => {
-    const a = e.target.closest("a");
-    if (!a) return;
-    setMenu(false);
-    mobileBtn.focus(); // devuelve el foco al trigger (mejor accesibilidad)
-  });
+  if (navbarMenu) {
+    navbarMenu.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+      setMenu(false);
+      if (mobileBtn) mobileBtn.focus(); // devuelve el foco al trigger (mejor accesibilidad)
+    });
+  }
 
   // --- Scroll suave + actualizar hash ---
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -265,9 +272,58 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Typewriter simple (estilo Parrish) ---
   function initTypewriter() {
     const el = document.getElementById("typer");
+    const subtitleEl = document.getElementById("hero-subtitle");
     if (!el) return;
 
-    const phrases = ["Diseñadora Web Freelance", "Desarrolladora Frontend"];
+    let phrases, subtitles;
+
+    // Verificar se estamos na página em português e se as traduções estão disponíveis
+    if (window.location.pathname.includes('_pt') && window.translations_pt) {
+      // Usar traduções do pt.js
+      phrases = [
+        window.translations_pt['hero.phrases.frontend'],
+        window.translations_pt['hero.phrases.fullstack'],
+        window.translations_pt['hero.phrases.freelance'],
+        window.translations_pt['hero.phrases.digital']
+      ];
+
+      subtitles = [
+        window.translations_pt['hero.subtitles.frontend'],
+        window.translations_pt['hero.subtitles.fullstack'],
+        window.translations_pt['hero.subtitles.freelance'],
+        window.translations_pt['hero.subtitles.digital']
+      ];
+    } else if (window.location.pathname.includes('_en')) {
+      // Usar frases em inglês
+      phrases = [
+        "Frontend Developer",
+        "Fullstack Software Engineer", 
+        "Freelance Web Designer",
+        "digital experience creator"
+      ];
+
+      subtitles = [
+        "I create modern, responsive interfaces focused on user experience.",
+        "I develop complete web applications and management software systems.",
+        "I design and develop custom websites for businesses and digital projects.",
+        "I generate functional and attractive digital experiences, focused on usability and UX/UI."
+      ];
+    } else {
+      // Usar frases em espanhol (padrão)
+      phrases = [
+        "Desarrolladora Frontend",
+        "Ingeniera de Software Fullstack", 
+        "Diseñadora web Freelance",
+        "creadora de experiencias digitales"
+      ];
+
+      subtitles = [
+        "Creo interfaces modernas, responsivas y centradas en la experiencia del usuario.",
+        "Desarrollo aplicaciones web completas y sistemas de software de gestión.",
+        "Diseño y desarrollo sitios web personalizados para negocios y proyectos digitales.",
+        "Genero experiencias digitales funcionales y atractivas, centradas en la usabilidad y UX/UI."
+      ];
+    }
 
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -275,8 +331,18 @@ document.addEventListener("DOMContentLoaded", () => {
       i = 0,
       deleting = false;
     const typeDelay = 60; // velocidad tecleo
-    const holdDelay = 1200; // pausa al terminar palabra
+    const holdDelay = 1800; // pausa al terminar palabra
     const delDelay = 38; // velocidad borrado
+
+    function updateSubtitle(index) {
+      if (subtitleEl) {
+        subtitleEl.style.opacity = '0';
+        setTimeout(() => {
+          subtitleEl.textContent = subtitles[index];
+          subtitleEl.style.opacity = '1';
+        }, 300);
+      }
+    }
 
     function tick() {
       const full = phrases[p];
@@ -284,6 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (prefersReduced) {
         el.textContent = phrases[0];
+        if (subtitleEl) subtitleEl.textContent = subtitles[0];
         return;
       }
 
@@ -304,6 +371,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (i === 0) {
           deleting = false;
           p = (p + 1) % phrases.length;
+          updateSubtitle(p); // Atualiza o subtítulo quando muda a frase
           return setTimeout(tick, 260);
         }
         return setTimeout(tick, delDelay);
@@ -311,8 +379,325 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     el.textContent = "";
+    if (subtitleEl) {
+      subtitleEl.textContent = subtitles[0];
+    }
     tick();
   }
 
   initTypewriter();
 });
+
+// Función para manejar la expansión de las tarjetas de servicio
+function setupServiceCardExpansion() {
+  const serviciosCards = document.querySelector('.servicios-cards');
+  const serviciosTrack = document.querySelector('.servicios-track');
+  
+  if (serviciosCards) {
+    const cards = serviciosCards.querySelectorAll('.card');
+    let webPagesCard = null;
+    let followingCards = [];
+    
+    // Identificar el card de Web Pages y los siguientes
+    cards.forEach((card, index) => {
+      const title = card.querySelector('h3');
+      if (title && (title.textContent.includes('Web Pages') || title.getAttribute('data-translate') === 'services.webpages')) {
+        webPagesCard = card;
+        webPagesCard.classList.add('webpages-card');
+        
+        // Obtener todos los cards siguientes
+        followingCards = Array.from(cards).slice(index + 1);
+      }
+    });
+    
+    if (webPagesCard) {
+      const planContainers = webPagesCard.querySelectorAll('.plan-container');
+      
+      planContainers.forEach(planContainer => {
+        planContainer.addEventListener('mouseenter', () => {
+          // Expandir el card de Web Pages
+          webPagesCard.classList.add('expanded');
+          
+          // Mover los cards siguientes hacia abajo
+          followingCards.forEach(card => {
+            card.classList.add('move-down');
+          });
+        });
+        
+        planContainer.addEventListener('mouseleave', () => {
+          // Contraer el card de Web Pages
+          webPagesCard.classList.remove('expanded');
+          
+          // Volver los cards siguientes a su posición original
+          followingCards.forEach(card => {
+            card.classList.remove('move-down');
+          });
+        });
+      });
+    }
+  }
+  
+  // LÓGICA CORRETA: Hover na segunda coluna → terceira coluna aparece → Web Pages desliza
+  if (serviciosTrack && serviciosCards) {
+    const serviceCards = serviciosTrack.querySelectorAll('.service-card');
+    console.log('🔍 Cards encontrados:', serviceCards.length);
+    
+    serviceCards.forEach((serviceCard, index) => {
+      console.log(`📝 Configurando eventos para card ${index + 1}`);
+      
+      serviceCard.addEventListener('mouseenter', () => {
+        console.log(`🖱️ HOVER na segunda coluna (card ${index + 1})`);
+        console.log(`📋 Terceira coluna aparece automaticamente via CSS`);
+        console.log(`🎯 Seção Web Pages desliza suavemente para baixo`);
+        
+        // Quando terceira coluna aparece, Web Pages desliza suavemente
+        serviciosCards.classList.add('slide-down-from-features');
+      });
+      
+      serviceCard.addEventListener('mouseleave', () => {
+        console.log(`🖱️ HOVER FINALIZADO no card ${index + 1}`);
+        console.log(`📋 Terceira coluna desaparece automaticamente via CSS`);
+        console.log(`🎯 Seção Web Pages volta à posição original`);
+        
+        // Quando terceira coluna desaparece, Web Pages volta ao normal
+        serviciosCards.classList.remove('slide-down-from-features');
+      });
+    });
+  } else {
+    console.log('❌ ERRO: serviciosTrack ou serviciosCards não encontrados!');
+  }
+}
+
+  // Dropdown functionality
+  const dropdowns = document.querySelectorAll('.dropdown');
+  
+  dropdowns.forEach(dropdown => {
+    const toggle = dropdown.querySelector('.dropdown-toggle');
+    
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Close other dropdowns
+      dropdowns.forEach(otherDropdown => {
+        if (otherDropdown !== dropdown) {
+          otherDropdown.classList.remove('active');
+        }
+      });
+      
+      // Toggle current dropdown
+      dropdown.classList.toggle('active');
+    });
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.dropdown')) {
+      dropdowns.forEach(dropdown => {
+        dropdown.classList.remove('active');
+      });
+    }
+  });
+
+  // Menu Icon functionality
+  const menuIcon = document.querySelector(".navbar-menu-icon");
+  if (menuIcon) {
+    const menuIconBtn = menuIcon.querySelector(".menu-icon-btn");
+
+    menuIconBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // Close other dropdowns
+      dropdowns.forEach((dropdown) => {
+        dropdown.classList.remove("active");
+      });
+
+      // Toggle menu icon dropdown
+      menuIcon.classList.toggle("active");
+    });
+  }
+
+  // Close menu icon when clicking outside
+  document.addEventListener("click", function (e) {
+    if (menuIcon && !e.target.closest(".navbar-menu-icon")) {
+      menuIcon.classList.remove("active");
+    }
+  });
+
+  // Close dropdown on mobile menu close
+  const mobileBtn = document.querySelector(".navbar__mobile-btn");
+  if (mobileBtn) {
+    mobileBtn.addEventListener("click", function () {
+      dropdowns.forEach((dropdown) => {
+        dropdown.classList.remove("active");
+      });
+      if (menuIcon) {
+        menuIcon.classList.remove("active");
+      }
+    });
+  }
+
+  // ===== SERVICES SLIDER FUNCTIONALITY =====
+  function initServicesSlider() {
+    const slider = document.querySelector('.services-slider');
+    const indicators = document.querySelectorAll('.indicator');
+    let currentSlide = 0;
+
+    if (!slider || indicators.length === 0) return;
+
+    function goToSlide(slideIndex) {
+      currentSlide = slideIndex;
+      const translateX = -(slideIndex * 33.333);
+      slider.style.transform = `translateX(${translateX}%)`;
+      
+      // Atualizar indicadores
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === slideIndex);
+      });
+    }
+
+    // Adicionar event listeners aos indicadores
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        goToSlideWithArrows(index);
+      });
+    });
+
+    // Suporte para navegação por teclado
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          goToSlideWithArrows(index);
+        }
+      });
+    });
+
+    // Suporte para swipe em dispositivos móveis
+    let startX = 0;
+    let isDragging = false;
+
+    slider.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    });
+
+    slider.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+    });
+
+    slider.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      
+      const endX = e.changedTouches[0].clientX;
+      const diffX = startX - endX;
+      
+      if (Math.abs(diffX) > 50) { // Mínimo de 50px para considerar swipe
+        if (diffX > 0 && currentSlide < 2) {
+          goToSlideWithArrows(currentSlide + 1);
+        } else if (diffX < 0 && currentSlide > 0) {
+          goToSlideWithArrows(currentSlide - 1);
+        }
+      }
+    });
+
+    // Navegação por teclado (setas)
+    document.addEventListener('keydown', (e) => {
+      if (e.target.closest('.services-slider-container')) {
+        if (e.key === 'ArrowLeft' && currentSlide > 0) {
+          e.preventDefault();
+          goToSlideWithArrows(currentSlide - 1);
+        } else if (e.key === 'ArrowRight' && currentSlide < 2) {
+          e.preventDefault();
+          goToSlideWithArrows(currentSlide + 1);
+        }
+      }
+    });
+
+    // Funcionalidade das setas de navegação
+    const leftArrow = document.querySelector('.slider-arrow-left');
+    const rightArrow = document.querySelector('.slider-arrow-right');
+
+    if (leftArrow) {
+      leftArrow.addEventListener('click', () => {
+        if (currentSlide > 0) {
+          goToSlideWithArrows(currentSlide - 1);
+        }
+      });
+    }
+
+    if (rightArrow) {
+      rightArrow.addEventListener('click', () => {
+        if (currentSlide < 2) {
+          goToSlideWithArrows(currentSlide + 1);
+        }
+      });
+    }
+
+    // Atualizar visibilidade das setas baseado no slide atual
+    function updateArrowsVisibility() {
+      if (leftArrow) {
+        leftArrow.style.opacity = currentSlide === 0 ? '0.5' : '1';
+        leftArrow.style.cursor = currentSlide === 0 ? 'not-allowed' : 'pointer';
+      }
+      if (rightArrow) {
+        rightArrow.style.opacity = currentSlide === 2 ? '0.5' : '1';
+        rightArrow.style.cursor = currentSlide === 2 ? 'not-allowed' : 'pointer';
+      }
+    }
+
+    // Modificar a função goToSlide para incluir a atualização das setas
+    function goToSlideWithArrows(slideIndex) {
+      goToSlide(slideIndex);
+      updateArrowsVisibility();
+    }
+
+    // Atualizar swipe para usar a nova função
+    slider.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      
+      const endX = e.changedTouches[0].clientX;
+      const diffX = startX - endX;
+      
+      if (Math.abs(diffX) > 50) { // Mínimo de 50px para considerar swipe
+        if (diffX > 0 && currentSlide < 2) {
+          goToSlideWithArrows(currentSlide + 1);
+        } else if (diffX < 0 && currentSlide > 0) {
+          goToSlideWithArrows(currentSlide - 1);
+        }
+      }
+    });
+ 
+    // Inicializar visibilidade das setas
+    updateArrowsVisibility();
+  }
+
+  // Inicializar o slider
+  initServicesSlider();
+
+  // ===== CORREÇÃO GLOBAL DE ROLAGEM INICIAL =====
+  // Garante que todas as páginas comecem do topo absoluto
+  function aplicarCorrecaoRolagem() {
+    // Sempre rolar para o topo absoluto da página
+    window.scrollTo({ 
+      top: 0, 
+      behavior: 'instant' 
+    });
+    
+    console.log('[Correção de Rolagem] Aplicada rolagem para o topo absoluto');
+  }
+
+  // Aplicar correção no carregamento e após um pequeno delay para garantir que outros scripts executem
+  window.addEventListener('load', () => {
+    // Primeira tentativa imediata
+    aplicarCorrecaoRolagem();
+    
+    // Segunda tentativa após 100ms para garantir que checklist.js terminou
+    setTimeout(aplicarCorrecaoRolagem, 100);
+    
+    // Terceira tentativa após 500ms como fallback final
+    setTimeout(aplicarCorrecaoRolagem, 500);
+  });

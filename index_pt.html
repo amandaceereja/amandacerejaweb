@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="es-ES">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amanda Cereja | Desarrolladora Frontend</title>
+    <title>Amanda Cereja | Desenvolvedora Frontend</title>
 
     <meta
       name="description"
-      content="Portafolio de Amanda Cereja, desarrolladora frontend especializada en Web Pages, Landing Pages y E-commerce."
+      content="Portfólio de Amanda Cereja, desenvolvedora frontend especializada em Sites, Landing Pages e E-commerce."
     />
 
     <link rel="stylesheet" href="css/styles.css" />
@@ -15,14 +15,15 @@
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
 
+    <script src="js/translations/pt.js" defer></script>
     <script src="js/scripts.js" defer></script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Amanda Cereja | Desarrolladora Frontend" />
+    <meta property="og:title" content="Amanda Cereja | Desenvolvedora Frontend" />
     <meta
       property="og:description"
-      content="Portafolio de Amanda Cereja, desarrolladora frontend especializada en Web Pages, Landing Pages y E-commerce."
+      content="Portfólio de Amanda Cereja, desenvolvedora frontend especializada em Sites, Landing Pages e E-commerce."
     />
     <meta property="og:url" content="https://amandaceereja.github.io/Pagina-web/" />
     <meta
@@ -34,10 +35,10 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Amanda Cereja | Desarrolladora Frontend" />
+    <meta name="twitter:title" content="Amanda Cereja | Desenvolvedora Frontend" />
     <meta
       name="twitter:description"
-      content="Portafolio de Amanda Cereja, desarrolladora frontend especializada en Web Pages, Landing Pages y E-commerce."
+      content="Portfólio de Amanda Cereja, desenvolvedora frontend especializada em Sites, Landing Pages e E-commerce."
     />
     <meta
       name="twitter:image"
@@ -65,12 +66,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="icon" href="img/simplelogo.png" type="image/png" />
 
     <link rel="canonical" href="https://amandaceereja.github.io/Pagina-web/" />
   </head>
 
-  <body>
+  <body class="page-pt">
     <!-- Language Bar -->
     <div class="language-bar">
       <div class="language-bar__container">
@@ -93,8 +95,8 @@
           </a>
         </div>
         <div class="language-selector">
-          <button class="language-selector__toggle" aria-label="Seleccionar idioma">
-            <span class="language-selector__current">ES</span>
+          <button class="language-selector__toggle" aria-label="Selecionar idioma">
+            <span class="language-selector__current">BR</span>
             <i class="fas fa-globe"></i>
           </button>
           <div class="language-selector__dropdown">
@@ -116,15 +118,12 @@
     <header class="header">
       <nav class="navbar" aria-label="Principal">
         <div class="navbar__logo">
-          <a href="#"
-            ><span>Amanda</span> <strong>Cereja</strong
-            ><span class="tablet-hide"> Diniz Alves</span></a
-          >
+          <a href="#"><span>Amanda</span> <strong>Cereja Diniz Alves</strong></a>
         </div>
         <button
           type="button"
           class="navbar__mobile-btn"
-          aria-label="Abrir/Cerrar menú"
+          aria-label="Abrir/Fechar menu"
           aria-controls="navmenu"
           aria-expanded="false"
         >
@@ -132,29 +131,29 @@
         </button>
         <div class="navbar__menu" id="navmenu">
           <ul>
-            <li><a href="index.html" data-translate="nav.home">Inicio</a></li>
-            <li><a href="servicos.html">Servicios</a></li>
-            <li><a href="checklist.html">Checklist</a></li>
-            <li><a href="presupuesto.html">Presupuesto</a></li>
-            <li><a href="portafolio.html" data-translate="nav.portfolio">Portafolio</a></li>
+            <li><a href="index_pt.html" data-translate="nav.home">Início</a></li>
+            <li><a href="servicos_pt.html">Serviços</a></li>
+            <li><a href="checklist_pt.html">Checklist</a></li>
+            <li><a href="presupuesto_pt.html">Orçamento</a></li>
+            <li><a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a></li>
           </ul>
         </div>
         <div class="navbar-menu-icon">
-          <button class="menu-icon-btn" aria-label="Más opciones">
+          <button class="menu-icon-btn" aria-label="Mais opções">
             <i class="fas fa-bars"></i>
           </button>
           <div class="menu-icon-dropdown">
             <div class="menu-dropdown-logo">
               <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
             </div>
-            <a href="index.html" data-translate="nav.home">Inicio</a>
-            <a href="servicos.html">Servicios</a>
-            <a href="checklist.html">Checklist</a>
-            <a href="presupuesto.html">Presupuesto</a>
-            <a href="portafolio.html" data-translate="nav.portfolio">Portafolio</a>
-            <a href="proceso.html">Mi proceso</a>
-            <a href="#sobre" data-translate="nav.about">Sobre mí</a>
-            <a href="#contacto" data-translate="nav.contact">Contacto</a>
+            <a href="index_pt.html" data-translate="nav.home">Início</a>
+            <a href="servicos_pt.html">Serviços</a>
+            <a href="checklist_pt.html">Checklist</a>
+            <a href="presupuesto_pt.html">Orçamento</a>
+            <a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a>
+            <a href="proceso_pt.html">Meu processo</a>
+            <a href="#sobre" data-translate="nav.about">Sobre mim</a>
+            <a href="#contacto" data-translate="nav.contact">Contato</a>
           </div>
         </div>
       </nav>
@@ -168,11 +167,11 @@
         </h1>
 
         <p id="hero-subtitle" class="hero__subtitle">
-          Creo sitios web modernos y funcionales que impulsan el crecimiento de tu negocio
+          Crio interfaces modernas, responsivas e centradas na experiência do usuário.
         </p>
         <div class="hero__buttons">
-          <a href="checklist.html" class="btn btn--primary">Checklist</a>
-          <a href="portafolio.html" class="btn btn--primary">Portafolio</a>
+          <a href="checklist_pt.html" class="btn btn--primary">Checklist Online</a>
+          <a href="portafolio.html" class="btn btn--primary">Portfólio</a>
         </div>
       </div>
     </section>
@@ -180,8 +179,8 @@
     <!-- Servicios -->
     <section id="servicios" class="servicios" aria-label="Servicios">
       <div class="container">
-        <h2>Servicios</h2>
-        <p class="services-subtitle">Soluciones digitales completas para tu negocio</p>
+        <h2>Serviços</h2>
+        <p class="services-subtitle">Soluções digitais completas para o seu negócio</p>
 
         <!-- Containers de Servicios -->
         <div class="service-types-wrapper">
@@ -251,85 +250,85 @@
         </div>
 
         <div class="servicios-track" aria-roledescription="carousel">
-          <article class="flyer service-card" aria-label="Plan Básico">
+          <article class="flyer service-card" aria-label="Plano Básico">
             <div class="service-content">
-              <h3 class="service-title">PLAN BÁSICO</h3>
-              <p class="service-subtitle">VIABLE Y FUNCIONAL</p>
+              <h3 class="service-title">PLANO BÁSICO</h3>
+              <p class="service-subtitle">VIÁVEL E FUNCIONAL</p>
 
               <div class="service-features">
-                <p class="service-feature-title">WEB PAGE</p>
+                <p class="service-feature-title">PÁGINA WEB</p>
                 <p class="service-feature-desc">2/4 PÁGINAS SIMPLES</p>
-                <p class="service-feature-desc">HOME, SERVICIOS,</p>
-                <p class="service-feature-desc">CONTACTO</p>
+                <p class="service-feature-desc">HOME, SERVIÇOS,</p>
+                <p class="service-feature-desc">CONTATO</p>
 
                 <p class="service-feature-title">LANDING PAGE</p>
-                <p class="service-feature-desc">1 PÁGINA SIMPLE</p>
-                <p class="service-feature-desc">CON OBJETIVO ÚNICO</p>
+                <p class="service-feature-desc">1 PÁGINA SIMPLES</p>
+                <p class="service-feature-desc">COM OBJETIVO ÚNICO</p>
 
                 <p class="service-feature-title">E-COMMERCE</p>
-                <p class="service-feature-desc">HASTA 10 PRODUCTOS</p>
+                <p class="service-feature-desc">ATÉ 10 PRODUTOS</p>
                 <p class="service-feature-desc">CHECKOUT BÁSICO</p>
-                <p class="service-feature-desc">PAGOS STRIPE/PAYPAL</p>
+                <p class="service-feature-desc">PAGAMENTOS STRIPE/PAYPAL</p>
 
                 <p
                   class="service-feature-footer"
                   style="display: block; line-height: 1.5; margin-top: 1rem"
                 >
-                  IDEAL PARA PEQUEÑOS NEGOCIOS QUE NECESITAN ESTAR ONLINE.
+                  IDEAL PARA PEQUENOS NEGÓCIOS QUE PRECISAM ESTAR ONLINE.
                 </p>
               </div>
             </div>
           </article>
 
-          <article class="flyer service-card" aria-label="Plan Estándar">
+          <article class="flyer service-card" aria-label="Plano Padrão">
             <div class="service-content">
-              <h3 class="service-title">PLAN ESTÁNDAR</h3>
-              <p class="service-subtitle">EL MÁS VENDIDO</p>
+              <h3 class="service-title">PLANO PADRÃO</h3>
+              <p class="service-subtitle">EQUILIBRADO<br />O MAIS VENDIDO</p>
 
               <div class="service-features">
                 <p class="service-feature-title">
-                  INCLUYE TODAS LAS FUNCIONALIDADES QUE LA MAYORÍA DE LOS NEGOCIOS NECESITAN
+                  INCLUI TODAS AS FUNCIONALIDADES QUE A MAIORIA DOS NEGÓCIOS PRECISAM
                 </p>
 
                 <p class="service-feature-title">SEO BÁSICO</p>
-                <p class="service-feature-title">SEGURIDAD</p>
-                <p class="service-feature-title">HOSTING</p>
+                <p class="service-feature-title">SEGURANÇA</p>
+                <p class="service-feature-title">HOSPEDAGEM</p>
                 <p class="service-feature-title">ANALYTICS</p>
-                <p class="service-feature-title">FORMULARIOS</p>
-                <p class="service-feature-title">OPTIMIZACIÓN DE VELOCIDAD</p>
+                <p class="service-feature-title">FORMULÁRIOS</p>
+                <p class="service-feature-title">OTIMIZAÇÃO DE VELOCIDADE</p>
 
                 <p
                   class="service-feature-footer"
                   style="display: block; line-height: 1.5; margin-top: 1rem"
                 >
-                  TODO LO QUE TU NEGOCIO NECESITA PARA CRECER ONLINE.
+                  TUDO O QUE SEU NEGÓCIO PRECISA PARA CRESCER ONLINE.
                 </p>
               </div>
             </div>
           </article>
 
-          <article class="flyer service-card" aria-label="Plan Premium">
+          <article class="flyer service-card" aria-label="Plano Premium">
             <div class="service-content">
-              <h3 class="service-title">PLAN PREMIUM</h3>
-              <p class="service-subtitle">AVANZADO</p>
+              <h3 class="service-title">PLANO PREMIUM</h3>
+              <p class="service-subtitle">AVANÇADO</p>
 
               <div class="service-features">
                 <p class="service-feature-title">PENSADO PARA EMPRESAS</p>
-                <p class="service-feature-desc">QUE YA VENDEN</p>
+                <p class="service-feature-desc">QUE JÁ VENDEM</p>
 
-                <p class="service-feature-title">EMBUDOS DE VENTA</p>
-                <p class="service-feature-title">ESTRATEGIAS DE MARKETING</p>
-                <p class="service-feature-title">CRM + AUTOMATIZACIONES</p>
-                <p class="service-feature-title">OPTIMIZACIÓN SEO</p>
-                <p class="service-feature-title">VELOCIDAD AVANZADA</p>
-                <p class="service-feature-title">SOPORTE ESTRATÉGICO</p>
-                <p class="service-feature-title">CONTINUO</p>
+                <p class="service-feature-title">FUNIS DE VENDA</p>
+                <p class="service-feature-title">ESTRATÉGIAS DE MARKETING</p>
+                <p class="service-feature-title">CRM + AUTOMAÇÕES</p>
+                <p class="service-feature-title">OTIMIZAÇÃO SEO</p>
+                <p class="service-feature-title">VELOCIDADE AVANÇADA</p>
+                <p class="service-feature-title">SUPORTE ESTRATÉGICO</p>
+                <p class="service-feature-title">CONTÍNUO</p>
 
                 <p
                   class="service-feature-footer"
                   style="display: block; line-height: 1.5; margin-top: 1rem"
                 >
-                  PARA SITIOS Y TIENDAS QUE NO PUEDEN PARAR | SEGURIDAD Y VELOCIDAD TOP.
+                  PARA SITES E LOJAS QUE NÃO PODEM PARAR | SEGURANÇA E VELOCIDADE TOP.
                 </p>
               </div>
             </div>
@@ -359,9 +358,9 @@
           <div class="services-slider-container">
             <div class="services-slider">
               <div class="card service-slide">
-                <h3>Web Pages</h3>
+                <h3>Páginas Web</h3>
                 <p class="service-subtitle">
-                  Uma Web Page é um espaço online onde sua empresa ou projeto poder apresentar suas
+                  Uma Página Web é um espaço online onde sua empresa ou projeto pode apresentar suas
                   informações de forma clara e organizada. É ideal para contar sua história, mostrar
                   seus serviços ou produtos e disponibilizar conteúdos importantes para clientes,
                   parceiros e visitantes.
@@ -371,29 +370,29 @@
                 <div class="webpage-client-types">
                   <div class="client-type-container">
                     <div class="client-type-card">
-                      <h4 class="client-type-title">Empresas locales</h4>
+                      <h4 class="client-type-title">Empresas locais</h4>
                       <p class="client-type-subtitle">
-                        Restaurantes | Bares<br />Hoteles | Tiendas físicas<br />Farmacias |
-                        Mercados<br />Escuelas | Instituciones
+                        Restaurantes | Bares<br />Hotéis | Lojas físicas<br />Farmácias |
+                        Mercados<br />Escolas | Instituições
                       </p>
                     </div>
                     <div class="service-connector"></div>
                   </div>
                   <div class="client-type-container">
                     <div class="client-type-card">
-                      <h4 class="client-type-title">Profesionales</h4>
+                      <h4 class="client-type-title">Profissionais</h4>
                       <p class="client-type-subtitle">
-                        Despachos de abogados<br />Contabilidad Arquitectura<br />Clínicas | Salones
-                        de belleza
+                        Escritórios de advocacia<br />Contabilidade | Arquitetura<br />Clínicas |
+                        Salões de beleza
                       </p>
                     </div>
                     <div class="service-connector"></div>
                   </div>
                   <div class="client-type-container">
                     <div class="client-type-card">
-                      <h4 class="client-type-title">Pequeñas y grandes marcas</h4>
+                      <h4 class="client-type-title">Pequenas e grandes marcas</h4>
                       <p class="client-type-subtitle">
-                        Catálogo Digital<br />Blog personal<br />Portfolio profesional
+                        Catálogo Digital<br />Blog pessoal<br />Portfólio profissional
                       </p>
                     </div>
                     <div class="service-connector"></div>
@@ -402,119 +401,118 @@
 
                 <div class="webpages-gallery">
                   <div class="plan-container">
-                    <h4>PLAN BÁSICO</h4>
-                    <p class="plan-subtitle">VIABLE Y FUNCIONAL</p>
+                    <h4>PLANO BÁSICO</h4>
+                    <p class="plan-subtitle">VIÁVEL E FUNCIONAL</p>
                     <div class="plan-expanded-content">
                       <div class="plan-features">
                         <p>2–4 PÁGINAS</p>
-                        <p>DISEÑO RESPONSIVO DESKTOP + MOBILE</p>
-                        <p>BANNER INTERACTIVO</p>
+                        <p>DESIGN RESPONSIVO DESKTOP + MOBILE</p>
+                        <p>BANNER INTERATIVO</p>
                         <p>SEO BÁSICO</p>
-                        <p>FORMULARIO DE CONTACTO + BOTÓN FLOTANTE DE WHATSAPP</p>
-                        <p>MAPA INTERACTIVO</p>
+                        <p>FORMULÁRIO DE CONTATO + BOTÃO FLUTUANTE DE WHATSAPP</p>
+                        <p>MAPA INTERATIVO</p>
                       </div>
-                      <p class="plan-support">SOPORTE INICIAL 15 DÍAS</p>
-                      <p class="plan-tagline">TU PRIMERA WEB SIN COMPLICACIONES</p>
+                      <p class="plan-support">SUPORTE INICIAL 15 DIAS</p>
+                      <p class="plan-tagline">SEU PRIMEIRO SITE SEM COMPLICAÇÕES</p>
                     </div>
                   </div>
                   <div class="plan-container">
-                    <h4>PLAN ESTÁNDAR</h4>
-                    <p class="plan-subtitle">Profesional</p>
+                    <h4>PLANO PADRÃO</h4>
+                    <p class="plan-subtitle">Profissional</p>
                     <div class="plan-expanded-content">
                       <div class="plan-features">
                         <p>6–8 PÁGINAS</p>
-                        <p>IDENTIDAD VISUAL - PALETA DE COLORES Y TIPOGRAFÍA</p>
-                        <p>BANNER INTERACTIVO SLIDESHOW EN LA HOME</p>
+                        <p>IDENTIDADE VISUAL - PALETA DE CORES E TIPOGRAFIA</p>
+                        <p>BANNER INTERATIVO SLIDESHOW NA HOME</p>
                         <p>
-                          | GALERÍA SIMPLE |<br />
-                          15 IMÁGENES O VIDEOS
+                          | GALERIA SIMPLES |<br />
+                          15 IMAGENS OU VÍDEOS
                         </p>
-                        <p>FORMULARIO + INTEGRACIÓN CON WHATSAPP AVANZADO</p>
-                        <p>SEO OPTIMIZACIÓN PARA GOOGLE</p>
+                        <p>FORMULÁRIO + INTEGRAÇÃO COM WHATSAPP AVANÇADO</p>
+                        <p>SEO OTIMIZAÇÃO PARA GOOGLE</p>
                       </div>
-                      <p class="plan-support">| SOPORTE 30 DÍAS |</p>
-                      <p class="plan-tagline">CONVIERTE VISITAS EN CLIENTES</p>
+                      <p class="plan-support">| SUPORTE 30 DIAS |</p>
+                      <p class="plan-tagline">CONVERTE VISITAS EM CLIENTES</p>
                     </div>
                   </div>
                   <div class="plan-container">
-                    <h4>PLAN PREMIUM</h4>
-                    <p class="plan-subtitle">DISEÑO COMPLETO Y OPTIMIZADO</p>
+                    <h4>PLANO PREMIUM</h4>
+                    <p class="plan-subtitle">DESIGN COMPLETO E OTIMIZADO</p>
                     <div class="plan-expanded-content">
                       <div class="plan-features">
                         <p>8–12 PÁGINAS</p>
                         <p>MULTIIDIOMA - 1 IDIOMA</p>
-                        <p>GALERÍA INTERACTIVA CON 30 IMÁGENES O VIDEOS</p>
+                        <p>GALERIA INTERATIVA COM 30 IMAGENS OU VÍDEOS</p>
                         <p>
-                          INTEGRACIÓN CON REDES SOCIALES<br />
-                          | FEED DEL INSTAGRAM |
+                          INTEGRAÇÃO COM REDES SOCIAIS<br />
+                          | FEED DO INSTAGRAM |
                         </p>
-                        <p>GOOGLE MAPS AVANZADO</p>
-                        <p>COPIAS DE SEGURIDAD AUTOMÁTICAS SEMANALES</p>
+                        <p>GOOGLE MAPS AVANÇADO</p>
+                        <p>CÓPIAS DE SEGURANÇA AUTOMÁTICAS SEMANAIS</p>
                         <p>FIREWALL</p>
-                        <p>SEO AVANZADO</p>
+                        <p>SEO AVANÇADO</p>
                       </div>
-                      <p class="plan-support">| SOPORTE 45 DÍAS |</p>
-                      <p class="plan-tagline">DISEÑO, TECNOLOGÍA Y MARKETING SIN LÍMITES</p>
+                      <p class="plan-support">| SUPORTE 45 DIAS |</p>
+                      <p class="plan-tagline">DESIGN, TECNOLOGIA E MARKETING SEM LIMITES</p>
                     </div>
                   </div>
                   <div class="plan-container">
-                    <h4>MANTENIMIENTO MENSUAL</h4>
-                    <p class="plan-subtitle">SEGURIDAD Y ACTUALIZACIONES</p>
+                    <h4>MANUTENÇÃO MENSAL</h4>
+                    <p class="plan-subtitle">SEGURANÇA E ATUALIZAÇÕES</p>
                     <div class="plan-expanded-content">
                       <div class="plan-features">
-                        <p>SEGURIDAD</p>
-                        <p>| ACTUALIZACIONES |</p>
-                        <p>SOPORTE</p>
-                        <p>SLL + BACKUPS</p>
-                        <p>ACTUALIZACIONES MENSUALES</p>
-                        <p>OPTIMIZACIÓN LIGERA</p>
-                        <p>SOPORTE REMOTO</p>
-                        <p>REVISIÓN SEO</p>
+                        <p>SEGURANÇA</p>
+                        <p>| ATUALIZAÇÕES |</p>
+                        <p>SUPORTE</p>
+                        <p>SSL + BACKUPS</p>
+                        <p>ATUALIZAÇÕES MENSAIS</p>
+                        <p>OTIMIZAÇÃO LEVE</p>
+                        <p>SUPORTE REMOTO</p>
+                        <p>REVISÃO SEO</p>
                       </div>
-                      <p class="plan-support">| SOPORTE CONTINUO |</p>
-                      <p class="plan-tagline">MANTÉN TU WEB SIEMPRE SEGURA Y ACTUALIZADA</p>
+                      <p class="plan-support">| SUPORTE CONTÍNUO |</p>
+                      <p class="plan-tagline">MANTENHA SEU SITE SEMPRE SEGURO E ATUALIZADO</p>
                     </div>
                   </div>
                 </div>
-                <a href="#contacto" class="btn btn--primary">Empiece hoy mismo</a>
+                <a href="#contacto" class="btn btn--primary">Comece hoje mesmo</a>
               </div>
               <div class="card service-slide">
                 <h3>Landing Page</h3>
                 <p class="service-subtitle">
-                  Una Landing Page es una página online enfocada en un objetivo específico: captar
-                  clientes potenciales, promocionar un producto o validar una idea. Es rápida,
-                  directa y diseñada para generar resultados concretos sin necesidad de una web
-                  completa.
+                  Uma Landing Page é uma página online focada em um objetivo específico: captar
+                  clientes potenciais, promover um produto ou validar uma ideia. É rápida, direta e
+                  projetada para gerar resultados concretos sem necessidade de um site completo.
                 </p>
 
                 <!-- Containers de tipos de clientes -->
                 <div class="webpage-client-types">
                   <div class="client-type-container">
                     <div class="client-type-card">
-                      <h4 class="client-type-title">Presenta tu negocio</h4>
+                      <h4 class="client-type-title">Apresente seu negócio</h4>
                       <p class="client-type-subtitle">
-                        Cardápio Digital + QrCode<br />Hoteis | Pousadas<br />| Reservas |
+                        Cardápio Digital + QrCode<br />Hotéis | Pousadas<br />| Reservas |
                       </p>
                     </div>
                     <div class="service-connector"></div>
                   </div>
                   <div class="client-type-container">
                     <div class="client-type-card">
-                      <h4 class="client-type-title">Venta de producto único</h4>
+                      <h4 class="client-type-title">Venda de produto único</h4>
                       <p class="client-type-subtitle">
                         Eventos | Campanhas<br />
-                        | Curso |<br />| Ebook | Oferta |<br />| Campañas publicitarias |<br />|
-                        Lanzamiento de productos |
+                        | Curso |<br />| Ebook | Oferta |<br />
+                        Campanhas publicitárias<br />| Lançamento de produtos |
                       </p>
                     </div>
                     <div class="service-connector"></div>
                   </div>
                   <div class="client-type-container">
                     <div class="client-type-card">
-                      <h4 class="client-type-title">Genera oportunidades</h4>
+                      <h4 class="client-type-title">Gere oportunidades</h4>
                       <p class="client-type-subtitle">
-                        Criadores digitais | Modelos<br />Influencers | Psicólogos<br />Nutricionistas<br />
-                        | Entrenadores personales |
+                        Criadores digitais Modelos<br />Influencers | Psicólogos<br />Nutricionistas<br />
+                        | Treinadores pessoais |
                       </p>
                     </div>
                     <div class="service-connector"></div>
@@ -523,111 +521,111 @@
 
                 <div class="webpages-gallery">
                   <div class="plan-container">
-                    <h4>PLAN BÁSICO</h4>
-                    <p class="plan-subtitle">ESENCIAL PARA EMPEZAR</p>
+                    <h4>PLANO BÁSICO</h4>
+                    <p class="plan-subtitle">ESSENCIAL PARA COMEÇAR</p>
                     <div class="plan-expanded-content">
                       <div class="plan-features">
                         <p>PÁGINA ÚNICA</p>
-                        <p>DISEÑO RESPONSIVO</p>
-                        <p>BANNER O PRODUCTO DESTACADO</p>
-                        <p>FORMULARIO DE CONTACTO + BOTÓN FLOTANTE DE WHATSAPP</p>
-                        <p>SEO BÁSICO PARA APARECER EN BÚSQUEDAS LOCALES</p>
-                        <p>LLAMADA A LA ACCIÓN</p>
+                        <p>DESIGN RESPONSIVO</p>
+                        <p>BANNER OU PRODUTO DESTACADO</p>
+                        <p>FORMULÁRIO DE CONTATO + BOTÃO FLUTUANTE DE WHATSAPP</p>
+                        <p>SEO BÁSICO PARA APARECER EM BUSCAS LOCAIS</p>
+                        <p>CHAMADA PARA AÇÃO</p>
                       </div>
-                      <p class="plan-support">| SOPORTE INICIAL 7 DÍAS |</p>
-                      <p class="plan-tagline">IDEAL PARA PEQUEÑOS NEGOCIOS</p>
+                      <p class="plan-support">| SUPORTE INICIAL 7 DIAS |</p>
+                      <p class="plan-tagline">IDEAL PARA PEQUENOS NEGÓCIOS</p>
                     </div>
                   </div>
                   <div class="plan-container">
-                    <h4>PLAN ESTÁNDAR</h4>
-                    <p class="plan-subtitle">COMPLETO Y OPTIMIZADO</p>
+                    <h4>PLANO PADRÃO</h4>
+                    <p class="plan-subtitle">COMPLETO E OTIMIZADO</p>
                     <div class="plan-expanded-content">
                       <div class="plan-features">
-                        <p>PÁGINA ÚNICA + 3 SECCIONES</p>
-                        <p>BANNER INTERACTIVO O PRESENTACIÓN</p>
-                        <p>FORMULARIO + INTEGRACIÓN AVANZADA CON WHATSAPP</p>
-                        <p>SEO BÁSICO + VELOCIDAD OPTIMIZADA</p>
-                        <p>LLAMADAS A LA ACCIÓN</p>
-                        <p>SECCIÓN DE TESTIMONIOS</p>
+                        <p>PÁGINA ÚNICA + 3 SEÇÕES</p>
+                        <p>BANNER INTERATIVO OU APRESENTAÇÃO</p>
+                        <p>FORMULÁRIO + INTEGRAÇÃO AVANÇADA COM WHATSAPP</p>
+                        <p>SEO BÁSICO + VELOCIDADE OTIMIZADA</p>
+                        <p>CHAMADAS PARA AÇÃO</p>
+                        <p>SEÇÃO DE DEPOIMENTOS</p>
                       </div>
-                      <p class="plan-support">SOPORTE INICIAL 15 DÍAS</p>
-                      <p class="plan-tagline">INCLUYE FORMACIÓN</p>
+                      <p class="plan-support">SUPORTE INICIAL 15 DIAS</p>
+                      <p class="plan-tagline">INCLUI TREINAMENTO</p>
                     </div>
                   </div>
                   <div class="plan-container">
-                    <h4>PLAN PREMIUM</h4>
-                    <p class="plan-subtitle">AVANZADO Y PROFESIONAL</p>
+                    <h4>PLANO PREMIUM</h4>
+                    <p class="plan-subtitle">AVANÇADO E PROFISSIONAL</p>
                     <div class="plan-expanded-content">
                       <div class="plan-features">
-                        <p>PÁGINA ÚNICA + 8 SECCIONES</p>
-                        <p>INTEGRACIÓN CON REDES SOCIALES</p>
-                        <p>| FEED DE INSTAGRAM |</p>
-                        <p>SEO AVANZADO + OPTIMIZACIÓN DE VELOCIDAD</p>
-                        <p>LLAMADAS A LA ACCIÓN Y VENTANAS EMERGENTES</p>
-                        <p>GALERÍA INTERACTIVA</p>
-                        <p>| 15 IMÁGENES O VÍDEOS |</p>
-                        <p>GOOGLE MAPS AVANZADO</p>
+                        <p>PÁGINA ÚNICA + 8 SEÇÕES</p>
+                        <p>INTEGRAÇÃO COM REDES SOCIAIS</p>
+                        <p>| FEED DO INSTAGRAM |</p>
+                        <p>SEO AVANÇADO + OTIMIZAÇÃO DE VELOCIDADE</p>
+                        <p>CHAMADAS PARA AÇÃO E JANELAS EMERGENTES</p>
+                        <p>GALERIA INTERATIVA</p>
+                        <p>| 15 IMAGENS OU VÍDEOS |</p>
+                        <p>GOOGLE MAPS AVANÇADO</p>
                       </div>
-                      <p class="plan-support">| SOPORTE 30 DÍAS |</p>
-                      <p class="plan-tagline">POSICIONAMIENTO PRO</p>
+                      <p class="plan-support">| SUPORTE 30 DIAS |</p>
+                      <p class="plan-tagline">POSICIONAMENTO PRO</p>
                     </div>
                   </div>
                   <div class="plan-container">
-                    <h4>MANTENIMIENTO MENSUAL</h4>
-                    <p class="plan-subtitle">SEGURIDAD Y ACTUALIZACIONES</p>
+                    <h4>MANUTENÇÃO MENSAL</h4>
+                    <p class="plan-subtitle">SEGURANÇA E ATUALIZAÇÕES</p>
                     <div class="plan-expanded-content">
                       <div class="plan-features">
-                        <p>SEGURIDAD</p>
-                        <p>| ACTUALIZACIONES |</p>
-                        <p>SOPORTE</p>
-                        <p>SLL + BACKUPS</p>
-                        <p>ACTUALIZACIONES MENSUALES</p>
-                        <p>OPTIMIZACIÓN CONTINUA</p>
-                        <p>MONITORIZACIÓN UPTIME</p>
-                        <p>REVISIÓN SEO Y MÉTRICAS</p>
-                        <p>SOPORTE REMOTO</p>
+                        <p>SEGURANÇA</p>
+                        <p>| ATUALIZAÇÕES |</p>
+                        <p>SUPORTE</p>
+                        <p>SSL + BACKUPS</p>
+                        <p>ATUALIZAÇÕES MENSAIS</p>
+                        <p>OTIMIZAÇÃO CONTÍNUA</p>
+                        <p>MONITORAMENTO UPTIME</p>
+                        <p>REVISÃO SEO E MÉTRICAS</p>
+                        <p>SUPORTE REMOTO</p>
                       </div>
-                      <p class="plan-support">| SOPORTE CONTINUO |</p>
-                      <p class="plan-tagline">MANTÉN TU LANDING SIEMPRE ACTIVA</p>
+                      <p class="plan-support">| SUPORTE CONTÍNUO |</p>
+                      <p class="plan-tagline">MANTENHA SUA LANDING SEMPRE ATIVA</p>
                     </div>
                   </div>
                 </div>
-                <a href="#contacto" class="btn btn--primary">Solicita tu presupuesto</a>
+                <a href="#contacto" class="btn btn--primary">Solicite seu orçamento</a>
               </div>
               <div class="card service-slide">
                 <h3>E-commerce</h3>
                 <p class="service-subtitle">
-                  Un E-commerce es una tienda online donde puedes mostrar, gestionar y vender tus
-                  productos o servicios de manera automatizada. Desde el catálogo hasta el pago,
-                  todo ocurre en un mismo espacio digital, accesible en cualquier momento y lugar.
+                  Um E-commerce é uma loja online onde você pode mostrar, gerenciar e vender seus
+                  produtos ou serviços de forma automatizada. Do catálogo ao pagamento, tudo
+                  acontece em um mesmo espaço digital, acessível a qualquer momento e lugar.
                 </p>
 
                 <!-- Containers de tipos de clientes -->
                 <div class="webpage-client-types">
                   <div class="client-type-container">
                     <div class="client-type-card">
-                      <h4 class="client-type-title">EXPANDE TU NEGOCIO</h4>
+                      <h4 class="client-type-title">EXPANDA SEU NEGÓCIO</h4>
                       <p class="client-type-subtitle">
-                        | Tiendas Online |<br />| Catálogo completo |
+                        | Lojas Online |<br />| Catálogo completo |
                       </p>
                     </div>
                     <div class="service-connector"></div>
                   </div>
                   <div class="client-type-container">
                     <div class="client-type-card">
-                      <h4 class="client-type-title">EXPERIENCIA UNICA EN LINEA</h4>
+                      <h4 class="client-type-title">EXPERIÊNCIA ÚNICA ONLINE</h4>
                       <p class="client-type-subtitle">
-                        Restaurantes delivery<br />| Empresas de turismo |<br />| Cursos digitales |
+                        Restaurantes delivery<br />| Empresas de turismo |<br />| Cursos digitais |
                       </p>
                     </div>
                     <div class="service-connector"></div>
                   </div>
                   <div class="client-type-container">
                     <div class="client-type-card">
-                      <h4 class="client-type-title">SERVICIOS A UN CLIC</h4>
+                      <h4 class="client-type-title">SERVIÇOS A UM CLIQUE</h4>
                       <p class="client-type-subtitle">
-                        | Entrenadores personales |<br />Nutricionistas | Psicólogos<br />| Sesiones
-                        online de pago |
+                        | Treinadores pessoais |<br />Nutricionistas | Psicólogos<br />| Sessões
+                        online pagas |
                       </p>
                     </div>
                     <div class="service-connector"></div>
@@ -636,79 +634,78 @@
 
                 <div class="webpages-gallery">
                   <div class="plan-container">
-                    <h4>PLAN BÁSICO</h4>
-                    <p class="plan-subtitle">ESENCIAL PARA EMPEZAR</p>
+                    <h4>PLANO BÁSICO</h4>
+                    <p class="plan-subtitle">ESSENCIAL PARA COMEÇAR</p>
                     <div class="plan-expanded-content">
                       <div class="plan-features">
-                        <p>CATÁLOGO DE HASTA 10 PRODUCTOS</p>
-                        <p>DISEÑO RESPONSIVO</p>
-                        <p>FORMULARIO + BOTÓN DE WHATSAPP</p>
-                        <p>CARRITO DE COMPRAS Y CHECKOUT BÁSICO</p>
-                        <p>INTEGRACIÓN DE PAGAMENTO SIMPLE</p>
-                        <p>SEO BÁSICO PARA BÚSQUEDAS LOCALES</p>
+                        <p>CATÁLOGO DE ATÉ 10 PRODUTOS</p>
+                        <p>DESIGN RESPONSIVO</p>
+                        <p>FORMULÁRIO + BOTÃO DE WHATSAPP</p>
+                        <p>CARRINHO E CHECKOUT BÁSICO</p>
+                        <p>INTEGRAÇÃO DE PAGAMENTO SIMPLES</p>
+                        <p>SEO BÁSICO PARA BUSCAS LOCAIS</p>
                       </div>
-                      <p class="plan-support">SOPORTE INICIAL 15 DÍAS</p>
-                      <p class="plan-tagline">VENDE ONLINE FÁCIL,<br />RÁPIDO Y SEGURO</p>
+                      <p class="plan-support">SUPORTE INICIAL 15 DIAS</p>
+                      <p class="plan-tagline">VENDA ONLINE FÁCIL,<br />RÁPIDO E SEGURO</p>
                     </div>
                   </div>
                   <div class="plan-container">
-                    <h4>PLAN ESTÁNDAR</h4>
-                    <p class="plan-subtitle">COMPLETO Y OPTIMIZADO</p>
+                    <h4>PLANO PADRÃO</h4>
+                    <p class="plan-subtitle">COMPLETO E OTIMIZADO</p>
                     <div class="plan-expanded-content">
                       <div class="plan-features">
-                        <p>CATÁLOGO DE HASTA 50 PRODUCTOS</p>
-                        <p>PÁGINAS DE CATEGORÍA, PRODUCTO, CONTACTO, POLÍTICA DE PRIVACIDAD</p>
-                        <p>BANNER O SLIDESHOW INTERACTIVO</p>
-                        <p>INTEGRACIÓN WHATSAPP AVANZADA</p>
-                        <p>CARRITO DE COMPRAS Y CHECKOUT CON INTEGRACIÓN DE MÚLTIPLES GATEWAYS</p>
-                        <p>SEO BÁSICO + OPTIMIZACIÓN DE VELOCIDAD</p>
-                        <p>SISTEMA DE STOCK AUTOMÁTICO SIMPLE</p>
-                        <p>PANEL ADMINISTRATIVO BÁSICO PARA CATEGORÍAS Y PRODUCTOS</p>
+                        <p>| ATÉ 50 PRODUTOS |</p>
+                        <p>BANNER OU SLIDESHOW INTERATIVO</p>
+                        <p>INTEGRAÇÃO WHATSAPP AVANÇADA</p>
+                        <p>CARRINHO E CHECKOUT COM INTEGRAÇÃO DE GATEWAYS</p>
+                        <p>SEO BÁSICO + OTIMIZAÇÃO DE VELOCIDADE</p>
+                        <p>SISTEMA DE ESTOQUE AUTOMÁTICO SIMPLES</p>
+                        <p>PAINEL ADMINISTRATIVO BÁSICO</p>
                       </div>
-                      <p class="plan-support">| SOPORTE INICIAL 30 DÍAS |</p>
-                      <p class="plan-tagline">ESCALA TU NEGOCIO CON CONFIANZA DIGITAL</p>
+                      <p class="plan-support">SUPORTE INICIAL 30 DIAS</p>
+                      <p class="plan-tagline">ESCALE SEU NEGÓCIO COM CONFIANÇA DIGITAL</p>
                     </div>
                   </div>
                   <div class="plan-container">
-                    <h4>PLAN PREMIUM</h4>
-                    <p class="plan-subtitle">AVANZADO Y PROFESIONAL</p>
+                    <h4>PLANO PREMIUM</h4>
+                    <p class="plan-subtitle">AVANÇADO E PROFISSIONAL</p>
                     <div class="plan-expanded-content">
                       <div class="plan-features">
-                        <p>CATÁLOGO DE HASTA 200 PRODUCTOS CON CATEGORÍAS Y FILTROS</p>
-                        <p>BANNER SLIDESHOW AVANZADO</p>
+                        <p>| ATÉ 200 PRODUTOS |</p>
+                        <p>BANNER SLIDESHOW AVANÇADO</p>
                         <p>WHATSAPP BUSINESS API</p>
-                        <p>CARRITO DE COMPRAS COMPLETO Y CHECKOUT SEGURO</p>
+                        <p>CARRINHO DE COMPRAS COMPLETO E CHECKOUT SEGURO</p>
                         <p>PAGAMENTOS INTEGRADOS</p>
-                        <p>SEO + VELOCIDAD OPTIMIZADA</p>
+                        <p>SEO + VELOCIDADE OTIMIZADA</p>
                         <p>
-                          PANEL ADMINISTRATIVO COMPLETO PARA GERENCIAR PRODUCTOS, PEDIDOS, CLIENTES
+                          PAINEL ADMINISTRATIVO COMPLETO PARA GERENCIAR PRODUTOS, PEDIDOS, CLIENTES
                         </p>
                       </div>
-                      <p class="plan-support">| SOPORTE INICIAL 45 DÍAS |</p>
-                      <p class="plan-tagline">LA TIENDA QUE IMPULSA TU CRECIMIENTO</p>
+                      <p class="plan-support">SUPORTE INICIAL 45 DIAS</p>
+                      <p class="plan-tagline">A LOJA QUE IMPULSIONA SEU CRESCIMENTO</p>
                     </div>
                   </div>
                   <div class="plan-container">
-                    <h4>mantenimiento mensual</h4>
-                    <p class="plan-subtitle">SEGURIDAD Y ACTUALIZACIONES</p>
+                    <h4>manutenção mensal</h4>
+                    <p class="plan-subtitle">SEGURANÇA E ATUALIZAÇÕES</p>
                     <div class="plan-expanded-content">
                       <div class="plan-features">
-                        <p>seguridad</p>
-                        <p>| OPTIMIZACIÓN |</p>
+                        <p>segurança</p>
+                        <p>| OTIMIZAÇÃO |</p>
                         <p>MARKETING</p>
                         <p>ssl + backups</p>
-                        <p>revisión seo Y MÉTRICAS</p>
-                        <p>optimización DE VELOCIDADE</p>
+                        <p>revisão seo E MÉTRICAS</p>
+                        <p>otimização DE VELOCIDADE</p>
                         <p>| UX |</p>
-                        <p>CAMPAÑAS ACTIVAS</p>
-                        <p>INFORMES DE CONVERSIÓN</p>
+                        <p>CAMPANHAS ATIVAS</p>
+                        <p>RELATÓRIOS DE CONVERSÃO</p>
                       </div>
-                      <p class="plan-support">| soporte TÉCNICO |</p>
-                      <p class="plan-tagline">mantén TU TIENDA ACTUALIZADA 24/7</p>
+                      <p class="plan-support">| suporte TÉCNICO |</p>
+                      <p class="plan-tagline">mantenha SUA LOJA ATUALIZADA 24/7</p>
                     </div>
                   </div>
                 </div>
-                <a href="#contacto" class="btn btn--primary">Contratar este servicio</a>
+                <a href="#contacto" class="btn btn--primary">Contratar este serviço</a>
               </div>
             </div>
             <!-- Indicadores de navegação -->
@@ -742,15 +739,15 @@
     </section>
 
     <!-- CTA Servicios Completos -->
-    <section class="services-cta" aria-label="Ver todos los servicios">
+    <section class="services-cta" aria-label="Ver todos os serviços">
       <div class="container">
         <div class="services-cta__content">
-          <h2 class="services-cta__title">Hecho para tu negocio</h2>
+          <h2 class="services-cta__title">Feito para seu negócio</h2>
           <p class="services-cta__subtitle">
-            Descubre todos los servicios que ofrezco y encuentra la solución ideal para tu negocio.
+            Descubra todos os serviços que ofereço e encontre a solução ideal para seu negócio.
           </p>
-          <a href="servicos.html" class="btn btn--primary btn--large services-cta__button">
-            Ver todos los servicios
+          <a href="servicos_pt.html" class="btn btn--primary btn--large services-cta__button">
+            Ver todos os serviços
             <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -758,40 +755,41 @@
     </section>
 
     <!-- Checklist -->
+    <!-- Checklist -->
     <section id="checklist" class="checklist" aria-label="Checklist Online">
       <div class="container">
         <h2>Checklist</h2>
         <p class="checklist__subtitle muted">
-          Preparo una propuesta a medida para tus necesidades y retorno un plan realista.
+          Preparo uma proposta sob medida para suas necessidades e retorno um plano realista.
         </p>
 
         <div class="checklist__boxes" role="group" aria-label="Checklist de passos">
           <div class="checklist__box">
             <span class="checklist__checkbox" aria-hidden="true"></span>
-            <span class="checklist__label">Haz tu checklist online en minutos</span>
+            <span class="checklist__label">Faça seu checklist online em minutos</span>
           </div>
           <div class="checklist__box">
             <span class="checklist__checkbox" aria-hidden="true"></span>
-            <span class="checklist__label">Reviso personalmente y preparo tu propuesta</span>
+            <span class="checklist__label">Reviso pessoalmente e preparo sua proposta</span>
           </div>
           <div class="checklist__box">
             <span class="checklist__checkbox" aria-hidden="true"></span>
-            <span class="checklist__label">En menos de 24h tendrás tu presupuesto listo</span>
+            <span class="checklist__label">Em menos de 24h você terá seu orçamento pronto</span>
           </div>
         </div>
 
         <!-- CTA principal -->
         <div class="checklist__cta" role="group" aria-label="Ação">
-          <a href="checklist.html" class="chip-cta">Empieza tu proyecto ahora</a>
+          <a href="checklist.html" class="chip-cta">Comece seu projeto agora</a>
         </div>
         <div class="checklist__grid"></div>
       </div>
     </section>
 
     <!-- Sobre mí -->
-    <section id="sobre" class="sobre" aria-label="Sobre mí">
+    <section id="sobre" class="sobre" aria-label="Sobre mim">
       <div class="container">
-        <h2 class="sobre__title">Sobre mí</h2>
+        <h2 class="sobre__title">Sobre mim</h2>
         <div class="sobre__wrapper">
           <div class="sobre__media">
             <div class="avatar-circle">
@@ -801,42 +799,42 @@
 
           <div class="sobre__text">
             <p class="sobre__lead">
-              Soy Ingeniera de Software Fullstack, apasionada por transformar ideas en aplicaciones
-              web completas y soluciones digitales interactivas. Combino experiencia en frontend y
-              backend para crear plataformas escalables, modernas y centradas en el usuario.
+              Sou Engenheira de Software Fullstack, apaixonada por transformar ideias em aplicações
+              web completas e soluções digitais interativas. Combino experiência em frontend e
+              backend para criar plataformas escaláveis, modernas e centradas no usuário.
             </p>
 
             <ul class="sobre__bullets" role="list">
-              <li>Arquitectura clara y veloz</li>
-              <li>Diseño responsivo y funcional</li>
-              <li>Decisiones guiadas por métricas y datos reales</li>
-              <li>Mantenimiento y soporte continuo</li>
+              <li>Arquitetura clara e veloz</li>
+              <li>Design responsivo e funcional</li>
+              <li>Decisões guiadas por métricas e dados reais</li>
+              <li>Manutenção e suporte contínuo</li>
             </ul>
 
             <p class="sobre__lead" style="margin-top: 1.5rem">
               <strong
-                >No entrego solo un servicio: te acompaño en la evolución de tu negocio
+                >Não entrego apenas um serviço: te acompanho na evolução do seu negócio
                 digital</strong
-              >, garantizando que tu presencia online crezca y genere resultados a largo plazo.
+              >, garantindo que sua presença online cresça e gere resultados a longo prazo.
             </p>
           </div>
 
-          <!-- Botón Portafolio añadido -->
+          <!-- Botão Portafolio añadido -->
           <div id="sobre-mi" class="sobre__cta">
-            <a href="portafolio.html" class="btn btn--primary" target="_blank">Ver mi Portafolio</a>
+            <a href="portafolio.html" class="btn btn--primary" target="_blank">Ver meu Portfólio</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contacto -->
-    <section id="contacto" class="contato" aria-label="Contacto">
+    <section id="contacto" class="contato" aria-label="Contato">
       <div class="container">
-        <h2>Contacto</h2>
-        <p>Respondo en 24h</p>
+        <h2>Contato</h2>
+        <p>Respondo em 24h</p>
         <form id="contact-form" action="https://formspree.io/f/mandwben" method="POST">
           <div class="form-group">
-            <label for="nome">Nombre*</label>
+            <label for="nome">Nome*</label>
             <input type="text" id="nome" name="nombre" required />
           </div>
           <div class="form-group">
@@ -844,14 +842,14 @@
             <input type="email" id="email" name="email" required />
           </div>
           <div class="form-group">
-            <label for="mensagem">Mensaje*</label>
+            <label for="mensagem">Mensagem*</label>
             <textarea id="mensagem" name="mensaje" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn btn--primary">Enviar mensaje</button>
+          <button type="submit" class="btn btn--primary">Enviar mensagem</button>
           <p class="form-status" aria-live="polite"></p>
         </form>
 
-        <div class="contato__social" aria-label="Redes sociales">
+        <div class="contato__social" aria-label="Redes sociais">
           <a href="https://wa.me/34602614398" target="_blank" rel="noopener" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
           </a>
@@ -886,22 +884,22 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <p>2025 Amanda Cereja — Desarrolladora Frontend</p>
+        <p>2025 Amanda Cereja — Desenvolvedora Frontend</p>
       </div>
     </footer>
 
-    <!-- Botón volver arriba -->
-    <button id="back-to-top" class="back-to-top" aria-label="Volver arriba">
+    <!-- Botão volver arriba -->
+    <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Botón WhatsApp flotante -->
+    <!-- Botão WhatsApp flotante -->
     <a
       href="https://wa.me/34602614398"
       class="whatsapp-button"
       target="_blank"
       rel="noopener"
-      aria-label="Abrir chat de WhatsApp"
+      aria-label="Abrir chat do WhatsApp"
     >
       <i class="fab fa-whatsapp"></i>
     </a>
@@ -911,13 +909,13 @@
       (function initWebVitals() {
         function start() {
           if (!window.webVitals) {
-            console.warn("[CWV] web-vitals no se cargó (CDN bloqueada o sin red).");
+            console.warn("[CWV] web-vitals não foi carregado (CDN bloqueada ou sem rede).");
             return;
           }
           const log = (n, v) => console.log(`[CWV] ${n}:`, v.value, v);
           webVitals.onLCP((v) => log("LCP", v));
           webVitals.onCLS((v) => log("CLS", v));
-          if (webVitals.onFID) webVitals.onFID((v) => log("FID", v)); // opcional si la API está
+          if (webVitals.onFID) webVitals.onFID((v) => log("FID", v)); // opcional se a API está
           webVitals.onINP((v) => log("INP", v));
           webVitals.onTTFB((v) => log("TTFB", v));
         }

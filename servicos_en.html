@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amanda Cereja | Services</title>
+
+    <meta
+      name="description"
+      content="Web development services, custom systems and digital solutions for restaurants."
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/servicos.css" />
+
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+
+    <script src="js/translations/en.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Amanda Cereja | Services" />
+    <meta
+      property="og:description"
+      content="Web development services, custom systems and digital solutions for restaurants."
+    />
+    <meta property="og:url" content="https://amandaceereja.github.io/Pagina-web/servicos_en.html" />
+    <meta
+      property="og:image"
+      content="https://amandaceereja.github.io/Pagina-web/img/social-share.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Amanda Cereja | Services" />
+    <meta
+      name="twitter:description"
+      content="Web development services, custom systems and digital solutions for restaurants."
+    />
+    <meta
+      name="twitter:image"
+      content="https://amandaceereja.github.io/Pagina-web/img/social-share.jpg?v=1"
+    />
+
+    <!-- Fontes -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/roxborough-cf" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/tt-drugs" rel="stylesheet" />
+                
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" href="img/simplelogo.png" type="image/png" />
+
+    <link rel="canonical" href="https://amandaceereja.github.io/Pagina-web/servicos_en.html" />
+  </head>
+
+  <body class="page-en">
+    <!-- Language Bar -->
+    <div class="language-bar">
+      <div class="language-bar__container">
+        <div class="language-bar__social">
+          <a
+            href="https://www.instagram.com/amandacerejaweb/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://github.com/amandaceereja"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="language-selector">
+          <button class="language-selector__toggle" aria-label="Select language">
+            <span class="language-selector__current">EN</span>
+            <i class="fas fa-globe"></i>
+          </button>
+          <div class="language-selector__dropdown">
+            <button class="language-selector__option" data-lang="es">
+              <span>ES</span>
+            </button>
+            <button class="language-selector__option" data-lang="pt">
+              <span>BR</span>
+            </button>
+            <button class="language-selector__option" data-lang="en">
+              <span>EN</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar" aria-label="Main">
+        <div class="navbar__logo">
+          <a href="index_en.html"><span>Amanda</span> <strong>Cereja Diniz Alves</strong></a>
+        </div>
+        <button
+          type="button"
+          class="navbar__mobile-btn"
+          aria-label="Open/Close menu"
+          aria-controls="navmenu"
+          aria-expanded="false"
+        >
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="navbar__menu" id="navmenu">
+          <ul>
+            <li><a href="index_en.html" data-translate="nav.home">Home</a></li>
+            <li><a href="servicos_en.html">Services</a></li>
+            <li><a href="checklist_en.html">Checklist</a></li>
+            <li><a href="presupuesto_en.html">Budget</a></li>
+            <li><a href="portafolio_en.html" data-translate="nav.portfolio">Portfolio</a></li>
+          </ul>
+        </div>
+        <div class="navbar-menu-icon">
+          <button class="menu-icon-btn" aria-label="More options">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="menu-icon-dropdown">
+            <div class="menu-dropdown-logo">
+              <img src="img/simplelogo.png" alt="Amanda Cereja Logo" />
+            </div>
+            <a href="index_en.html" data-translate="nav.home">Home</a>
+            <a href="servicos_en.html">Services</a>
+            <a href="checklist_en.html">Checklist</a>
+            <a href="presupuesto_en.html">Budget</a>
+            <a href="portafolio_en.html" data-translate="nav.portfolio">Portfolio</a>
+            <a href="proceso_en.html">My process</a>
+            <a href="#sobre" data-translate="nav.about">About me</a>
+            <a href="#contacto" data-translate="nav.contact">Contact</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-servicos" aria-label="Services">
+      <div class="hero-servicos__content">
+        <h1 class="hero-servicos__title">
+          <span id="typer-servicos" class="typer" aria-live="polite"></span>
+        </h1>
+        <p id="hero-servicos-subtitle" class="hero-servicos__subtitle">
+          Complete solutions for digital presence — from development to maintenance.
+        </p>
+      </div>
+    </section>
+
+    <!-- General Services -->
+    <section class="servicos-gerais" aria-label="General Services">
+      <div class="container">
+        <div class="servicos-grid">
+          <!-- Service 1 -->
+          <div class="servico-card">
+            <div class="servico-header">
+              <div class="servico-icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h3>Web Page Creation</h3>
+            </div>
+            <p>
+              I develop modern, fast and responsive web pages, adapted to your business and
+              audience. I use current technologies and SEO best practices, ensuring your site is
+              beautiful and easy to navigate on any device.
+            </p>
+            <div class="servico-inclui">
+              <h4>Includes:</h4>
+              <ul>
+                <li>Institutional websites</li>
+                <li>Personal or professional pages</li>
+                <li>Landing pages (sales or capture pages)</li>
+                <li>Online stores (E-commerce)</li>
+              </ul>
+            </div>
+            <div class="servico-ideal">
+              <p>Ideal for those who want impactful digital presence and real results.</p>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="servico-card">
+            <div class="servico-header">
+              <div class="servico-icon">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <h3>Systems Development and Integrations</h3>
+            </div>
+            <p>
+              I create custom systems and integrations between platforms (such as ERPs, CRMs,
+              payment gateways, automations, etc.), tailored to your business workflow.
+            </p>
+            <div class="servico-exemplos">
+              <h4>Examples:</h4>
+              <ul>
+                <li>Administrative panels</li>
+                <li>Internal management systems</li>
+                <li>Integration with APIs or external tools</li>
+                <li>Process automation</li>
+              </ul>
+            </div>
+            <div class="servico-ideal">
+              <p>
+                Perfect for companies that need custom solutions to gain efficiency.
+              </p>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="servico-card">
+            <div class="servico-header">
+              <div class="servico-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <h3>Website Restoration and Improvement</h3>
+            </div>
+            <p>
+              If you already have a website, but it's slow, outdated or poorly structured, I
+              restore, optimize and modernize the project.
+            </p>
+            <div class="servico-inclui">
+              <h4>Services included:</h4>
+              <ul>
+                <li>Layout and navigation restructuring</li>
+                <li>Error and bug fixes</li>
+                <li>Performance and speed improvement</li>
+                <li>Visual and technical update</li>
+              </ul>
+            </div>
+            <div class="servico-ideal">
+              <p>I transform your old site into a professional, modern and functional page.</p>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="servico-card">
+            <div class="servico-header">
+              <div class="servico-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>Continuous Support and Maintenance</h3>
+            </div>
+            <p>
+              I offer maintenance, update and monitoring plans, so that your website or
+              system continues to work perfectly over time.
+            </p>
+            <div class="servico-inclui">
+              <h4>Includes:</h4>
+              <ul>
+                <li>Automatic backups</li>
+                <li>Content updates</li>
+                <li>Security monitoring</li>
+                <li>On-demand technical adjustments</li>
+              </ul>
+            </div>
+            <div class="servico-ideal">
+              <p>Ideal for those who want peace of mind and continuous support after launch.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Digital Solutions for Online Stores -->
+    <section class="solucoes-lojas" aria-label="Digital Solutions for Online Stores">
+      <div class="container">
+        <div class="lojas-header">
+          <h2 class="lojas-title">Digital Solutions for Online Stores</h2>
+          <p class="lojas-subtitle">Transform your store into a complete digital experience</p>
+          <p class="lojas-desc">
+            Solutions designed for online stores that want to grow quickly, safely and
+            professionally.
+          </p>
+        </div>
+
+        <div class="servicos-lojas-grid">
+          <!-- Online Store Services Carousel -->
+          <div class="services-lojas-wrapper">
+            <div class="services-lojas-container">
+              <div class="services-lojas-slider">
+                <!-- Service 1: Online Store Creation -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Online Store Creation</h3>
+                  </div>
+                  <p>
+                    We develop custom, responsive and SEO-optimized e-commerce, ensuring your
+                    customers easily find your products and have a smooth shopping experience.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefits:</h4>
+                    <ul>
+                      <li>Fully customized online store according to your brand</li>
+                      <li>Intuitive navigation and mobile-optimized</li>
+                      <li>Integration with payment methods (card, PIX, PayPal, etc.)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Service 2: Product and Inventory Management -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Product and Inventory Management</h3>
+                  </div>
+                  <p>
+                    We create simple and efficient control panels for you to manage products,
+                    categories, inventory and prices without depending on third parties.
+                  </p>
+                  <div class="servico-funcionalidades">
+                    <h4>Features:</h4>
+                    <ul>
+                      <li>Quick product registration</li>
+                      <li>Real-time inventory control</li>
+                      <li>Automatic price and promotion updates</li>
+                    </ul>
+                  </div>
+                  <div class="servico-beneficios">
+                    <h4>Benefits:</h4>
+                    <ul>
+                      <li>Reduction of errors in product sales</li>
+                      <li>Time savings in store management</li>
+                      <li>More autonomy for the store owner</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Service 3: Payment Systems and Smart Checkout -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Payment Systems and Smart Checkout</h3>
+                  </div>
+                  <p>
+                    We offer secure and efficient payment solutions, including fast checkout
+                    and integration with national and international payment gateways.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefits:</h4>
+                    <ul>
+                      <li>Reduction of cart abandonment</li>
+                      <li>Fast and secure shopping experience</li>
+                      <li>Support for various payment methods</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Service 4: Delivery Automation and Integrations -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Delivery Automation and Integrations</h3>
+                  </div>
+                  <p>
+                    We connect your store with delivery, logistics and communication systems, including
+                    integrations with WhatsApp, email and delivery apps.
+                  </p>
+                  <div class="servico-funcionalidades">
+                    <h4>Features:</h4>
+                    <ul>
+                      <li>Automatic order notifications</li>
+                      <li>Integration with carriers or delivery services</li>
+                      <li>Real-time order tracking</li>
+                    </ul>
+                  </div>
+                  <div class="servico-beneficios">
+                    <h4>Benefits:</h4>
+                    <ul>
+                      <li>More efficient delivery management</li>
+                      <li>Improved customer experience</li>
+                      <li>Time savings in store operation</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Service 5: Digital Marketing and SEO -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Digital Marketing and SEO</h3>
+                  </div>
+                  <p>
+                    Strengthen your online store with digital marketing and SEO strategies to
+                    increase visibility and sales.
+                  </p>
+                  <div class="servico-inclui">
+                    <h4>Includes:</h4>
+                    <ul>
+                      <li>SEO for products and categories</li>
+                      <li>Social media and Google Ads campaigns</li>
+                      <li>Email marketing and remarketing</li>
+                    </ul>
+                  </div>
+                  <div class="servico-beneficios">
+                    <h4>Benefits:</h4>
+                    <ul>
+                      <li>More qualified traffic to the store</li>
+                      <li>Increased conversions and revenue</li>
+                      <li>Customer loyalty</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Service 6: Visual Design and User Experience -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Visual Design and User Experience</h3>
+                  </div>
+                  <p>
+                    We create consistent visual identity and attractive interface for your store,
+                    ensuring the design is modern, intuitive and reliable.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefits:</h4>
+                    <ul>
+                      <li>Differentiation from competitors</li>
+                      <li>Trust and quality perception by customers</li>
+                      <li>Pleasant and intuitive shopping experience</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Service 7: Administration Panel and Maintenance -->
+                <div class="servico-loja-card">
+                  <div class="servico-header-loja">
+                    <div class="servico-icon">
+                      <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Administration Panel and Maintenance</h3>
+                  </div>
+                  <p>
+                    We provide intuitive panel to control the entire store, plus continuous
+                    maintenance plans.
+                  </p>
+                  <div class="servico-beneficios">
+                    <h4>Benefits:</h4>
+                    <ul>
+                      <li>Quick update of products and promotions</li>
+                      <li>Performance monitoring and sales reports</li>
+                      <li>Continuous technical support and security</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation arrows -->
+          <button class="slider-arrow slider-arrow-left" aria-label="Previous">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="slider-arrow slider-arrow-right" aria-label="Next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <!-- Navigation indicators - 3 slide groups -->
+          <div class="services-lojas-indicators">
+            <div class="indicator-loja active" data-slide="0"></div>
+            <div class="indicator-loja" data-slide="1"></div>
+            <div class="indicator-loja" data-slide="2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Digital Solutions for Restaurants -->
+    <section class="solucoes-restaurantes">
+      <div class="container">
+        <div class="solucoes-restaurantes__header">
+          <h2>Digital Solutions for Restaurants</h2>
+          <p>Transform your restaurant into a complete digital experience</p>
+          <p>
+            Solutions designed for modern restaurants that want to attract customers and facilitate
+            day-to-day management.
+          </p>
+        </div>
+
+        <div class="services-restaurantes-wrapper">
+          <div class="services-restaurantes-container">
+            <div class="services-restaurantes-slider">
+              <!-- Service 1: Digital Menu -->
+              <div class="servico-restaurante-card">
+                <div class="servico-header-restaurante">
+                  <div class="servico-icon">
+                    <i class="fas fa-utensils"></i>
+                  </div>
+                  <h3>Digital Menu</h3>
+                </div>
+                <p>
+                  Create interactive and attractive digital menus that allow your customers to view
+                  dishes, prices and place orders directly from their devices.
+                </p>
+                <div class="servico-funcionalidades">
+                  <h4>Features:</h4>
+                  <ul>
+                    <li>Interactive menu with photos</li>
+                    <li>Real-time price updates</li>
+                    <li>Integration with ordering system</li>
+                    <li>QR Code for quick access</li>
+                  </ul>
+                </div>
+                <div class="servico-beneficios">
+                  <h4>Benefits:</h4>
+                  <ul>
+                    <li>Reduction of printing costs</li>
+                    <li>Instant menu updates</li>
+                    <li>Better customer experience</li>
+                    <li>Less physical contact</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Service 2: Online Ordering System -->
+              <div class="servico-restaurante-card">
+                <div class="servico-header-restaurante">
+                  <div class="servico-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                  </div>
+                  <h3>Online Ordering System</h3>
+                </div>
+                <p>
+                  Complete online ordering system that allows customers to place orders, pay
+                  and schedule deliveries or pickups.
+                </p>
+                <div class="servico-funcionalidades">
+                  <h4>Features:</h4>
+                  <ul>
+                    <li>Intuitive shopping cart</li>
+                    <li>Multiple payment methods</li>
+                    <li>Delivery time management</li>
+                    <li>Automatic notifications</li>
+                  </ul>
+                </div>
+                <div class="servico-beneficios">
+                  <h4>Benefits:</h4>
+                  <ul>
+                    <li>Increased sales</li>
+                    <li>Reduction of order errors</li>
+                    <li>Better restaurant organization</li>
+                    <li>More satisfied customers</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Service 3: Reservation System -->
+              <div class="servico-restaurante-card">
+                <div class="servico-header-restaurante">
+                  <div class="servico-icon">
+                    <i class="fas fa-calendar-check"></i>
+                  </div>
+                  <h3>Reservation System</h3>
+                </div>
+                <p>
+                  Smart reservation system that allows customers to book tables online,
+                  manage schedules and confirm attendance.
+                </p>
+                <div class="servico-funcionalidades">
+                  <h4>Features:</h4>
+                  <ul>
+                    <li>Online reservations 24/7</li>
+                    <li>Availability management</li>
+                    <li>Automatic confirmations</li>
+                    <li>WhatsApp reminders</li>
+                  </ul>
+                </div>
+                <div class="servico-beneficios">
+                  <h4>Benefits:</h4>
+                  <ul>
+                    <li>Better restaurant planning</li>
+                    <li>Reduction of no-shows</li>
+                    <li>More professional experience</li>
+                    <li>Increased occupancy</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation arrows -->
+          <button class="slider-arrow slider-arrow-left" aria-label="Previous">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="slider-arrow slider-arrow-right" aria-label="Next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Indicators -->
+        <div class="services-restaurantes-indicators"></div>
+      </div>
+    </section>
+
+    <!-- CTA Principal -->
+    <section class="cta-principal cta-pos-carrossel">
+      <div class="container">
+        <h3>Want to know which service best fits your project?</h3>
+        <a href="https://wa.me/34602614398" target="_blank" rel="noopener" class="btn btn--primary"
+          >Get in touch</a
+        >
+        <p>and receive a free evaluation.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer footer-simple">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__logo">
+            <img src="img/simplelogo.png" alt="Amanda Cereja Logo" />
+          </div>
+          <div class="footer__social">
+            <a
+              href="https://www.instagram.com/amandacerejaweb/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://github.com/amandaceereja"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://wa.me/34602614398"
+              target="_blank"
+              rel="noopener"
+              aria-label="WhatsApp"
+            >
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+          <div class="footer__copyright">
+            <p>&copy; 2024 Amanda Cereja. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/language-selector.js"></script>
+    <script src="js/servicos.js"></script>
+  </body>
+</html>

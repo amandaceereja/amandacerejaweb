@@ -1,0 +1,301 @@
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio | Amanda Cereja - Desenvolvedora Frontend</title>
+
+    <meta
+      name="description"
+      content="Explore alguns dos meus projetos mais destacados em desenvolvimento frontend: páginas web, landing pages e e-commerce."
+    />
+
+    <!-- Librerías externas -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="img/simplelogo.png" type="image/png" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Portfólio | Amanda Cereja - Desenvolvedora Frontend" />
+    <meta
+      property="og:description"
+      content="Explore alguns dos meus projetos mais destacados em desenvolvimento frontend."
+    />
+    <meta
+      property="og:image"
+      content="https://amandaceereja.github.io/Pagina-web/img/social-share.jpg"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/portafolio.css" />
+
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+
+    <script src="js/scripts.js" defer></script>
+    <script src="js/portafolio.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Language Bar -->
+    <div class="language-bar">
+      <div class="language-bar__container">
+        <div class="language-bar__social">
+          <a href="https://www.instagram.com/amandacerejaweb/" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://github.com/amandaceereja" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="language-selector">
+          <button class="language-selector__toggle" aria-label="Selecionar idioma">
+            <span class="language-selector__current">BR</span>
+            <i class="fas fa-globe"></i>
+          </button>
+          <div class="language-selector__dropdown">
+            <button class="language-selector__option" data-lang="es">
+              <span>ES</span>
+            </button>
+            <button class="language-selector__option" data-lang="pt">
+              <span>BR</span>
+            </button>
+            <button class="language-selector__option" data-lang="en">
+              <span>EN</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar" aria-label="Principal">
+        <div class="navbar__logo">
+          <a href="index_pt.html"><span>Amanda</span> <strong>Cereja Diniz Alves</strong></a>
+        </div>
+        <button
+          type="button"
+          class="navbar__mobile-btn"
+          aria-label="Abrir/Fechar menu"
+          aria-controls="navmenu"
+          aria-expanded="false"
+        >
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="navbar__menu" id="navmenu">
+          <ul>
+            <li><a href="index_pt.html" data-translate="nav.home">Inicio</a></li>
+            <li><a href="servicos_pt.html">Serviços</a></li>
+            <li><a href="checklist_pt.html">Checklist</a></li>
+            <li><a href="presupuesto_pt.html">Orçamento</a></li>
+            <li><a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a></li>
+            <li>
+              <button id="admin-login-btn" class="admin-login-btn" aria-label="Acesso de administrador">
+                <i class="fas fa-user"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-menu-icon">
+          <button class="menu-icon-btn" aria-label="Mais opções">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="menu-icon-dropdown">
+            <div class="menu-dropdown-logo">
+              <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
+            </div>
+            <a href="index_pt.html" data-translate="nav.home">Inicio</a>
+            <a href="servicos_pt.html">Serviços</a>
+            <a href="checklist_pt.html">Checklist</a>
+            <a href="presupuesto_pt.html">Orçamento</a>
+            <a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a>
+            <a href="proceso_pt.html">Meu processo</a>
+            <a href="index_pt.html#sobre" data-translate="nav.about">Sobre mim</a>
+            <a href="index_pt.html#contacto" data-translate="nav.contact">Contato</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Modal de Login -->
+    <div id="login-modal" class="modal-overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 class="modal-title">Acesso de Administrador</h2>
+          <button class="modal-close" aria-label="Fechar modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="login-form">
+            <div class="form-group">
+              <label for="admin-password">Senha</label>
+              <input type="password" id="admin-password" name="password" required />
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn--primary">Entrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Banner -->
+    <section id="hero" class="hero" aria-label="Portfólio">
+      <div class="hero__content">
+        <h1 class="hero__title">
+          <span id="typer-portfolio" class="typer typer--portfolio" aria-live="polite"></span>
+        </h1>
+        <p class="hero__subtitle">Alguns dos meus projetos mais destacados em desenvolvimento frontend</p>
+      </div>
+    </section>
+
+    <!-- Panel de Administração (Solo visible para admin) -->
+    <section id="admin-panel" class="admin-panel" style="display: none">
+      <div class="container">
+        <div class="admin-header">
+          <h2>Painel de Administração</h2>
+          <button id="logout-btn" class="btn btn--ghost">Sair</button>
+        </div>
+
+        <form id="project-form" class="project-form">
+          <input type="hidden" id="project-id" />
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="project-title">Título do Projeto*</label>
+              <input type="text" id="project-title" name="title" required />
+            </div>
+
+            <div class="form-group">
+              <label for="project-category">Categoria*</label>
+              <select id="project-category" name="category" required>
+                <option value="">Selecionar categoria</option>
+                <option value="webpage">Página Web</option>
+                <option value="landing">Landing Page</option>
+                <option value="ecommerce">E-commerce</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label for="project-description">Descrição*</label>
+              <textarea id="project-description" name="description" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="project-image">Imagem do Projeto*</label>
+              <input type="file" id="project-image" name="image" accept="image/*" />
+              <div id="image-preview" class="image-preview"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="project-mockup">Mockup do Projeto</label>
+              <input type="file" id="project-mockup" name="mockup" accept="image/*" />
+              <div id="mockup-preview" class="image-preview"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="project-url">URL do Projeto</label>
+              <input type="url" id="project-url" name="url" placeholder="https://exemplo.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="project-github">GitHub do Projeto</label>
+              <input type="url" id="project-github" name="github" placeholder="https://github.com/usuario/projeto" />
+            </div>
+
+            <div class="form-group full">
+              <label for="project-technologies">Tecnologias Utilizadas</label>
+              <input type="text" id="project-technologies" name="technologies" placeholder="HTML, CSS, JavaScript, React..." />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary">
+              <span id="form-submit-text">Adicionar Projeto</span>
+            </button>
+            <button type="button" id="cancel-edit" class="btn btn--ghost" style="display: none">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+      <div class="container">
+
+
+        <div id="portfolio-grid" class="portfolio-grid">
+          <!-- Os projetos serão carregados dinamicamente -->
+        </div>
+
+        <!-- Estado vazio -->
+        <div id="empty-state" class="empty-state">
+          <i class="fas fa-folder-open"></i>
+          <h3>Ainda não há projetos</h3>
+          <p>Os projetos aparecerão aqui uma vez que sejam adicionados.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Tem um projeto em mente?</h2>
+          <p>
+            Se gostou de algum dos meus projetos, pode fazer o checklist e colocar na
+            seção de observações:
+            <strong>"Quero usar como referência o projeto: [nome do projeto]"</strong>. Assim
+            poderei criar algo único inspirado no estilo que mais gostar.
+          </p>
+          <div class="cta-buttons">
+            <a href="checklist_pt.html" class="btn btn--primary">Fazer Checklist</a>
+            <a href="index.html" class="btn btn--ghost">Voltar ao Início</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>2025 Amanda Cereja — Desenvolvedora Frontend</p>
+      </div>
+    </footer>
+
+    <!-- Botão WhatsApp flotante -->
+    <a
+      href="https://wa.me/34602614398"
+      class="whatsapp-button"
+      target="_blank"
+      rel="noopener"
+      aria-label="Abrir chat do WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Botão voltar ao topo -->
+    <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Sistema de Seletor de Idiomas -->
+    <script src="js/language-selector.js"></script>
+
+  </body>
+</html>

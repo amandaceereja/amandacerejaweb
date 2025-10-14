@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="es-ES">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Proceso de Trabajo | Amanda Cereja - Desarrolladora Frontend</title>
+
+    <meta
+      name="description"
+      content="Conoce mi metodología de trabajo paso a paso: desde el análisis inicial hasta el lanzamiento de tu proyecto web."
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/proceso.css" />
+
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mi Proceso de Trabajo | Amanda Cereja" />
+    <meta
+      property="og:description"
+      content="Metodología profesional para entregar proyectos web exitosos en tiempo y forma."
+    />
+    <meta property="og:url" content="https://amandaceereja.github.io/Pagina-web/proceso.html" />
+    <meta
+      property="og:image"
+      content="https://amandaceereja.github.io/Pagina-web/img/social-share.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mi Proceso de Trabajo | Amanda Cereja" />
+    <meta
+      name="twitter:description"
+      content="Metodología profesional para entregar proyectos web exitosos en tiempo y forma."
+    />
+    <meta
+      name="twitter:image"
+      content="https://amandaceereja.github.io/Pagina-web/img/social-share.jpg"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="img/simplelogo.png" type="image/png" />
+
+    <link rel="canonical" href="https://amandaceereja.github.io/Pagina-web/proceso.html" />
+  </head>
+
+  <body>
+    <!-- Language Bar -->
+    <div class="language-bar">
+      <div class="language-bar__container">
+        <div class="language-selector">
+          <button class="language-selector__toggle" aria-label="Seleccionar idioma">
+            <span class="language-selector__current">ES</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="language-selector__dropdown">
+            <button class="language-selector__option" data-lang="es">
+              <span>ES</span>
+            </button>
+            <button class="language-selector__option" data-lang="pt">
+              <span>BR</span>
+            </button>
+            <button class="language-selector__option" data-lang="en">
+              <span>EN</span>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar" aria-label="Principal">
+        <div class="navbar__logo">
+          <a href="index.html"><span>Amanda</span> <strong>Cereja Diniz Alves</strong></a>
+        </div>
+        <button
+          type="button"
+          class="navbar__mobile-btn"
+          aria-label="Abrir/Cerrar menú"
+          aria-controls="navmenu"
+          aria-expanded="false"
+        >
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="navbar__menu" id="navmenu">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicos.html">Servicios</a></li>
+            <li><a href="checklist.html">Checklist</a></li>
+            <li><a href="presupuesto.html">Presupuesto</a></li>
+            <li><a href="portafolio.html">Portafolio</a></li>
+          </ul>
+        </div>
+        <div class="navbar-menu-icon">
+          <button class="menu-icon-btn" aria-label="Más opciones">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="menu-icon-dropdown">
+            <div class="menu-dropdown-logo">
+              <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
+            </div>
+            <a href="index.html">Inicio</a>
+            <a href="servicos.html">Servicios</a>
+            <a href="checklist.html">Checklist</a>
+            <a href="presupuesto.html">Presupuesto</a>
+            <a href="portafolio.html">Portafolio</a>
+            <a href="proceso.html" class="active">Mi proceso</a>
+            <a href="index.html#sobre">Sobre mí</a>
+            <a href="index.html#contacto">Contacto</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="hero" class="hero" aria-label="Mi Proceso de Trabajo">
+      <div class="hero__content">
+        <h1 class="hero__title">
+          <span>Mi Proceso de Trabajo</span>
+        </h1>
+        <p class="hero__subtitle">
+          Metodología probada para entregar proyectos exitosos en tiempo y forma
+        </p>
+        <div class="hero__buttons">
+          <a href="#timeline" class="btn btn--primary">Ver mi metodología</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline del Proceso -->
+    <section id="timeline" class="proceso-timeline" aria-label="Timeline del proceso">
+      <div class="container">
+        <h2>Cómo trabajo contigo paso a paso</h2>
+        <p class="muted">
+          Cada proyecto sigue esta metodología para garantizar resultados excepcionales
+        </p>
+
+
+
+        <!-- Estadísticas del proceso -->
+        <div class="proceso-stats">
+          <div class="stat-item">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Proyectos entregados a tiempo</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4.9/5</div>
+            <div class="stat-label">Satisfacción del cliente</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Proyectos completados</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Comunicación transparente</div>
+          </div>
+        </div>
+
+        <div class="timeline-wrapper">
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <span class="phase-number">01</span>
+              <i class="fas fa-search"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Descubrimiento & Análisis</h3>
+              <div class="timeline-duration">3-5 días</div>
+              <p>
+                Entiendo tu negocio, objetivos y audiencia target para crear la estrategia perfecta
+              </p>
+              <ul class="timeline-tasks">
+                <li><i class="fas fa-check"></i> Briefing detallado contigo</li>
+                <li><i class="fas fa-check"></i> Análisis de competencia</li>
+                <li><i class="fas fa-check"></i> Definición de buyer personas</li>
+                <li><i class="fas fa-check"></i> Auditoría técnica (si existe sitio previo)</li>
+              </ul>
+              <div class="timeline-deliverable">
+                <strong>Entregable:</strong> Documento de estrategia y wireframes iniciales
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <span class="phase-number">02</span>
+              <i class="fas fa-pencil-ruler"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Diseño UX/UI</h3>
+              <div class="timeline-duration">5-7 días</div>
+              <p>Creo la experiencia de usuario perfecta y el diseño visual que convierte</p>
+              <ul class="timeline-tasks">
+                <li><i class="fas fa-check"></i> Arquitectura de información</li>
+                <li><i class="fas fa-check"></i> Wireframes detallados</li>
+                <li><i class="fas fa-check"></i> Prototipo interactivo</li>
+                <li><i class="fas fa-check"></i> Diseño visual final</li>
+              </ul>
+              <div class="timeline-deliverable">
+                <strong>Entregable:</strong> Prototipo clickeable en Figma
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <span class="phase-number">03</span>
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Desarrollo & Optimización</h3>
+              <div class="timeline-duration">7-14 días</div>
+              <p>Programo tu sitio con las mejores prácticas para máximo rendimiento</p>
+              <ul class="timeline-tasks">
+                <li><i class="fas fa-check"></i> Desarrollo frontend responsive</li>
+                <li><i class="fas fa-check"></i> Integración de CMS (si aplica)</li>
+                <li><i class="fas fa-check"></i> Optimización de velocidad</li>
+                <li><i class="fas fa-check"></i> Testing cross-browser</li>
+              </ul>
+              <div class="timeline-deliverable">
+                <strong>Entregable:</strong> Sitio en servidor de staging para revisión
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <span class="phase-number">04</span>
+              <i class="fas fa-rocket"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Lanzamiento & Soporte</h3>
+              <div class="timeline-duration">2-3 días</div>
+              <p>Tu sitio va en vivo con todo configurado y listo para generar resultados</p>
+              <ul class="timeline-tasks">
+                <li><i class="fas fa-check"></i> Deploy a producción</li>
+                <li><i class="fas fa-check"></i> Configuración de analytics</li>
+                <li><i class="fas fa-check"></i> Training para gestión de contenido</li>
+                <li><i class="fas fa-check"></i> Documentación técnica</li>
+              </ul>
+              <div class="timeline-deliverable">
+                <strong>Entregable:</strong> Sitio live + 30 días de soporte gratuito
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Herramientas -->
+    <section class="herramientas" aria-label="Herramientas que utilizo">
+      <div class="container">
+        <h2>Herramientas & Tecnologías</h2>
+        <p class="muted">Stack profesional para resultados de calidad</p>
+
+        <div class="servicios-cards">
+          <div class="card">
+            <h3>Diseño & Prototipado</h3>
+            <div class="tools-list">
+              <div class="tool-item">
+                <i class="fas fa-drafting-compass"></i>
+                <span>Wireframing & Mockups</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-paint-brush"></i>
+                <span>UI Design</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-user-check"></i>
+                <span>UX Research & Testing</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-mouse-pointer"></i>
+                <span>Prototipado Interactivo</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-universal-access"></i>
+                <span>Accesibilidad (A11y)</span>
+              </div>
+              <div class="tool-item">
+                <i class="fab fa-figma"></i>
+                <span>Figma</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-palette"></i>
+                <span>Coolors</span>
+              </div>
+              <div class="tool-item">
+                <div class="custom-icon illustrator-icon">
+                  <span>Ai</span>
+                </div>
+                <span>Illustrator</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-images"></i>
+                <span>Canva</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Desarrollo Frontend</h3>
+            <div class="tools-list">
+              <div class="tool-item">
+                <i class="fab fa-html5"></i>
+                <span>HTML5</span>
+              </div>
+              <div class="tool-item">
+                <i class="fab fa-css3-alt"></i>
+                <span>CSS3</span>
+              </div>
+              <div class="tool-item">
+                <i class="fab fa-js-square"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="tool-item">
+                <i class="fab fa-react"></i>
+                <span>React</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-rocket"></i>
+                <span>Next.js</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-wind"></i>
+                <span>Tailwind CSS</span>
+              </div>
+              <div class="tool-item">
+                <i class="fab fa-bootstrap"></i>
+                <span>Bootstrap</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-database"></i>
+                <span>Context API</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-exchange-alt"></i>
+                <span>Axios</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-vial"></i>
+                <span>Playwright</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-flask"></i>
+                <span>Jest</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-search"></i>
+                <span>SEO básico</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Responsive Design</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-adjust"></i>
+                <span>Dark/Light Mode</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Desarrollo Personalizado</h3>
+            <div class="tools-list">
+              <div class="tool-item">
+                <i class="fas fa-code"></i>
+                <span>VsCode</span>
+              </div>
+              <div class="tool-item">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comunicación -->
+    <section class="comunicacion" aria-label="Proceso de comunicación">
+      <div class="container">
+        <h2>Cómo nos comunicamos</h2>
+        <p class="muted">Transparencia total durante todo el proyecto</p>
+
+        <div class="servicios-cards">
+          <div class="card">
+            <i class="fas fa-calendar-check"></i>
+            <h3>Reuniones</h3>
+            <p>Videollamadas de 30min según necesidad para revisar avances y tomar decisiones clave.</p>
+          </div>
+
+          <div class="card">
+            <i class="fas fa-comments"></i>
+            <h3>Chat directo</h3>
+            <p>WhatsApp Business para consultas siempre disponible.</p>
+          </div>
+
+          <div class="card">
+            <i class="fas fa-eye"></i>
+            <h3>Previews</h3>
+            <p>Actualizaciones de progreso y resúmenes semanales con capturas de pantalla y explicaciones de las funcionalidades desarrolladas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tiempos de Entrega -->
+    <section class="tiempos-entrega" aria-label="Tiempos de entrega">
+      <div class="container">
+        <h2>Tiempos de Entrega</h2>
+        <p class="muted">Plazos realistas basados en la complejidad del proyecto</p>
+
+        <div class="servicios-cards">
+          <div class="card">
+            <div class="delivery-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <h3>Landing Page</h3>
+            <div class="delivery-time">3-7 días</div>
+            <p>Página única optimizada para conversión con formulario de contacto</p>
+          </div>
+
+          <div class="card">
+            <div class="delivery-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>Website Corporativo</h3>
+            <div class="delivery-time">7-15 días</div>
+            <p>2-10 páginas con CMS integrado para gestión autónoma de contenido</p>
+          </div>
+
+          <div class="card">
+            <div class="delivery-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h3>E-commerce</h3>
+            <div class="delivery-time">10-30 días</div>
+            <p>Tienda online completa con pasarela de pago y gestión de inventario</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="checklist" aria-label="Llamada a la acción">
+      <div class="container">
+        <h2>¿Listo para empezar tu proyecto?</h2>
+        <p class="checklist__subtitle muted">
+          Ahora que conoces mi proceso, el siguiente paso es hacer tu checklist personalizado
+        </p>
+
+        <div class="checklist__cta">
+          <a href="checklist.html" class="chip-cta">Empezar mi proyecto ahora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>2025 Amanda Cereja — Desarrolladora Frontend</p>
+      </div>
+    </footer>
+
+    <!-- Botón volver arriba -->
+    <button id="back-to-top" class="back-to-top" aria-label="Volver arriba">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Botão WhatsApp flotante -->
+    <a
+      href="https://wa.me/34602614398"
+      class="whatsapp-button"
+      target="_blank"
+      rel="noopener"
+      aria-label="Abrir chat de WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Sistema de Seletor de Idiomas -->
+    <script src="js/language-selector.js"></script>
+    
+
+  </body>
+</html>

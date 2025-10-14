@@ -158,7 +158,7 @@ function validateStep(idx) {
   return msgs.length === 0;
 }
 
-function updateWizardUI() {
+function updateWizardUI(shouldScroll = true) {
   steps.forEach((s, i) => s.classList.toggle("active", i === currentStep));
 
   stepsIndicator.forEach((li, i) => {
@@ -177,13 +177,24 @@ function updateWizardUI() {
     progressEl.setAttribute("aria-label", `Progreso: paso ${currentStep + 1} de ${denom}`);
   }
   announce(`Paso ${currentStep + 1} de ${denom}`);
+  
+  // ROLAGEM PARA O TOPO ABSOLUTO DA PÁGINA - sempre que houver navegação
+  if (shouldScroll) {
+    // Executar rolagem imediatamente para o topo absoluto da página
+    requestAnimationFrame(() => {
+      window.scrollTo({ 
+        top: 0, 
+        behavior: 'instant' 
+      });
+    });
+  }
 }
 
 function nextStep() {
   if (!validateStep(currentStep)) return;
   if (currentStep < steps.length - 1) {
     currentStep++;
-    updateWizardUI();
+    updateWizardUI(true); // Habilitar rolagem na navegação
     saveState();
     track("wizard_next", { step: currentStep + 1 });
   }
@@ -192,7 +203,7 @@ function nextStep() {
 function prevStep() {
   if (currentStep > 0) {
     currentStep--;
-    updateWizardUI();
+    updateWizardUI(true); // Habilitar rolagem na navegação
     saveState();
     track("wizard_prev", { step: currentStep + 1 });
   }
@@ -211,22 +222,11 @@ document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach
   );
 });
 
-// Estado inicial
-updateWizardUI();
-
-try {
-  if (!sessionStorage.getItem("ck_viewed")) {
-    const K_VIEW = "ck_views";
-    const v = +localStorage.getItem(K_VIEW) || 0;
-    localStorage.setItem(K_VIEW, String(v + 1));
-    sessionStorage.setItem("ck_viewed", "1");
-  }
-} catch {
-  /* TODO: manejar error no crítico */ void 0;
-}
-
 // ---------- Autosave en localStorage ----------
 const STORAGE_KEY = "chk_state_v2";
+
+// Limpar dados ao carregar a página ANTES de restaurar
+localStorage.removeItem(STORAGE_KEY);
 
 function saveState() {
   if (!form) return;
@@ -279,12 +279,25 @@ function restoreState() {
       }
     }
 
-    updateWizardUI();
+    updateWizardUI(false); // Desabilitar rolagem na restauração de estado
   } catch {
     /* TODO: manejar error no crítico */ void 0;
   }
 }
-restoreState();
+
+// Estado inicial - NÃO restaurar dados antigos e NÃO rolar
+updateWizardUI(false); // Desabilitar rolagem na inicialização
+
+try {
+  if (!sessionStorage.getItem("ck_viewed")) {
+    const K_VIEW = "ck_views";
+    const v = +localStorage.getItem(K_VIEW) || 0;
+    localStorage.setItem(K_VIEW, String(v + 1));
+    sessionStorage.setItem("ck_viewed", "1");
+  }
+} catch {
+  /* TODO: manejar error no crítico */ void 0;
+}
 
 (function fillTracking() {
   const p = new URLSearchParams(location.search);
@@ -408,6 +421,8 @@ if (form) {
           form.reset();
           currentStep = 0;
           updateWizardUI();
+          // Rolar para o topo ao clicar em "Enviar otro"
+          window.scrollTo({ top: 0, behavior: 'instant' });
         };
       }
     } catch (err) {
@@ -423,6 +438,27 @@ if (form) {
 }
 
 const backToTop = document.getElementById("back-to-top");
+
+// Botão para limpar dados
+const clearDataBtn = document.getElementById("clear-data");
+if (clearDataBtn) {
+  clearDataBtn.addEventListener("click", () => {
+    if (confirm("¿Estás seguro de que quieres borrar todos los datos guardados?")) {
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+        form.reset();
+        currentStep = 0;
+        updateWizardUI();
+        // Rolar para o topo ao limpar dados
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        alert("Datos borrados correctamente.");
+      } catch (e) {
+        alert("Error al borrar los datos.");
+      }
+    }
+  });
+}
+
 function onScroll() {
   if (window.scrollY > 600) backToTop.classList.add("show");
   else backToTop.classList.remove("show");
