@@ -4042,16 +4042,17 @@ a:hover {
 
 /* Desktop responsive: botões CTA lado a lado com largura reduzida */
 @media (min-width: 1025px) {
-  .hero__buttons {
+  .hero .hero__buttons {
     display: flex !important;
     flex-direction: row !important;
     justify-content: center !important;
     align-items: center !important;
     gap: 1.5rem !important;
     margin-top: 2rem !important;
+    flex-wrap: nowrap !important;
   }
 
-  .hero__buttons .btn {
+  .hero .hero__buttons .btn {
     flex: 0 0 auto !important;
     max-width: 180px !important;
     min-width: 160px !important;
@@ -4059,6 +4060,7 @@ a:hover {
     font-size: 1rem !important;
     border-radius: 8px !important;
     text-align: center !important;
+    white-space: nowrap !important;
   }
 }
 
