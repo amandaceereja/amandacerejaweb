@@ -150,6 +150,13 @@ a:hover {
   margin: 0 auto;
 }
 
+/* Criar um container para menu + ícone em desktop */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .navbar__logo a {
   font-family: var(--font-headline);
   font-size: 1.5rem;
@@ -257,9 +264,107 @@ a:hover {
   align-items: center;
 }
 
-/* Desktop: mostrar navbar-menu-icon junto com navbar__menu */
-@media (min-width: 1025px) {
+/* Controle dos dropdowns por resolução */
+/* Por padrão: esconder ambos os dropdowns */
+.mobile-dropdown {
+  display: none;
+}
+
+.desktop-dropdown {
+  display: none;
+}
+
+/* CELULAR (max-width: 640px): mostrar dropdown completo */
+@media (max-width: 640px) {
+  .navbar__menu {
+    display: none !important;
+  }
+  
   .navbar-menu-icon {
+    display: flex !important;
+  }
+  
+  .navbar__mobile-btn {
+    display: none !important;
+  }
+  
+  .mobile-dropdown {
+    display: flex;
+  }
+  
+  .desktop-dropdown {
+    display: none;
+  }
+}
+
+/* TABLET (641px-1024px): mostrar dropdown completo */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .navbar__menu {
+    display: none !important;
+  }
+  
+  .navbar-menu-icon {
+    display: flex !important;
+  }
+  
+  .navbar__mobile-btn {
+    display: none !important;
+  }
+  
+  .mobile-dropdown {
+    display: flex;
+  }
+  
+  .desktop-dropdown {
+    display: none;
+  }
+}
+
+/* DESKTOP (min-width: 1025px): mostrar navbar__menu + dropdown limitado */
+@media (min-width: 1025px) {
+  .navbar__menu {
+    display: flex !important;
+  }
+  
+  .navbar-menu-icon {
+    display: flex !important;
+  }
+  
+  .navbar__mobile-btn {
+    display: none !important;
+  }
+  
+  /* FORÇAR: Esconder dropdown mobile em desktop */
+  .navbar-menu-icon .mobile-dropdown {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  
+  /* FORÇAR: Mostrar apenas dropdown desktop */
+  .navbar-menu-icon .desktop-dropdown {
+    display: flex !important;
+  }
+  
+  /* Garantir que quando ativo, apenas desktop dropdown apareça */
+  .navbar-menu-icon.active .mobile-dropdown {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  
+  .navbar-menu-icon.active .desktop-dropdown {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Regra adicional para garantir que apenas desktop dropdown seja visível */
+  .navbar-menu-icon .menu-icon-dropdown.mobile-dropdown {
+    display: none !important;
+  }
+  
+  .navbar-menu-icon .menu-icon-dropdown.desktop-dropdown {
     display: flex !important;
   }
 }
@@ -1901,34 +2006,7 @@ a:hover {
 
 /* Media queries */
 
-/* Tablet responsivo */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .navbar__menu {
-    display: none !important;
-  }
 
-  .navbar__mobile-btn {
-    display: none !important;
-  }
-
-  .navbar-menu-icon {
-    display: flex !important;
-  }
-}
-
-/* Mobile responsivo */
-@media (max-width: 768px) {
-  .navbar__menu {
-    display: none !important;
-  }
-
-  .navbar__mobile-btn {
-    display: none !important;
-  }
-
-  .navbar-menu-icon {
-    display: flex !important;
-  }
 
   .hero__buttons {
     flex-direction: column;
@@ -1937,7 +2015,7 @@ a:hover {
     justify-content: center;
     flex-wrap: wrap;
   }
-}
+
 
 /* Responsive MOBILE (≤640px) */
 
@@ -3959,6 +4037,28 @@ a:hover {
 
   .services-cta__feature span {
     font-size: 0.55rem;
+  }
+}
+
+/* Desktop responsive: botões CTA lado a lado com largura reduzida */
+@media (min-width: 1025px) {
+  .hero__buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    margin-top: 2rem !important;
+  }
+
+  .hero__buttons .btn {
+    flex: 0 0 auto !important;
+    max-width: 180px !important;
+    min-width: 160px !important;
+    padding: 1rem 1.5rem !important;
+    font-size: 1rem !important;
+    border-radius: 8px !important;
+    text-align: center !important;
   }
 }
 

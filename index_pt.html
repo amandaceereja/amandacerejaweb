@@ -120,7 +120,8 @@
         <div class="navbar__logo">
           <a href="#"><span>Amanda</span> <strong>Cereja Diniz Alves</strong></a>
         </div>
-        <button
+                <div class="navbar__right">
+          <button
           type="button"
           class="navbar__mobile-btn"
           aria-label="Abrir/Fechar menu"
@@ -138,23 +139,34 @@
             <li><a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a></li>
           </ul>
         </div>
-        <div class="navbar-menu-icon">
-          <button class="menu-icon-btn" aria-label="Mais opções">
+          <div class="navbar-menu-icon">
+              <button class="menu-icon-btn" aria-label="Mais opções">
             <i class="fas fa-bars"></i>
           </button>
-          <div class="menu-icon-dropdown">
-            <div class="menu-dropdown-logo">
-              <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
+              <!-- Dropdown para Desktop (apenas 3 links) -->
+              <div class="menu-icon-dropdown desktop-dropdown">
+                  <div class="menu-dropdown-logo">
+                      <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
+                  </div>
+                  <a href="proceso_pt.html">Meu processo</a>
+                  <a href="#sobre" data-translate="nav.about">Sobre mim</a>
+                  <a href="#contacto" data-translate="nav.contact">Contato</a>
+              </div>
+              <!-- Dropdown para Mobile/Tablet (todos os links) -->
+              <div class="menu-icon-dropdown mobile-dropdown">
+                  <div class="menu-dropdown-logo">
+                      <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
+                  </div>
+                  <a href="#hero" data-translate="nav.home">Início</a>
+                  <a href="servicos_pt.html" data-translate="nav.services">Serviços</a>
+                  <a href="checklist_pt.html" data-translate="nav.checklist">Checklist</a>
+                  <a href="presupuesto_pt.html" data-translate="nav.budget">Orçamento</a>
+                  <a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a>
+                  <a href="proceso_pt.html">Meu processo</a>
+                  <a href="#sobre" data-translate="nav.about">Sobre mim</a>
+                  <a href="#contacto" data-translate="nav.contact">Contato</a>
+              </div>
             </div>
-            <a href="index_pt.html" data-translate="nav.home">Início</a>
-            <a href="servicos_pt.html">Serviços</a>
-            <a href="checklist_pt.html">Checklist</a>
-            <a href="presupuesto_pt.html">Orçamento</a>
-            <a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a>
-            <a href="proceso_pt.html">Meu processo</a>
-            <a href="#sobre" data-translate="nav.about">Sobre mim</a>
-            <a href="#contacto" data-translate="nav.contact">Contato</a>
-          </div>
         </div>
       </nav>
     </header>

@@ -218,6 +218,13 @@ h1 {
   margin: 0 auto;
 }
 
+/* Criar um container para menu + ícone em desktop */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .navbar__logo a {
   font-family: "Playfair Display", serif;
   font-size: 1.5rem;
@@ -306,9 +313,11 @@ h1 {
 /* Navbar Menu Icon */
 .navbar-menu-icon {
   position: relative;
-  display: flex;
+  display: none;
   align-items: center;
 }
+
+
 
 .menu-icon-btn {
   background: none;
@@ -421,18 +430,82 @@ h1 {
   width: calc(100% - 2rem);
 }
 
-/* Responsive Móvil e Tablet - navbar */
-@media (max-width: 1024px) {
+/* Controle dos dropdowns por resolução */
+/* Por padrão: esconder ambos os dropdowns */
+.mobile-dropdown {
+  display: none;
+}
+
+.desktop-dropdown {
+  display: none;
+}
+
+/* CELULAR (max-width: 640px): mostrar dropdown completo */
+@media (max-width: 640px) {
   .navbar__menu {
     display: none !important;
   }
-
+  
+  .navbar-menu-icon {
+    display: flex !important;
+  }
+  
   .navbar__mobile-btn {
     display: none !important;
   }
+  
+  .mobile-dropdown {
+    display: flex;
+  }
+  
+  .desktop-dropdown {
+    display: none;
+  }
+}
 
+/* TABLET (641px-1024px): mostrar dropdown completo */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .navbar__menu {
+    display: none !important;
+  }
+  
   .navbar-menu-icon {
     display: flex !important;
+  }
+  
+  .navbar__mobile-btn {
+    display: none !important;
+  }
+  
+  .mobile-dropdown {
+    display: flex;
+  }
+  
+  .desktop-dropdown {
+    display: none;
+  }
+}
+
+/* DESKTOP (min-width: 1025px): mostrar navbar__menu + dropdown limitado */
+@media (min-width: 1025px) {
+  .navbar__menu {
+    display: flex !important;
+  }
+  
+  .navbar-menu-icon {
+    display: flex !important;
+  }
+  
+  .navbar__mobile-btn {
+    display: none !important;
+  }
+  
+  .mobile-dropdown {
+    display: none;
+  }
+  
+  .desktop-dropdown {
+    display: flex;
   }
 }
 

@@ -121,40 +121,52 @@
             ><span class="tablet-hide"> Diniz Alves</span></a
           >
         </div>
-        <button
-          type="button"
-          class="navbar__mobile-btn"
-          aria-label="Abrir/Cerrar menú"
-          aria-controls="navmenu"
-          aria-expanded="false"
-        >
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="navbar__menu" id="navmenu">
-          <ul>
-            <li><a href="index.html" data-translate="nav.home">Inicio</a></li>
-            <li><a href="servicos.html">Servicios</a></li>
-            <li><a href="checklist.html">Checklist</a></li>
-            <li><a href="presupuesto.html">Presupuesto</a></li>
-            <li><a href="portafolio.html" data-translate="nav.portfolio">Portafolio</a></li>
-          </ul>
-        </div>
-        <div class="navbar-menu-icon">
-          <button class="menu-icon-btn" aria-label="Más opciones">
-            <i class="fas fa-bars"></i>
+        <div class="navbar__right">
+          <button
+            type="button"
+            class="navbar__mobile-btn"
+            aria-label="Abrir/Cerrar menú"
+            aria-controls="navmenu"
+            aria-expanded="false"
+          >
+            <i class="fa fa-bars"></i>
           </button>
-          <div class="menu-icon-dropdown">
-            <div class="menu-dropdown-logo">
-              <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
+          <div class="navbar__menu" id="navmenu">
+            <ul>
+              <li><a href="index.html" data-translate="nav.home">Inicio</a></li>
+              <li><a href="servicos.html">Servicios</a></li>
+              <li><a href="checklist.html">Checklist</a></li>
+              <li><a href="presupuesto.html">Presupuesto</a></li>
+              <li><a href="portafolio.html" data-translate="nav.portfolio">Portafolio</a></li>
+            </ul>
+          </div>
+          <div class="navbar-menu-icon">
+            <button class="menu-icon-btn" aria-label="Más opciones">
+              <i class="fas fa-bars"></i>
+            </button>
+            <!-- Dropdown para Desktop (apenas 3 links) -->
+            <div class="menu-icon-dropdown desktop-dropdown">
+              <div class="menu-dropdown-logo">
+                <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
+              </div>
+              <a href="proceso.html">Mi proceso</a>
+              <a href="#sobre" data-translate="nav.about">Sobre mí</a>
+              <a href="#contacto" data-translate="nav.contact">Contacto</a>
             </div>
-            <a href="index.html" data-translate="nav.home">Inicio</a>
-            <a href="servicos.html">Servicios</a>
-            <a href="checklist.html">Checklist</a>
-            <a href="presupuesto.html">Presupuesto</a>
-            <a href="portafolio.html" data-translate="nav.portfolio">Portafolio</a>
-            <a href="proceso.html">Mi proceso</a>
-            <a href="#sobre" data-translate="nav.about">Sobre mí</a>
-            <a href="#contacto" data-translate="nav.contact">Contacto</a>
+            <!-- Dropdown para Mobile/Tablet (todos os links) -->
+            <div class="menu-icon-dropdown mobile-dropdown">
+              <div class="menu-dropdown-logo">
+                <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
+              </div>
+              <a href="#hero" data-translate="nav.home">Inicio</a>
+              <a href="servicios.html" data-translate="nav.services">Servicios</a>
+              <a href="checklist.html" data-translate="nav.checklist">Checklist</a>
+              <a href="presupuesto.html" data-translate="nav.budget">Presupuesto</a>
+              <a href="portafolio.html" data-translate="nav.portfolio">Portafolio</a>
+              <a href="proceso.html">Mi proceso</a>
+              <a href="#sobre" data-translate="nav.about">Sobre mí</a>
+              <a href="#contacto" data-translate="nav.contact">Contacto</a>
+            </div>
           </div>
         </div>
       </nav>
