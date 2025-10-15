@@ -225,9 +225,6 @@ document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach
 // ---------- Autosave en localStorage ----------
 const STORAGE_KEY = "chk_state_v2";
 
-// Limpar dados ao carregar a página ANTES de restaurar
-localStorage.removeItem(STORAGE_KEY);
-
 function saveState() {
   if (!form) return;
   const data = new FormData(form);
@@ -285,7 +282,8 @@ function restoreState() {
   }
 }
 
-// Estado inicial - NÃO restaurar dados antigos e NÃO rolar
+// Estado inicial - restaurar dados se existirem e inicializar UI
+restoreState(); // Restaurar estado salvo se existir
 updateWizardUI(false); // Desabilitar rolagem na inicialização
 
 try {
@@ -379,25 +377,7 @@ if (form) {
       if (successBox) {
         successBox.hidden = false;
 
-        try {
-          const K_VIEW = "ck_views";
-          const K_SEND = "ck_sends";
-          const prevSends = Number(localStorage.getItem(K_SEND)) || 0;
-          localStorage.setItem(K_SEND, String(prevSends + 1));
-          const views = Number(localStorage.getItem(K_VIEW)) || 1; // evita división por 0
-          const sends = Number(localStorage.getItem(K_SEND)) || 0;
-          const rate = ((sends / views) * 100).toFixed(1);
-
-          if (!successBox.querySelector('[data-conv="1"]')) {
-            const p = document.createElement("p");
-            p.className = "muted";
-            p.dataset.conv = "1";
-            p.textContent = `Conversión estimada del checklist: ${rate}% (envíos: ${sends} / vistas: ${views})`;
-            successBox.appendChild(p);
-          }
-        } catch {
-          /* Silencio: localStorage puede fallar en incógnito/bloqueado */
-        }
+        // Conversão removida conforme solicitado pelo usuário
 
         const focusTarget = successBox.querySelector("h2") || successBox;
         focusTarget.setAttribute("tabindex", "-1");
