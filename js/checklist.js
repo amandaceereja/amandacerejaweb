@@ -31,6 +31,12 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
+// Limpar sessionStorage quando o usuário navegar para outra página
+// Isso garante que o próximo acesso seja tratado como refresh
+window.addEventListener('beforeunload', () => {
+  sessionStorage.removeItem(SESSION_KEY);
+});
+
 // ---------- Wizard básico (3 pasos) ----------
 const form = document.getElementById("chk");
 const steps = Array.from(document.querySelectorAll(".step"));
@@ -224,6 +230,7 @@ document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach
 
 // ---------- Autosave en localStorage ----------
 const STORAGE_KEY = "chk_state_v2";
+const SESSION_KEY = "chk_session_active";
 
 function saveState() {
   if (!form) return;
@@ -282,8 +289,18 @@ function restoreState() {
   }
 }
 
-// Estado inicial - restaurar dados se existirem e inicializar UI
-restoreState(); // Restaurar estado salvo se existir
+// Estado inicial - detectar se é refresh e limpar dados se necessário
+const isPageRefresh = !sessionStorage.getItem(SESSION_KEY);
+
+if (isPageRefresh) {
+  // Se é um refresh da página, limpar dados salvos
+  localStorage.removeItem(STORAGE_KEY);
+  sessionStorage.setItem(SESSION_KEY, "1");
+} else {
+  // Se não é refresh, restaurar estado salvo se existir
+  restoreState();
+}
+
 updateWizardUI(false); // Desabilitar rolagem na inicialização
 
 try {
@@ -448,3 +465,9 @@ if (backToTop) {
   backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 }
 onScroll();
+
+// Limpar sessionStorage quando o usuário navegar para outra página
+// Isso garante que o próximo acesso seja tratado como refresh
+window.addEventListener('beforeunload', () => {
+  sessionStorage.removeItem(SESSION_KEY);
+});
