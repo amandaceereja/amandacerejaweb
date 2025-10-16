@@ -103,13 +103,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     // Traduzir o título da calculadora
-    const calculatorTitle = document.querySelector('.calculator-form h2');
+    const calculatorTitle = document.querySelector('.calculator-form-pt h2');
     if (calculatorTitle) {
         calculatorTitle.textContent = 'Que tipo de projeto você precisa?';
     }
     
     // Traduzir o label do tipo de projeto
-    const projectTypeLabel = document.querySelector('.form-group .form-label');
+    const projectTypeLabel = document.querySelector('.form-group-pt .form-label-pt');
     if (projectTypeLabel) {
         projectTypeLabel.textContent = 'Tipo de Projeto';
     }
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'ecommerce': 'Ecommerce'
     };
     
-    document.querySelectorAll('.project-card').forEach(card => {
+    document.querySelectorAll('.project-card-pt').forEach(card => {
         const projectType = card.dataset.type;
         const projectTitle = card.querySelector('.project-info h3');
         if (projectTitle && projectNames[projectType]) {
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Traduzir os botões de plano
-    const planButtons = document.querySelectorAll('.plan-btn');
+    const planButtons = document.querySelectorAll('.plan-btn-pt');
     planButtons.forEach(btn => {
         const planType = btn.dataset.plan;
         switch(planType) {
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Traduzir seções adicionais
-    const selectedPlanSection = document.querySelector('#selected-plan-section .form-label');
+    const selectedPlanSection = document.querySelector('#selected-plan-section-pt .form-label-pt');
     if (selectedPlanSection) {
         selectedPlanSection.textContent = 'Plano Selecionado';
     }
@@ -213,15 +213,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Traduzir abas
     const tabButtons = [
         {
-            selector: '[data-tab="features-tab"]',
+            selector: '[data-tab="features-tab-pt"]',
             text: 'Funcionalidades Adicionais'
         },
         {
-            selector: '[data-tab="integrations-tab"]',
+            selector: '[data-tab="integrations-tab-pt"]',
             text: 'Integrações'
         },
         {
-            selector: '[data-tab="systems-tab"]',
+            selector: '[data-tab="systems-tab-pt"]',
             text: 'Sistemas'
         }
     ];
