@@ -679,9 +679,27 @@ function setupServiceCardExpansion() {
   initServicesSlider();
 
   // ===== CORREÇÃO GLOBAL DE ROLAGEM INICIAL =====
-  // Garante que todas as páginas comecem do topo absoluto
+  // Garante que as páginas comecem do topo, exceto quando há uma âncora na URL
   function aplicarCorrecaoRolagem() {
-    // Sempre rolar para o topo absoluto da página
+    // Verifica se há uma âncora (hash) na URL
+    const hash = window.location.hash;
+    
+    if (hash) {
+      // Se há uma âncora, tenta rolar para a seção correspondente
+      const targetElement = document.querySelector(hash);
+      if (targetElement) {
+        setTimeout(() => {
+          targetElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+          console.log('[Correção de Rolagem] Rolagem para seção:', hash);
+        }, 100);
+        return; // Não rola para o topo se há uma âncora válida
+      }
+    }
+    
+    // Apenas rola para o topo se não há âncora na URL
     window.scrollTo({ 
       top: 0, 
       behavior: 'instant' 
@@ -690,14 +708,40 @@ function setupServiceCardExpansion() {
     console.log('[Correção de Rolagem] Aplicada rolagem para o topo absoluto');
   }
 
-  // Aplicar correção no carregamento e após um pequeno delay para garantir que outros scripts executem
+  // Aplicar correção no carregamento
   window.addEventListener('load', () => {
     // Primeira tentativa imediata
     aplicarCorrecaoRolagem();
     
-    // Segunda tentativa após 100ms para garantir que checklist.js terminou
-    setTimeout(aplicarCorrecaoRolagem, 100);
-    
-    // Terceira tentativa após 500ms como fallback final
-    setTimeout(aplicarCorrecaoRolagem, 500);
+    // Segunda tentativa após 300ms para garantir que outros scripts executem
+    setTimeout(aplicarCorrecaoRolagem, 300);
+  });
+
+  // ===== DETECÇÃO DE HASH PARA NAVEGAÇÃO EXTERNA =====
+  // Detecta quando a página é carregada com um hash na URL (links externos)
+  function handleHashNavigation() {
+    const hash = window.location.hash;
+    if (hash) {
+      const targetElement = document.querySelector(hash);
+      if (targetElement) {
+        // Aguarda um pouco para garantir que a página carregou completamente
+        setTimeout(() => {
+          targetElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+          console.log('[Hash Navigation] Navegação para seção:', hash);
+        }, 500);
+      }
+    }
+  }
+
+  // Detecta mudanças no hash (quando o usuário navega usando botões do navegador)
+  window.addEventListener('hashchange', () => {
+    handleHashNavigation();
+  });
+
+  // Executa no DOMContentLoaded para casos de navegação externa
+  document.addEventListener('DOMContentLoaded', () => {
+    handleHashNavigation();
   });

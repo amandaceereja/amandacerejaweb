@@ -15,7 +15,6 @@
 
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
-    <script src="js/presupuesto.js" defer></script>
     <script src="js/presupuesto-pt.js" defer></script>
     
 
@@ -118,8 +117,8 @@
                       <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
                   </div>
                   <a href="proceso_pt.html">Meu processo</a>
-                  <a href="#sobre">Sobre mim</a>
-                  <a href="#contacto">Contato</a>
+                  <a href="index_pt.html#sobre">Sobre mim</a>
+                  <a href="index_pt.html#contacto">Contato</a>
               </div>
               <!-- Dropdown para Mobile/Tablet (todos os links) -->
               <div class="menu-icon-dropdown mobile-dropdown">
@@ -132,8 +131,8 @@
                   <a href="presupuesto_pt.html">Orçamento</a>
                   <a href="portafolio_pt.html">Portfólio</a>
                   <a href="proceso_pt.html">Meu processo</a>
-                  <a href="#sobre">Sobre mim</a>
-                  <a href="#contacto">Contato</a>
+                  <a href="index_pt.html#sobre">Sobre mim</a>
+                  <a href="index_pt.html#contacto">Contato</a>
               </div>
             </div>
         </div>
@@ -218,9 +217,9 @@
                     </p>
                   </div>
                   <div class="plan-buttons" style="display: none;">
-                    <button class="plan-btn" data-plan="basico">Plano Básico</button>
-                    <button class="plan-btn" data-plan="estandar">Plano Padrão</button>
-                    <button class="plan-btn" data-plan="premium">Plano Premium</button>
+                    <button class="plan-btn" data-plan="basico">Básico</button>
+                    <button class="plan-btn" data-plan="estandar">Padrão</button>
+                    <button class="plan-btn" data-plan="premium">Premium</button>
                   </div>
                 </div>
 
@@ -246,9 +245,9 @@
                     </p>
                   </div>
                   <div class="plan-buttons" style="display: none;">
-                    <button class="plan-btn" data-plan="basico">Plano Básico</button>
-                    <button class="plan-btn" data-plan="estandar">Plano Padrão</button>
-                    <button class="plan-btn" data-plan="premium">Plano Premium</button>
+                    <button class="plan-btn" data-plan="basico">Básico</button>
+                    <button class="plan-btn" data-plan="estandar">Padrão</button>
+                    <button class="plan-btn" data-plan="premium">Premium</button>
                   </div>
                 </div>
               </div>
@@ -259,7 +258,172 @@
               <label class="form-label">Plano Selecionado</label>
               <div class="selected-plan-details">
                 <div id="plan-content">
-                  <!-- Plan details will be inserted here -->
+                  <!-- Landing Page Plans -->
+                  <div class="plan-details-content" id="landing-basico" style="display: none;">
+                    <div class="plan-header">
+                      <h3 class="plan-title">Plano Básico</h3>
+                      <p class="plan-price">R$ 450</p>
+                    </div>
+                    <ul class="plan-features-list">
+                      <li>1 página única com design objetivo</li>
+                      <li>Design responsivo (desktop + móvel)</li>
+                      <li>Banner principal ou destaque do produto/serviço</li>
+                      <li>Formulário + Botão flutuante do WhatsApp</li>
+                      <li>SEO básico para buscas locais</li>
+                      <li>Call to Action (CTA) principal</li>
+                      <li>Suporte inicial 7 dias</li>
+                    </ul>
+                  </div>
+
+                  <div class="plan-details-content" id="landing-padrao" style="display: none;">
+                    <div class="plan-header">
+                      <h3 class="plan-title">Plano Padrão</h3>
+                      <p class="plan-price">R$ 650</p>
+                    </div>
+                    <ul class="plan-features-list">
+                      <li>1 página única + até 3 seções</li>
+                      <li>Design responsivo e layout personalizado</li>
+                      <li>Banner interativo ou slideshow simples</li>
+                      <li>Formulário + Integração avançada do WhatsApp</li>
+                      <li>SEO básico + otimização de velocidade</li>
+                      <li>CTAs múltiplos</li>
+                      <li>Seção de depoimentos ou avaliações</li>
+                      <li>Suporte inicial 15 dias</li>
+                    </ul>
+                  </div>
+
+                  <div class="plan-details-content" id="landing-premium" style="display: none;">
+                    <div class="plan-header">
+                      <h3 class="plan-title">Plano Premium</h3>
+                      <p class="plan-price">R$ 1.200</p>
+                    </div>
+                    <ul class="plan-features-list">
+                      <li>Página única + até 8 seções</li>
+                      <li>Design responsivo, moderno e atrativo</li>
+                      <li>Banner interativo ou slideshow avançado</li>
+                      <li>Formulário + Integração avançada do WhatsApp</li>
+                      <li>Integração com redes sociais - Feed do Instagram</li>
+                      <li>SEO avançado + otimização de velocidade</li>
+                      <li>CTAs múltiplos estratégicos e pop-ups de captação</li>
+                      <li>Galeria de imagens ou vídeos interativa (até 15 itens)</li>
+                      <li>Google Maps avançado</li>
+                      <li>Suporte inicial 30 dias</li>
+                    </ul>
+                  </div>
+
+                  <!-- Website Plans -->
+                  <div class="plan-details-content" id="website-basico" style="display: none;">
+                    <div class="plan-header">
+                      <h3 class="plan-title">Plano Básico</h3>
+                      <p class="plan-price">R$ 800</p>
+                    </div>
+                    <ul class="plan-features-list">
+                      <li>2-4 páginas: Início, Serviços, Contato</li>
+                      <li>Design responsivo (desktop + móvel)</li>
+                      <li>Banner interativo</li>
+                      <li>SEO básico</li>
+                      <li>Formulário de contato + Botão flutuante do WhatsApp</li>
+                      <li>Mapa interativo</li>
+                      <li>Suporte inicial 15 dias</li>
+                      <li>Valor Base do projeto: R$ 800</li>
+                    </ul>
+                  </div>
+
+                  <div class="plan-details-content" id="website-padrao" style="display: none;">
+                    <div class="plan-header">
+                      <h3 class="plan-title">Plano Padrão</h3>
+                      <p class="plan-price">R$ 1.200</p>
+                    </div>
+                    <ul class="plan-features-list">
+                      <li>6-8 páginas</li>
+                      <li>Identidade visual – Paleta de cores e tipografia</li>
+                      <li>Banner interativo ou slideshow na página inicial</li>
+                      <li>Galeria simples com até 15 imagens ou vídeos</li>
+                      <li>Formulário + Integração avançada do WhatsApp</li>
+                      <li>Mapa interativo</li>
+                      <li>SEO otimização para Google</li>
+                      <li>Suporte 30 dias</li>
+                      <li>Valor Base do projeto: R$ 1.200</li>
+                    </ul>
+                  </div>
+
+                  <div class="plan-details-content" id="website-premium" style="display: none;">
+                    <div class="plan-header">
+                      <h3 class="plan-title">Plano Premium</h3>
+                      <p class="plan-price">R$ 2.000</p>
+                    </div>
+                    <ul class="plan-features-list">
+                      <li>8-12 páginas</li>
+                      <li>Multiidioma – 1 idioma adicional</li>
+                      <li>Galeria interativa com até 30 imagens ou vídeos</li>
+                      <li>Formulário + Integração avançada do WhatsApp</li>
+                      <li>Integração com redes sociais – Feed do Instagram</li>
+                      <li>Google Maps avançado</li>
+                      <li>Cópias de segurança automáticas semanais</li>
+                      <li>Firewall</li>
+                      <li>SEO avançado</li>
+                      <li>Suporte 45 dias</li>
+                      <li>Valor Base do projeto: R$ 2.000</li>
+                    </ul>
+                  </div>
+
+                  <!-- E-commerce Plans -->
+                  <div class="plan-details-content" id="ecommerce-basico" style="display: none;">
+                    <div class="plan-header">
+                      <h3 class="plan-title">Plano Básico</h3>
+                      <p class="plan-price">R$ 1.800</p>
+                    </div>
+                    <ul class="plan-features-list">
+                      <li>Catálogo de até 10 produtos</li>
+                      <li>Design responsivo (desktop + móvel)</li>
+                      <li>Formulário + botão flutuante do WhatsApp</li>
+                      <li>Carrinho de compras e checkout básico</li>
+                      <li>Integração de pagamento simples</li>
+                      <li>SEO básico para buscas locais</li>
+                      <li>Suporte inicial 15 dias</li>
+                      <li>Valor Base do projeto: R$ 1.800</li>
+                    </ul>
+                  </div>
+
+                  <div class="plan-details-content" id="ecommerce-padrao" style="display: none;">
+                    <div class="plan-header">
+                      <h3 class="plan-title">Plano Padrão</h3>
+                      <p class="plan-price">R$ 2.500</p>
+                    </div>
+                    <ul class="plan-features-list">
+                      <li>Catálogo de até 50 produtos</li>
+                      <li>Design responsivo e layout personalizado</li>
+                      <li>Banner ou slideshow interativo na página inicial</li>
+                      <li>Formulário de contato + WhatsApp avançado</li>
+                      <li>Carrinho e checkout com gateways de pagamento</li>
+                      <li>SEO otimizado + velocidade melhorada</li>
+                      <li>Sistema de estoque automático simples</li>
+                      <li>Painel administrativo básico para produtos e categorias</li>
+                      <li>Suporte inicial 30 dias</li>
+                      <li>Valor Base do projeto: R$ 2.500</li>
+                    </ul>
+                  </div>
+
+                  <div class="plan-details-content" id="ecommerce-premium" style="display: none;">
+                    <div class="plan-header">
+                      <h3 class="plan-title">Plano Premium</h3>
+                      <p class="plan-price">R$ 4.000</p>
+                    </div>
+                    <ul class="plan-features-list">
+                      <li>Catálogo de até 200 produtos com categorias e filtros</li>
+                      <li>Design responsivo, moderno e personalizado</li>
+                      <li>Banner slideshow avançado</li>
+                      <li>Formulário + WhatsApp Business API</li>
+                      <li>Carrinho de compras completo e checkout seguro</li>
+                      <li>Pagamentos integrados</li>
+                      <li>SEO avançado + otimização de velocidade</li>
+                      <li>Sistema de gestão de estoque avançado</li>
+                      <li>Painel administrativo completo</li>
+                      <li>Relatórios de vendas e analytics</li>
+                      <li>Suporte inicial 45 dias</li>
+                      <li>Valor Base do projeto: R$ 4.000</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1838,9 +2002,6 @@
 
     
     <script src="js/scripts.js"></script>
-    
-    <!-- Configuração específica da calculadora para Reais -->
-    <script src="js/calculadora-pt.js"></script>
     
     <!-- Sistema de Seletor de Idiomas -->
     <script src="js/language-selector.js"></script>

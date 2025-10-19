@@ -7,14 +7,14 @@
 
 > Website profissional moderno, responsivo e multilíngue desenvolvido com tecnologias web nativas. Inclui portfólio, sistema de checklist interativo e páginas de serviços, otimizado para performance e acessibilidade.
 
-## 🌟 Características Principais
+## Características Principais
 
-### 🌍 **Multilíngue**
+### **Multilíngue**
 - **3 idiomas**: Espanhol (padrão), Português e Inglês
 - Sistema de traduções dinâmico com arquivos JSON
 - URLs específicas por idioma (`index.html`, `index_pt.html`, `index_en.html`)
 
-### 📱 **Design Responsivo**
+### **Design Responsivo**
 - **Mobile-first**: otimizado para dispositivos móveis
 - Breakpoints inteligentes: `≤640px` (mobile), `641px-1024px` (tablet), `>1024px` (desktop)
 - Tipografia fluida com `clamp()` para escalabilidade perfeita
@@ -27,25 +27,25 @@
 - Contraste otimizado e semântica correta
 - Skip links e elementos `sr-only` para leitores de tela
 
-### 🎨 **UI/UX Moderno**
+### **UI/UX Moderno**
 - Header sticky com efeito blur
 - Animações typewriter no hero
 - Microinterações sutis e feedback visual
 - Sistema de cores consistente com CSS custom properties
 - Cards com sombras suaves e hover effects
 
-### 🛠️ **Funcionalidades Avançadas**
+### **Funcionalidades Avançadas**
 - **Checklist interativo**: sistema de briefing para clientes
 - **Portfólio dinâmico**: galeria de projetos com filtros
 - **Formulários integrados**: Formspree para envio sem backend
 - **Sistema de orçamento**: calculadora interativa de preços
 - **Páginas de processo**: workflow detalhado de desenvolvimento
 
-## 🏗️ Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 amanda-cereja-website/
-├── 📄 Páginas Principais
+├──  Páginas Principais
 │   ├── index.html              # Home (Espanhol)
 │   ├── index_pt.html           # Home (Português)
 │   ├── index_en.html           # Home (Inglês)
@@ -56,7 +56,7 @@ amanda-cereja-website/
 │   ├── checklist.html          # Checklist
 │   └── privacidad.html         # Privacidade
 │
-├── 🎨 Estilos CSS
+├──  Estilos CSS
 │   ├── styles.css              # Estilos globais e componentes
 │   ├── portafolio.css          # Estilos específicos do portfólio
 │   ├── servicos.css            # Estilos da página de serviços
@@ -65,7 +65,7 @@ amanda-cereja-website/
 │   ├── checklist.css           # Estilos do checklist
 │   └── privacidad.css          # Estilos da página de privacidade
 │
-├── ⚙️ JavaScript
+├──  JavaScript
 │   ├── scripts.js              # Funcionalidades principais
 │   ├── portafolio.js           # Lógica do portfólio
 │   ├── servicos.js             # Interações dos serviços
@@ -76,31 +76,31 @@ amanda-cereja-website/
 │       ├── pt.js              # Traduções em português
 │       └── en.js              # Traduções em inglês
 │
-├── 🖼️ Recursos
+├──  Recursos
 │   ├── img/                    # Imagens e ícones
 │   │   ├── 1.png - 12.png     # Galeria de projetos
 │   │   ├── servicios1-3.png   # Imagens dos serviços
 │   │   ├── simplelogo.png     # Logo
 │   │   └── flag-it.svg        # Bandeiras dos idiomas
 │
-├── 🧪 Testes
+├──  Testes
 │   ├── tests/
 │   │   ├── home.spec.js        # Testes da página inicial
 │   │   └── privacidad.spec.js  # Testes da página de privacidade
 │   └── playwright.config.js    # Configuração do Playwright
 │
-├── ⚙️ Configuração
+├──  Configuração
 │   ├── package.json            # Dependências e scripts
 │   ├── eslint.config.mjs       # Configuração do ESLint
 │   ├── .prettierrc.json       # Configuração do Prettier
 │   ├── .editorconfig          # Configuração do editor
 │   └── .github/workflows/     # CI/CD GitHub Actions
 │
-└── 📚 Documentação
+└──  Documentação
     └── README.md              # Este arquivo
 ```
 
-## 🚀 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 ### Frontend
 - **HTML5**: Estrutura semântica e acessível
@@ -119,7 +119,7 @@ amanda-cereja-website/
 - **Formspree**: Processamento de formulários
 - **Google Analytics**: Análise de tráfego (opcional)
 
-## 🛠️ Instalação e Desenvolvimento
+##  Instalação e Desenvolvimento
 
 ### Pré-requisitos
 - Node.js >= 18.18
@@ -158,7 +158,7 @@ npm test            # Executa testes Playwright
 npm run test:ui     # Interface visual dos testes
 ```
 
-## 🧪 Testes
+##  Testes
 
 O projeto inclui testes automatizados com Playwright:
 
@@ -180,7 +180,7 @@ npx playwright test tests/home.spec.js
 - ✅ Responsividade básica
 - ✅ Acessibilidade fundamental
 
-## 🌐 Deploy
+##  Deploy
 
 ### GitHub Pages (Automático)
 O site é automaticamente deployado no GitHub Pages a cada push na branch `main`.
@@ -196,7 +196,7 @@ O site é automaticamente deployado no GitHub Pages a cada push na branch `main`
 # Copie todos os arquivos para o diretório do servidor
 ```
 
-## 📱 Funcionalidades Detalhadas
+##  Funcionalidades Detalhadas
 
 ### Sistema de Checklist
 - ✅ Interface interativa com checkboxes animados
@@ -205,37 +205,24 @@ O site é automaticamente deployado no GitHub Pages a cada push na branch `main`
 - ✅ Acessibilidade completa por teclado
 
 ### Portfólio Dinâmico
-- 🖼️ Galeria responsiva com lazy loading
-- 🔍 Sistema de filtros por categoria
-- 📱 Carrossel táctil em dispositivos móveis
-- 🎨 Lightbox para visualização ampliada
+-  Galeria responsiva com lazy loading
+-  Sistema de filtros por categoria
+-  Carrossel táctil em dispositivos móveis
+-  Lightbox para visualização ampliada
 
 ### Calculadora de Orçamento
-- 💰 Cálculo dinâmico baseado em seleções
-- 📊 Breakdown detalhado de custos
-- 💾 Salvamento local das configurações
-- 📧 Envio direto por formulário
+-  Cálculo dinâmico baseado em seleções
+-  Breakdown detalhado de custos
+-  Salvamento local das configurações
+-  Envio direto por formulário
 
 ### Sistema Multilíngue
-- 🌍 Detecção automática do idioma do navegador
-- 🔄 Troca dinâmica sem recarregamento
-- 📝 Traduções completas de interface
-- 🎯 URLs específicas para SEO
+-  Detecção automática do idioma do navegador
+-  Troca dinâmica sem recarregamento
+-  Traduções completas de interface
+-  URLs específicas para SEO
 
-## 🎨 Personalização
-
-### Cores e Temas
-As cores principais são definidas em CSS custom properties:
-
-```css
-:root {
-  --primary-color: #2563eb;
-  --secondary-color: #64748b;
-  --accent-color: #f59e0b;
-  --background-color: #ffffff;
-  --text-color: #1e293b;
-}
-```
+##  Personalização
 
 ### Tipografia
 ```css
@@ -287,29 +274,29 @@ export default [
 }
 ```
 
-## 📈 Performance
+##  Performance
 
 ### Métricas de Performance
 - ⚡ **First Contentful Paint**: < 1.5s
-- 🎯 **Largest Contentful Paint**: < 2.5s
-- 📱 **Cumulative Layout Shift**: < 0.1
-- 🚀 **Time to Interactive**: < 3s
+-  **Largest Contentful Paint**: < 2.5s
+-  **Cumulative Layout Shift**: < 0.1
+-  **Time to Interactive**: < 3s
 
 ### Otimizações Implementadas
-- 🗜️ Imagens otimizadas e lazy loading
-- 📦 CSS e JS minificados em produção
-- 🔄 Cache de recursos estáticos
-- 📱 Carregamento progressivo em mobile
+-  Imagens otimizadas e lazy loading
+-  CSS e JS minificados em produção
+-  Cache de recursos estáticos
+-  Carregamento progressivo em mobile
 
-## 🛡️ Segurança
+##  Segurança
 
 ### Medidas de Segurança
-- 🔒 Headers de segurança configurados
-- 🚫 Sanitização de inputs de formulário
-- 🔐 Validação client-side e server-side
-- 📧 Proteção contra spam em formulários
+-  Headers de segurança configurados
+-  Sanitização de inputs de formulário
+-  Validação client-side e server-side
+-  Proteção contra spam em formulários
 
-## 🤝 Contribuição
+##  Contribuição
 
 ### Como Contribuir
 1. Fork o projeto
@@ -324,7 +311,7 @@ export default [
 - Mantenha a documentação atualizada
 - Use commits semânticos
 
-## 📄 Licença
+##  Licença
 
 Este projeto é destinado para **fins educacionais e de portfólio**. 
 
@@ -333,10 +320,6 @@ Este projeto é destinado para **fins educacionais e de portfólio**.
 - ✅ Usar como referência para aprendizado
 - ✅ Fazer fork para fins educacionais
 
-### Restrições
-- ❌ Uso comercial sem autorização
-- ❌ Redistribuição como trabalho próprio
-- ❌ Remoção de créditos de autoria
 
 ## 👩‍💻 Autora
 
@@ -346,7 +329,7 @@ Este projeto é destinado para **fins educacionais e de portfólio**.
 - 💼 LinkedIn: [Amanda Cereja](https://linkedin.com/in/amanda-cereja)
 - 🐙 GitHub: [@amandaceereja](https://github.com/amandaceereja)
 
-## 🙏 Agradecimentos
+##  Agradecimentos
 
 - Inspiração de design da comunidade web moderna
 - Ícones e recursos visuais da comunidade open source
@@ -358,7 +341,7 @@ Este projeto é destinado para **fins educacionais e de portfólio**.
 
 **⭐ Se este projeto foi útil para você, considere dar uma estrela!**
 
-[🌟 Star no GitHub](https://github.com/amandaceereja/amanda-cereja-website) • [🐛 Reportar Bug](https://github.com/amandaceereja/amanda-cereja-website/issues) • [💡 Sugerir Feature](https://github.com/amandaceereja/amanda-cereja-website/issues)
+[ Star no GitHub](https://github.com/amandaceereja/amanda-cereja-website) • [ Reportar Bug](https://github.com/amandaceereja/amanda-cereja-website/issues) • [ Sugerir Feature](https://github.com/amandaceereja/amanda-cereja-website/issues)
 
 </div>
 

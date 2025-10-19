@@ -103,7 +103,8 @@
   max-width: 600px;
   margin: 0 auto;
   opacity: 0;
-  animation: fadeInUp 1s ease-out 3.5s forwards;
+  animation: fadeInUp 1s ease-out 1.5s forwards;
+  transition: opacity 0.3s ease-in-out;
 }
 
 @keyframes fadeInUp {

@@ -949,11 +949,12 @@ a:hover {
 
 .client-type-subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-size: 0.65rem;
+  font-weight: 100;
   margin: 0;
-  opacity: 0.9;
+  opacity: 0.8;
   line-height: 1.4;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
@@ -985,7 +986,7 @@ a:hover {
   }
 
   .client-type-subtitle {
-    font-size: 0.85rem;
+    font-size: 0.6rem;
   }
 }
 

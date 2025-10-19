@@ -146,6 +146,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(convertAllPrices, 50);
             };
         }
+        
+
     }
     
     // Observador de mutações mais robusto para detectar mudanças no DOM
@@ -200,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Conversão após interações do usuário
     document.addEventListener('click', function(e) {
-        if (e.target.closest('.plan-btn-pt, .feature-item, .project-card-pt, .timeline-option')) {
+        if (e.target.closest('.plan-btn-pt, .feature-item, .project-card, .timeline-option')) {
             setTimeout(convertAllPrices, 150);
         }
     });

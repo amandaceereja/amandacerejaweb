@@ -433,19 +433,22 @@ class BudgetCalculator {
   getPlanPrice(projectType, plan) {
     const prices = {
       landing: {
-        basico: 350,
-        estandar: 600,
-        premium: 900
+        basico: 299,
+        padrao: 399,
+        estandar: 399,
+        premium: 599
       },
       website: {
-        basico: 500,
-        estandar: 800,
-        premium: 1000
+        basico: 499,
+        padrao: 699,
+        estandar: 699,
+        premium: 999
       },
       ecommerce: {
-        basico: 900,
-        estandar: 1500,
-        premium: 3500
+        basico: 999,
+        padrao: 1299,
+        estandar: 1299,
+        premium: 1699
       }
     };
 
@@ -453,6 +456,14 @@ class BudgetCalculator {
   }
 
   showPlanDetails(projectType, plan) {
+    // Verificar se estamos na página portuguesa (que tem planos estáticos)
+    const isPortuguesePage = window.location.pathname.includes('_pt.html');
+    
+    if (isPortuguesePage) {
+      // Na página portuguesa, os planos são gerenciados pelo presupuesto-pt.js
+      return;
+    }
+    
     const planSection = document.getElementById('selected-plan-section');
     const planContent = document.getElementById('plan-content');
     
