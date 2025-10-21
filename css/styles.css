@@ -878,7 +878,7 @@ a:hover {
   max-width: 800px;
   margin: 0 auto 2.5rem;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   color: #666;
   font-weight: 300;
@@ -2596,7 +2596,7 @@ a:hover {
     }
 
     .mobile-services-carousel .mobile-slide .plan-subtitle {
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: #666;
       margin-bottom: 2rem;
     }
@@ -2663,7 +2663,7 @@ a:hover {
   .service-slide .service-subtitle {
     text-align: center;
     margin-bottom: 1.5rem;
-    font-size: 1rem;
+    font-size: 0.85rem;
     line-height: 1.4;
   }
 
