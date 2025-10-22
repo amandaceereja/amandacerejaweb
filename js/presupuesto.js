@@ -433,22 +433,22 @@ class BudgetCalculator {
   getPlanPrice(projectType, plan) {
     const prices = {
       landing: {
-        basico: 299,
-        padrao: 399,
-        estandar: 399,
-        premium: 599
+        basico: 350,
+        padrao: 600,
+        estandar: 600,
+        premium: 900
       },
       website: {
-        basico: 499,
-        padrao: 699,
-        estandar: 699,
-        premium: 999
+        basico: 500,
+        padrao: 800,
+        estandar: 800,
+        premium: 1000
       },
       ecommerce: {
-        basico: 999,
-        padrao: 1299,
-        estandar: 1299,
-        premium: 1699
+        basico: 900,
+        padrao: 1500,
+        estandar: 1500,
+        premium: 3500
       }
     };
 
