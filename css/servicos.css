@@ -10,11 +10,11 @@
 /* Hero Section - Serviços */
 .hero-servicos {
   background: linear-gradient(-45deg, #0d0d0d, #5e5d5d, #b6b3b3, #111);
-  background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
-  padding: 8rem 0 6rem;
+  background-size: 300% 300%;
+  animation: gradientMove 10s ease infinite;
+  padding: 7rem 1.25rem 4rem;
   position: relative;
-  min-height: 60vh;
+  min-height: 62vh;
   display: grid;
   place-items: center;
   color: #111;
@@ -790,15 +790,12 @@
     width: 100%;
     margin: 2rem 0 3rem;
   }
+}
 
-
-  }
-
-  .solucoes-lojas .indicator-loja.active {
-    background-color: #000000;
-    transform: scale(1.2);
-  }
-
+.solucoes-lojas .indicator-loja.active {
+  background-color: #000000;
+  transform: scale(1.2);
+}
 
 /* Mobile: 1 slide por view */
 @media (max-width: 767px) {
@@ -860,8 +857,6 @@
     margin: 0; /* full-bleed within hidden overflow container */
   }
 
-
-
   /* Estilos para o container das bolinhas fora do carrossel */
   .carousel-controls-container {
     display: flex;
@@ -869,15 +864,12 @@
     width: 100%;
     margin: 2rem 0 3rem;
   }
+}
 
-
-  }
-
-  /* Adiciona espaço entre o carrossel e a seção de restaurantes */
-  .solucoes-restaurantes {
-    margin-top: 2rem;
-  }
-
+/* Adiciona espaço entre o carrossel e a seção de restaurantes */
+.solucoes-restaurantes {
+  margin-top: 2rem;
+}
 
 /* Mobile-only overrides to ensure 1 centered slide without peeking - RESTAURANTES */
 @media (max-width: 767px) {
@@ -1041,8 +1033,6 @@
 }
 
 /* Removido: Setas de navegação - apenas indicadores serão usados */
-
-
 
 /* Estilos do Carrossel de Restaurantes - Adaptado da estrutura da index */
 .solucoes-restaurantes .services-restaurantes-wrapper {
@@ -1515,7 +1505,7 @@
     /* Garantir que cada slide ocupe exatamente a largura da tela em mobile */
     scroll-snap-type: x mandatory;
   }
-  
+
   .solucoes-restaurantes .services-restaurantes-container {
     /* Centralizar o container em mobile e tablet */
     display: flex;
@@ -1569,7 +1559,7 @@
     /* Garantir que cada slide ocupe exatamente a largura da tela em mobile */
     scroll-snap-type: x mandatory;
   }
-  
+
   .solucoes-lojas .services-lojas-container {
     /* Centralizar o container em mobile e tablet */
     display: flex;
@@ -1583,8 +1573,6 @@
     height: 40px;
     font-size: 1rem;
   }
-
-
 }
 
 @media (max-width: 480px) {
@@ -1837,8 +1825,8 @@
 /* Responsividade */
 @media (max-width: 768px) {
   .hero-servicos {
-    padding: 6rem 0 4rem;
-    min-height: 50vh;
+    padding: 5rem 1.25rem 2.5rem;
+    min-height: 44vh;
   }
 
   .hero-servicos__title {
@@ -1864,6 +1852,13 @@
   .cta-principal,
   .cta-restaurantes {
     padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-servicos {
+    min-height: 52vh;
+    padding: 3.25rem 1rem 1.75rem;
   }
 }
 

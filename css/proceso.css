@@ -14,6 +14,19 @@
   }
 }
 
+.hero {
+  position: relative;
+  min-height: 62vh;
+  display: grid;
+  place-items: center;
+  padding: 7rem 1.25rem 4rem;
+  background: linear-gradient(-45deg, #0d0d0d, #5e5d5d, #b6b3b3, #111);
+  background-size: 300% 300%;
+  animation: gradientMove 10s ease infinite;
+  color: #111;
+  overflow: hidden;
+}
+
 /* Timeline del Proceso */
 .proceso-timeline {
   padding: 5rem 0;
@@ -23,13 +36,13 @@
 }
 
 .proceso-timeline::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(circle at 20% 20%, rgba(119, 119, 119, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(17, 17, 17, 0.03) 0%, transparent 50%);
   pointer-events: none;
@@ -52,10 +65,18 @@
   transition: width 0.25s ease;
 }
 
-.timeline-progress__bar.step-1 { width: 25%; }
-.timeline-progress__bar.step-2 { width: 50%; }
-.timeline-progress__bar.step-3 { width: 75%; }
-.timeline-progress__bar.step-4 { width: 100%; }
+.timeline-progress__bar.step-1 {
+  width: 25%;
+}
+.timeline-progress__bar.step-2 {
+  width: 50%;
+}
+.timeline-progress__bar.step-3 {
+  width: 75%;
+}
+.timeline-progress__bar.step-4 {
+  width: 100%;
+}
 
 /* Indicadores de Passos */
 .timeline-steps {
@@ -193,10 +214,18 @@
   animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-.timeline-item:nth-child(1) { animation-delay: 0.1s; }
-.timeline-item:nth-child(2) { animation-delay: 0.2s; }
-.timeline-item:nth-child(3) { animation-delay: 0.3s; }
-.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.timeline-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.timeline-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.timeline-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
 
 @keyframes fadeInUp {
   to {
@@ -222,13 +251,13 @@
   justify-content: center;
   width: 100px;
   height: 100px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
-  border: 2px solid rgba(255,255,255,0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   margin: 0 2rem;
   flex-shrink: 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
+  box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.1),
     inset 0 2px 0 rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
@@ -236,23 +265,23 @@
 }
 
 .timeline-marker::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, transparent 50%);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 50%);
   opacity: 0.5;
   transition: opacity 0.3s ease;
 }
 
 .timeline-marker:hover {
   transform: scale(1.1) rotate(5deg);
-  box-shadow: 
+  box-shadow:
     0 16px 48px rgba(0, 0, 0, 0.2),
     inset 0 2px 0 rgba(255, 255, 255, 0.8);
-  border-color: rgba(255,255,255,0.6);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .timeline-marker:hover::before {
@@ -290,7 +319,7 @@
   padding: 2.5rem;
   border-radius: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 
+  box-shadow:
     0 1rem 3rem rgba(0, 0, 0, 0.1),
     0 0.5rem 1rem rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
@@ -302,23 +331,25 @@
 }
 
 .timeline-content::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, 
-    rgba(17, 17, 17, 0.8) 0%, 
-    rgba(119, 119, 119, 0.6) 50%, 
-    rgba(17, 17, 17, 0.8) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(17, 17, 17, 0.8) 0%,
+    rgba(119, 119, 119, 0.6) 50%,
+    rgba(17, 17, 17, 0.8) 100%
+  );
   background-size: 200% 100%;
   animation: shimmer 4s ease-in-out infinite;
 }
 
 .timeline-content:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 
+  box-shadow:
     0 2rem 4rem rgba(0, 0, 0, 0.15),
     0 1rem 2rem rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -326,13 +357,13 @@
 }
 
 .timeline-content::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -356,7 +387,7 @@
 
 .timeline-duration {
   display: inline-block;
-  background: linear-gradient(135deg, rgba(17,17,17,0.9) 0%, rgba(119,119,119,0.7) 100%);
+  background: linear-gradient(135deg, rgba(17, 17, 17, 0.9) 0%, rgba(119, 119, 119, 0.7) 100%);
   color: #fff;
   padding: 0.6rem 1.2rem;
   border-radius: 2rem;
@@ -366,8 +397,8 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-content p {

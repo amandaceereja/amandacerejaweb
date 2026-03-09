@@ -8,7 +8,6 @@ document.body.classList.add("js");
   const navbarMenu = document.getElementById("navmenu") || document.querySelector(".navbar__menu");
   if (!mobileBtn || !navbarMenu) return;
 
-  
   if (mobileBtn.dataset.bound === "1") return;
   mobileBtn.dataset.bound = "1";
 
@@ -16,8 +15,6 @@ document.body.classList.add("js");
     mobileBtn.setAttribute("aria-expanded", String(navbarMenu.classList.toggle("is-open")));
   });
 })();
-
-
 
 // SCROLL SUAVE interno (si lo necesitas en esta página)
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -33,7 +30,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 // Limpar sessionStorage quando o usuário navegar para outra página
 // Isso garante que o próximo acesso seja tratado como refresh
-window.addEventListener('beforeunload', () => {
+window.addEventListener("beforeunload", () => {
   sessionStorage.removeItem(SESSION_KEY);
 });
 
@@ -49,6 +46,53 @@ let currentStep = 0;
 function announce(msg) {
   const s = document.getElementById("form-status");
   if (s) s.textContent = msg;
+}
+
+const LOCALE = (() => {
+  const raw = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+  if (raw.startsWith("pt")) return "pt";
+  if (raw.startsWith("en")) return "en";
+  return "es";
+})();
+
+const I18N = {
+  es: {
+    name_required_field: "El nombre es obligatorio.",
+    name_required_step: "Completa tu nombre.",
+    email_invalid_field: "Introduce un email válido.",
+    email_invalid_step: "El email no tiene formato válido.",
+    objective_required_field: "Cuéntame tu objetivo principal.",
+    objective_required_step: "Escribe tu objetivo principal.",
+    objective_select_one_step: "Selecciona al menos un objetivo.",
+    rgpd_required_field: "Debes aceptar la política de privacidad.",
+    rgpd_required_step: "Acepta la política de privacidad (RGPD).",
+  },
+  pt: {
+    name_required_field: "O nome é obrigatório.",
+    name_required_step: "Preencha seu nome.",
+    email_invalid_field: "Informe um email válido.",
+    email_invalid_step: "O email não tem um formato válido.",
+    objective_required_field: "Conte qual é o seu objetivo principal.",
+    objective_required_step: "Descreva seu objetivo principal.",
+    objective_select_one_step: "Selecione um tipo de projeto.",
+    rgpd_required_field: "Você precisa aceitar a política de privacidade.",
+    rgpd_required_step: "Aceite a política de privacidade (LGPD).",
+  },
+  en: {
+    name_required_field: "Name is required.",
+    name_required_step: "Please enter your name.",
+    email_invalid_field: "Enter a valid email.",
+    email_invalid_step: "Email format is not valid.",
+    objective_required_field: "Tell me your main objective.",
+    objective_required_step: "Write your main objective.",
+    objective_select_one_step: "Select at least one objective.",
+    rgpd_required_field: "You must accept the privacy policy.",
+    rgpd_required_step: "Accept the privacy policy.",
+  },
+};
+
+function t(key) {
+  return I18N[LOCALE]?.[key] ?? I18N.es[key] ?? key;
 }
 
 function track(event, params = {}) {
@@ -123,36 +167,47 @@ function validateStep(idx) {
     const email = document.getElementById("email");
     const obj = document.getElementById("objetivo");
     if (!nombre.value.trim()) {
-      setFieldError(nombre, "El nombre es obligatorio.");
-      msgs.push("Completa tu nombre.");
+      setFieldError(nombre, t("name_required_field"));
+      msgs.push(t("name_required_step"));
     }
     if (!isEmail(email.value)) {
-      setFieldError(email, "Introduce un email válido.");
-      msgs.push("El email no tiene formato válido.");
+      setFieldError(email, t("email_invalid_field"));
+      msgs.push(t("email_invalid_step"));
     }
     if (!obj.value.trim()) {
-      setFieldError(obj, "Cuéntame tu objetivo principal.");
-      msgs.push("Escribe tu objetivo principal.");
+      setFieldError(obj, t("objective_required_field"));
+      msgs.push(t("objective_required_step"));
     }
   } else if (idx === 1) {
-    const anySelected =
-      document.querySelectorAll(
-        'input[name="objetivo_webpage[]"]:checked,' +
-          'input[name="objetivo_landing[]"]:checked,' +
-          'input[name="objetivo_ecommerce[]"]:checked,' +
-          'input[name="objetivo_extras[]"]:checked'
-      ).length > 0;
-    if (!anySelected) {
-      msgs.push("Selecciona al menos un objetivo.");
-      const firstChip = document.querySelector(".chips .chip");
-      if (firstChip) firstChip.classList.add("is-invalid");
-      setTimeout(() => firstChip && firstChip.classList.remove("is-invalid"), 1200);
+    const tipoProjeto = document.querySelectorAll('input[name="tipo_projeto"]');
+    if (tipoProjeto.length) {
+      const anySelected = Array.from(tipoProjeto).some((i) => i.checked);
+      if (!anySelected) {
+        msgs.push(t("objective_select_one_step"));
+        const firstCard = document.querySelector('.step[data-step="2"] .ptype-card');
+        if (firstCard) firstCard.classList.add("is-invalid");
+        setTimeout(() => firstCard && firstCard.classList.remove("is-invalid"), 1200);
+      }
+    } else {
+      const anySelected =
+        document.querySelectorAll(
+          'input[name="objetivo_webpage[]"]:checked,' +
+            'input[name="objetivo_landing[]"]:checked,' +
+            'input[name="objetivo_ecommerce[]"]:checked,' +
+            'input[name="objetivo_extras[]"]:checked'
+        ).length > 0;
+      if (!anySelected) {
+        msgs.push(t("objective_select_one_step"));
+        const firstChip = document.querySelector(".chips .chip");
+        if (firstChip) firstChip.classList.add("is-invalid");
+        setTimeout(() => firstChip && firstChip.classList.remove("is-invalid"), 1200);
+      }
     }
   } else if (idx === 2) {
     const rgpd = document.getElementById("rgpd");
     if (!rgpd.checked) {
-      setFieldError(rgpd, "Debes aceptar la política de privacidad.");
-      msgs.push("Acepta la política de privacidad (RGPD).");
+      setFieldError(rgpd, t("rgpd_required_field"));
+      msgs.push(t("rgpd_required_step"));
     }
   }
 
@@ -183,14 +238,14 @@ function updateWizardUI(shouldScroll = true) {
     progressEl.setAttribute("aria-label", `Progreso: paso ${currentStep + 1} de ${denom}`);
   }
   announce(`Paso ${currentStep + 1} de ${denom}`);
-  
+
   // ROLAGEM PARA O TOPO ABSOLUTO DA PÁGINA - sempre que houver navegação
   if (shouldScroll) {
     // Executar rolagem imediatamente para o topo absoluto da página
     requestAnimationFrame(() => {
-      window.scrollTo({ 
-        top: 0, 
-        behavior: 'instant' 
+      window.scrollTo({
+        top: 0,
+        behavior: "instant",
       });
     });
   }
@@ -335,6 +390,77 @@ if (form) {
 const formOpenedAt = Date.now();
 let submitting = false;
 
+function getSuccessModal() {
+  const overlay = document.getElementById("form-success");
+  if (!overlay) return null;
+  const modal = overlay.querySelector(".modal");
+  const closeBtn =
+    document.getElementById("success-close") || overlay.querySelector(".modal-close");
+  const againBtn = document.getElementById("send-another");
+  const title =
+    overlay.querySelector("#success-title") || overlay.querySelector(".modal-title") || overlay;
+  return { overlay, modal, closeBtn, againBtn, title };
+}
+
+function lockScroll() {
+  if (document.body.dataset.modalLock === "1") return;
+  document.body.dataset.modalLock = "1";
+  document.body.dataset.prevOverflow = document.body.style.overflow || "";
+  document.body.style.overflow = "hidden";
+}
+
+function unlockScroll() {
+  if (document.body.dataset.modalLock !== "1") return;
+  document.body.style.overflow = document.body.dataset.prevOverflow || "";
+  delete document.body.dataset.prevOverflow;
+  delete document.body.dataset.modalLock;
+}
+
+function openSuccessModal() {
+  const m = getSuccessModal();
+  if (!m) return;
+  lockScroll();
+  m.overlay.hidden = false;
+  m.overlay.classList.add("active");
+
+  const focusTarget = m.title;
+  focusTarget.setAttribute("tabindex", "-1");
+  focusTarget.focus();
+}
+
+function closeSuccessModal() {
+  const m = getSuccessModal();
+  if (!m) return;
+  m.overlay.classList.remove("active");
+  m.overlay.hidden = true;
+  unlockScroll();
+}
+
+function bindSuccessModal() {
+  const m = getSuccessModal();
+  if (!m) return;
+  if (m.overlay.dataset.bound === "1") return;
+  m.overlay.dataset.bound = "1";
+
+  m.closeBtn?.addEventListener("click", closeSuccessModal);
+  m.overlay.addEventListener("click", (e) => {
+    if (e.target === m.overlay) closeSuccessModal();
+  });
+  window.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    const latest = getSuccessModal();
+    if (!latest || latest.overlay.hidden) return;
+    closeSuccessModal();
+  });
+  m.againBtn?.addEventListener("click", () => {
+    closeSuccessModal();
+    form?.reset();
+    currentStep = 0;
+    updateWizardUI();
+    window.scrollTo({ top: 0, behavior: "instant" });
+  });
+}
+
 if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -383,45 +509,21 @@ if (form) {
         /* TODO: manejar error no crítico */ void 0;
       }
 
-      form.reset();
-      currentStep = 0;
-      updateWizardUI();
-      showStepErrors([]);
-
-      document.querySelectorAll(".steps, .progress").forEach((el) => (el.hidden = true));
-      form.querySelectorAll("fieldset.step, .wizard-actions").forEach((el) => (el.hidden = true));
-
       if (successBox) {
-        successBox.hidden = false;
-
-        // Conversão removida conforme solicitado pelo usuário
-
-        const focusTarget = successBox.querySelector("h2") || successBox;
-        focusTarget.setAttribute("tabindex", "-1");
-        focusTarget.focus();
-        successBox.scrollIntoView({ behavior: "smooth", block: "start" });
+        bindSuccessModal();
+        openSuccessModal();
       }
+
+      requestAnimationFrame(() => {
+        form.reset();
+        currentStep = 0;
+        updateWizardUI();
+        showStepErrors([]);
+      });
 
       // 👇 ESTO DEBE IR DENTRO DEL try
       announce("Formulario enviado con éxito.");
       track("form_sent_ok", { elapsed });
-
-      const again = document.getElementById("send-another");
-      if (again) {
-        again.onclick = () => {
-          document.querySelectorAll(".steps, .progress").forEach((el) => (el.hidden = false));
-          form
-            .querySelectorAll("fieldset.step, .wizard-actions")
-            .forEach((el) => (el.hidden = false));
-
-          if (successBox) successBox.hidden = true;
-          form.reset();
-          currentStep = 0;
-          updateWizardUI();
-          // Rolar para o topo ao clicar em "Enviar otro"
-          window.scrollTo({ top: 0, behavior: 'instant' });
-        };
-      }
     } catch (err) {
       showStepErrors(["Error de conexión. Intenta de nuevo."]);
       track("form_sent_error", { err: String(err) });
@@ -447,9 +549,9 @@ if (clearDataBtn) {
         currentStep = 0;
         updateWizardUI();
         // Rolar para o topo ao limpar dados
-        window.scrollTo({ top: 0, behavior: 'instant' });
+        window.scrollTo({ top: 0, behavior: "instant" });
         alert("Datos borrados correctamente.");
-      } catch (e) {
+      } catch {
         alert("Error al borrar los datos.");
       }
     }
@@ -468,6 +570,6 @@ onScroll();
 
 // Limpar sessionStorage quando o usuário navegar para outra página
 // Isso garante que o próximo acesso seja tratado como refresh
-window.addEventListener('beforeunload', () => {
+window.addEventListener("beforeunload", () => {
   sessionStorage.removeItem(SESSION_KEY);
 });

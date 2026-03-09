@@ -48,16 +48,34 @@
     <script src="js/portafolio.js" defer></script>
   </head>
 
-  <body>
+  <body class="page-en">
     <!-- Language Bar -->
     <div class="language-bar">
       <div class="language-bar__container">
         <div class="language-bar__social">
-          <a href="https://www.instagram.com/amandacerejaweb/" target="_blank" rel="noopener" aria-label="Instagram">
+          <a
+            href="https://www.instagram.com/amandacerejaweb/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="https://github.com/amandaceereja" target="_blank" rel="noopener" aria-label="GitHub">
+          <a
+            href="https://github.com/amandaceereja"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+          >
             <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/amandacerejaweb/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
           </a>
         </div>
         <div class="language-selector">
@@ -79,65 +97,81 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Header -->
     <header class="header">
-      <nav class="navbar" aria-label="Main">
+      <nav class="navbar navbar--center-logo" aria-label="Main">
         <div class="navbar__logo">
-          <a href="#"><span>Amanda</span> <strong>Cereja Diniz Alves</strong></a>
+          <a href="#hero" class="navbar__brand" aria-label="Back to top">
+            <img
+              src="img/simplelogo.png"
+              alt="Amanda Cereja logo"
+              class="navbar__brand-logo"
+              decoding="async"
+              loading="eager"
+            />
+          </a>
         </div>
-                <div class="navbar__right">
-          <button
-          type="button"
-          class="navbar__mobile-btn"
-          aria-label="Open/Close menu"
-          aria-controls="navmenu"
-          aria-expanded="false"
-        >
-          <i class="fa fa-bars"></i>
-        </button>
         <div class="navbar__menu" id="navmenu">
-          <ul>
-            <li><a href="index_en.html" data-translate="nav.home">Home</a></li>
-            <li><a href="servicos_en.html">Services</a></li>
-            <li><a href="checklist_en.html">Checklist</a></li>
-            <li><a href="presupuesto_en.html">Budget</a></li>
-            <li><a href="portafolio_en.html" data-translate="nav.portfolio">Portfolio</a></li>
-            <li>
-              <button id="admin-login-btn" class="admin-login-btn" aria-label="Administrator access">
-                <i class="fas fa-user"></i>
-              </button>
-            </li>
-          </ul>
+          <div class="navbar__menu-left" aria-label="Navigation">
+            <ul>
+              <li><a href="proceso_en.html">My process</a></li>
+              <li><a href="servicos_en.html" data-translate="nav.services">Services</a></li>
+              <li><a href="index_en.html" data-translate="nav.home">Home</a></li>
+            </ul>
+          </div>
+          <div class="navbar__menu-right" aria-label="Navigation">
+            <ul>
+              <li><a href="checklist_en.html" data-translate="nav.checklist">Checklist</a></li>
+              <li><a href="presupuesto_en.html" data-translate="nav.budget">Budget</a></li>
+              <li><a href="portafolio_en.html" data-translate="nav.portfolio">Portfolio</a></li>
+            </ul>
+          </div>
         </div>
-          <div class="navbar-menu-icon">
-              <button class="menu-icon-btn" aria-label="More options">
-            <i class="fas fa-bars"></i>
+        <div class="navbar__right">
+          <button
+            id="admin-login-btn"
+            class="admin-login-btn"
+            aria-label="Administrator access"
+            type="button"
+          >
+            <i class="fas fa-user"></i>
           </button>
-              <!-- Dropdown para Desktop (apenas 3 links) -->
-              <div class="menu-icon-dropdown desktop-dropdown">
-                  <div class="menu-dropdown-logo">
-                      <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
-                  </div>
-                  <a href="proceso_en.html">My process</a>
-                  <a href="index_en.html#sobre">About me</a>
-                  <a href="#contacto">Contact</a>
+          <button
+            type="button"
+            class="navbar__mobile-btn"
+            aria-label="Open/Close menu"
+            aria-controls="navmenu"
+            aria-expanded="false"
+          >
+            <i class="fa fa-bars"></i>
+          </button>
+          <div class="navbar-menu-icon">
+            <button class="menu-icon-btn" aria-label="More options">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu-icon-dropdown desktop-dropdown">
+              <div class="menu-dropdown-logo">
+                <img src="img/simplelogo.png" alt="Amanda Cereja logo" />
               </div>
-              <!-- Dropdown para Mobile/Tablet (todos os links) -->
-              <div class="menu-icon-dropdown mobile-dropdown">
-                  <div class="menu-dropdown-logo">
-                      <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
-                  </div>
-                  <a href="index_en.html">Home</a>
-                  <a href="servicos_en.html">Services</a>
-                  <a href="checklist_en.html">Checklist</a>
-                  <a href="presupuesto_en.html">Budget</a>
-                  <a href="portafolio_en.html">Portfolio</a>
-                  <a href="proceso_en.html">My process</a>
-                  <a href="index_en.html#sobre">About me</a>
-                  <a href="#contacto">Contact</a>
-              </div>
+              <a href="proceso_en.html">My process</a>
+              <a href="index_en.html#sobre" data-translate="nav.about">About me</a>
+              <a href="index_en.html#contacto" data-translate="nav.contact">Contact</a>
             </div>
+            <div class="menu-icon-dropdown mobile-dropdown">
+              <div class="menu-dropdown-logo">
+                <img src="img/simplelogo.png" alt="Amanda Cereja logo" />
+              </div>
+              <a href="index_en.html" data-translate="nav.home">Home</a>
+              <a href="servicos_en.html" data-translate="nav.services">Services</a>
+              <a href="checklist_en.html" data-translate="nav.checklist">Checklist</a>
+              <a href="presupuesto_en.html" data-translate="nav.budget">Budget</a>
+              <a href="portafolio_en.html" data-translate="nav.portfolio">Portfolio</a>
+              <a href="proceso_en.html">My process</a>
+              <a href="index_en.html#sobre" data-translate="nav.about">About me</a>
+              <a href="index_en.html#contacto" data-translate="nav.contact">Contact</a>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
@@ -259,9 +293,7 @@
       <div class="container">
         <!-- Add project button (admin only) -->
         <div id="add-project-btn" class="add-project-container" style="display: none">
-          <button class="btn btn--primary">
-            <i class="fas fa-plus"></i> Add New Project
-          </button>
+          <button class="btn btn--primary"><i class="fas fa-plus"></i> Add New Project</button>
         </div>
 
         <!-- Projects Grid -->
@@ -284,10 +316,10 @@
         <div class="cta-content">
           <h2>Do you have a project in mind?</h2>
           <p>
-            If you liked any of my projects, you can do the checklist and put in the
-            observations section:<br>
-            <strong>"I want to use as reference the project: [project name]"</strong>.<br> This way
-            I can create something unique inspired by the style you like the most.
+            If you liked any of my projects, you can do the checklist and put in the observations
+            section:<br />
+            <strong>"I want to use as reference the project: [project name]"</strong>.<br />
+            This way I can create something unique inspired by the style you like the most.
           </p>
           <div class="cta-buttons">
             <a href="checklist.html" class="btn btn--primary">Do Checklist</a>
@@ -297,10 +329,54 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Footer classic -->
+    <footer class="footer footer-classic">
       <div class="container">
-        <p>2025 Amanda Cereja — Frontend Developer</p>
+        <div class="footer-grid">
+          <div class="footer-col company">
+            <h3>Amanda Cereja</h3>
+            <p>Full-Stack Software Engineer<br />Frontend | Backend</p>
+            <div class="footer-social">
+              <a href="https://wa.me/34602614398" aria-label="WhatsApp"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+              <a href="https://www.linkedin.com/in/amandaceereja/" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="https://github.com/amandaceereja" aria-label="GitHub"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a href="https://www.instagram.com/amandacerejaweb/" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <div class="footer-links-grid">
+              <ul class="footer-links">
+                <li><a href="index_en.html">Home</a></li>
+                <li><a href="servicos_en.html">Services</a></li>
+                <li><a href="checklist_en.html">Checklist</a></li>
+              </ul>
+              <ul class="footer-links">
+                <li><a href="presupuesto.html">Budget</a></li>
+                <li><a href="proceso_en.html">My process</a></li>
+                <li><a href="portafolio_en.html">Portfolio</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <ul class="footer-contact">
+              <li><a href="index_en.html#contacto">Contact form</a></li>
+              <li><a href="privacidad_en.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© Amanda Cereja — Full-Stack Software Engineer</p>
+        </div>
       </div>
     </footer>
 
@@ -319,9 +395,8 @@
     <button id="back-to-top" class="back-to-top" aria-label="Back to top">
       <i class="fas fa-arrow-up"></i>
     </button>
-    
+
     <!-- Language Selector System -->
     <script src="js/language-selector.js"></script>
-
   </body>
 </html>

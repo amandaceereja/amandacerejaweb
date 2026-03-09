@@ -2,28 +2,17 @@
 
 /* Hero Section */
 .hero-presupuesto {
-  padding: 6rem 0 4rem;
+  position: relative;
+  min-height: 62vh;
+  display: grid;
+  place-items: center;
+  padding: 7rem 1.25rem 4rem;
   background: linear-gradient(-45deg, #0d0d0d, #5e5d5d, #b6b3b3, #111);
   background-size: 300% 300%;
   animation: gradientMove 10s ease infinite;
   text-align: center;
-  position: relative;
   overflow: hidden;
   color: #111;
-}
-
-.hero-presupuesto::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background:
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
-  animation: backgroundFloat 20s ease-in-out infinite;
 }
 
 @keyframes gradientMove {
@@ -38,25 +27,12 @@
   }
 }
 
-@keyframes backgroundFloat {
-  0%,
-  100% {
-    transform: translateX(0) translateY(0) scale(1);
-  }
-  25% {
-    transform: translateX(-20px) translateY(-10px) scale(1.02);
-  }
-  50% {
-    transform: translateX(20px) translateY(10px) scale(0.98);
-  }
-  75% {
-    transform: translateX(-10px) translateY(20px) scale(1.01);
-  }
-}
-
 .hero-content {
   position: relative;
   z-index: 2;
+  text-align: center;
+  max-width: 1024px;
+  margin-inline: auto;
 }
 
 .hero-content h1 {
@@ -120,7 +96,7 @@
 
 /* Calculator Section */
 .calculator-section {
-  padding: 6rem 1rem;
+  padding: 5rem 1rem; /* reduz levemente para trazer o título mais para cima */
   background: var(--bg);
 }
 
@@ -139,7 +115,7 @@
   font-size: 3rem;
   font-weight: 700;
   color: #111;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   text-align: center;
   position: relative;
 }
@@ -147,6 +123,32 @@
 /* Form Groups */
 .form-group {
   margin-bottom: 3rem;
+}
+
+/* Remoção de restrições globais dentro da calculadora (desktop e mobile) */
+.calculator-form .form-group {
+  max-width: none;
+  width: 100%;
+  align-items: stretch;
+  text-align: left;
+}
+
+/* Subtítulos dentro de form-group devem ocupar toda a largura */
+.calculator-form .form-group .section-subtitle,
+.calculator-form .form-group .section-subtitle-left {
+  width: 100%;
+  display: block;
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+  grid-column: 1 / -1; /* caso o container esteja em grid */
+}
+
+/* Garantir cabeçalho ocupando toda largura e alinhado à esquerda */
+.calculator-form .form-group .section-header {
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .form-label {
@@ -334,6 +336,7 @@
 }
 
 .tooltip {
+  display: none;
   position: absolute;
   top: -10px;
   right: 40px;
@@ -373,11 +376,14 @@
   z-index: 2;
 }
 
+/* Desativar exibição de tooltip ao hover: manter oculto
+   A modal de informação será mostrada apenas ao clicar no ícone "?" */
 .info-trigger:hover + .tooltip,
 .tooltip:hover {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  pointer-events: none;
 }
 
 /* Plan Buttons */
@@ -440,6 +446,154 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* Espaçamento e largura dos botões de preço no cabeçalho do plano */
+.plan-header .plan-price-btn {
+  display: inline-block;
+  width: calc(100% - 1rem);
+  margin: 0.25rem 0.5rem 0.75rem;
+  min-width: 0;
+}
+
+/* Botões de ação com o mesmo efeito dos botões de plano */
+.action-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1.5px solid #000;
+  background: var(--bg);
+  color: #000;
+  min-width: 140px;
+}
+.action-btn:hover {
+  background-color: #000;
+  color: var(--bg);
+  border-color: #000;
+  transform: translateY(-2px);
+}
+.action-btn:active {
+  transform: translateY(0);
+}
+.action-btn--primary {
+  background: #000;
+  color: #fff;
+}
+.action-btn--secondary {
+  background: var(--bg);
+  color: #000;
+}
+
+/* Rodapé clássico (página de orçamento) */
+body.presupuesto-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.presupuesto-page .footer.footer-classic {
+  margin-top: auto;
+}
+
+.footer-classic {
+  background: #000;
+  color: #fff;
+  padding: 2rem 0 1.25rem;
+  text-align: left;
+}
+.footer-classic .footer-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1.2fr 0.9fr;
+  gap: 2.2rem;
+  align-items: start;
+}
+.footer-classic .company {
+  text-align: left;
+}
+.footer-classic h3,
+.footer-classic h4 {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+.footer-classic p {
+  opacity: 0.9;
+  line-height: 1.4;
+  margin: 0.25rem 0 0.5rem;
+}
+.footer-links,
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links li,
+.footer-contact li {
+  margin: 0.35rem 0;
+}
+.footer-links a,
+.footer-contact a {
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+.footer-links a:hover,
+.footer-contact a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  justify-content: flex-start;
+}
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid #fff;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+.footer-social a:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-2px);
+}
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.5rem;
+}
+.footer-links-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+@media (max-width: 768px) {
+  .footer-classic .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-links-grid {
+    grid-template-columns: 1fr;
+  }
+}
 /* Ajustes para móvil */
 @media (max-width: 768px) {
   .project-card {
@@ -473,6 +627,23 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+}
+
+/* Título de grupo para funcionalidades — ocupa toda a largura da grid */
+.feature-group-title {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.6rem;
+  background: #000000; /* visual semelhante às abas */
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 0; /* sem cantos arredondados */
+  font-size: 0.9rem; /* igual às abas em desktop/tablet */
+  font-weight: 500; /* igual às abas */
+  font-family: inherit; /* usa mesma fonte que as abas */
+  margin-top: 0.1rem; /* quase colado às abas */
 }
 
 .feature-item {
@@ -549,12 +720,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 1.5rem;
   background: var(--bg);
   border: 2px solid var(--line);
-  border-radius: 12px;
+  border-radius: 16px; /* igual aos project-card */
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
 }
 
@@ -565,34 +736,51 @@
 
 .timeline-option.selected {
   border-color: var(--accent);
-  background: var(--accent);
-  color: white;
+  background: #f8f8f8; /* destaca sem inverter cores, como project-card */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+  color: inherit;
 }
 
 .timeline-option i {
-  font-size: 1.5rem;
-  color: var(--accent);
+  font-size: 1.25rem; /* igual ao project-icon i */
+  color: #000; /* mesma cor dos ícones dos project-card */
   margin-bottom: 0.5rem;
 }
 
 .timeline-option.selected i {
-  color: white;
+  color: #000;
+  font-size: 1.5rem; /* cresce no estado selecionado como project-card */
 }
 
-.timeline-option span:first-of-type {
-  font-weight: 500;
+/* Título do card de prazo — maior que o título da seção */
+.timeline-title {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--fg);
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+/* Duração em parênteses — menor que o título */
+.timeline-duration {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--muted-fg);
+  display: block;
   margin-bottom: 0.25rem;
 }
 
 .timeline-price {
-  font-family: var(--font-headline);
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--accent);
+  font-family: var(--font-body); /* mesma fonte do subtítulo */
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--muted-fg); /* mesma cor do subtítulo */
 }
 
 .timeline-option.selected .timeline-price {
-  color: white;
+  color: var(--accent);
 }
 
 /* Price Summary */
@@ -600,19 +788,33 @@
   background: var(--bg);
   border: 2px solid var(--line);
   border-radius: 20px;
-  padding: 2rem;
+  padding: 2.5rem 2rem 2rem;
   position: sticky;
-  top: 2rem;
+  top: 5.5rem;
+  z-index: 0;
   height: fit-content;
 }
 
+html[lang="es-ES"] .calculator-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-auto-rows: min-content;
+  align-items: start;
+}
+
+html[lang="es-ES"] .price-summary {
+  position: sticky;
+  top: 5.5rem;
+  grid-column: 2;
+  grid-row: 1;
+}
 .summary-header h3 {
   font-family: var(--font-headline);
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--fg);
-  margin-bottom: 1.5rem;
-  text-align: center;
+  margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .price-breakdown {
@@ -917,7 +1119,7 @@
 
 .cta-section h2 {
   font-family: var(--font-headline);
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: 700;
   color: #111;
   margin-bottom: 2rem;
@@ -962,6 +1164,18 @@
 
   .price-summary {
     position: static;
+  }
+
+  html[lang="es-ES"] .calculator-wrapper {
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: min-content;
+    align-items: start;
+  }
+  html[lang="es-ES"] .price-summary {
+    position: sticky;
+    top: 5.5rem;
+    grid-column: 2;
+    grid-row: 1;
   }
 }
 
@@ -1056,7 +1270,7 @@
     width: 100%;
     white-space: normal;
   }
-  
+
   .hero-content h1 .line-2 {
     display: block !important;
     text-align: center;
@@ -1111,6 +1325,14 @@
 
   .form-group {
     margin-bottom: 2rem;
+  }
+
+  /* Override global form-group constraints for calculator page */
+  .calculator-form .form-group {
+    max-width: none;
+    width: 100%;
+    align-items: stretch;
+    text-align: left;
   }
 
   .form-label {
@@ -1182,7 +1404,7 @@
 
   .price-summary h3 {
     font-size: 1.3rem;
-    text-align: center;
+    text-align: left;
   }
 
   .price-breakdown {
@@ -1228,6 +1450,14 @@
     color: var(--muted-fg);
   }
 
+  /* Título de grupo — visual semelhante às abas, porém menor no mobile */
+  .feature-group-title {
+    font-size: 0.8rem; /* igual às abas em mobile */
+    padding: 0.3rem 0.5rem;
+    border-radius: 0; /* sem cantos arredondados */
+    margin-top: 0.15rem; /* aproximar dos botões de aba no mobile */
+  }
+
   /* Tabs Otimizadas para Celular */
   .tab-navigation {
     display: flex;
@@ -1235,7 +1465,7 @@
     flex-wrap: wrap;
     min-width: auto !important;
     width: 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.25rem; /* mobile: quase colado às sub-abas */
     border-radius: 8px;
     overflow: hidden;
     background: #000000;
@@ -1279,7 +1509,7 @@
   }
 
   .tab-content {
-    padding: 1.5rem 1rem;
+    padding: 0.5rem 1rem; /* mobile: reduzir espaço superior */
   }
 
   /* Selected Plan Details Otimizado */
@@ -1609,7 +1839,6 @@
 
 /* ===== TABLET RESPONSIVE DESIGN (481px - 768px) ===== */
 @media (min-width: 481px) and (max-width: 768px) {
-  
   /* Hero Section Otimizada para Tablet */
   .hero-presupuesto {
     padding: 4rem 2rem;
@@ -1644,7 +1873,7 @@
     margin-bottom: 0.3rem;
     white-space: normal;
   }
-  
+
   .hero-content h1 .line-2 {
     display: block !important;
     text-align: center;
@@ -1681,6 +1910,18 @@
     gap: 3rem;
     max-width: 1000px;
     margin: 0 auto;
+  }
+
+  html[lang="es-ES"] .calculator-wrapper {
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: min-content;
+    align-items: start;
+  }
+  html[lang="es-ES"] .price-summary {
+    position: sticky;
+    top: 5.5rem;
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .calculator-form {
@@ -1755,17 +1996,17 @@
   /* Price Summary - Melhor Posicionamento */
   .price-summary {
     background: #f8f8f8;
-    padding: 2rem;
+    padding: 2.5rem 2rem 2rem;
     border-radius: 12px;
     border: 1px solid #e0e0e0;
     position: sticky;
-    top: 2rem;
+    top: 4.5rem;
   }
 
   .price-summary h3 {
     font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
+    margin-bottom: 0.5rem;
+    text-align: left;
   }
 
   /* Features Grid - 2 Colunas para Tablet */
@@ -1774,6 +2015,14 @@
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     margin-bottom: 2rem;
+  }
+
+  .feature-group-title {
+    grid-column: 1 / -1;
+    font-size: 0.9rem; /* igual às abas em tablet */
+    padding: 0.35rem 0.6rem;
+    border-radius: 0; /* sem cantos arredondados */
+    margin-top: 0.2rem; /* ainda mais próximo das abas em tablet */
   }
 
   .feature-item {
@@ -1812,7 +2061,7 @@
     flex-direction: row;
     min-width: auto;
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 0.35rem; /* tablet: aproximação das sub-abas */
     border-radius: 8px;
     overflow: hidden;
     background: #000000;
@@ -2107,8 +2356,6 @@
   }
 }
 
-
-
 /* Selected Plan Section */
 #selected-plan-section {
   display: flex;
@@ -2173,11 +2420,20 @@
 }
 
 .plan-price {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #000000;
   margin: 0;
   margin-top: -0.25rem;
+}
+
+.center-features {
+  align-items: center;
+  text-align: center;
+}
+.center-features li {
+  justify-content: center;
+  text-align: center;
 }
 
 .plan-features-list {
@@ -2217,7 +2473,7 @@
 /* Tab System Styles - Design Padronizado */
 .tab-navigation {
   display: flex;
-  margin-bottom: 2rem;
+  margin-bottom: 0.25rem; /* aproxima o conteúdo da aba */
   background: #000000;
   border: 1px solid #ffffff;
   padding: 0;
@@ -2263,7 +2519,7 @@
 }
 
 .tab-button.active::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2273,22 +2529,22 @@
 }
 
 .tab-content {
-    display: none;
-    padding: 2rem 0;
+  display: none;
+  padding: 0.5rem 0 1.25rem; /* reduzir espaço superior da aba */
 }
 
 .tab-content.active {
-    display: block;
-    animation: fadeIn 0.2s ease;
+  display: block;
+  animation: fadeIn 0.2s ease;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Responsive tabs */
@@ -2298,13 +2554,13 @@
     gap: 2px;
     padding: 4px;
   }
-  
+
   .tab-button {
     padding: 0.875rem 1rem;
     font-size: 0.9rem;
     flex: none;
   }
-  
+
   .tab-button.active::after {
     display: none;
   }
@@ -2325,8 +2581,10 @@
 
 /* ===== CUSTOM BUDGET SECTION ===== */
 .custom-budget-section {
+  position: relative;
   padding: 1rem 1rem;
   background: var(--bg);
+  overflow: hidden;
 }
 
 @keyframes gradientShift {
@@ -2342,7 +2600,7 @@
 }
 
 .custom-budget-section::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -2354,29 +2612,26 @@
 }
 
 .custom-budget-section .calculator-wrapper {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 3rem;
+  /* Layout horizontal de largura total: uma coluna, sem espaço em branco lateral */
+  display: block;
   max-width: 1600px;
   margin: 0 auto;
-  align-items: start;
   padding: 0 2rem;
 }
 
 .custom-budget-content {
-  position: sticky;
-  top: 1rem;
-  height: fit-content;
+  /* Visual integrado ao tema: cartão claro, tipografia consistente */
+  position: static;
   text-align: center;
-  background: linear-gradient(-45deg, #0d0d0d, #5e5d5d, #b6b3b3, #111);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-  border-radius: 20px;
+  background: var(--bg);
+  color: var(--fg);
+  border-radius: 16px;
   padding: 2rem;
   margin: 0 auto;
-  max-width: 450px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0 8px 24px rgba(17, 17, 17, 0.08);
+  border: 1px solid rgba(17, 17, 17, 0.08);
 }
 
 .custom-budget-header {
@@ -2387,38 +2642,39 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.1);
+  width: 56px;
+  height: 56px;
+  background: var(--bg);
   border-radius: 50%;
   margin-bottom: 1rem;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  animation: float 3s ease-in-out infinite;
+  border: 1.5px solid rgba(17, 17, 17, 0.12);
 }
 
 .custom-budget-icon i {
-  font-size: 2rem;
-  color: #ffffff;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  font-size: 1.6rem;
+  color: var(--fg);
 }
 
 .custom-budget-section h2 {
   font-family: var(--font-headline);
   font-size: 2rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--fg);
   margin: 0 0 1rem 0;
   letter-spacing: -0.02em;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Dica como texto simples, discreto */
+.custom-budget-tip {
+  text-align: center;
+  color: #111;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-top: 0.75rem;
+}
+
+.custom-budget-tip strong {
+  font-weight: 600;
 }
 
 .custom-budget-subtitle {
@@ -2441,7 +2697,7 @@
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
- display: inline-flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   padding: 0.75rem 1.5rem;
@@ -2459,7 +2715,7 @@
 }
 
 .btn--custom::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -2546,32 +2802,32 @@
   .custom-budget-section {
     padding: 3rem 0;
   }
-  
+
   .custom-budget-section h2 {
     font-size: 2rem;
   }
-  
+
   .custom-budget-subtitle {
     font-size: 1.1rem;
   }
-  
+
   .cta-buttons-custom {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
   }
-  
+
   .btn--custom {
     width: 100%;
     max-width: 280px;
   }
-  
+
   .custom-budget-note {
     flex-direction: column;
     text-align: center;
     padding: 1.25rem 1.5rem;
   }
-  
+
   .custom-budget-note p {
     text-align: center;
   }
@@ -2585,14 +2841,14 @@
     justify-content: center;
     min-height: 80vh;
   }
-  
+
   .custom-budget-section .calculator-wrapper {
     display: block;
     max-width: 100%;
     padding: 0;
     margin: 0;
   }
-  
+
   .custom-budget-content {
     position: static;
     max-width: 100%;
@@ -2600,29 +2856,243 @@
     padding: 2.5rem 1.5rem;
     border-radius: 16px;
   }
-  
+
   .custom-budget-icon {
     width: 60px;
     height: 60px;
     margin-bottom: 1rem;
   }
-  
+
   .custom-budget-icon i {
     font-size: 1.5rem;
   }
-  
+
   .custom-budget-section h2 {
     font-size: 1.75rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .custom-budget-subtitle {
     font-size: 1rem;
     margin-bottom: 2rem;
   }
-  
+
   .btn--custom {
     padding: 0.875rem 1.5rem;
     font-size: 1rem;
+  }
+}
+
+/* Ícone da funcionalidade posicionado ao lado do botão "?" */
+.feature-item label i {
+  position: absolute;
+  top: 0.5rem;
+  right: 2.8rem; /* à esquerda do botão de info */
+  font-size: 1.15rem;
+  color: var(--muted-fg);
+  pointer-events: none;
+}
+
+.feature-item input[type="checkbox"]:checked + label i {
+  color: #ffffff;
+}
+.section-title-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* Título principal da calculadora: menor que o banner e com boa legibilidade */
+.section-title-row h2 {
+  font-size: 2.6rem;
+  line-height: 1.2;
+}
+
+.section-title-row .info-trigger {
+  position: static;
+  width: 24px;
+  height: 24px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--muted-fg);
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+/* Tipografia consistente para títulos dentro de section-header */
+.section-header h3 {
+  font-family: var(--font-headline);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0; /* evita deslocamento vertical inconsistente */
+}
+
+.section-header .info-trigger {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  transform: translateY(-2px);
+}
+
+.section-header .form-label {
+  margin-bottom: 0;
+}
+
+.section-subtitle-inline {
+  color: var(--muted-fg);
+  font-size: 1rem;
+}
+
+.section-header + .section-subtitle {
+  margin-top: 0.25rem;
+}
+
+.section-subtitle-left {
+  text-align: left;
+  color: var(--muted-fg);
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  display: block;
+}
+
+.section-subtitle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.subtitle-symbol {
+  color: var(--muted-fg);
+  opacity: 0.8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+}
+
+.subtitle-symbol i {
+  font-size: 1.1rem;
+}
+
+/* Calculadora: subtítulo e ícone no canto direito */
+.summary-subtitle {
+  color: var(--muted-fg);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0 0 1rem 0;
+  text-align: left;
+}
+
+.summary-info-trigger {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 24px;
+  height: 24px;
+}
+/* Tipografia e detalhes integrados */
+.custom-budget-subtitle {
+  color: #4a4a4a;
+}
+
+.custom-budget-note {
+  background: #f7f7f7;
+  color: #333;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+}
+
+.note-icon {
+  background: var(--bg);
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  border-radius: 50%;
+}
+
+/* Botões alinhados ao tema */
+.cta-buttons-custom .btn--custom {
+  border: 1.5px solid var(--fg);
+  background-color: transparent;
+  color: var(--fg);
+}
+
+.cta-buttons-custom .btn--custom.btn--primary {
+  background-color: var(--fg);
+  color: var(--bg);
+}
+
+.cta-buttons-custom .btn--custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(17, 17, 17, 0.12);
+}
+
+/* Responsividade refinada */
+@media (max-width: 768px) {
+  .custom-budget-section .calculator-wrapper {
+    padding: 0 1.25rem;
+  }
+  .custom-budget-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-budget-section .calculator-wrapper {
+    padding: 0 1rem;
+  }
+  .custom-budget-content {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-presupuesto {
+    min-height: 52vh;
+    padding: 3.25rem 1rem 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hero-presupuesto {
+    min-height: 44vh;
+    padding: 5rem 1.25rem 2.5rem;
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
   }
 }

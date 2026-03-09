@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -47,16 +48,34 @@
     <script src="js/portafolio.js" defer></script>
   </head>
 
-  <body>
+  <body class="page-pt">
     <!-- Language Bar -->
     <div class="language-bar">
       <div class="language-bar__container">
         <div class="language-bar__social">
-          <a href="https://www.instagram.com/amandacerejaweb/" target="_blank" rel="noopener" aria-label="Instagram">
+          <a
+            href="https://www.instagram.com/amandacerejaweb/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="https://github.com/amandaceereja" target="_blank" rel="noopener" aria-label="GitHub">
+          <a
+            href="https://github.com/amandaceereja"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+          >
             <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/amandacerejaweb/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
           </a>
         </div>
         <div class="language-selector">
@@ -78,65 +97,81 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Header -->
     <header class="header">
-      <nav class="navbar" aria-label="Principal">
+      <nav class="navbar navbar--center-logo" aria-label="Principal">
         <div class="navbar__logo">
-          <a href="index_pt.html"><span>Amanda</span> <strong>Cereja Diniz Alves</strong></a>
+          <a href="#hero" class="navbar__brand" aria-label="Voltar ao topo">
+            <img
+              src="img/simplelogo.png"
+              alt="Logotipo de Amanda Cereja"
+              class="navbar__brand-logo"
+              decoding="async"
+              loading="eager"
+            />
+          </a>
         </div>
-                <div class="navbar__right">
-          <button
-          type="button"
-          class="navbar__mobile-btn"
-          aria-label="Abrir/Fechar menu"
-          aria-controls="navmenu"
-          aria-expanded="false"
-        >
-          <i class="fa fa-bars"></i>
-        </button>
         <div class="navbar__menu" id="navmenu">
-          <ul>
-            <li><a href="index_pt.html" data-translate="nav.home">Inicio</a></li>
-            <li><a href="servicos_pt.html">Serviços</a></li>
-            <li><a href="checklist_pt.html">Checklist</a></li>
-            <li><a href="presupuesto_pt.html">Orçamento</a></li>
-            <li><a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a></li>
-            <li>
-              <button id="admin-login-btn" class="admin-login-btn" aria-label="Acesso de administrador">
-                <i class="fas fa-user"></i>
-              </button>
-            </li>
-          </ul>
+          <div class="navbar__menu-left" aria-label="Navegação">
+            <ul>
+              <li><a href="proceso_pt.html">Meu processo</a></li>
+              <li><a href="servicos_pt.html">Serviços</a></li>
+              <li><a href="index_pt.html" data-translate="nav.home">Início</a></li>
+            </ul>
+          </div>
+          <div class="navbar__menu-right" aria-label="Navegação">
+            <ul>
+              <li><a href="checklist_pt.html">Checklist</a></li>
+              <li><a href="presupuesto_pt.html">Orçamento</a></li>
+              <li><a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a></li>
+            </ul>
+          </div>
         </div>
-          <div class="navbar-menu-icon">
-              <button class="menu-icon-btn" aria-label="Mais opções">
-            <i class="fas fa-bars"></i>
+        <div class="navbar__right">
+          <button
+            id="admin-login-btn"
+            class="admin-login-btn"
+            aria-label="Acesso de administrador"
+            type="button"
+          >
+            <i class="fas fa-user"></i>
           </button>
-              <!-- Dropdown para Desktop (apenas 3 links) -->
-              <div class="menu-icon-dropdown desktop-dropdown">
-                  <div class="menu-dropdown-logo">
-                      <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
-                  </div>
-                  <a href="proceso_pt.html">Meu processo</a>
-                  <a href="index_pt.html#sobre">Sobre mim</a>
-                  <a href="index_pt.html#contacto" data-translate="nav.contact">Contatos</a>
+          <button
+            type="button"
+            class="navbar__mobile-btn"
+            aria-label="Abrir/Fechar menu"
+            aria-controls="navmenu"
+            aria-expanded="false"
+          >
+            <i class="fa fa-bars"></i>
+          </button>
+          <div class="navbar-menu-icon">
+            <button class="menu-icon-btn" aria-label="Mais opções">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu-icon-dropdown desktop-dropdown">
+              <div class="menu-dropdown-logo">
+                <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
               </div>
-              <!-- Dropdown para Mobile/Tablet (todos os links) -->
-              <div class="menu-icon-dropdown mobile-dropdown">
-                  <div class="menu-dropdown-logo">
-                      <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
-                  </div>
-                  <a href="index_pt.html">Início</a>
-                  <a href="servicos_pt.html">Serviços</a>
-                  <a href="checklist_pt.html">Checklist</a>
-                  <a href="presupuesto_pt.html">Orçamento</a>
-                  <a href="portafolio_pt.html">Portfólio</a>
-                  <a href="proceso_pt.html">Meu processo</a>
-                  <a href="index_pt.html#sobre">Sobre mim</a>
-                   <a href="index_pt.html#contacto">Contato</a>
-              </div>
+              <a href="proceso_pt.html">Meu processo</a>
+              <a href="index_pt.html#sobre" data-translate="nav.about">Sobre mim</a>
+              <a href="index_pt.html#contacto" data-translate="nav.contact">Contato</a>
             </div>
+            <div class="menu-icon-dropdown mobile-dropdown">
+              <div class="menu-dropdown-logo">
+                <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
+              </div>
+              <a href="index_pt.html" data-translate="nav.home">Início</a>
+              <a href="servicos_pt.html" data-translate="nav.services">Serviços</a>
+              <a href="checklist_pt.html" data-translate="nav.checklist">Checklist</a>
+              <a href="presupuesto_pt.html" data-translate="nav.budget">Orçamento</a>
+              <a href="portafolio_pt.html" data-translate="nav.portfolio">Portfólio</a>
+              <a href="proceso_pt.html">Meu processo</a>
+              <a href="index_pt.html#sobre" data-translate="nav.about">Sobre mim</a>
+              <a href="index_pt.html#contacto" data-translate="nav.contact">Contato</a>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
@@ -170,7 +205,9 @@
         <h1 class="hero__title">
           <span id="typer-portfolio" class="typer typer--portfolio" aria-live="polite"></span>
         </h1>
-        <p class="hero__subtitle">Alguns dos meus projetos mais destacados em desenvolvimento frontend</p>
+        <p class="hero__subtitle">
+          Alguns dos meus projetos mais destacados em desenvolvimento frontend
+        </p>
       </div>
     </section>
 
@@ -225,12 +262,22 @@
 
             <div class="form-group">
               <label for="project-github">GitHub do Projeto</label>
-              <input type="url" id="project-github" name="github" placeholder="https://github.com/usuario/projeto" />
+              <input
+                type="url"
+                id="project-github"
+                name="github"
+                placeholder="https://github.com/usuario/projeto"
+              />
             </div>
 
             <div class="form-group full">
               <label for="project-technologies">Tecnologias Utilizadas</label>
-              <input type="text" id="project-technologies" name="technologies" placeholder="HTML, CSS, JavaScript, React..." />
+              <input
+                type="text"
+                id="project-technologies"
+                name="technologies"
+                placeholder="HTML, CSS, JavaScript, React..."
+              />
             </div>
           </div>
 
@@ -249,8 +296,6 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio-section">
       <div class="container">
-
-
         <div id="portfolio-grid" class="portfolio-grid">
           <!-- Os projetos serão carregados dinamicamente -->
         </div>
@@ -270,8 +315,8 @@
         <div class="cta-content">
           <h2>Tem um projeto em mente?</h2>
           <p>
-            Se gostou de algum dos meus projetos, pode fazer o checklist e colocar na
-            seção de observações:
+            Se gostou de algum dos meus projetos, pode fazer o checklist e colocar na seção de
+            observações:
             <strong>"Quero usar como referência o projeto: [nome do projeto]"</strong>. Assim
             poderei criar algo único inspirado no estilo que mais gostar.
           </p>
@@ -283,10 +328,54 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Footer classic -->
+    <footer class="footer footer-classic">
       <div class="container">
-        <p>2025 Amanda Cereja — Desenvolvedora Frontend</p>
+        <div class="footer-grid">
+          <div class="footer-col company">
+            <h3>Amanda Cereja</h3>
+            <p>Engenheira de Software Full-Stack<br />Frontend | Backend</p>
+            <div class="footer-social">
+              <a href="https://wa.me/34602614398" aria-label="WhatsApp"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+              <a href="https://www.linkedin.com/in/amandaceereja/" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="https://github.com/amandaceereja" aria-label="GitHub"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a href="https://www.instagram.com/amandacerejaweb/" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navegação</h4>
+            <div class="footer-links-grid">
+              <ul class="footer-links">
+                <li><a href="index_pt.html">Início</a></li>
+                <li><a href="servicos_pt.html">Serviços</a></li>
+                <li><a href="checklist_pt.html">Checklist</a></li>
+              </ul>
+              <ul class="footer-links">
+                <li><a href="presupuesto_pt.html">Orçamento</a></li>
+                <li><a href="proceso_pt.html">Meu Processo</a></li>
+                <li><a href="portafolio_pt.html">Portfólio</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Contato</h4>
+            <ul class="footer-contact">
+              <li><a href="index_pt.html#contacto">Formulário de contato</a></li>
+              <li><a href="privacidad_pt.html">Política de Privacidade</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© Amanda Cereja — Engenheira de Software Full-Stack</p>
+        </div>
       </div>
     </footer>
 
@@ -305,9 +394,8 @@
     <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
       <i class="fas fa-arrow-up"></i>
     </button>
-    
+
     <!-- Sistema de Seletor de Idiomas -->
     <script src="js/language-selector.js"></script>
-
   </body>
 </html>

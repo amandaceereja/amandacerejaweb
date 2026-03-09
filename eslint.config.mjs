@@ -12,6 +12,8 @@ export default [
       "node_modules/**",
       "dist/**",
       "build/**",
+      "playwright-report/**",
+      "test-results/**",
       "e2e/playwright-report/**",
       "e2e/test-results/**",
     ],

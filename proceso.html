@@ -65,11 +65,29 @@
     <div class="language-bar">
       <div class="language-bar__container">
         <div class="language-bar__social">
-          <a href="https://www.instagram.com/amandacerejaweb/" target="_blank" rel="noopener" aria-label="Instagram">
+          <a
+            href="https://www.instagram.com/amandacerejaweb/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="https://github.com/amandaceereja" target="_blank" rel="noopener" aria-label="GitHub">
+          <a
+            href="https://github.com/amandaceereja"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+          >
             <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/amandaceerejaweb/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
           </a>
         </div>
         <div class="language-selector">
@@ -87,65 +105,55 @@
             <button class="language-selector__option" data-lang="en">
               <span>EN</span>
             </button>
-
           </div>
         </div>
       </div>
     </div>
-    
+
     <!-- Header -->
     <header class="header">
-      <nav class="navbar" aria-label="Principal">
+      <nav class="navbar navbar--center-logo" aria-label="Principal">
         <div class="navbar__logo">
-          <a href="index.html"><span>Amanda</span> <strong>Cereja Diniz Alves</strong></a>
+          <a href="#hero" class="navbar__brand" aria-label="Volver arriba">
+            <img
+              src="img/simplelogo.png"
+              alt="Logotipo de Amanda Cereja"
+              class="navbar__brand-logo"
+              decoding="async"
+              loading="eager"
+            />
+          </a>
+        </div>
+        <div class="navbar__menu" id="navmenu">
+          <div class="navbar__menu-left" aria-label="Navegación">
+            <ul>
+              <li><a href="proceso.html">Mi proceso</a></li>
+              <li><a href="servicos.html" data-translate="nav.services">Servicios</a></li>
+              <li><a href="index.html" data-translate="nav.home">Inicio</a></li>
+            </ul>
+          </div>
+          <div class="navbar__menu-right" aria-label="Navegación">
+            <ul>
+              <li><a href="checklist.html" data-translate="nav.checklist">Checklist</a></li>
+              <li><a href="presupuesto.html" data-translate="nav.budget">Presupuesto</a></li>
+              <li><a href="portafolio.html" data-translate="nav.portfolio">Portafolio</a></li>
+            </ul>
+          </div>
         </div>
         <div class="navbar__right">
-
           <button
-
             type="button"
-
             class="navbar__mobile-btn"
-
             aria-label="Abrir/Cerrar menú"
-
             aria-controls="navmenu"
-
             aria-expanded="false"
-
           >
-
             <i class="fa fa-bars"></i>
-
           </button>
-
-          <div class="navbar__menu" id="navmenu">
-
-            <ul>
-
-              <li><a href="index.html" data-translate="nav.home">Inicio</a></li>
-
-              <li><a href="servicos.html">Servicios</a></li>
-
-              <li><a href="checklist.html">Checklist</a></li>
-
-              <li><a href="presupuesto.html">Presupuesto</a></li>
-
-              <li><a href="portafolio.html" data-translate="nav.portfolio">Portafolio</a></li>
-
-            </ul>
-
-          </div>
-
           <div class="navbar-menu-icon">
-
             <button class="menu-icon-btn" aria-label="Más opciones">
-
               <i class="fas fa-bars"></i>
-
             </button>
-
-            <!-- Dropdown para Desktop (apenas 3 links) -->
             <div class="menu-icon-dropdown desktop-dropdown">
               <div class="menu-dropdown-logo">
                 <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
@@ -154,7 +162,6 @@
               <a href="index.html#sobre" data-translate="nav.about">Sobre mí</a>
               <a href="index.html#contacto" data-translate="nav.contact">Contacto</a>
             </div>
-            <!-- Dropdown para Mobile/Tablet (todos os links) -->
             <div class="menu-icon-dropdown mobile-dropdown">
               <div class="menu-dropdown-logo">
                 <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
@@ -166,13 +173,9 @@
               <a href="portafolio.html" data-translate="nav.portfolio">Portafolio</a>
               <a href="proceso.html">Mi proceso</a>
               <a href="index.html#sobre" data-translate="nav.about">Sobre mí</a>
-              <a href="#contacto" data-translate="nav.contact">Contacto</a>
+              <a href="index.html#contacto" data-translate="nav.contact">Contacto</a>
             </div>
-
           </div>
-
-        </div>
-            </div>
         </div>
       </nav>
     </header>
@@ -199,8 +202,6 @@
         <p class="muted">
           Cada proyecto sigue esta metodología para garantizar resultados excepcionales
         </p>
-
-
 
         <!-- Estadísticas del proceso -->
         <div class="proceso-stats">
@@ -449,7 +450,9 @@
           <div class="card">
             <i class="fas fa-calendar-check"></i>
             <h3>Reuniones</h3>
-            <p>Videollamadas de 30min según necesidad para revisar avances y tomar decisiones clave.</p>
+            <p>
+              Videollamadas de 30min según necesidad para revisar avances y tomar decisiones clave.
+            </p>
           </div>
 
           <div class="card">
@@ -461,7 +464,10 @@
           <div class="card">
             <i class="fas fa-eye"></i>
             <h3>Previews</h3>
-            <p>Actualizaciones de progreso y resúmenes semanales con capturas de pantalla y explicaciones de las funcionalidades desarrolladas.</p>
+            <p>
+              Actualizaciones de progreso y resúmenes semanales con capturas de pantalla y
+              explicaciones de las funcionalidades desarrolladas.
+            </p>
           </div>
         </div>
       </div>
@@ -519,9 +525,53 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer footer-classic">
       <div class="container">
-        <p>2025 Amanda Cereja — Desarrolladora Frontend</p>
+        <div class="footer-grid">
+          <div class="footer-col company">
+            <h3>Amanda Cereja</h3>
+            <p>Ingeniera de Software Full-Stack<br />Frontend | Backend</p>
+            <div class="footer-social">
+              <a href="https://wa.me/34602614398" aria-label="WhatsApp"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+              <a href="https://www.linkedin.com/in/amandaceereja/" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="https://github.com/amandaceereja" aria-label="GitHub"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a href="https://www.instagram.com/amandacerejaweb/" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navegación</h4>
+            <div class="footer-links-grid">
+              <ul class="footer-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicos.html">Servicios</a></li>
+                <li><a href="checklist.html">Checklist</a></li>
+              </ul>
+              <ul class="footer-links">
+                <li><a href="presupuesto.html">Presupuesto</a></li>
+                <li><a href="proceso.html">Mi proceso</a></li>
+                <li><a href="portafolio.html">Portafolio</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Contacto</h4>
+            <ul class="footer-contact">
+              <li><a href="index.html#contacto">Formulario de contacto</a></li>
+              <li><a href="privacidad.html">Política de Privacidad</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© Amanda Cereja — Ingeniera de Software Full-Stack</p>
+        </div>
       </div>
     </footer>
 
@@ -540,10 +590,8 @@
     >
       <i class="fab fa-whatsapp"></i>
     </a>
-    
+
     <!-- Sistema de Seletor de Idiomas -->
     <script src="js/language-selector.js"></script>
-    
-
   </body>
 </html>

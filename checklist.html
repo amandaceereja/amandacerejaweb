@@ -44,7 +44,970 @@
     </script>
 
     <!-- Estilos & fuentes -->
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/checklist.css" />
+    <style>
+      #checklist .form-group {
+        max-width: none;
+        text-align: left;
+        align-items: stretch;
+      }
+      #checklist .form-group label {
+        max-width: none;
+      }
+      #checklist .form-group input,
+      #checklist .form-group textarea,
+      #checklist .form-group select {
+        max-width: none;
+      }
+      #checklist .step[data-step="1"] {
+        background: #ffffff;
+        color: #000000;
+        border: 1.5px solid #000000;
+        border-radius: 16px;
+        padding: 20px;
+      }
+      @media (min-width: 640px) {
+        #checklist .step[data-step="1"] {
+          padding: 24px;
+        }
+      }
+      #checklist .step[data-step="1"] .step__title {
+        color: #000000;
+        font-family: var(--font-headline);
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 1.15;
+        margin: 0 0 14px;
+        text-align: right;
+      }
+      #checklist .step[data-step="2"] {
+        background: #ffffff;
+        color: #000000;
+        border: 1.5px solid #000000;
+        border-radius: 16px;
+        padding: 20px;
+      }
+      @media (min-width: 640px) {
+        #checklist .step[data-step="2"] {
+          padding: 24px;
+        }
+      }
+      #checklist .step[data-step="2"] .step__title {
+        color: #111111;
+        font-family: var(--font-headline);
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 1.15;
+        margin: 0 0 14px;
+        text-align: right;
+      }
+      #checklist .step[data-step="2"] legend,
+      #checklist .step[data-step="2"] label {
+        color: #111111;
+      }
+      #checklist .step[data-step="2"] .ptype-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 10px;
+      }
+      @media (min-width: 960px) {
+        #checklist .step[data-step="2"] .ptype-grid {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+      #checklist .step[data-step="2"] .ptype-card {
+        position: relative;
+        border-radius: 12px;
+        border: 2px solid #e0e0e0;
+        background: #ffffff;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      #checklist .step[data-step="2"] .ptype-card:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+      }
+      #checklist .step[data-step="2"] .ptype-card.is-selected {
+        border-color: #000000;
+        background: #f8f8f8;
+      }
+      #checklist .step[data-step="2"] .ptype-main {
+        padding: 1.5rem;
+        min-height: 260px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+      }
+      #checklist .step[data-step="2"] .ptype-radio {
+        position: absolute;
+        opacity: 0;
+        inset: 0;
+        margin: 0;
+      }
+      #checklist .step[data-step="2"] .ptype-radio:focus-visible + .ptype-main {
+        outline: 3px solid rgba(17, 17, 17, 0.18);
+        outline-offset: -3px;
+      }
+      #checklist .step[data-step="2"] .ptype-card.is-invalid {
+        border-color: #b00020;
+        box-shadow: 0 0 0 3px rgba(176, 0, 32, 0.12);
+      }
+      #checklist .step[data-step="2"] .info-trigger {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        border: none;
+        background: transparent;
+        color: #111111;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        z-index: 10;
+      }
+      #checklist .step[data-step="2"] .info-trigger:hover {
+        transform: scale(1.1);
+      }
+      #checklist .step[data-step="2"] .info-trigger i {
+        font-size: 1.25rem;
+      }
+      #checklist .step[data-step="2"] .ptype__icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        display: grid;
+        place-items: center;
+        background: #ffffff;
+      }
+      #checklist .step[data-step="2"] .ptype__icon i {
+        font-size: 18px;
+        color: #111111;
+      }
+      #checklist .step[data-step="2"] .ptype__title {
+        font-family: var(--font-headline);
+        font-size: 1.8rem;
+        line-height: 1.05;
+        margin: 0;
+        text-align: center;
+        color: #111111;
+      }
+      #feature-info-modal {
+        --bg: #ffffff;
+        --fg: #000000;
+        --muted: rgba(0, 0, 0, 0.08);
+        --accent: #000000;
+        --line: #000000;
+      }
+      #feature-info-modal .modal {
+        max-width: 720px;
+        color: var(--fg);
+      }
+      #feature-info-modal .modal-title {
+        color: #000000;
+        font-family: var(--font-headline);
+        font-weight: 700;
+      }
+      #feature-info-modal .modal-title-icon i {
+        color: #000000;
+      }
+      #feature-info-modal .modal-close,
+      #feature-info-modal .modal-back {
+        color: #000000;
+      }
+      #feature-info-modal .modal-close:hover,
+      #feature-info-modal .modal-back:hover {
+        background: rgba(0, 0, 0, 0.06);
+        color: #000000;
+      }
+      #feature-info-modal #modal-feature-description .tooltip {
+        display: none !important;
+      }
+      #feature-info-modal #modal-feature-description {
+        color: var(--fg);
+      }
+      #feature-info-modal #modal-feature-description p,
+      #feature-info-modal #modal-feature-description li,
+      #feature-info-modal #modal-feature-description h5,
+      #feature-info-modal #modal-feature-description strong {
+        color: inherit;
+      }
+      #checklist .step[data-step="3"] {
+        background: #ffffff;
+        color: #000000;
+        border: 1.5px solid #000000;
+        border-radius: 16px;
+        padding: 20px;
+      }
+      @media (min-width: 640px) {
+        #checklist .step[data-step="3"] {
+          padding: 24px;
+        }
+      }
+      #checklist .step[data-step="3"] .step__title {
+        font-family: var(--font-headline);
+        font-size: 2rem;
+        line-height: 1.15;
+        margin: 0 0 14px;
+        text-align: right;
+        color: #111111;
+        display: block;
+      }
+      #checklist .step[data-step="3"] legend,
+      #checklist .step[data-step="3"] label {
+        color: #111111;
+      }
+      #checklist .step[data-step="3"] fieldset {
+        border: 0;
+        min-inline-size: 0;
+      }
+      #checklist .step[data-step="3"] .muted,
+      #checklist .step[data-step="3"] .dh-help {
+        color: rgba(0, 0, 0, 0.65);
+      }
+      #checklist .step[data-step="3"] .group {
+        border-color: rgba(17, 17, 17, 0.12);
+        background: #ffffff;
+        padding: 14px;
+      }
+      #checklist .step[data-step="3"] .group legend {
+        display: block;
+        padding: 0;
+        margin: 0;
+        color: #111111;
+        font-family: var(--font-headline);
+        font-size: 1.45rem;
+        line-height: 1.25;
+        font-weight: 700;
+      }
+      #checklist .step[data-step="3"] .group legend .legend-sub {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.65);
+      }
+      #checklist .step[data-step="3"] .group > legend + p.muted {
+        margin: 2px 0 12px;
+      }
+      #checklist .step[data-step="3"] .group > p.muted + .checks-grid {
+        margin-top: 14px;
+      }
+      #checklist .step[data-step="3"] .form-grid {
+        gap: 12px;
+      }
+      #checklist .step[data-step="3"] .form-grid + .selected-chips {
+        margin-top: 2px;
+      }
+      #checklist .step[data-step="3"] .form-group {
+        margin: 0;
+      }
+      #checklist .step[data-step="3"] input:not([type]),
+      #checklist .step[data-step="3"] input[type="text"],
+      #checklist .step[data-step="3"] input[type="email"],
+      #checklist .step[data-step="3"] input[type="tel"],
+      #checklist .step[data-step="3"] textarea,
+      #checklist .step[data-step="3"] select,
+      #checklist .step[data-step="3"] .select-ui__btn {
+        background: #ffffff;
+        color: #111111;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+      }
+      #checklist .step[data-step="3"] select[multiple] {
+        min-height: 180px;
+        padding: 12px 14px;
+      }
+      #checklist .step[data-step="3"] input::placeholder,
+      #checklist .step[data-step="3"] textarea::placeholder {
+        color: rgba(0, 0, 0, 0.45);
+      }
+      #checklist .step[data-step="3"] input:not([type]):focus,
+      #checklist .step[data-step="3"] input[type="text"]:focus,
+      #checklist .step[data-step="3"] input[type="email"]:focus,
+      #checklist .step[data-step="3"] input[type="tel"]:focus,
+      #checklist .step[data-step="3"] textarea:focus,
+      #checklist .step[data-step="3"] select:focus,
+      #checklist .step[data-step="3"] .select-ui__btn:focus,
+      #checklist .step[data-step="3"] .select-ui__btn:focus-visible {
+        border-color: #111111;
+        box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.1);
+        outline: none;
+      }
+      #checklist .step[data-step="3"] input[type="checkbox"],
+      #checklist .step[data-step="3"] input[type="radio"] {
+        accent-color: #111111;
+      }
+      #checklist .step[data-step="3"] .select-ui {
+        position: relative;
+      }
+      #checklist .step[data-step="3"] .select-ui__btn {
+        width: 100%;
+        min-height: 46px;
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        text-align: left;
+      }
+      #checklist .step[data-step="3"] .select-ui__btn:hover {
+        background: #f7f7f7;
+      }
+      #checklist .step[data-step="3"] .select-ui__text {
+        flex: 1;
+      }
+      #checklist .step[data-step="3"] .select-ui__opt {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: 0.98rem;
+        color: #111111;
+        text-align: left;
+      }
+      #checklist .step[data-step="3"] .select-ui__opt:hover,
+      #checklist .step[data-step="3"] .select-ui__opt:focus,
+      #checklist .step[data-step="3"] .select-ui__opt:focus-visible {
+        background: #f1f1f1;
+        outline: none;
+      }
+      #checklist .step[data-step="3"] .select-ui__opt.is-selected {
+        background: #111111;
+        color: #ffffff;
+      }
+      #checklist .step[data-step="3"] .select-ui__popover {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 8px;
+        box-shadow: 0 12px 28px rgba(17, 17, 17, 0.12);
+        max-height: 320px;
+        overflow: auto;
+        z-index: 80;
+      }
+      #checklist .step[data-step="3"] .select-ui__popover .checks-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      #checklist .step[data-step="3"] .select-ui__popover .check {
+        align-items: flex-start;
+      }
+      #checklist .step[data-step="3"] .check-desc {
+        display: block;
+        margin-top: 4px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.65);
+        line-height: 1.35;
+      }
+      #checklist .step[data-step="3"] .selected-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 2px;
+      }
+      #checklist .step[data-step="3"] #idiomas_selected_chips {
+        margin-top: 0 !important;
+      }
+      #checklist .step[data-step="3"] #paginas_selected_chips {
+        margin-top: 10px !important;
+      }
+      #checklist .step[data-step="3"] .selected-chips:empty {
+        display: none;
+      }
+      #checklist .step[data-step="3"] .page-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 10px;
+        border-radius: 12px;
+        border: 1px solid #000000;
+        background: #000000;
+        color: #ffffff;
+        font-size: 0.95rem;
+      }
+      #checklist .step[data-step="3"] .check input[type="checkbox"],
+      #checklist .step[data-step="3"] .check input[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        min-width: 18px;
+        min-height: 18px;
+        margin: 0;
+        border: 1.5px solid rgba(17, 17, 17, 0.35);
+        border-radius: 6px;
+        background: #ffffff;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 12px 12px;
+      }
+      #checklist .step[data-step="3"] .check input[type="checkbox"]:hover,
+      #checklist .step[data-step="3"] .check input[type="radio"]:hover {
+        border-color: rgba(17, 17, 17, 0.55);
+      }
+      #checklist .step[data-step="3"] .check input[type="checkbox"]:checked,
+      #checklist .step[data-step="3"] .check input[type="radio"]:checked {
+        border-color: #111111;
+        background-color: #111111;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M1 5l3 3 7-7'/%3E%3C/svg%3E");
+      }
+      #checklist .step[data-step="3"] .check input[type="checkbox"]:focus-visible,
+      #checklist .step[data-step="3"] .check input[type="radio"]:focus-visible {
+        box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.12);
+        outline: none;
+      }
+      #checklist .step[data-step="3"] .dh-item {
+        border-color: rgba(17, 17, 17, 0.12);
+        background: #ffffff;
+      }
+      #checklist .step[data-step="3"] .dh-field fieldset {
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
+      #checklist .step[data-step="3"] .dh-field legend {
+        padding: 0;
+        margin: 0 0 8px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #111111;
+      }
+      #checklist .step[data-step="3"] .radio input[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        min-width: 18px;
+        min-height: 18px;
+        margin: 0;
+        border: 1.5px solid rgba(17, 17, 17, 0.35);
+        border-radius: 999px;
+        background: #ffffff;
+        display: inline-grid;
+        place-items: center;
+      }
+      #checklist .step[data-step="3"] .radio input[type="radio"]::after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        transform: scale(0);
+        background: #ffffff;
+        transition: transform 0.12s ease;
+      }
+      #checklist .step[data-step="3"] .radio input[type="radio"]:checked {
+        border-color: #111111;
+        background: #111111;
+      }
+      #checklist .step[data-step="3"] .radio input[type="radio"]:checked::after {
+        transform: scale(1);
+      }
+      #checklist .step[data-step="3"] .radio input[type="radio"]:focus-visible {
+        box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.12);
+        outline: none;
+      }
+      #checklist .step[data-step="3"] .rgpd-row {
+        border: 1px solid rgba(17, 17, 17, 0.12);
+        border-radius: 12px;
+        background: #ffffff;
+        padding: 12px;
+        margin-top: 16px;
+      }
+      #checklist .step[data-step="3"] .rgpd-row label {
+        color: rgba(0, 0, 0, 0.75);
+      }
+      #checklist .step[data-step="3"] .rgpd-row a {
+        color: #111111;
+        text-decoration: underline;
+      }
+      #checklist .step[data-step="3"] .btn--ghost {
+        color: #111111;
+      }
+      #checklist .step[data-step="3"] .btn--ghost:hover {
+        background: rgba(17, 17, 17, 0.06);
+        color: #111111;
+      }
+      #checklist .step[data-step="1"] .muted {
+        color: rgba(0, 0, 0, 0.65);
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      #checklist .step[data-step="1"] .form-grid {
+        gap: 14px;
+      }
+      #checklist .step[data-step="1"] .form-group {
+        margin: 0;
+      }
+      #checklist .step[data-step="1"] .form-group label,
+      #checklist .step[data-step="1"] .check label,
+      #checklist .step[data-step="1"] legend {
+        color: #111111;
+      }
+      #checklist .step[data-step="1"] input:not([type]),
+      #checklist .step[data-step="1"] input[type="text"],
+      #checklist .step[data-step="1"] input[type="email"],
+      #checklist .step[data-step="1"] input[type="tel"],
+      #checklist .step[data-step="1"] textarea,
+      #checklist .step[data-step="1"] .select-ui__btn {
+        background: #ffffff;
+        color: #111111;
+        -webkit-text-fill-color: #111111;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        caret-color: #111111;
+      }
+      #checklist .step[data-step="1"] input::placeholder,
+      #checklist .step[data-step="1"] textarea::placeholder {
+        color: rgba(0, 0, 0, 0.45);
+        -webkit-text-fill-color: rgba(0, 0, 0, 0.45);
+      }
+      #checklist .step[data-step="1"] input:not([type]):focus,
+      #checklist .step[data-step="1"] input[type="text"]:focus,
+      #checklist .step[data-step="1"] input[type="email"]:focus,
+      #checklist .step[data-step="1"] input[type="tel"]:focus,
+      #checklist .step[data-step="1"] textarea:focus,
+      #checklist .step[data-step="1"] .select-ui__btn:focus,
+      #checklist .step[data-step="1"] .select-ui__btn:focus-visible {
+        border-color: #000000;
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+        outline: none;
+      }
+      #checklist .step[data-step="1"] input[required]:valid,
+      #checklist .step[data-step="1"] textarea[required]:valid {
+        background: #000000;
+        color: #ffffff;
+        -webkit-text-fill-color: #ffffff;
+        border-color: #000000;
+        caret-color: #ffffff;
+      }
+      #checklist .step[data-step="1"] input[required]:valid:-webkit-autofill,
+      #checklist .step[data-step="1"] input[required]:valid:-webkit-autofill:hover,
+      #checklist .step[data-step="1"] input[required]:valid:-webkit-autofill:focus {
+        -webkit-text-fill-color: #ffffff;
+        -webkit-box-shadow: 0 0 0 1000px #000000 inset;
+        caret-color: #ffffff;
+      }
+      #checklist .step[data-step="1"] textarea[required]:valid:-webkit-autofill,
+      #checklist .step[data-step="1"] textarea[required]:valid:-webkit-autofill:hover,
+      #checklist .step[data-step="1"] textarea[required]:valid:-webkit-autofill:focus {
+        -webkit-text-fill-color: #ffffff;
+        -webkit-box-shadow: 0 0 0 1000px #000000 inset;
+        caret-color: #ffffff;
+      }
+      #checklist .step[data-step="1"] input.is-filled,
+      #checklist .step[data-step="1"] textarea.is-filled {
+        background: #000000;
+        color: #ffffff;
+        -webkit-text-fill-color: #ffffff;
+        border-color: #000000;
+        caret-color: #ffffff;
+      }
+      #checklist .step[data-step="1"] input.is-filled:-webkit-autofill,
+      #checklist .step[data-step="1"] input.is-filled:-webkit-autofill:hover,
+      #checklist .step[data-step="1"] input.is-filled:-webkit-autofill:focus {
+        -webkit-text-fill-color: #ffffff;
+        -webkit-box-shadow: 0 0 0 1000px #000000 inset;
+        caret-color: #ffffff;
+      }
+      #checklist .step[data-step="1"] textarea.is-filled:-webkit-autofill,
+      #checklist .step[data-step="1"] textarea.is-filled:-webkit-autofill:hover,
+      #checklist .step[data-step="1"] textarea.is-filled:-webkit-autofill:focus {
+        -webkit-text-fill-color: #ffffff;
+        -webkit-box-shadow: 0 0 0 1000px #000000 inset;
+        caret-color: #ffffff;
+      }
+      #checklist .step[data-step="1"] input[type="checkbox"],
+      #checklist .step[data-step="1"] input[type="radio"] {
+        accent-color: #000000;
+      }
+      #checklist .step[data-step="1"] .check input[type="checkbox"],
+      #checklist .step[data-step="1"] .check input[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        min-width: 18px;
+        min-height: 18px;
+        margin: 0;
+        border: 1.5px solid rgba(0, 0, 0, 0.35);
+        border-radius: 6px;
+        background: #ffffff;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 12px 12px;
+      }
+      #checklist .step[data-step="1"] .check input[type="checkbox"]:hover,
+      #checklist .step[data-step="1"] .check input[type="radio"]:hover {
+        border-color: rgba(0, 0, 0, 0.55);
+      }
+      #checklist .step[data-step="1"] .check input[type="checkbox"]:checked,
+      #checklist .step[data-step="1"] .check input[type="radio"]:checked {
+        border-color: #000000;
+        background-color: #000000;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M1 5l3 3 7-7'/%3E%3C/svg%3E");
+      }
+      #checklist .step[data-step="1"] .check input[type="checkbox"]:focus-visible,
+      #checklist .step[data-step="1"] .check input[type="radio"]:focus-visible {
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+        outline: none;
+      }
+      .step[data-step="1"] .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .step[data-step="1"] .chip {
+        text-align: left;
+      }
+      .step[data-step="1"] .checks-grid {
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 640px) {
+        .step[data-step="1"] .checks-grid.compact {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .acc {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #0f0f0f;
+        margin-top: 16px;
+        overflow: hidden;
+      }
+      .step[data-step="1"] .acc {
+        border-color: rgba(17, 17, 17, 0.12);
+        background: #ffffff;
+      }
+      .acc > summary {
+        cursor: pointer;
+        padding: 14px 16px;
+        font-weight: 700;
+        color: var(--fg);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+      }
+      .step[data-step="1"] .acc > summary {
+        color: #111111;
+        font-family: var(--font-headline);
+        font-size: 1.45rem;
+        line-height: 1.25;
+        padding: 10px 16px;
+      }
+      .acc > summary::-webkit-details-marker {
+        display: none;
+      }
+      .acc > summary::after {
+        content: "+";
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .step[data-step="1"] .acc > summary::after {
+        color: rgba(0, 0, 0, 0.55);
+      }
+      .acc[open] > summary::after {
+        content: "×";
+      }
+      .acc-body {
+        padding: 0 16px 16px;
+      }
+      .step[data-step="1"] .acc-body {
+        padding: 0 16px 16px;
+      }
+      .step[data-step="1"] .acc-body .group {
+        border: none;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+      }
+      .step[data-step="1"] .acc-body p.muted {
+        margin: 2px 0 12px;
+      }
+      .step[data-step="1"] .acc-body .group legend {
+        display: none;
+      }
+      .step[data-step="1"] .acc-body .group__title {
+        margin: 14px 0 8px;
+      }
+      .obj-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 6px;
+      }
+      .step[data-step="1"] .obj-meta {
+        margin-top: 0;
+        align-items: flex-start;
+      }
+      .step[data-step="1"] .obj-meta .muted {
+        margin: 0;
+      }
+      .obj-counter {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 64px;
+        height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: #151515;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      .step[data-step="1"] .obj-counter {
+        border-color: rgba(17, 17, 17, 0.12);
+        background: #f7f7f7;
+        color: #111111;
+      }
+      .obj-warn {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 6px 0 0;
+      }
+      .step[data-step="1"] .obj-warn {
+        color: rgba(0, 0, 0, 0.65);
+      }
+      .obj-warn.is-on {
+        color: var(--fg);
+      }
+      .step[data-step="1"] .obj-warn.is-on {
+        color: #111111;
+      }
+      #checklist .step[data-step="1"] .group__title {
+        display: flex;
+        align-items: center;
+        color: #111111;
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 16px 0 10px;
+      }
+      #checklist .step[data-step="1"] .group__title::before {
+        content: "•";
+        margin-right: 10px;
+        color: rgba(0, 0, 0, 0.45);
+        font-size: 1.1em;
+        line-height: 1;
+      }
+      #checklist .step[data-step="1"] .ref-cards {
+        display: grid;
+        gap: 12px;
+        margin-top: 10px;
+      }
+      @media (min-width: 640px) {
+        #checklist .step[data-step="1"] .ref-cards {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      #checklist .step[data-step="1"] .ref-card.check {
+        align-items: flex-start;
+        border: 1px solid rgba(17, 17, 17, 0.12);
+        border-radius: 16px;
+        padding: 14px;
+        gap: 12px;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          transform 0.06s ease;
+      }
+      #checklist .step[data-step="1"] .ref-card.check:hover {
+        border-color: rgba(17, 17, 17, 0.22);
+        box-shadow: 0 10px 24px rgba(17, 17, 17, 0.08);
+      }
+      #checklist .step[data-step="1"] .ref-card.check:has(input:checked) {
+        border-color: #111111;
+        box-shadow: 0 10px 24px rgba(17, 17, 17, 0.1);
+      }
+      #checklist .step[data-step="1"] .ref-card label {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        width: 100%;
+        margin: 0;
+        cursor: pointer;
+      }
+      #checklist .step[data-step="1"] .ref-card__icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        border: 1px solid rgba(17, 17, 17, 0.12);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+      }
+      #checklist .step[data-step="1"] .ref-card__icon svg {
+        width: 18px;
+        height: 18px;
+        stroke: #111111;
+      }
+      #checklist .step[data-step="1"] .ref-card__text {
+        display: block;
+      }
+      #checklist .step[data-step="1"] .ref-card__title {
+        display: block;
+        font-weight: 700;
+        color: #111111;
+        line-height: 1.25;
+      }
+      #checklist .step[data-step="1"] .ref-card__desc {
+        display: block;
+        margin-top: 2px;
+        color: rgba(0, 0, 0, 0.65);
+        line-height: 1.35;
+      }
+      #checklist .step[data-step="1"] .ref-panel {
+        margin-top: 10px;
+      }
+      #checklist .step[data-step="1"] .url-chips__box {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px 12px;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        background: #ffffff;
+      }
+      #checklist .step[data-step="1"] .url-chips__box:focus-within {
+        border-color: #111111;
+        box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.1);
+      }
+      #checklist .step[data-step="1"] .url-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(17, 17, 17, 0.16);
+        background: #ffffff;
+        color: #111111;
+        font-size: 0.95rem;
+        cursor: pointer;
+      }
+      #checklist .step[data-step="1"] .url-chip:hover {
+        border-color: rgba(17, 17, 17, 0.28);
+        background: #f7f7f7;
+      }
+      #checklist .step[data-step="1"] .url-chip__x {
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(17, 17, 17, 0.18);
+        font-size: 14px;
+        line-height: 1;
+      }
+      #checklist .step[data-step="1"] .url-chip__x:hover {
+        background: #ffffff;
+      }
+      #checklist .step[data-step="1"] .url-chips__input {
+        flex: 1 1 240px;
+        min-width: 220px;
+        border: 0;
+        padding: 6px 4px;
+        outline: none;
+        background: transparent;
+        font-size: 1rem;
+      }
+      #checklist .step[data-step="1"] .url-chips__hint {
+        margin: 8px 0 0;
+        font-size: 0.95rem;
+      }
+      #checklist .step[data-step="1"] .select-ui {
+        position: relative;
+      }
+      #checklist .step[data-step="1"] .select-ui__btn {
+        width: 100%;
+        min-height: 46px;
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        text-align: left;
+      }
+      #checklist .step[data-step="1"] .select-ui__btn:hover {
+        background: #f7f7f7;
+      }
+      #checklist .step[data-step="1"] .select-ui__text {
+        flex: 1;
+      }
+      #checklist .step[data-step="1"] .select-ui__popover {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 6px;
+        box-shadow: 0 12px 28px rgba(17, 17, 17, 0.12);
+        max-height: 280px;
+        overflow: auto;
+        z-index: 80;
+      }
+      #checklist .step[data-step="1"] .select-ui__opt {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: 0.98rem;
+        color: #111111;
+        text-align: left;
+      }
+      #checklist .step[data-step="1"] .select-ui__opt:hover,
+      #checklist .step[data-step="1"] .select-ui__opt:focus,
+      #checklist .step[data-step="1"] .select-ui__opt:focus-visible {
+        background: #000000;
+        color: #ffffff;
+        outline: none;
+      }
+      #checklist .step[data-step="1"] .select-ui__opt.is-selected {
+        background: #000000;
+        color: #ffffff;
+      }
+      #setor-outro-wrap {
+        margin-top: 6px;
+      }
+      #objetivo-outro-wrap {
+        margin-top: 16px;
+      }
+      #checklist .step[data-step="1"] #setor_outro_desc,
+      #checklist .step[data-step="1"] #objetivo_outro_desc {
+        min-height: 84px;
+      }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="icon" href="img/simplelogo.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -61,7 +1024,7 @@
     />
   </head>
 
-  <body>
+  <body class="page-es">
     <!-- Language Bar -->
     <div class="language-bar">
       <div class="language-bar__container">
@@ -71,6 +1034,14 @@
           </a>
           <a href="https://github.com/amandaceereja" target="_blank" rel="noopener" aria-label="GitHub">
             <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/amandacerejaweb/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
           </a>
         </div>
         <div class="language-selector">
@@ -95,12 +1066,33 @@
     
     <!-- Header -->
     <header class="header">
-      <nav class="navbar" aria-label="Principal">
+      <nav class="navbar navbar--center-logo" aria-label="Principal">
         <div class="navbar__logo">
-          <a href="index.html">
-            <span class="name-text-desktop">Amanda <strong>Cereja Diniz Alves</strong></span>
-            <span class="name-text-mobile">Amanda <strong>Cereja</strong></span>
+          <a href="index.html#hero" class="navbar__brand" aria-label="Volver arriba">
+            <img
+              src="img/simplelogo.png"
+              alt="Logotipo de Amanda Cereja"
+              class="navbar__brand-logo"
+              decoding="async"
+              loading="eager"
+            />
           </a>
+        </div>
+        <div class="navbar__menu" id="navmenu">
+          <div class="navbar__menu-left" aria-label="Navegación">
+            <ul>
+              <li><a href="proceso.html">Mi proceso</a></li>
+              <li><a href="servicos.html">Servicios</a></li>
+              <li><a href="index.html" data-translate="nav.home">Inicio</a></li>
+            </ul>
+          </div>
+          <div class="navbar__menu-right" aria-label="Navegación">
+            <ul>
+              <li><a href="checklist.html">Checklist</a></li>
+              <li><a href="presupuesto.html">Presupuesto</a></li>
+              <li><a href="portafolio.html" data-translate="nav.portfolio">Portafolio</a></li>
+            </ul>
+          </div>
         </div>
         <div class="navbar__right">
           <button
@@ -112,15 +1104,6 @@
           >
             <i class="fa fa-bars"></i>
           </button>
-          <div class="navbar__menu" id="navmenu">
-            <ul>
-              <li><a href="index.html" data-translate="nav.home">Inicio</a></li>
-              <li><a href="servicos.html">Servicios</a></li>
-              <li><a href="checklist.html">Checklist</a></li>
-              <li><a href="presupuesto.html">Presupuesto</a></li>
-              <li><a href="portafolio.html" data-translate="nav.portfolio">Portafolio</a></li>
-            </ul>
-          </div>
           <div class="navbar-menu-icon">
             <button class="menu-icon-btn" aria-label="Más opciones">
               <i class="fas fa-bars"></i>
@@ -131,7 +1114,7 @@
                 <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
               </div>
               <a href="proceso.html">Mi proceso</a>
-              <a href="index.html#sobre">Sobre mí</a>
+              <a href="index.html#sobre" data-translate="nav.about">Sobre mí</a>
               <a href="index.html#contacto" data-translate="nav.contact">Contacto</a>
             </div>
             <!-- Dropdown para Mobile/Tablet (todos os links) -->
@@ -139,13 +1122,13 @@
               <div class="menu-dropdown-logo">
                 <img src="img/simplelogo.png" alt="Logotipo de Amanda Cereja" />
               </div>
-              <a href="index.html" data-translate="nav.home">Inicio</a>
+              <a href="index.html#hero" data-translate="nav.home">Inicio</a>
               <a href="servicos.html" data-translate="nav.services">Servicios</a>
               <a href="checklist.html" data-translate="nav.checklist">Checklist</a>
               <a href="presupuesto.html" data-translate="nav.budget">Presupuesto</a>
               <a href="portafolio.html" data-translate="nav.portfolio">Portafolio</a>
               <a href="proceso.html">Mi proceso</a>
-              <a href="index.html#sobre">Sobre mí</a>
+              <a href="index.html#sobre" data-translate="nav.about">Sobre mí</a>
               <a href="index.html#contacto" data-translate="nav.contact">Contacto</a>
             </div>
           </div>
@@ -156,13 +1139,10 @@
     <!-- Contenido principal -->
     <main>
       <div id="checklist" class="container">
-        <h1>Checklist Online</h1>
-        <p class="muted" style="margin-bottom: 1.5rem">
+        <h1 class="hero-title">Checklist Online</h1>
+        <p class="muted hero-subtitle" style="margin-bottom: 1.5rem">
           Complete el formulario para recibir una propuesta personalizada.
         </p>
-        <button type="button" id="clear-data" class="btn btn--ghost" style="margin-bottom: 1rem; font-size: 0.875rem;">
-          <i class="fas fa-trash"></i> Limpiar datos guardados
-        </button>
 
         <div class="card">
           <!-- Barra de progreso -->
@@ -177,7 +1157,7 @@
           </div>
           <ol class="steps" aria-label="Pasos del formulario">
             <li class="active">Datos</li>
-            <li>Objetivos</li>
+            <li>Tipo de proyecto</li>
             <li>Funcionalidades</li>
           </ol>
 
@@ -188,7 +1168,8 @@
           <form action="https://formspree.io/f/mandwben" method="POST" id="chk" novalidate>
             <!-- PASO 1: Datos + Contenido disponible -->
             <fieldset class="step" data-step="1">
-              <legend class="step__title">Datos del proyecto</legend>
+              <legend class="sr-only">Datos del proyecto</legend>
+              <h2 class="step__title">Datos del proyecto</h2>
 
               <div class="form-grid">
                 <div class="form-group">
@@ -204,7 +1185,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="email">Email:</label>
+                  <label for="email">Email de contacto:</label>
                   <input
                     id="email"
                     name="email"
@@ -219,7 +1200,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="whatsapp">WhatsApp:</label>
+                  <label for="whatsapp">Teléfono / WhatsApp de contacto:</label>
                   <input
                     id="whatsapp"
                     name="whatsapp"
@@ -234,240 +1215,1511 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="empresa">Empresa / Marca:</label>
+                  <label for="empresa">Nombre de la empresa, marca o proyecto:</label>
                   <input id="empresa" name="empresa" />
-                </div>
-
-                <div class="form-group full">
-                  <label for="objetivo">Objetivos principales</label>
-                  <textarea
-                    id="objetivo"
-                    name="objetivo"
-                    placeholder="Ej.: blog personal, portafolio, vender online…"
-                  ></textarea>
                 </div>
               </div>
 
-              <fieldset class="group full">
-                <legend>Contenidos disponibles</legend>
-
-                <div class="checks-grid">
-                  <div class="check">
-                    <input
-                      type="checkbox"
-                      id="cd_imgs"
-                      name="contenido_disponible[]"
-                      value="Carpeta con imágenes"
-                    />
-                    <label for="cd_imgs">Carpeta con imágenes profesionales definidas</label>
-                  </div>
-                  <div class="check">
-                    <input
-                      type="checkbox"
-                      id="cd_logo"
-                      name="contenido_disponible[]"
-                      value="Logo propio"
-                    />
-                    <label for="cd_logo">Logo</label>
-                  </div>
-                  <div class="check">
-                    <input
-                      type="checkbox"
-                      id="cd_paleta"
-                      name="contenido_disponible[]"
-                      value="Paleta de colores definida"
-                    />
-                    <label for="cd_paleta">Paleta de colores definida</label>
-                  </div>
-                  <div class="check">
-                    <input
-                      type="checkbox"
-                      id="cd_fuentes"
-                      name="contenido_disponible[]"
-                      value="Fuentes definidas"
-                    />
-                    <label for="cd_fuentes">Fuentes definidas</label>
-                  </div>
-                </div>
+              <fieldset class="sr-only">
+                <legend>Resumen automático</legend>
+                <label for="objetivo">Resumen automático del briefing</label>
+                <textarea id="objetivo" name="objetivo" tabindex="-1"></textarea>
               </fieldset>
+
+              <details class="acc" open>
+                <summary>¿Cuál es tu sector de actividad?</summary>
+                <div class="acc-body">
+                  <fieldset class="group full" id="setor-group">
+                    <legend class="sr-only">¿Cuál es tu sector de actividad?</legend>
+                    <p class="muted">
+                      Elige el sector que mejor representa tu negocio. Esto nos ayudará a crear la
+                      solución ideal para tu sitio web, con las funcionalidades y el diseño más
+                      adecuados.
+                    </p>
+
+                    <div class="form-grid">
+                      <div class="form-group full">
+                        <label for="setor_nicho_select_btn" class="sr-only">Sector de actividad</label>
+                        <input type="hidden" id="setor_nicho_select" name="setor_nicho" value="" />
+                        <div class="select-ui">
+                          <button
+                            type="button"
+                            class="select-ui__btn"
+                            id="setor_nicho_select_btn"
+                            aria-haspopup="listbox"
+                            aria-expanded="false"
+                          >
+                            <span class="select-ui__text" id="setor_nicho_select_text"
+                              >Selecciona una opción</span
+                            >
+                            <span aria-hidden="true">▾</span>
+                          </button>
+                          <div
+                            class="select-ui__popover"
+                            id="setor_nicho_select_pop"
+                            role="listbox"
+                            tabindex="-1"
+                            hidden
+                          >
+                            <button
+                              type="button"
+                              class="select-ui__opt is-selected"
+                              role="option"
+                              data-value=""
+                            >
+                              Selecciona una opción
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Tiendas online - E-commerce"
+                            >
+                              Tiendas online - E-commerce
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Tiendas físicas"
+                            >
+                              Tiendas físicas
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Pequeñas empresas"
+                            >
+                              Pequeñas empresas
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Restaurantes y alimentación"
+                            >
+                              Restaurantes y alimentación
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Consultoría"
+                            >
+                              Consultoría
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Medios y comunicación"
+                            >
+                              Medios y comunicación
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Tecnología"
+                            >
+                              Tecnología
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Diseño"
+                            >
+                              Diseño
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Salud"
+                            >
+                              Salud
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Moda y belleza"
+                            >
+                              Moda y belleza
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Inmobiliaria y construcción"
+                            >
+                              Inmobiliaria y construcción
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Entretenimiento y ocio"
+                            >
+                              Entretenimiento y ocio
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Arte, cultura y educación"
+                            >
+                              Arte, cultura y educación
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Servicios públicos y gubernamentales"
+                            >
+                              Servicios públicos y gubernamentales
+                            </button>
+                            <button
+                              type="button"
+                              class="select-ui__opt"
+                              role="option"
+                              data-value="Otro"
+                            >
+                              Otro
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-grid" id="setor-outro-wrap" hidden>
+                      <div class="form-group full">
+                        <label for="setor_outro_desc" class="sr-only">Describe el sector</label>
+                        <textarea
+                          id="setor_outro_desc"
+                          name="setor_outro_desc"
+                          rows="2"
+                          placeholder="Cuéntanos un poco más sobre tu sector"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </details>
+
+              <details class="acc" open>
+                <summary>¿Cuáles son tus principales objetivos con el proyecto?</summary>
+                <div class="acc-body">
+                  <fieldset class="group full" id="objetivos-principais-group">
+                    <legend class="sr-only">¿Cuáles son tus principales objetivos con el proyecto?</legend>
+                    <div class="obj-meta">
+                      <p class="muted">
+                        Define los objetivos más importantes para tu nuevo proyecto. Selecciona hasta
+                        3 opciones que mejor describan lo que esperas lograr.
+                      </p>
+                      <span class="obj-counter" id="obj-counter" aria-live="polite">0/3</span>
+                    </div>
+                    <p class="obj-warn" id="obj-warn" role="status"></p>
+
+                    <div class="checks-grid compact" id="objetivos-principais">
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_vendas"
+                          name="objetivo_principal[]"
+                          value="Aumentar las ventas"
+                        />
+                        <label for="obj_vendas">Aumentar las ventas</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_leads"
+                          name="objetivo_principal[]"
+                          value="Generar leads"
+                        />
+                        <label for="obj_leads">Generar leads</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_produtos"
+                          name="objetivo_principal[]"
+                          value="Presentar productos/servicios"
+                        />
+                        <label for="obj_produtos">Presentar productos/servicios</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_presenca"
+                          name="objetivo_principal[]"
+                          value="Mejorar la presencia online"
+                        />
+                        <label for="obj_presenca">Mejorar la presencia online</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_educar"
+                          name="objetivo_principal[]"
+                          value="Educar e informar"
+                        />
+                        <label for="obj_educar">Educar e informar</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_membros"
+                          name="objetivo_principal[]"
+                          value="Crear un área de miembros"
+                        />
+                        <label for="obj_membros">Crear un área de miembros</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_suporte"
+                          name="objetivo_principal[]"
+                          value="Mejorar el soporte al cliente"
+                        />
+                        <label for="obj_suporte">Mejorar el soporte al cliente</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_promocoes"
+                          name="objetivo_principal[]"
+                          value="Promocionar ofertas o novedades"
+                        />
+                        <label for="obj_promocoes">Promocionar ofertas o novedades</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_engajamento"
+                          name="objetivo_principal[]"
+                          value="Aumentar el engagement en redes sociales"
+                        />
+                        <label for="obj_engajamento"
+                          >Aumentar el engagement en redes sociales</label
+                        >
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_autoridade"
+                          name="objetivo_principal[]"
+                          value="Establecer autoridad en el mercado"
+                        />
+                        <label for="obj_autoridade">Establecer autoridad en el mercado</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_elearning"
+                          name="objetivo_principal[]"
+                          value="Crear una plataforma de e-learning"
+                        />
+                        <label for="obj_elearning">Crear una plataforma de e-learning</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_eventos"
+                          name="objetivo_principal[]"
+                          value="Destacar eventos especiales"
+                        />
+                        <label for="obj_eventos">Destacar eventos especiales</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_comunicacao"
+                          name="objetivo_principal[]"
+                          value="Mejorar la comunicación con los clientes"
+                        />
+                        <label for="obj_comunicacao"
+                          >Mejorar la comunicación con los clientes</label
+                        >
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_networking"
+                          name="objetivo_principal[]"
+                          value="Hacer networking y alianzas"
+                        />
+                        <label for="obj_networking">Hacer networking y alianzas</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_marca"
+                          name="objetivo_principal[]"
+                          value="Fortalecer la imagen de marca"
+                        />
+                        <label for="obj_marca">Fortalecer la imagen de marca</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_blog"
+                          name="objetivo_principal[]"
+                          value="Iniciar o ampliar un blog"
+                        />
+                        <label for="obj_blog">Iniciar o ampliar un blog</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_agendamentos"
+                          name="objetivo_principal[]"
+                          value="Implementar un sistema de reservas/citas"
+                        />
+                        <label for="obj_agendamentos"
+                          >Implementar un sistema de reservas/citas</label
+                        >
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_internacional"
+                          name="objetivo_principal[]"
+                          value="Expandir el alcance internacional"
+                        />
+                        <label for="obj_internacional">Expandir el alcance internacional</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_reservas"
+                          name="objetivo_principal[]"
+                          value="Gestionar reservas o consultas"
+                        />
+                        <label for="obj_reservas">Gestionar reservas o consultas</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_cardapio"
+                          name="objetivo_principal[]"
+                          value="Menú digital"
+                        />
+                        <label for="obj_cardapio">Menú digital</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="obj_outro"
+                          name="objetivo_principal[]"
+                          value="Otro"
+                        />
+                        <label for="obj_outro">Otro</label>
+                      </div>
+                    </div>
+
+                    <div class="form-grid" id="objetivo-outro-wrap" hidden>
+                      <div class="form-group full">
+                        <label for="objetivo_outro_desc" class="sr-only">Describe el objetivo</label>
+                        <textarea
+                          id="objetivo_outro_desc"
+                          name="objetivo_outro_desc"
+                          rows="2"
+                          placeholder="Escribe tu objetivo"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </details>
+
+              <details class="acc" open>
+                <summary>Materiales disponibles</summary>
+                <div class="acc-body">
+                  <fieldset class="group full">
+                    <legend>Materiales disponibles</legend>
+                    <p class="muted">
+                      Selecciona lo que ya tienes listo o lo que necesitas ayuda para crear:
+                    </p>
+
+                    <div class="checks-grid compact">
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="cd_imgs"
+                          name="materiais_disponiveis[]"
+                          value="Carpeta de imágenes profesionales"
+                        />
+                        <label for="cd_imgs">Carpeta de imágenes profesionales</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="cd_logo"
+                          name="materiais_disponiveis[]"
+                          value="Logo"
+                        />
+                        <label for="cd_logo">Logo</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="cd_paleta"
+                          name="materiais_disponiveis[]"
+                          value="Paleta de colores"
+                        />
+                        <label for="cd_paleta">Paleta de colores</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="cd_fuentes"
+                          name="materiais_disponiveis[]"
+                          value="Tipografía"
+                        />
+                        <label for="cd_fuentes">Tipografía</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="checkbox"
+                          id="cd_videos"
+                          name="materiais_disponiveis[]"
+                          value="Vídeos de productos"
+                        />
+                        <label for="cd_videos">Vídeos de productos</label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </details>
+
+              <details class="acc" open>
+                <summary>Elementos gráficos</summary>
+                <div class="acc-body">
+                  <fieldset class="group full">
+                    <legend>Elementos gráficos</legend>
+                    <div class="checks-grid">
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="eg_prontos"
+                          name="elementos_graficos"
+                          value="Tengo iconos y elementos gráficos listos para usar"
+                        />
+                        <label for="eg_prontos"
+                          >Tengo iconos y elementos gráficos listos para usar.</label
+                        >
+                      </div>
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="eg_personalizados"
+                          name="elementos_graficos"
+                          value="Necesito elementos gráficos personalizados para el sitio"
+                        />
+                        <label for="eg_personalizados"
+                          >Necesito elementos gráficos personalizados para el sitio.</label
+                        >
+                      </div>
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="eg_nao_tenho"
+                          name="elementos_graficos"
+                          value="No tengo elementos gráficos, me gustaría sugerir ideas"
+                        />
+                        <label for="eg_nao_tenho"
+                          >No tengo elementos gráficos, me gustaría sugerir ideas.</label
+                        >
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </details>
+
+              <details class="acc">
+                <summary>Textos y contenido</summary>
+                <div class="acc-body">
+                  <fieldset class="group full">
+                    <legend>Textos y contenido</legend>
+
+                    <p class="group__title">Descripción de la empresa/marca</p>
+                    <div class="checks-grid">
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="td_pronto"
+                          name="textos_descricao_empresa"
+                          value="Tengo una descripción lista de la empresa o misión/visión."
+                        />
+                        <label for="td_pronto"
+                          >Tengo una descripción lista de la empresa o misión/visión.</label
+                        >
+                      </div>
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="td_ajuda"
+                          name="textos_descricao_empresa"
+                          value="Necesito ayuda para elaborar una descripción clara de la empresa."
+                        />
+                        <label for="td_ajuda"
+                          >Necesito ayuda para elaborar una descripción clara de la empresa.</label
+                        >
+                      </div>
+                    </div>
+
+                    <p class="group__title">Textos institucionales</p>
+                    <div class="checks-grid">
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="ti_pronto"
+                          name="textos_institucionais"
+                          value="Tengo textos listos para \"Sobre nosotros\", \"Misión\", \"Valores\", etc."
+                        />
+                        <label for="ti_pronto"
+                          >Tengo textos listos para "Sobre nosotros", "Misión", "Valores", etc.</label
+                        >
+                      </div>
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="ti_ajuda"
+                          name="textos_institucionais"
+                          value="Necesito apoyo para redactar o revisar esos textos."
+                        />
+                        <label for="ti_ajuda"
+                          >Necesito apoyo para redactar o revisar esos textos.</label
+                        >
+                      </div>
+                    </div>
+
+                    <p class="group__title">Descripciones de productos/servicios</p>
+                    <div class="checks-grid">
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="dp_pronto"
+                          name="descricoes_produtos_servicos"
+                          value="Tengo descripciones detalladas de los productos o servicios."
+                        />
+                        <label for="dp_pronto"
+                          >Tengo descripciones detalladas de los productos o servicios.</label
+                        >
+                      </div>
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="dp_ajuda"
+                          name="descricoes_produtos_servicos"
+                          value="Necesito ayuda para escribir u optimizar las descripciones."
+                        />
+                        <label for="dp_ajuda"
+                          >Necesito ayuda para escribir u optimizar las descripciones.</label
+                        >
+                      </div>
+                    </div>
+
+                    <p class="group__title">Contenido de blog o artículos</p>
+                    <div class="checks-grid">
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="cb_pronto"
+                          name="conteudo_blog"
+                          value="Tengo artículos o posts de blog listos para el sitio."
+                        />
+                        <label for="cb_pronto">Tengo artículos o posts de blog listos para el sitio.</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="cb_ajuda"
+                          name="conteudo_blog"
+                          value="Necesito ayuda para crear contenido para el blog."
+                        />
+                        <label for="cb_ajuda"
+                          >Necesito ayuda para crear contenido para el blog.</label
+                        >
+                      </div>
+                    </div>
+
+                    <p class="group__title">Testimonios</p>
+                    <div class="checks-grid">
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="tt_pronto"
+                          name="testemunhos"
+                          value="Ya tengo testimonios listos de clientes o colaboradores."
+                        />
+                        <label for="tt_pronto">Ya tengo testimonios listos de clientes o colaboradores.</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="tt_ajuda"
+                          name="testemunhos"
+                          value="Necesito ayuda para recopilar o redactar testimonios."
+                        />
+                        <label for="tt_ajuda"
+                          >Necesito ayuda para recopilar o redactar testimonios.</label
+                        >
+                      </div>
+                    </div>
+
+                    <p class="group__title">Catálogos o presentaciones</p>
+                    <div class="checks-grid">
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="cat_pronto"
+                          name="catalogos_pdfs"
+                          value="Tengo catálogos, presentaciones o PDFs para descarga."
+                        />
+                        <label for="cat_pronto">Tengo catálogos, presentaciones o PDFs para descarga.</label>
+                      </div>
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="cat_ajuda"
+                          name="catalogos_pdfs"
+                          value="Necesito ayuda para adaptar esos materiales para el sitio."
+                        />
+                        <label for="cat_ajuda"
+                          >Necesito ayuda para adaptar esos materiales para el sitio.</label
+                        >
+                      </div>
+                    </div>
+
+                    <p class="group__title">Términos y condiciones / Política de privacidad</p>
+                    <div class="checks-grid">
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="tp_pronto"
+                          name="termos_privacidade"
+                          value="Ya tengo textos listos de términos y condiciones, política de privacidad, etc."
+                        />
+                        <label for="tp_pronto"
+                          >Ya tengo textos listos de términos y condiciones, política de privacidad, etc.</label
+                        >
+                      </div>
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="tp_ajuda"
+                          name="termos_privacidade"
+                          value="Necesito ayuda para redactar o actualizar esos documentos."
+                        />
+                        <label for="tp_ajuda"
+                          >Necesito ayuda para redactar o actualizar esos documentos.</label
+                        >
+                      </div>
+                    </div>
+
+                    <p class="group__title">FAQs (Preguntas frecuentes)</p>
+                    <div class="checks-grid">
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="faq_pronto"
+                          name="faqs"
+                          value="Tengo una lista de preguntas frecuentes para incluir."
+                        />
+                        <label for="faq_pronto"
+                          >Tengo una lista de preguntas frecuentes para incluir.</label
+                        >
+                      </div>
+                      <div class="check">
+                        <input
+                          type="radio"
+                          id="faq_ajuda"
+                          name="faqs"
+                          value="Necesito ayuda para crear una sección de FAQ."
+                        />
+                        <label for="faq_ajuda">Necesito ayuda para crear una sección de FAQ.</label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </details>
+
+              <details class="acc">
+                <summary>Referencias de diseño e inspiración</summary>
+                <div class="acc-body">
+                  <fieldset class="group full">
+                    <legend>Referencias de diseño e inspiración</legend>
+                    <p class="muted">
+                      ¿Tienes sitios o referencias visuales que te gustaría usar como base o inspiración
+                      para el diseño?
+                    </p>
+
+                    <div class="ref-cards">
+                      <div class="check ref-card">
+                        <input
+                          type="checkbox"
+                          id="ref_links_on"
+                          name="ref_design[]"
+                          value="Tengo referencias visuales para compartir"
+                        />
+                        <label for="ref_links_on">
+                          <span class="ref-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M10 13a5 5 0 0 0 7.07 0l1.41-1.41a5 5 0 0 0 0-7.07 5 5 0 0 0-7.07 0L10.5 5.43" />
+                              <path d="M14 11a5 5 0 0 0-7.07 0L5.52 12.4a5 5 0 0 0 0 7.07 5 5 0 0 0 7.07 0L13.5 18.57" />
+                            </svg>
+                          </span>
+                          <span class="ref-card__text">
+                            <span class="ref-card__title">Añadir enlaces de referencia</span>
+                            <span class="ref-card__desc">Pega URLs de sitios o ejemplos que te gusten.</span>
+                          </span>
+                        </label>
+                      </div>
+
+                      <div class="check ref-card">
+                        <input
+                          type="checkbox"
+                          id="ref_ideias_on"
+                          name="ref_design[]"
+                          value="No tengo referencias, pero me gustaría conversar sobre ideas de diseño."
+                        />
+                        <label for="ref_ideias_on">
+                          <span class="ref-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M12 2a7 7 0 0 0-4 12c.5.4 1 .9 1 1.6V18a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2.4c0-.7.5-1.2 1-1.6A7 7 0 0 0 12 2z" />
+                              <path d="M9 22h6" />
+                            </svg>
+                          </span>
+                          <span class="ref-card__text">
+                            <span class="ref-card__title">No tengo referencias</span>
+                            <span class="ref-card__desc"
+                              >Describe tus ideas de estilo, colores, tipografía y elementos visuales.</span
+                            >
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="ref-panel" id="ref-links-wrap" hidden>
+                      <textarea id="ref_links_urls" name="ref_links_urls" hidden></textarea>
+                      <div class="url-chips">
+                        <div class="url-chips__box">
+                          <div class="url-chips__items" id="ref_links_items"></div>
+                          <input
+                            type="text"
+                            id="ref_links_input"
+                            class="url-chips__input"
+                            inputmode="url"
+                            autocomplete="url"
+                            placeholder="Pega o escribe un enlace y pulsa Enter"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="ref-panel" id="ref-ideias-wrap" hidden>
+                      <div class="form-grid">
+                        <div class="form-group full">
+                          <label for="ref_ideias_desc" class="sr-only">Ideas de diseño</label>
+                          <textarea
+                            id="ref_ideias_desc"
+                            name="ref_ideias_desc"
+                            rows="4"
+                            placeholder="Describe ideas, estilo o elementos visuales (colores, tipografía, imágenes, etc.)"
+                          ></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </details>
 
               <div class="wizard-actions end">
                 <button class="btn btn--primary next" type="button">Siguiente</button>
               </div>
             </fieldset>
 
-            <!-- PASO 2: Objetivos -->
+            <!-- PASO 2: Tipo de proyecto -->
             <fieldset class="step" data-step="2">
-              <legend class="step__title">Objetivos</legend>
-              <div class="chips-columns">
-                <!-- Columna 1 -->
-                <fieldset class="group">
-                  <legend class="group__title">Web page</legend>
-                  <div class="chips">
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="wp_influencer"
-                      name="objetivo_webpage[]"
-                      value="Influencer Page"
-                    />
-                    <label class="chip" for="wp_influencer">Influencer Page</label>
+              <legend class="sr-only">Tipo de proyecto</legend>
+              <h2 class="step__title">Tipo de proyecto</h2>
 
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="wp_blog"
-                      name="objetivo_webpage[]"
-                      value="Blog Personal"
-                    />
-                    <label class="chip" for="wp_blog">Blog Personal</label>
+              <div class="ptype-grid" data-ptype-grid>
+                <div class="ptype-card" data-ptype="landing">
+                  <input
+                    class="ptype-radio"
+                    type="radio"
+                    id="tipo_projeto_landing"
+                    name="tipo_projeto"
+                    value="Landing Page"
+                    required
+                  />
+                  <button
+                    class="info-trigger"
+                    type="button"
+                    aria-label="Más información sobre Landing Page"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <label class="ptype-main" for="tipo_projeto_landing">
+                    <span class="ptype__icon" aria-hidden="true"><i class="fas fa-file-alt"></i></span>
+                    <h3 class="ptype__title">Landing<br />Page</h3>
+                  </label>
+                </div>
 
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="wp_portfolio"
-                      name="objetivo_webpage[]"
-                      value="Portfólio"
-                    />
-                    <label class="chip" for="wp_portfolio">Portafolio</label>
+                <div class="ptype-card" data-ptype="website">
+                  <input
+                    class="ptype-radio"
+                    type="radio"
+                    id="tipo_projeto_website"
+                    name="tipo_projeto"
+                    value="Sitio web corporativo"
+                  />
+                  <button
+                    class="info-trigger"
+                    type="button"
+                    aria-label="Más información sobre Sitio web corporativo"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <label class="ptype-main" for="tipo_projeto_website">
+                    <span class="ptype__icon" aria-hidden="true"><i class="fas fa-globe"></i></span>
+                    <h3 class="ptype__title">Sitio web<br />corporativo</h3>
+                  </label>
+                </div>
 
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="wp_menuqr"
-                      name="objetivo_webpage[]"
-                      value="Menú Online y QRCode"
-                    />
-                    <label class="chip" for="wp_menuqr">Menú Online & QRCode</label>
-                  </div>
-                </fieldset>
-
-                <!-- Columna 2 -->
-                <fieldset class="group">
-                  <legend class="group__title">Landing Page</legend>
-                  <div class="chips">
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="lp_unico"
-                      name="objetivo_landing[]"
-                      value="Venta de producto único"
-                    />
-                    <label class="chip" for="lp_unico">Venta de producto único</label>
-
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="lp_ebook"
-                      name="objetivo_landing[]"
-                      value="Venta de ebook online"
-                    />
-                    <label class="chip" for="lp_ebook">Venta de ebook online</label>
-
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="lp_campana"
-                      name="objetivo_landing[]"
-                      value="Campaña publicitaria"
-                    />
-                    <label class="chip" for="lp_campana">Campaña publicitaria</label>
-
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="lp_lanzamiento"
-                      name="objetivo_landing[]"
-                      value="Lanzamiento de productos"
-                    />
-                    <label class="chip" for="lp_lanzamiento">Lanzamiento de producto</label>
-                  </div>
-                </fieldset>
-
-                <!-- Columna 3 -->
-                <fieldset class="group">
-                  <legend class="group__title">E-commerce</legend>
-                  <div class="chips">
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="ec_tienda"
-                      name="objetivo_ecommerce[]"
-                      value="Tienda online"
-                    />
-                    <label class="chip" for="ec_tienda">Tienda online</label>
-
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="ec_cursos"
-                      name="objetivo_ecommerce[]"
-                      value="Plataforma de cursos"
-                    />
-                    <label class="chip" for="ec_cursos">Plataforma de cursos</label>
-
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="ec_turismo"
-                      name="objetivo_ecommerce[]"
-                      value="Plataforma de turismo"
-                    />
-                    <label class="chip" for="ec_turismo">Plataforma de turismo</label>
-
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="ec_catalogo"
-                      name="objetivo_ecommerce[]"
-                      value="Catálogo ilimitado"
-                    />
-                    <label class="chip" for="ec_catalogo">Catálogo ilimitado</label>
-                  </div>
-                </fieldset>
-
-                <!-- Columna 4 -->
-                <fieldset class="group">
-                  <legend class="group__title">Extras</legend>
-                  <div class="chips">
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="ex_rest"
-                      name="objetivo_extras[]"
-                      value="Restaurante"
-                    />
-                    <label class="chip" for="ex_rest">Restaurante</label>
-
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="ex_hotel"
-                      name="objetivo_extras[]"
-                      value="Hotel"
-                    />
-                    <label class="chip" for="ex_hotel">Hotel</label>
-
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="ex_reservas"
-                      name="objetivo_extras[]"
-                      value="Plataforma de reservas"
-                    />
-                    <label class="chip" for="ex_reservas">Plataforma de reservas</label>
-
-                    <input
-                      class="chip-input"
-                      type="checkbox"
-                      id="ex_eventos"
-                      name="objetivo_extras[]"
-                      value="Plataforma de eventos"
-                    />
-                    <label class="chip" for="ex_eventos">Plataforma de eventos</label>
-                  </div>
-                </fieldset>
+                <div class="ptype-card" data-ptype="ecommerce">
+                  <input
+                    class="ptype-radio"
+                    type="radio"
+                    id="tipo_projeto_ecommerce"
+                    name="tipo_projeto"
+                    value="Ecommerce"
+                  />
+                  <button
+                    class="info-trigger"
+                    type="button"
+                    aria-label="Más información sobre Ecommerce"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                  <label class="ptype-main" for="tipo_projeto_ecommerce">
+                    <span class="ptype__icon" aria-hidden="true"><i class="fas fa-shopping-cart"></i></span>
+                    <h3 class="ptype__title">Ecommerce</h3>
+                  </label>
+                </div>
               </div>
+
+              <template id="ptype-info-template-landing">
+                <p>
+                  <strong>¿Qué es?</strong> La landing page es una página única enfocada en un objetivo
+                  específico, como promocionar una campaña, captar leads o vender un producto rápidamente.
+                  Su diseño es simple y directo, buscando generar una acción inmediata del visitante,
+                  como rellenar un formulario o hacer una compra.
+                </p>
+                <p>
+                  <strong>¿Para quién es?</strong> Ideal para empresas que quieren atraer atención rápidamente
+                  hacia una oferta, evento o promoción. Se recomienda para lanzamientos de productos,
+                  campañas publicitarias y webinars. Perfecta para quien tiene un objetivo claro y desea
+                  llegar al público de forma directa y eficaz.
+                </p>
+                <h5>Ejemplos de negocios</h5>
+                <ul class="examples-list">
+                  <li class="example-item">
+                    <div class="example-text">Lanzamiento de producto</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Ideal para empresas que están lanzando
+                        un nuevo producto o servicio al mercado. El foco es crear una página única que destaque
+                        las cualidades del producto e incentive la compra o la captación de leads.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Una marca de electrónica lanzando un nuevo
+                        gadget, como un smartphone o auriculares, y quiere crear una página de ventas enfocada al
+                        pre-lanzamiento.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Promociones y ofertas especiales</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Ideal para negocios que desean ofrecer
+                        descuentos o promociones limitadas, creando una sensación de urgencia e incentivando la
+                        acción inmediata.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Un restaurante que ofrece descuentos exclusivos
+                        para quien reserva por la web, o una tienda de moda con una promoción de últimos días de descuento.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Inscripción a webinars o cursos</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Landing page perfecta para divulgar webinars,
+                        cursos o eventos educativos, con inscripción sencilla e información sobre el evento.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Una plataforma de cursos online que promueve un
+                        workshop sobre marketing digital, con una página para inscripciones e información sobre los módulos.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Eventos y webinars</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Una landing page perfecta para divulgar eventos,
+                        webinars o charlas. La página puede contener información esencial, como fecha, lugar, inscripción,
+                        agenda y detalles de los ponentes.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Clínicas de salud organizando un webinar sobre salud
+                        mental o nutrición. O un influencer realizando un directo para divulgar un nuevo producto.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Campaña de crowdfunding</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Las landing pages para campañas de financiación
+                        colectiva suelen centrarse en presentar la idea, explicar el objetivo y motivar contribuciones.
+                        También pueden incluir testimonios, vídeos explicativos y niveles de aportación.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Una startup u ONG en busca de fondos para un nuevo
+                        proyecto o un dispositivo innovador que resuelva un problema específico.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Consultores y profesionales independientes</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Se usa para divulgar servicios de consultores,
+                        coaches y profesionales independientes, con foco en la captación de leads y la promoción de servicios
+                        específicos.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Un consultor financiero ofreciendo una consultoría
+                        exclusiva de planificación fiscal, con una página para agendar consultas.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Restaurantes, bares y cafeterías</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Ideal para un menú digital, promociones diarias
+                        u ofertas especiales. Las landing pages para restaurantes pueden tener un diseño muy visual, con
+                        fotos de platos y enlaces directos a reservas o pedidos online.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Restaurantes que ofrecen platos del día, un menú
+                        promocional de fin de semana o un evento de degustación.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Negocios locales, salones de belleza, talleres</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Negocios locales, salones de belleza, tiendas de
+                        mascotas o talleres mecánicos pueden crear landing pages para divulgar promociones de temporada o
+                        nuevos servicios.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Influencers</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Influencers que promocionan productos o servicios
+                        pueden usar una landing page para presentar colaboraciones con marcas o productos que están divulgando.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Un influencer lanzando una línea de ropa o productos
+                        de belleza, con una landing page dedicada a la venta exclusiva del artículo.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Artistas</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Para artistas y creativos, una landing page puede
+                        usarse para promocionar su obra, divulgar colecciones y eventos, o vender productos exclusivos.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Un fotógrafo o pintor promocionando una nueva exposición
+                        o vendiendo ediciones limitadas de sus obras.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Agencias de viajes</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Ideal para agencias de viajes con paquetes promocionales
+                        o descuentos para destinos. La landing page puede detallar los paquetes y permitir una reserva rápida.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Una agencia ofreciendo paquetes promocionales para destinos
+                        internacionales, con una página para reservar viajes.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Instituciones educativas</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Landing pages ideales para divulgar cursos, charlas
+                        o eventos educativos, con formularios de inscripción e información sobre los cursos.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Una universidad o academia de idiomas promocionando un curso
+                        intensivo, con una página de inscripción.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Mini portafolio</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Se usa para mostrar trabajos previos, experiencias
+                        y habilidades de freelancers o profesionales independientes. Sirve como presentación de servicios y productos.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Diseñadores gráficos, fotógrafos o consultores mostrando
+                        sus mejores trabajos y proyectos.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Agencias de marketing y consultoría</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Para empresas de consultoría o marketing digital,
+                        una landing page puede usarse para captar leads, mostrar paquetes o presentar casos de éxito.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Una agencia de marketing ofreciendo paquetes personalizados
+                        para nuevos negocios, con una página para captar contactos.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </template>
+
+              <template id="ptype-info-template-website">
+                <p>
+                  <strong>¿Qué es?</strong> Una web corporativa es un sitio completo, con varias páginas como Inicio, Sobre nosotros,
+                  Servicios, Contacto y más. Es ideal para negocios que necesitan una presencia digital sólida, con información detallada
+                  sobre su empresa, productos y servicios. Puede incluir blog, formularios, testimonios e integración con redes sociales.
+                </p>
+                <p>
+                  <strong>¿Para quién es?</strong> Ideal para empresas que necesitan una presencia online organizada e informativa, como
+                  mostrar portafolio, detallar servicios y facilitar el contacto. Si tu negocio requiere una estructura más completa y robusta,
+                  esta es la solución adecuada.
+                </p>
+                <h5>Ejemplos de negocios</h5>
+                <ul class="examples-list">
+                  <li class="example-item">
+                    <div class="example-text">Consultores y profesionales independientes</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Para consultores, abogados, psicólogos, nutricionistas y otros
+                        profesionales, una web corporativa ofrece un espacio para detallar servicios, mostrar testimonios y facilitar el contacto.
+                        Es una forma de generar credibilidad y estar accesible online.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Un consultor financiero con una sección explicando cómo funciona su
+                        servicio, testimonios y opciones de agendamiento.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Restaurantes, bares y cafeterías</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Una web para restauración suele incluir carta/menú, ubicación,
+                        reservas online, eventos especiales y una galería de fotos. Ofrece una experiencia completa para el cliente.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Un restaurante con menú interactivo, reservas online, eventos y galería
+                        de fotos, con integración de pago y envío si aplica.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Agencias de viajes</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Web con información detallada sobre paquetes, rutas personalizadas,
+                        promociones y testimonios, incluyendo reservas online e integración de pago.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Una agencia con destinos y paquetes detallados, información de cada ruta
+                        y un formulario para personalizar viajes.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Negocios locales, salones de belleza, talleres</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Sitios para negocios locales que presentan servicios, contacto,
+                        ubicación y permiten reservas/citas online. Pueden incluir galería, precios y testimonios.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Artistas y creativos</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Para fotógrafos, diseñadores, músicos, escritores o artistas visuales,
+                        una web es esencial para mostrar portafolio, compartir proyectos y facilitar el contacto. Puede incluir tienda online.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Un fotógrafo de bodas con galería, testimonios y sección para reservar servicios.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Escuelas e instituciones educativas</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Escuelas, universidades, academias de idiomas y cursos online necesitan una
+                        web para organizar información de cursos, horarios, profesores, inscripciones y testimonios. También puede incluir blog o foros.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Una academia de inglés con secciones por nivel, testimonios, inscripción online y blog
+                        de consejos de estudio.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Consultorías de marketing o TI</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Consultorías especializadas, como agencias de marketing digital, TI o gestión de proyectos,
+                        pueden usar una web para presentar servicios, mostrar casos de éxito y explicar cómo ayudan a lograr objetivos.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Una consultoría de marketing que presenta paquetes, testimonios, blog de tendencias y contacto para presupuesto.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Tiendas de productos locales o artesanales</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Para negocios que venden productos locales, artesanía o personalizados, la web muestra productos,
+                        da información de cada artículo y puede incluir formulario de contacto o ventas online.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Tienda de decoración artesanal con fotos detalladas, historia de artesanos y compra online.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Servicios de eventos y bodas</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Para empresas que organizan eventos, como bodas, cumpleaños o eventos corporativos,
+                        la web presenta servicios, portafolio, testimonios y opciones de paquetes.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Empresa de bodas que muestra paquetes, galería de eventos y testimonios.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Clínicas y consultas</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Consultas médicas y clínicas de estética detallan servicios, credenciales,
+                        reserva online e información de precios.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Clínica de estética con tratamientos faciales/corporales, reserva online, equipo y testimonios.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Educación online</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Plataformas de enseñanza online (idiomas, programación, diseño) presentan módulos,
+                        precios, instructores y testimonios.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Plataforma con clases grabadas, tests interactivos e inscripción directa en la web.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </template>
+
+              <template id="ptype-info-template-ecommerce">
+                <p>
+                  <strong>¿Qué es?</strong> El e-commerce es una tienda online completa para vender productos o servicios por internet.
+                  Incluye carrito, pago online, gestión de stock y herramientas que facilitan la compra. Puede tener promociones, cupones,
+                  opciones de envío y soporte al cliente.
+                </p>
+                <p>
+                  <strong>¿Para quién es?</strong> Ideal para empresas que desean expandir ventas online. Perfecto para automatizar transacciones,
+                  gestionar stock y conectar con clientes de forma simple. Adaptable a muchos nichos: tiendas físicas, productores locales o artesanos.
+                </p>
+                <h5>Ejemplos de negocios</h5>
+                <ul class="examples-list">
+                  <li class="example-item">
+                    <div class="example-text">Tiendas de ropa</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Tiendas de moda con catálogo completo, filtros por talla, color y tipo,
+                        y pago seguro.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Tienda de moda con promociones de temporada, tarjetas regalo y checkout sencillo.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Cursos y material educativo online</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Venta de ebooks, cursos, tutoriales y clases en directo, con área de miembros,
+                        foros y certificados digitales.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Plataforma de cursos con módulos en vídeo, ebooks, quizzes y certificado al finalizar.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Cosmética y belleza</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Maquillaje, cuidado de la piel y perfumería, con packs regalo,
+                        filtros por tipo de piel y recomendaciones.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Tienda con sección de maquillaje, cuidado de la piel, packs promocionales y asesoría.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Alimentación y bebidas</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Venta de productos frescos, artesanales y suscripciones, con entrega programada y cupones.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Tienda de vinos con club de suscripción, promociones y blog de maridaje.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Hogar y decoración</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Muebles, utensilios y decoración con filtros por estilo y fotos en ambientes reales.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Tienda de muebles modernos con sofás, mesas, lámparas y un blog con consejos de decoración.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Electrónica</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Móviles, portátiles, smartwatches y accesorios, con comparativas, especificaciones y financiación.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Tienda de tecnología con gadgets, accesorios y garantía extendida.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Productos personalizados</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Camisetas, tazas, joyas y regalos personalizados con subida de textos y fotos.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Tienda de regalos personalizados con camisetas y tazas con fotos.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Salud y bienestar</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Suplementos, productos orgánicos y equipos fitness, con packs, asesoría y blog.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Tienda de suplementos naturales con packs detox y descuentos para nuevos clientes.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Librerías online</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Venta de libros y ebooks con recomendaciones, reseñas y clubes de lectura.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Librería con libros físicos y ebooks, recomendaciones por preferencias y sección de reseñas.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Productos artesanales y locales</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Para productores locales y artesanía, un e-commerce es una excelente forma de expandir clientela,
+                        permitiendo vender productos hechos a mano o artículos personalizados.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Tienda de artesanía local con joyas hechas a mano y productos de decoración.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="example-item">
+                    <div class="example-text">Fitness y deporte</div>
+                    <button class="example-info" aria-label="Más información">
+                      <i class="fas fa-question-circle"></i>
+                    </button>
+                    <div class="tooltip">
+                      <p>
+                        <strong class="example-label">Descripción:</strong> Tiendas de artículos deportivos, ropa fitness, equipamiento y suplementos pueden usar e-commerce
+                        para vender con comodidad.
+                      </p>
+                      <p>
+                        <strong class="example-label">Ejemplo:</strong> Tienda de ropa fitness con envío rápido y promociones de temporada.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </template>
 
               <div class="wizard-actions end">
                 <button class="btn btn--ghost prev" type="button">Anterior</button>
@@ -477,11 +2729,53 @@
 
             <!-- PASO 3: Funcionalidades -->
             <fieldset class="step" data-step="3">
-              <legend class="step__title">Funcionalidades</legend>
+              <legend class="sr-only">Integraciones y funcionalidades</legend>
+              <h2 class="step__title">Integraciones y funcionalidades</h2>
 
               <fieldset class="group">
-                <legend>Selecciones solamente si tu proyecto lo necesita</legend>
+                <legend class="sr-only">Integraciones y funcionalidades</legend>
+                <p class="muted">
+                  Selecciona solo las integraciones y funcionalidades esenciales para tu proyecto.
+                  Si no estás seguro de qué elegir, puedes dejarlo en blanco o contactarnos para más
+                  detalles.
+                </p>
                 <div class="checks-grid">
+                  <div class="check">
+                    <input
+                      type="checkbox"
+                      id="fx_admin_panel"
+                      name="funcionalidades[]"
+                      value="Panel administrativo"
+                    />
+                    <label for="fx_admin_panel">Panel administrativo</label>
+                  </div>
+                  <div class="check">
+                    <input
+                      type="checkbox"
+                      id="fx_client_area"
+                      name="funcionalidades[]"
+                      value="Área del cliente - Login"
+                    />
+                    <label for="fx_client_area">Área del cliente - Login</label>
+                  </div>
+                  <div class="check">
+                    <input
+                      type="checkbox"
+                      id="fx_stock_system"
+                      name="funcionalidades[]"
+                      value="Sistema de stock automático"
+                    />
+                    <label for="fx_stock_system">Sistema de stock automático</label>
+                  </div>
+                  <div class="check">
+                    <input
+                      type="checkbox"
+                      id="fx_physical_online_panel"
+                      name="funcionalidades[]"
+                      value="Panel de tienda física y online integradas"
+                    />
+                    <label for="fx_physical_online_panel">Panel de tienda física y online integradas</label>
+                  </div>
                   <div class="check">
                     <input
                       type="checkbox"
@@ -490,15 +2784,6 @@
                       value="Catálogo ilimitado"
                     />
                     <label for="fx_cat_ilim">Catálogo ilimitado</label>
-                  </div>
-                  <div class="check">
-                    <input
-                      type="checkbox"
-                      id="fx_pago"
-                      name="funcionalidades[]"
-                      value="Métodos de pago"
-                    />
-                    <label for="fx_pago">Métodos de pago</label>
                   </div>
                   <div class="check">
                     <input
@@ -512,32 +2797,333 @@
                   <div class="check">
                     <input
                       type="checkbox"
-                      id="fx_transport"
+                      id="fx_simple_gallery"
                       name="funcionalidades[]"
-                      value="Transportista (Correos/MRW/DHL)"
+                      value="Galería de fotos simple"
                     />
-                    <label for="fx_transport">Transportista - Correos, MRW, DHL</label>
+                    <label for="fx_simple_gallery">Galería de fotos simple</label>
+                  </div>
+                  <div class="check">
+                    <input
+                      type="checkbox"
+                      id="fx_whatsapp"
+                      name="funcionalidades[]"
+                      value="Integración WhatsApp"
+                    />
+                    <label for="fx_whatsapp">Integración WhatsApp</label>
+                  </div>
+                  <div class="check">
+                    <input
+                      type="checkbox"
+                      id="fx_social_integration"
+                      name="funcionalidades[]"
+                      value="Integración con redes sociales"
+                    />
+                    <label for="fx_social_integration">Integración con redes sociales</label>
+                  </div>
+                  <div class="check">
+                    <input
+                      type="checkbox"
+                      id="fx_instagram_feed"
+                      name="funcionalidades[]"
+                      value="Instagram Feed"
+                    />
+                    <label for="fx_instagram_feed">Instagram Feed</label>
+                  </div>
+                  <div class="check">
+                    <input
+                      type="checkbox"
+                      id="fx_google_maps"
+                      name="funcionalidades[]"
+                      value="Integración Google Maps"
+                    />
+                    <label for="fx_google_maps">Integración Google Maps</label>
+                  </div>
+                  <div class="check">
+                    <input
+                      type="checkbox"
+                      id="fx_payment_integration"
+                      name="funcionalidades[]"
+                      value="Integración de pago"
+                    />
+                    <label for="fx_payment_integration">Integración de pago</label>
+                  </div>
+                  <div class="check">
+                    <input
+                      type="checkbox"
+                      id="fx_shipping_logistics"
+                      name="funcionalidades[]"
+                      value="Sistema de logística y envíos"
+                    />
+                    <label for="fx_shipping_logistics">Sistema de logística y envíos</label>
+                  </div>
+                  <div class="check">
+                    <input
+                      type="checkbox"
+                      id="fx_delivery_orders"
+                      name="funcionalidades[]"
+                      value="Sistema de pedidos online - delivery"
+                    />
+                    <label for="fx_delivery_orders">Sistema de pedidos online - delivery</label>
+                  </div>
+                  <div class="check">
+                    <input
+                      type="checkbox"
+                      id="fx_reservations"
+                      name="funcionalidades[]"
+                      value="Sistema de reservas"
+                    />
+                    <label for="fx_reservations">Sistema de reservas</label>
                   </div>
                 </div>
               </fieldset>
 
-              <div class="form-grid duo">
-                <div class="form-group">
-                  <label for="paginas">Páginas / Secciones necesarias:</label>
-                  <input
-                    id="paginas"
-                    name="paginas"
-                    placeholder="Ej.: Inicio, Servicios, Contacto, FAQ…"
-                  />
+              <fieldset class="group">
+                <legend>
+                  Páginas y secciones
+                  <span class="legend-sub">- Selecciona las páginas o secciones que necesitará tu web.</span>
+                </legend>
+                <div class="form-grid" style="margin-top: 8px">
+                  <div class="form-group">
+                    <label for="paginas_ui_btn" class="sr-only">Páginas y secciones</label>
+                    <div class="select-ui" id="paginas_ui">
+                      <button
+                        type="button"
+                        class="select-ui__btn"
+                        id="paginas_ui_btn"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                      >
+                        <span class="select-ui__text" id="paginas_ui_text">Ver opciones</span>
+                        <span aria-hidden="true">▾</span>
+                      </button>
+                      <div
+                        class="select-ui__popover"
+                        id="paginas_ui_pop"
+                        role="listbox"
+                        tabindex="-1"
+                        hidden
+                      >
+                        <div class="checks-grid">
+                          <div class="check">
+                            <input type="checkbox" id="pg_inicio" name="paginas_secoes[]" value="Inicio" />
+                            <label for="pg_inicio">
+                              Inicio
+                              <span class="check-desc">La página principal de tu web.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input
+                              type="checkbox"
+                              id="pg_sobre"
+                              name="paginas_secoes[]"
+                              value="Sobre nosotros"
+                            />
+                            <label for="pg_sobre">
+                              Sobre nosotros
+                              <span class="check-desc">Presenta tu historia, misión y valores.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input
+                              type="checkbox"
+                              id="pg_servicos"
+                              name="paginas_secoes[]"
+                              value="Servicios"
+                            />
+                            <label for="pg_servicos">
+                              Servicios
+                              <span class="check-desc">Detalla los servicios que ofrece tu negocio.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input
+                              type="checkbox"
+                              id="pg_portfolio"
+                              name="paginas_secoes[]"
+                              value="Portafolio"
+                            />
+                            <label for="pg_portfolio">
+                              Portafolio
+                              <span class="check-desc">Muestra tus proyectos o trabajos anteriores.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input type="checkbox" id="pg_blog" name="paginas_secoes[]" value="Blog" />
+                            <label for="pg_blog">
+                              Blog
+                              <span class="check-desc">Para compartir contenido, novedades y noticias.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input type="checkbox" id="pg_contato" name="paginas_secoes[]" value="Contacto" />
+                            <label for="pg_contato">
+                              Contacto
+                              <span class="check-desc">Cómo pueden contactarte tus clientes.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input
+                              type="checkbox"
+                              id="pg_faq"
+                              name="paginas_secoes[]"
+                              value="FAQ (Preguntas frecuentes)"
+                            />
+                            <label for="pg_faq">
+                              FAQ (Preguntas frecuentes)
+                              <span class="check-desc">Ayuda a resolver dudas habituales.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input
+                              type="checkbox"
+                              id="pg_termos"
+                              name="paginas_secoes[]"
+                              value="Términos del servicio"
+                            />
+                            <label for="pg_termos">
+                              Términos del servicio
+                              <span class="check-desc">Condiciones de uso de tu web o servicio.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input
+                              type="checkbox"
+                              id="pg_privacidade"
+                              name="paginas_secoes[]"
+                              value="Política de privacidad"
+                            />
+                            <label for="pg_privacidade">
+                              Política de privacidad
+                              <span class="check-desc">Privacidad y seguridad de los datos de los usuarios.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input type="checkbox" id="pg_loja" name="paginas_secoes[]" value="Tienda" />
+                            <label for="pg_loja">
+                              Tienda
+                              <span class="check-desc">Para quien quiere vender online.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input
+                              type="checkbox"
+                              id="pg_menu"
+                              name="paginas_secoes[]"
+                              value="Menú de restaurante"
+                            />
+                            <label for="pg_menu">
+                              Menú de restaurante
+                              <span class="check-desc">Para mostrar tu carta de forma clara y atractiva.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input
+                              type="checkbox"
+                              id="pg_agendamento"
+                              name="paginas_secoes[]"
+                              value="Reservas o citas online"
+                            />
+                            <label for="pg_agendamento">
+                              Reservas o citas online
+                              <span class="check-desc">Para clínicas, salones o servicios con agenda.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input
+                              type="checkbox"
+                              id="pg_galeria"
+                              name="paginas_secoes[]"
+                              value="Galería"
+                            />
+                            <label for="pg_galeria">
+                              Galería
+                              <span class="check-desc">Para mostrar proyectos, trabajos o productos.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input
+                              type="checkbox"
+                              id="pg_testemunhos"
+                              name="paginas_secoes[]"
+                              value="Testimonios"
+                            />
+                            <label for="pg_testemunhos">
+                              Testimonios
+                              <span class="check-desc">Opiniones y valoraciones de clientes.</span>
+                            </label>
+                          </div>
+                          <div class="check">
+                            <input type="checkbox" id="pg_outros" name="paginas_secoes[]" value="Otros" />
+                            <label for="pg_outros">Otros</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="selected-chips" id="paginas_selected_chips"></div>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="idiomas">Idiomas:</label>
-                  <input id="idiomas" name="idiomas" placeholder="Ej.: ES, EN, PT…" />
-                </div>
-              </div>
+              </fieldset>
 
               <fieldset class="group">
-                <legend>Seleccione si ya tienes Dominio o Hosting:</legend>
+                <legend>Idiomas</legend>
+                <div class="form-grid" style="margin-top: 8px">
+                  <div class="form-group">
+                    <label for="idiomas_ui_btn" class="sr-only">Idiomas</label>
+                    <input type="hidden" id="idiomas" name="idiomas" value="" />
+                    <div class="select-ui" id="idiomas_ui">
+                      <button
+                        type="button"
+                        class="select-ui__btn"
+                        id="idiomas_ui_btn"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                      >
+                        <span class="select-ui__text" id="idiomas_ui_text">Ver opciones</span>
+                        <span aria-hidden="true">▾</span>
+                      </button>
+                      <div
+                        class="select-ui__popover"
+                        id="idiomas_ui_pop"
+                        role="listbox"
+                        tabindex="-1"
+                        hidden
+                      >
+                        <div class="checks-grid">
+                          <div class="check">
+                            <input type="checkbox" id="idioma_pt" value="Portugués (PT)" />
+                            <label for="idioma_pt">Portugués (PT)</label>
+                          </div>
+                          <div class="check">
+                            <input type="checkbox" id="idioma_en" value="Inglés (EN)" />
+                            <label for="idioma_en">Inglés (EN)</label>
+                          </div>
+                          <div class="check">
+                            <input type="checkbox" id="idioma_es" value="Español (ES)" />
+                            <label for="idioma_es">Español (ES)</label>
+                          </div>
+                          <div class="check">
+                            <input type="checkbox" id="idioma_it" value="Italiano (IT)" />
+                            <label for="idioma_it">Italiano (IT)</label>
+                          </div>
+                          <div class="check">
+                            <input type="checkbox" id="idioma_fr" value="Francés (FR)" />
+                            <label for="idioma_fr">Francés (FR)</label>
+                          </div>
+                          <div class="check">
+                            <input type="checkbox" id="idioma_de" value="Alemán (DE)" />
+                            <label for="idioma_de">Alemán (DE)</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="selected-chips" id="idiomas_selected_chips"></div>
+              </fieldset>
+
+              <fieldset class="group">
+                <legend>Selecciona si ya tienes dominio o hosting:</legend>
                 <div class="domain-hosting">
                   <div class="dh-item">
                     <div class="dh-field">
@@ -552,7 +3138,7 @@
                       </fieldset>
                     </div>
                     <p class="dh-help">
-                      Es la dirección de tu web en internet, es tu identidad digital.<br />www.(tudominio).com
+                      Es la dirección de tu web en internet; es tu identidad digital.<br />www.(tudominio).com
                     </p>
                   </div>
 
@@ -569,14 +3155,14 @@
                       </fieldset>
                     </div>
                     <p class="dh-help">
-                      Es el servidor donde tu web estará guardada y funcionando 24/7.
+                      Es el servidor donde tu web estará alojada y funcionando 24/7.
                     </p>
                   </div>
                 </div>
               </fieldset>
 
               <fieldset class="group">
-                <legend>Siguientes pasos</legend>
+                <legend>Últimos pasos</legend>
                 <div class="checks-grid">
                   <div class="check">
                     <input
@@ -585,9 +3171,10 @@
                       name="siguientes_pasos[]"
                       value="Mensaje por WhatsApp"
                     />
-                    <label for="sp_whatsapp"
-                      >Envíame un mensaje vía WhatsApp para acceder a más informaciones</label
-                    >
+                    <label for="sp_whatsapp">
+                      <span>Envíame un mensaje por WhatsApp para acceder a más información</span>
+                      <span class="check-desc">Recibe más detalles o resuelve dudas directamente en WhatsApp.</span>
+                    </label>
                   </div>
                   <div class="check">
                     <input
@@ -596,9 +3183,10 @@
                       name="siguientes_pasos[]"
                       value="Me gustaría recibir PDF con informaciones"
                     />
-                    <label for="sp_pdf"
-                      >Me gustaría recibir vía email un PDF informativo según mis necesidades</label
-                    >
+                    <label for="sp_pdf">
+                      <span>Me gustaría recibir por email un PDF informativo con detalles según mis necesidades</span>
+                      <span class="check-desc">Recibe un documento con todo lo que necesitas saber sobre tu proyecto.</span>
+                    </label>
                   </div>
                   <div class="check">
                     <input
@@ -607,7 +3195,10 @@
                       name="siguientes_pasos[]"
                       value="Quiero agendar una videollamada"
                     />
-                    <label for="sp_videollamada">Quiero agendar una reunión por videollamada</label>
+                    <label for="sp_videollamada">
+                      <span>Quiero agendar una reunión por videollamada</span>
+                      <span class="check-desc">Agenda una charla online para hablar de tu proyecto con más detalle.</span>
+                    </label>
                   </div>
                 </div>
               </fieldset>
@@ -615,11 +3206,14 @@
               <div class="rgpd-row">
                 <input type="checkbox" id="rgpd" name="rgpd" value="acepto" required />
                 <label for="rgpd" class="muted">
-                  Acepto la
-                  <a href="privacidad.html" target="_blank" rel="noopener"
-                    >política de privacidad</a
-                  >
-                  y el tratamiento de mis datos para recibir una propuesta.
+                  <span>
+                    Acepto la
+                    <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>
+                    y el tratamiento de mis datos para recibir una propuesta
+                  </span>
+                  <span class="check-desc">
+                    Al aceptar, autorizas el uso de tu información para procesar tu solicitud y enviarte una propuesta personalizada.
+                  </span>
                 </label>
               </div>
 
@@ -639,22 +3233,88 @@
             <input type="text" name="_gotcha" hidden />
           </form>
 
-          <div id="form-success" class="form-success" role="status" aria-live="polite" hidden>
-            <h2>¡Gracias! ✅</h2>
-            <p>Tu checklist se envió con éxito. Te contactaré en breve.</p>
-            <div class="wizard-actions end">
-              <a href="index.html" class="btn btn--primary">Inicio</a>
-              <button type="button" id="send-another" class="btn btn--ghost">Enviar otro</button>
+          <div
+            id="form-success"
+            class="modal-overlay form-success"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="success-title"
+            aria-describedby="success-desc"
+            hidden
+          >
+            <div class="modal checklist-success-modal" role="document">
+              <div class="modal-header">
+                <div class="modal-title-row">
+                  <span class="modal-title-icon" aria-hidden="true">
+                    <i class="fas fa-check-circle"></i>
+                  </span>
+                  <h2 class="modal-title" id="success-title">¡Gracias!</h2>
+                </div>
+                <div class="modal-actions">
+                  <button class="modal-close" id="success-close" aria-label="Cerrar modal" type="button">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="modal-body">
+                <p class="muted" id="success-desc">
+                  Tu checklist se envió con éxito. Te contactaré en breve.
+                </p>
+                <div class="wizard-actions end">
+                  <a href="index.html" class="btn btn--primary">Inicio</a>
+                  <button type="button" id="send-another" class="btn btn--ghost">Enviar otro</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Footer clássico -->
+    <footer class="footer footer-classic">
       <div class="container">
-        <p>© 2025 Amanda Cereja — Desarrolladora Frontend</p>
+        <div class="footer-grid">
+          <div class="footer-col company">
+            <h3>Amanda Cereja</h3>
+            <p>Ingeniera de Software Full-Stack<br />Frontend | Backend</p>
+            <div class="footer-social">
+              <a href="https://wa.me/34602614398" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="https://www.linkedin.com/in/amandaceereja/" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="https://github.com/amandaceereja" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://www.instagram.com/amandacerejaweb/" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navegación</h4>
+            <div class="footer-links-grid">
+              <ul class="footer-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicos.html">Servicios</a></li>
+                <li><a href="checklist.html">Checklist</a></li>
+              </ul>
+              <ul class="footer-links">
+                <li><a href="presupuesto.html">Presupuesto</a></li>
+                <li><a href="proceso.html">Mi proceso</a></li>
+                <li><a href="portafolio.html">Portafolio</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Contacto</h4>
+            <ul class="footer-contact">
+              <li><a href="index.html#contacto">Formulario de contacto</a></li>
+              <li><a href="privacidad.html">Política de privacidad</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© Amanda Cereja — Ingeniera de Software Full-Stack</p>
+        </div>
       </div>
     </footer>
 
@@ -674,14 +3334,743 @@
       <i class="fab fa-whatsapp"></i>
     </a>
 
+    <div id="feature-info-modal" class="modal-overlay" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-feature-title">
+        <div class="modal-header">
+          <div class="modal-title-row">
+            <span id="modal-title-icon" class="modal-title-icon"><i class="fas fa-info-circle"></i></span>
+            <h2 class="modal-title" id="modal-feature-title">Información</h2>
+          </div>
+          <div class="modal-actions">
+            <button class="modal-back" aria-label="Volver a la lista">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="modal-close" aria-label="Cerrar modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div id="modal-feature-description"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- Scripts -->
     <script src="js/scripts.js" defer></script>
     <script src="js/checklist.js" defer></script>
     
     <script>
-      // Inicializar sistema de tradução
-      document.addEventListener('DOMContentLoaded', function() {
-        if (typeof translationSystem !== 'undefined') {
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("chk");
+        if (!form) return;
+
+        const objetivo = document.getElementById("objetivo");
+
+        const setorSelect = document.getElementById("setor_nicho_select");
+        const setorOutroWrap = document.getElementById("setor-outro-wrap");
+        const setorOutroDesc = document.getElementById("setor_outro_desc");
+
+        const objOutroCb = document.getElementById("obj_outro");
+        const objOutroWrap = document.getElementById("objetivo-outro-wrap");
+        const objOutroDesc = document.getElementById("objetivo_outro_desc");
+
+        const refLinksCb = document.getElementById("ref_links_on");
+        const refLinksWrap = document.getElementById("ref-links-wrap");
+        const refLinksUrls = document.getElementById("ref_links_urls");
+        const refIdeiasCb = document.getElementById("ref_ideias_on");
+        const refIdeiasWrap = document.getElementById("ref-ideias-wrap");
+        const refIdeiasDesc = document.getElementById("ref_ideias_desc");
+
+        const objetivosWrap = document.getElementById("objetivos-principais");
+        const counter = document.getElementById("obj-counter");
+        const warn = document.getElementById("obj-warn");
+        let warnTimer = null;
+        const setorUiBtn = document.getElementById("setor_nicho_select_btn");
+        const setorUiText = document.getElementById("setor_nicho_select_text");
+        const setorUiPop = document.getElementById("setor_nicho_select_pop");
+        const setorUiOpts = setorUiPop
+          ? Array.from(setorUiPop.querySelectorAll(".select-ui__opt"))
+          : [];
+
+        const ptypeCards = Array.from(form.querySelectorAll('.step[data-step="2"] .ptype-card'));
+        const ptypeRadios = Array.from(
+          form.querySelectorAll('.step[data-step="2"] input[name="tipo_projeto"]')
+        );
+
+        const setFilled = (el, filled) => {
+          if (!el) return;
+          el.classList.toggle("is-filled", !!filled);
+        };
+
+        const filledTextInputs = [
+          document.getElementById("nombre"),
+          document.getElementById("email"),
+          document.getElementById("whatsapp"),
+          document.getElementById("empresa"),
+          setorOutroDesc,
+          objOutroDesc,
+        ].filter((el) => el instanceof HTMLElement);
+
+        const syncFilledTextInputs = () => {
+          filledTextInputs.forEach((el) => {
+            const v = "value" in el ? String(el.value ?? "") : "";
+            setFilled(el, v.trim().length > 0);
+          });
+        };
+
+        syncFilledTextInputs();
+        filledTextInputs.forEach((el) => {
+          el.addEventListener("input", syncFilledTextInputs);
+          el.addEventListener("change", syncFilledTextInputs);
+          el.addEventListener("blur", syncFilledTextInputs);
+        });
+
+        const normalizeText = (v) =>
+          String(v ?? "")
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .trim();
+
+        const ensureSearchInput = (container, className, placeholder) => {
+          if (!container) return null;
+          const existing = container.querySelector(`.${className}`);
+          if (existing instanceof HTMLInputElement) return existing;
+          const input = document.createElement("input");
+          input.type = "text";
+          input.className = className;
+          input.placeholder = placeholder;
+          input.autocomplete = "off";
+          input.spellcheck = false;
+          input.inputMode = "search";
+          container.insertAdjacentElement("afterbegin", input);
+          return input;
+        };
+
+        const setorSearch = ensureSearchInput(setorUiPop, "select-ui__search", "Escribe para buscar…");
+        const filterSetor = () => {
+          if (!setorSearch) return;
+          const q = normalizeText(setorSearch.value);
+          setorUiOpts.forEach((opt) => {
+            const text = normalizeText(opt.textContent);
+            opt.hidden = q.length > 0 && !text.includes(q);
+          });
+        };
+
+        setorSearch?.addEventListener("input", filterSetor);
+        setorSearch?.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            e.preventDefault();
+            setorSearch.value = "";
+            filterSetor();
+            setorUiClose();
+            setorUiBtn?.focus();
+            return;
+          }
+          if (e.key === "ArrowDown") {
+            e.preventDefault();
+            const firstVisible = setorUiOpts.find((o) => !o.hidden);
+            firstVisible?.focus();
+            return;
+          }
+          if (e.key === "Enter") {
+            const visible = setorUiOpts.filter((o) => !o.hidden);
+            if (visible.length === 1) {
+              e.preventDefault();
+              visible[0].click();
+            }
+          }
+        });
+
+        if (objetivosWrap) {
+          const existingSearch = objetivosWrap.querySelector(".checks-search");
+          existingSearch?.remove();
+        }
+
+        const modal = document.getElementById("feature-info-modal");
+        const modalTitle = modal?.querySelector("#modal-feature-title");
+        const modalDescription = modal?.querySelector("#modal-feature-description");
+        const modalIconEl = modal?.querySelector("#modal-title-icon i");
+        const modalClose = modal?.querySelector(".modal-close");
+        const modalBack = modal?.querySelector(".modal-back");
+        const modalBox = modal?.querySelector(".modal");
+
+        let activePtype = null;
+        let activeTrigger = null;
+
+        const updatePtypeSelectedState = () => {
+          ptypeCards.forEach((c) => {
+            const radio = c.querySelector('input[name="tipo_projeto"]');
+            c.classList.toggle("is-selected", !!radio?.checked);
+          });
+        };
+
+        const closePtypeModal = () => {
+          if (!modal) return;
+          modal.classList.remove("active");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          modalBox?.classList.remove("show-back");
+          if (activeTrigger) activeTrigger.setAttribute("aria-expanded", "false");
+          activePtype = null;
+          activeTrigger = null;
+          if (modalDescription) modalDescription.textContent = "";
+        };
+
+        const renderPtypeBaseView = () => {
+          if (!activePtype || !modalTitle || !modalDescription || !modalBox) return;
+          const card = ptypeCards.find((c) => c.dataset.ptype === activePtype);
+          if (!card) return;
+
+          const titleText = card.querySelector(".ptype__title")?.textContent?.replace(/\s+/g, " ").trim();
+          if (titleText) modalTitle.textContent = titleText;
+
+          const iconClass = card.querySelector(".ptype__icon i")?.className || "fas fa-info-circle";
+          if (modalIconEl) modalIconEl.className = iconClass;
+
+          modalDescription.textContent = "";
+          const template = document.getElementById(`ptype-info-template-${activePtype}`);
+          if (template instanceof HTMLTemplateElement) {
+            modalDescription.appendChild(template.content.cloneNode(true));
+          }
+
+          modalBox.classList.remove("show-back");
+        };
+
+        const openPtypeModal = (card, trigger) => {
+          if (!modal || !modalTitle || !modalDescription) return;
+
+          if (modal.classList.contains("active")) {
+            closePtypeModal();
+          }
+
+          const type = card.dataset.ptype;
+          if (!type) return;
+
+          activePtype = type;
+          activeTrigger = trigger;
+          activeTrigger?.setAttribute("aria-expanded", "true");
+
+          modal.classList.add("active");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          renderPtypeBaseView();
+        };
+
+        const showExampleInfoInModal = (btn) => {
+          if (!modalTitle || !modalDescription || !modalBox) return;
+          const exampleItem = btn.closest(".example-item");
+          if (!exampleItem) return;
+          const tooltip = exampleItem.querySelector(".tooltip");
+          const exampleTitle = exampleItem.querySelector(".example-text")?.textContent?.trim();
+          if (!tooltip || !exampleTitle) return;
+          if (modalIconEl) modalIconEl.className = "fas fa-question-circle";
+          modalTitle.textContent = exampleTitle;
+          modalDescription.innerHTML = tooltip.innerHTML || tooltip.textContent;
+          modalBox.classList.add("show-back");
+        };
+
+        if (ptypeCards.length && modal) {
+          ptypeCards.forEach((c) => {
+            const trigger = c.querySelector(".info-trigger");
+            if (!trigger) return;
+            trigger.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              openPtypeModal(c, trigger);
+            });
+          });
+
+          modalDescription?.addEventListener("click", (e) => {
+            const btn = e.target.closest(".example-info");
+            if (!btn) return;
+            e.preventDefault();
+            e.stopPropagation();
+            showExampleInfoInModal(btn);
+          });
+
+          modalClose?.addEventListener("click", closePtypeModal);
+          modalBack?.addEventListener("click", () => {
+            renderPtypeBaseView();
+          });
+          modal.addEventListener("click", (e) => {
+            if (e.target === modal) closePtypeModal();
+          });
+          document.addEventListener("keydown", (e) => {
+            if (e.key !== "Escape") return;
+            if (modal.classList.contains("active")) closePtypeModal();
+          });
+
+          updatePtypeSelectedState();
+        }
+
+        if (ptypeRadios.length) {
+          ptypeRadios.forEach((r) => {
+            r.addEventListener("change", () => {
+              updatePtypeSelectedState();
+              updateResumo();
+            });
+          });
+        }
+
+        const setHidden = (el, hidden) => {
+          if (!el) return;
+          el.hidden = !!hidden;
+        };
+
+        const clearValue = (el) => {
+          if (!el) return;
+          el.value = "";
+        };
+
+        const refLinksInput = document.getElementById("ref_links_input");
+        const refLinksItems = document.getElementById("ref_links_items");
+
+        const splitUrls = (raw) =>
+          String(raw ?? "")
+            .split(/[\s,]+/g)
+            .map((s) => s.trim())
+            .filter(Boolean);
+
+        const cleanUrl = (url) => String(url ?? "").trim().replace(/^[,]+|[,]+$/g, "").trim();
+
+        function setRefLinks(list) {
+          const next = Array.from(new Set((list ?? []).map(cleanUrl).filter(Boolean)));
+          if (refLinksUrls) refLinksUrls.value = next.join("\n");
+          if (!refLinksItems) return;
+
+          refLinksItems.textContent = "";
+          next.forEach((u) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "url-chip";
+            btn.dataset.url = u;
+
+            const text = document.createElement("span");
+            text.textContent = u;
+
+            const x = document.createElement("span");
+            x.className = "url-chip__x";
+            x.textContent = "×";
+
+            btn.append(text, x);
+            refLinksItems.appendChild(btn);
+          });
+        }
+
+        function getRefLinks() {
+          return splitUrls(refLinksUrls?.value ?? "").map(cleanUrl).filter(Boolean);
+        }
+
+        const addRefLinksFromText = (text) => {
+          const next = getRefLinks();
+          splitUrls(text)
+            .map(cleanUrl)
+            .filter(Boolean)
+            .forEach((u) => {
+              if (!next.includes(u)) next.push(u);
+            });
+          setRefLinks(next);
+        };
+
+        if (refLinksInput) {
+          refLinksInput.addEventListener("keydown", (e) => {
+            if (e.key !== "Enter" && e.key !== ",") return;
+            e.preventDefault();
+            const v = refLinksInput.value;
+            if (!v.trim()) return;
+            addRefLinksFromText(v);
+            refLinksInput.value = "";
+          });
+
+          refLinksInput.addEventListener("blur", () => {
+            const v = refLinksInput.value;
+            if (!v.trim()) return;
+            addRefLinksFromText(v);
+            refLinksInput.value = "";
+          });
+
+          refLinksInput.addEventListener("paste", (e) => {
+            const text = e.clipboardData?.getData("text");
+            if (!text) return;
+            e.preventDefault();
+            addRefLinksFromText(text);
+          });
+        }
+
+        if (refLinksItems) {
+          refLinksItems.addEventListener("click", (e) => {
+            const t = e.target;
+            if (!(t instanceof Node)) return;
+            const btn = t.closest(".url-chip");
+            if (!(btn instanceof HTMLButtonElement)) return;
+            const url = btn.dataset.url ?? "";
+            if (!url) return;
+            setRefLinks(getRefLinks().filter((u) => u !== url));
+          });
+        }
+
+        setRefLinks(getRefLinks());
+
+        let prevSetorOutroOn = setorSelect?.value === "Otro";
+        let prevObjOutroOn = !!objOutroCb?.checked;
+
+        const updateOutroVisibility = () => {
+          const setorOutroOn = setorSelect?.value === "Otro";
+          setHidden(setorOutroWrap, !setorOutroOn);
+          if (prevSetorOutroOn && !setorOutroOn) {
+            clearValue(setorOutroDesc);
+            setFilled(setorOutroDesc, false);
+          }
+          prevSetorOutroOn = setorOutroOn;
+
+          const objOutroOn = !!objOutroCb?.checked;
+          setHidden(objOutroWrap, !objOutroOn);
+          if (prevObjOutroOn && !objOutroOn) {
+            clearValue(objOutroDesc);
+            setFilled(objOutroDesc, false);
+          }
+          prevObjOutroOn = objOutroOn;
+
+          const refLinksOn = !!refLinksCb?.checked;
+          setHidden(refLinksWrap, !refLinksOn);
+          if (!refLinksOn) setRefLinks([]);
+
+          const refIdeiasOn = !!refIdeiasCb?.checked;
+          setHidden(refIdeiasWrap, !refIdeiasOn);
+          if (!refIdeiasOn) clearValue(refIdeiasDesc);
+        };
+
+        const selectedObjetivos = () =>
+          Array.from(form.querySelectorAll('input[name="objetivo_principal[]"]:checked'));
+
+        const paginasUiBtn = form.querySelector("#paginas_ui_btn");
+        const paginasUiPop = form.querySelector("#paginas_ui_pop");
+        const paginasUiText = form.querySelector("#paginas_ui_text");
+        const paginasChips = form.querySelector("#paginas_selected_chips");
+        const paginasChecks = paginasUiPop
+          ? Array.from(paginasUiPop.querySelectorAll('input[name="paginas_secoes[]"]'))
+          : [];
+        const selectedPaginas = () => paginasChecks.filter((c) => c.checked).map((c) => c.value);
+
+        const idiomasInput = form.querySelector("#idiomas");
+        const idiomasUiBtn = form.querySelector("#idiomas_ui_btn");
+        const idiomasUiPop = form.querySelector("#idiomas_ui_pop");
+        const idiomasUiText = form.querySelector("#idiomas_ui_text");
+        const idiomasChips = form.querySelector("#idiomas_selected_chips");
+        const idiomasChecks = idiomasUiPop
+          ? Array.from(idiomasUiPop.querySelectorAll('input[type="checkbox"]'))
+          : [];
+        const selectedIdiomas = () => idiomasChecks.filter((c) => c.checked).map((c) => c.value);
+
+        const updateCounter = () => {
+          if (!counter) return;
+          counter.textContent = `${selectedObjetivos().length}/3`;
+        };
+
+        const flashWarn = (message) => {
+          if (!warn) return;
+          warn.textContent = message;
+          warn.classList.add("is-on");
+          if (warnTimer) window.clearTimeout(warnTimer);
+          warnTimer = window.setTimeout(() => {
+            warn.textContent = "";
+            warn.classList.remove("is-on");
+            warnTimer = null;
+          }, 2000);
+        };
+
+        const updateResumo = () => {
+          updateOutroVisibility();
+          updateCounter();
+          if (!objetivo) return;
+
+          const lines = [];
+          const nombre = form.querySelector("#nombre")?.value?.trim();
+          const email = form.querySelector("#email")?.value?.trim();
+          const whatsapp = form.querySelector("#whatsapp")?.value?.trim();
+          const empresa = form.querySelector("#empresa")?.value?.trim();
+
+          if (nombre) lines.push(`Nombre: ${nombre}`);
+          if (email) lines.push(`Email: ${email}`);
+          if (whatsapp) lines.push(`WhatsApp: ${whatsapp}`);
+          if (empresa) lines.push(`Empresa: ${empresa}`);
+
+          const setor = setorSelect?.value?.trim();
+          if (setor) {
+            const otro = setor === "Otro" ? setorOutroDesc?.value?.trim() : "";
+            lines.push(`Sector: ${setor}${otro ? ` — ${otro}` : ""}`);
+          }
+
+          const objetivos = selectedObjetivos()
+            .map((i) => i.value)
+            .filter((v) => v && v !== "Otro");
+          if (objOutroCb?.checked) {
+            const otro = objOutroDesc?.value?.trim();
+            if (otro) objetivos.push(`Otro: ${otro}`);
+          }
+          if (objetivos.length) lines.push(`Objetivos: ${objetivos.join(", ")}`);
+
+          const tipoProjeto = form.querySelector('input[name="tipo_projeto"]:checked')?.value?.trim();
+          if (tipoProjeto) lines.push(`Tipo de proyecto: ${tipoProjeto}`);
+
+          const materiais = Array.from(
+            form.querySelectorAll('input[name="materiais_disponiveis[]"]:checked')
+          )
+            .map((i) => i.value)
+            .filter(Boolean);
+          if (materiais.length) lines.push(`Materiales: ${materiais.join(", ")}`);
+
+          const selectedPages = selectedPaginas();
+          const pages = selectedPages.filter((v) => v);
+          if (pages.length) lines.push(`Páginas/Secciones: ${pages.join(", ")}`);
+
+          const langs = selectedIdiomas();
+          if (idiomasInput instanceof HTMLInputElement) idiomasInput.value = langs.join(", ");
+          if (langs.length) lines.push(`Idiomas: ${langs.join(", ")}`);
+
+          objetivo.value = lines.length ? lines.join("\n") : "Datos completados.";
+
+          if (paginasUiText || paginasChips) {
+            const pills = selectedPages.filter((v) => v);
+
+            if (paginasUiText) {
+              if (!selectedPages.length) paginasUiText.textContent = "Ver opciones";
+              else if (selectedPages.length === 1) paginasUiText.textContent = pills[0] ?? "1 seleccionada";
+              else paginasUiText.textContent = `${selectedPages.length} seleccionadas`;
+            }
+
+            if (paginasChips) {
+              paginasChips.innerHTML = "";
+              pills.forEach((t) => {
+                const el = document.createElement("span");
+                el.className = "page-pill";
+                el.textContent = t;
+                paginasChips.appendChild(el);
+              });
+            }
+          }
+
+          if (idiomasUiText || idiomasChips) {
+            const pills = selectedIdiomas();
+
+            if (idiomasUiText) {
+              if (!pills.length) idiomasUiText.textContent = "Ver opciones";
+              else if (pills.length === 1) idiomasUiText.textContent = pills[0] ?? "1 seleccionada";
+              else idiomasUiText.textContent = `${pills.length} seleccionadas`;
+            }
+
+            if (idiomasChips) {
+              idiomasChips.innerHTML = "";
+              pills.forEach((t) => {
+                const el = document.createElement("span");
+                el.className = "page-pill";
+                el.textContent = t;
+                idiomasChips.appendChild(el);
+              });
+            }
+          }
+        };
+
+        const idiomasUiClose = () => {
+          setHidden(idiomasUiPop, true);
+          idiomasUiBtn?.setAttribute("aria-expanded", "false");
+        };
+
+        const idiomasUiOpen = () => {
+          if (!idiomasUiPop) return;
+          setHidden(idiomasUiPop, false);
+          idiomasUiBtn?.setAttribute("aria-expanded", "true");
+          idiomasUiPop.focus();
+        };
+
+        const setorUiSetValue = (value, label) => {
+          if (setorSelect) setorSelect.value = value;
+          if (setorUiText) setorUiText.textContent = label;
+          setorUiOpts.forEach((o) => o.classList.toggle("is-selected", o.dataset.value === value));
+          updateResumo();
+        };
+
+        const setorUiClose = () => {
+          setHidden(setorUiPop, true);
+          setorUiBtn?.setAttribute("aria-expanded", "false");
+        };
+
+        const setorUiOpen = () => {
+          if (!setorUiPop) return;
+          setHidden(setorUiPop, false);
+          setorUiBtn?.setAttribute("aria-expanded", "true");
+          setorUiPop.focus();
+        };
+
+        if (setorUiBtn && setorUiPop) {
+          setorUiBtn.addEventListener("click", () => {
+            const isOpen = !setorUiPop.hidden;
+            if (isOpen) setorUiClose();
+            else setorUiOpen();
+          });
+
+          setorUiBtn.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setorUiOpen();
+              setorUiOpts[0]?.focus();
+            }
+            if (e.key === "Escape") {
+              e.preventDefault();
+              setorUiClose();
+            }
+          });
+
+          setorUiPop.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+              e.preventDefault();
+              setorUiClose();
+              setorUiBtn.focus();
+              return;
+            }
+
+            if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+              e.preventDefault();
+              const active = document.activeElement;
+              const idx = setorUiOpts.indexOf(active);
+              const nextIdx =
+                e.key === "ArrowDown"
+                  ? Math.min(setorUiOpts.length - 1, Math.max(0, idx) + 1)
+                  : Math.max(0, Math.max(0, idx) - 1);
+              setorUiOpts[nextIdx]?.focus();
+            }
+          });
+
+          setorUiOpts.forEach((opt) => {
+            opt.addEventListener("click", () => {
+              const value = opt.dataset.value ?? "";
+              const label = opt.textContent?.trim() ?? "Selecciona una opción";
+              setorUiSetValue(value, label);
+              setorUiClose();
+              setorUiBtn.focus();
+            });
+          });
+
+          document.addEventListener("click", (e) => {
+            if (setorUiPop.hidden) return;
+            const t = e.target;
+            if (!(t instanceof Node)) return;
+            if (setorUiBtn.contains(t) || setorUiPop.contains(t)) return;
+            setorUiClose();
+          });
+        }
+
+        if (idiomasUiBtn && idiomasUiPop) {
+          idiomasUiBtn.addEventListener("click", () => {
+            const isOpen = !idiomasUiPop.hidden;
+            if (isOpen) idiomasUiClose();
+            else idiomasUiOpen();
+          });
+
+          idiomasUiBtn.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              idiomasUiOpen();
+              idiomasChecks[0]?.focus();
+            }
+            if (e.key === "Escape") {
+              e.preventDefault();
+              idiomasUiClose();
+            }
+          });
+
+          idiomasUiPop.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+              e.preventDefault();
+              idiomasUiClose();
+              idiomasUiBtn.focus();
+            }
+          });
+
+          document.addEventListener("click", (e) => {
+            if (idiomasUiPop.hidden) return;
+            const t = e.target;
+            if (!(t instanceof Node)) return;
+            if (idiomasUiBtn.contains(t) || idiomasUiPop.contains(t)) return;
+            idiomasUiClose();
+          });
+        }
+
+        const paginasUiClose = () => {
+          setHidden(paginasUiPop, true);
+          paginasUiBtn?.setAttribute("aria-expanded", "false");
+        };
+
+        const paginasUiOpen = () => {
+          if (!paginasUiPop) return;
+          setHidden(paginasUiPop, false);
+          paginasUiBtn?.setAttribute("aria-expanded", "true");
+          paginasUiPop.focus();
+        };
+
+        if (paginasUiBtn && paginasUiPop) {
+          paginasUiBtn.addEventListener("click", () => {
+            const isOpen = !paginasUiPop.hidden;
+            if (isOpen) paginasUiClose();
+            else paginasUiOpen();
+          });
+
+          paginasUiBtn.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              paginasUiOpen();
+            }
+            if (e.key === "Escape") {
+              e.preventDefault();
+              paginasUiClose();
+            }
+          });
+
+          paginasUiPop.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+              e.preventDefault();
+              paginasUiClose();
+              paginasUiBtn.focus();
+            }
+          });
+
+          paginasUiPop.addEventListener("change", (e) => {
+            const t = e.target;
+            if (!(t instanceof HTMLInputElement)) return;
+            if (t.type !== "checkbox") return;
+            updateResumo();
+          });
+
+          document.addEventListener("click", (e) => {
+            if (paginasUiPop.hidden) return;
+            const t = e.target;
+            if (!(t instanceof Node)) return;
+            if (paginasUiBtn.contains(t) || paginasUiPop.contains(t)) return;
+            paginasUiClose();
+          });
+        }
+
+        if (objetivosWrap) {
+          objetivosWrap.addEventListener("change", (e) => {
+            const t = e.target;
+            if (!(t instanceof HTMLInputElement) || t.type !== "checkbox") return;
+            if (t.checked && selectedObjetivos().length > 3) {
+              t.checked = false;
+              flashWarn("Puedes seleccionar como máximo 3 objetivos.");
+            }
+            updateResumo();
+          });
+        }
+
+        form.addEventListener("change", updateResumo, true);
+        form.addEventListener("input", updateResumo, true);
+        updateResumo();
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof translationSystem !== "undefined") {
           translationSystem.init();
         }
       });

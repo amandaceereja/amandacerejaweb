@@ -8,20 +8,15 @@ test("Home carga y título correcto", async ({ page }) => {
 test("Hero y CTA visibles", async ({ page }) => {
   await page.goto("/index.html#hero");
   await expect(page.locator(".hero__title")).toBeVisible();
-
-  // CTA del héroe *específico* (evita el del menú)
-  const heroCta = page.locator(".hero").getByRole("link", { name: /Checklist Online/i });
-  await expect(heroCta).toBeVisible();
+  await expect(page.locator(".hero__subtitle")).toBeVisible();
 });
 
 test("Navegación a Checklist funciona", async ({ page }) => {
   await page.goto("/index.html");
 
-  // Clic sólo en el CTA del héroe
-  const heroCta = page.locator(".hero").getByRole("link", { name: /Checklist Online/i });
-  await heroCta.click();
+  const checklistLink = page.locator(".navbar__menu").getByRole("link", { name: /^Checklist$/i });
+  await checklistLink.click();
 
-  await expect(page.locator("#checklist")).toBeVisible();
-  // opcional: confirma que terminó con el hash
-  await expect(page).toHaveURL(/#checklist$/i);
+  await expect(page).toHaveURL(/\/checklist\.html$/i);
+  await expect(page).toHaveTitle(/Checklist/i);
 });
