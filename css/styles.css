@@ -754,6 +754,60 @@ a:hover {
   transition: opacity 0.3s ease-in-out;
 }
 
+.page-index .hero__title {
+  color: #000;
+  margin-bottom: 0.6rem;
+}
+
+.page-index #typer {
+  color: #000;
+}
+
+.page-index .typer::before {
+  color: #000;
+  opacity: 1;
+  margin-left: 0;
+  margin-right: 0.1em;
+}
+
+.page-index #hero-subtitle {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  color: #000;
+  opacity: 1;
+}
+
+.page-index #servicios .container > h2,
+.page-index .services-cta__title,
+.page-index #checklist .container > h2,
+.page-index #sobre .container > h2,
+.page-index #contacto .container > h2 {
+  text-align: center;
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: var(--fg);
+  margin-bottom: 0.6rem;
+}
+
+.page-index [class*="subtitle"]:not(.hero__subtitle) {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted-fg, var(--accent));
+}
+
+.page-index #sobre .sobre__lead,
+.page-index #sobre .sobre__bullets li {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted-fg, var(--accent));
+  font-weight: 400;
+}
+
 @keyframes caretBlink {
   0%,
   49% {
@@ -2265,7 +2319,7 @@ a:hover {
   position: fixed;
   bottom: 2rem;
   left: 2rem;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   background-color: #000;
@@ -3161,7 +3215,7 @@ a:hover {
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 10000;
   opacity: 0;
   transition: opacity 0.3s ease;
 }

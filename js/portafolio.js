@@ -578,81 +578,71 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-// --- Typewriter genérico (reutilizable)
-function startTypewriter(el, phrases, opts = {}){
-  if(!el) return;
+document.addEventListener("DOMContentLoaded", () => {
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const typeDelay = opts.typeDelay ?? 40;
-  const holdDelay = opts.holdDelay ?? 1200;
-  const delDelay  = opts.delDelay  ?? 18;
 
-  if (prefersReduced){
-    el.textContent = phrases[0] ?? "";
+  if (!prefersReduced && window.gsap) {
+    const contentEl = document.querySelector(".hero-presupuesto .hero-content");
+    if (contentEl) {
+      window.gsap.from(contentEl, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        delay: 0.5,
+        ease: "power2.out",
+      });
+    }
+  }
+
+  const el = document.querySelector(".hero-presupuesto .typewriter");
+  if (!el) return;
+
+  const filename = (window.location.pathname.split("/").pop() || "portafolio.html").toLowerCase();
+
+  let phrase = "Mi portafolio";
+  if (filename.includes("_pt.html")) phrase = "Meu portfólio";
+  else if (filename.includes("_en.html")) phrase = "My portfolio";
+
+  if (prefersReduced) {
+    el.textContent = phrase;
     return;
   }
 
-  let p = 0, i = 0, deleting = false;
+  let charIndex = 0;
+  let isDeleting = false;
 
-  function tick(){
-    const full = phrases[p] ?? "";
-    const current = el.textContent || "";
+  const typeDelay = 70;
+  const deleteDelay = 40;
+  const pauseAfterTyped = 1400;
+  const pauseAfterDeleted = 450;
 
-    if(!deleting){
-      el.textContent = full.slice(0, i + 1);
-      i++;
-      if(i === full.length){
-        deleting = true;
-        return setTimeout(tick, holdDelay);
+  function tick() {
+    if (!isDeleting) {
+      el.textContent = phrase.slice(0, charIndex + 1);
+      charIndex += 1;
+
+      if (charIndex >= phrase.length) {
+        isDeleting = true;
+        setTimeout(tick, pauseAfterTyped);
+        return;
       }
-      return setTimeout(tick, typeDelay);
-    }else{
-      el.textContent = current.slice(0, -1);
-      i--;
-      if(i === 0){
-        deleting = false;
-        p = (p + 1) % phrases.length;
-        return setTimeout(tick, 260);
-      }
-      return setTimeout(tick, delDelay);
+
+      setTimeout(tick, typeDelay);
+      return;
     }
+
+    el.textContent = phrase.slice(0, Math.max(0, charIndex - 1));
+    charIndex -= 1;
+
+    if (charIndex <= 0) {
+      isDeleting = false;
+      setTimeout(tick, pauseAfterDeleted);
+      return;
+    }
+
+    setTimeout(tick, deleteDelay);
   }
 
   el.textContent = "";
   tick();
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const el = document.getElementById("typer-portfolio");
-  
-  // Detectar idioma da página
-  function getCurrentLanguage() {
-    const path = window.location.pathname;
-    const filename = path.split('/').pop() || 'portafolio.html';
-    
-    if (filename.includes('_pt.html')) {
-      return 'pt';
-    }
-    if (filename.includes('_en.html')) {
-      return 'en';
-    }
-    return 'es'; // padrão é espanhol
-  }
-  
-  // Frases baseadas no idioma
-  function getPortfolioTitlePhrases(lang) {
-    switch (lang) {
-      case 'pt':
-        return ["Meu Portfólio", "Projetos Destacados"];
-      case 'en':
-        return ["My Portfolio", "Featured Projects"];
-      case 'es':
-      default:
-        return ["Mi Portafolio", "Proyectos Destacados"];
-    }
-  }
-  
-  const currentLang = getCurrentLanguage();
-  const frases = getPortfolioTitlePhrases(currentLang);
-  startTypewriter(el, frases);
 });
-

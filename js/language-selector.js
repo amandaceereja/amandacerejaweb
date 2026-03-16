@@ -81,17 +81,10 @@ class LanguageSelector {
       "presupuesto.html": {
         es: "presupuesto.html",
         pt: "presupuesto_pt.html",
-        en: "presupuesto_en.html",
       },
       "presupuesto_pt.html": {
         es: "presupuesto.html",
         pt: "presupuesto_pt.html",
-        en: "presupuesto_en.html",
-      },
-      "presupuesto_en.html": {
-        es: "presupuesto.html",
-        pt: "presupuesto_pt.html",
-        en: "presupuesto_en.html",
       },
       "checklist.html": {
         es: "checklist.html",
@@ -350,7 +343,14 @@ class LanguageSelector {
       // Preserva parâmetros de URL se existirem
       const urlParams = window.location.search;
       const hash = window.location.hash;
-      window.location.href = targetPage + urlParams + hash;
+
+      const isProcesoPage = (page) => /^proceso(?:_(?:pt|en))?\.html$/i.test(page || "");
+      const isProcesoHash = (value) => /^#(?:fase-\d+|phase-\d+)$/i.test(value || "");
+
+      const nextHash =
+        isProcesoPage(currentPage) || isProcesoPage(targetPage) || isProcesoHash(hash) ? "" : hash;
+
+      window.location.href = targetPage + urlParams + nextHash;
     }
   }
 

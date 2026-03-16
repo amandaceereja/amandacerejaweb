@@ -60,7 +60,7 @@
     <link rel="canonical" href="https://amandaceereja.github.io/Pagina-web/proceso_en.html" />
   </head>
 
-  <body>
+  <body class="page-en page-proceso-es">
     <!-- Language Bar -->
     <div class="language-bar">
       <div class="language-bar__container">
@@ -88,6 +88,14 @@
             aria-label="LinkedIn"
           >
             <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://www.facebook.com/people/Amanda-Cereja-Web/61588168921691/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <i class="fab fa-facebook-f"></i>
           </a>
         </div>
         <div class="language-selector">
@@ -184,134 +192,580 @@
     <section id="hero" class="hero" aria-label="My Work Process">
       <div class="hero__content">
         <h1 class="hero__title">
-          <span>My Work Process</span>
+          <span id="typer" class="typer" aria-live="polite"></span>
         </h1>
-        <p class="hero__subtitle">Proven methodology to deliver successful projects on time</p>
-        <div class="hero__buttons">
-          <a href="#timeline" class="btn btn--primary">See my methodology</a>
-        </div>
+        <p id="hero-subtitle" class="hero__subtitle">
+          A structured 4-stage process to turn your vision into high-impact digital solutions.
+        </p>
       </div>
     </section>
 
     <!-- Timeline Process -->
     <section id="timeline" class="proceso-timeline" aria-label="Process timeline">
       <div class="container">
-        <h2>How I work with you step by step</h2>
-        <p class="muted">Every project follows this methodology to guarantee exceptional results</p>
+        <h2>From Idea to Execution</h2>
+        <p class="muted">
+          Design, code, testing, and launch — with a structured 4-step process, I bring your idea to
+          life, always aiming for the best performance for your project. And as part of my
+          commitment to your success, you get exclusive bonuses that increase your website’s
+          visibility and impact.
+        </p>
 
-        <!-- Process Statistics -->
-        <div class="proceso-stats">
-          <div class="stat-item">
-            <div class="stat-number">98%</div>
-            <div class="stat-label">Projects delivered on time</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">4.9/5</div>
-            <div class="stat-label">Customer satisfaction</div>
+        <div class="process-flow" data-process-flow aria-label="Process phases">
+          <div class="process-flow__steps" role="tablist" aria-label="Process steps">
+            <button
+              class="process-flow__step is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="phase-1"
+              id="phase-1-tab"
+              data-process-tab
+            >
+              <span class="process-flow__icon" aria-hidden="true"
+                ><i class="fas fa-headset"></i
+              ></span>
+              <span class="process-flow__badge">01</span>
+              <span class="process-flow__title">Initial planning & strategic briefing</span>
+            </button>
+
+            <button
+              class="process-flow__step"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="phase-2"
+              id="phase-2-tab"
+              data-process-tab
+            >
+              <span class="process-flow__icon" aria-hidden="true"
+                ><i class="fas fa-laptop"></i
+              ></span>
+              <span class="process-flow__badge">02</span>
+              <span class="process-flow__title">Integrated design & development</span>
+            </button>
+
+            <button
+              class="process-flow__step"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="phase-3"
+              id="phase-3-tab"
+              data-process-tab
+            >
+              <span class="process-flow__icon" aria-hidden="true"><i class="fas fa-code"></i></span>
+              <span class="process-flow__badge">03</span>
+              <span class="process-flow__title">Testing, refinements & quality assurance</span>
+            </button>
+
+            <button
+              class="process-flow__step"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="phase-4"
+              id="phase-4-tab"
+              data-process-tab
+            >
+              <span class="process-flow__icon" aria-hidden="true"
+                ><i class="fas fa-rocket"></i
+              ></span>
+              <span class="process-flow__badge">04</span>
+              <span class="process-flow__title">Launch, monitoring & ongoing maintenance</span>
+            </button>
           </div>
 
-          <div class="stat-item">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Transparent communication</div>
-          </div>
-        </div>
-
-        <div class="timeline-wrapper">
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <span class="phase-number">01</span>
-              <i class="fas fa-search"></i>
-            </div>
-            <div class="timeline-content">
-              <h3>Discovery & Analysis</h3>
-              <div class="timeline-duration">3-5 days</div>
-              <p>
-                I understand your business, objectives and target audience to create the perfect
-                strategy
+          <div class="process-flow__panels">
+            <div
+              class="process-flow__panel is-active"
+              role="tabpanel"
+              tabindex="0"
+              id="phase-1"
+              aria-labelledby="phase-1-tab"
+              data-process-panel
+            >
+              <h3 class="process-flow__panel-title">Initial planning & strategic briefing</h3>
+              <p class="process-flow__panel-subtitle">
+                Align expectations and deeply understand your project goals.
               </p>
-              <ul class="timeline-tasks">
-                <li><i class="fas fa-check"></i> Detailed briefing with you</li>
-                <li><i class="fas fa-check"></i> Competition analysis</li>
-                <li><i class="fas fa-check"></i> Buyer persona definition</li>
-                <li><i class="fas fa-check"></i> Technical audit (if previous site exists)</li>
+              <h4 class="process-flow__section-title">What I do</h4>
+              <ul class="process-step__tasks">
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Briefing meeting:</strong> I understand your needs, objectives, and
+                    brand vision to define the project goals clearly.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Market & competitor analysis:</strong> I study your industry and
+                    competitors to identify opportunities and differentiators.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Platform & tooling selection:</strong> I select the best platforms,
+                    frameworks, and technologies to ensure performance, scalability, and easy
+                    maintenance.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Initial visual direction:</strong> I define the color palette,
+                    typography, and visual identity, aligning the design with your brand and
+                    creating an attractive, functional experience.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Basic wireframe:</strong> I create an initial wireframe that defines
+                    the website structure for your approval, ensuring navigation and layout match
+                    user needs.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Personalized information PDF:</strong> I deliver a document with the
+                    detailed timeline, budget, selected technologies, delivery scope, and
+                    communication plan to guarantee total clarity and alignment.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Contract:</strong> I formalize scope, timelines, budget, and
+                    responsibilities, plus payment terms and guarantees.</span
+                  >
+                </li>
               </ul>
-              <div class="timeline-deliverable">
-                <strong>Deliverable:</strong> Strategy document and initial wireframes
+              <div class="process-step__deliverable">
+                <span class="process-step__label">Deliverables:</span>
+                <span
+                  >A detailed strategy document, a basic wireframe, a personalized PDF with
+                  timeline, budget and technologies, and a formal contract.</span
+                >
               </div>
             </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <span class="phase-number">02</span>
-              <i class="fas fa-pencil-ruler"></i>
-            </div>
-            <div class="timeline-content">
-              <h3>UX/UI Design</h3>
-              <div class="timeline-duration">7-10 days</div>
-              <p>
-                I create intuitive and visually impactful interfaces that convert visitors into
-                customers
+            <div
+              class="process-flow__panel"
+              role="tabpanel"
+              tabindex="0"
+              id="phase-2"
+              aria-labelledby="phase-2-tab"
+              data-process-panel
+            >
+              <h3 class="process-flow__panel-title">Integrated design & development</h3>
+              <p class="process-flow__panel-subtitle">
+                Build a visually impactful, functional, and efficient product, integrating design
+                and development continuously and collaboratively.
               </p>
-              <ul class="timeline-tasks">
-                <li><i class="fas fa-check"></i> Information architecture</li>
-                <li><i class="fas fa-check"></i> Wireframes and prototyping</li>
-                <li><i class="fas fa-check"></i> Visual design and identity</li>
-                <li><i class="fas fa-check"></i> Usability testing</li>
+              <h4 class="process-flow__section-title">What I do</h4>
+              <ul class="process-step__tasks">
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Personalized client area:</strong> you get access to an exclusive panel
+                    where you can customize key elements of your website, such as color palette,
+                    fonts, banners, logo, images, and products — in a simple, interactive way.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Agile development:</strong> I use agile methods to build iteratively,
+                    developing key features, testing, and adjusting as the project progresses.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Visual design & UX/UI:</strong> I focus on aesthetics and user
+                    experience, aligning the website with your brand identity.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Responsive design:</strong> I ensure the website adapts perfectly to
+                    different devices and screen sizes, delivering a smooth experience on mobile,
+                    tablet, and desktop.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Approved design ready for testing:</strong> the visual design is
+                    approved, and interface elements are ready for final implementation.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Continuous integration:</strong> design and development move together,
+                    ensuring a consistent experience while the code is optimized for performance and
+                    scalability.</span
+                  >
+                </li>
               </ul>
-              <div class="timeline-deliverable">
-                <strong>Deliverable:</strong> Complete approved design ready for development
+              <div class="process-step__deliverable">
+                <span class="process-step__label">Deliverables:</span>
+                <span
+                  >A website in development with implemented features, an approved design, access to
+                  the client panel, and a detailed development roadmap.</span
+                >
               </div>
             </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <span class="phase-number">03</span>
-              <i class="fas fa-code"></i>
-            </div>
-            <div class="timeline-content">
-              <h3>Development & Optimization</h3>
-              <div class="timeline-duration">15-30 days</div>
-              <p>I transform the design into clean, fast code optimized for SEO and conversions</p>
-              <ul class="timeline-tasks">
-                <li><i class="fas fa-check"></i> Responsive frontend development</li>
-                <li><i class="fas fa-check"></i> Integration with CMS/systems</li>
-                <li><i class="fas fa-check"></i> Performance optimization (Core Web Vitals)</li>
-                <li><i class="fas fa-check"></i> Technical SEO and accessibility</li>
+            <div
+              class="process-flow__panel"
+              role="tabpanel"
+              tabindex="0"
+              id="phase-3"
+              aria-labelledby="phase-3-tab"
+              data-process-panel
+            >
+              <h3 class="process-flow__panel-title">Testing, refinements & quality assurance</h3>
+              <p class="process-flow__panel-subtitle">
+                Ensure the product is optimized across devices, with focus on performance, security,
+                and user experience.
+              </p>
+              <h4 class="process-flow__section-title">What I do</h4>
+              <ul class="process-step__tasks">
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Usability & functionality testing:</strong> I validate all features to
+                    ensure the website is intuitive and easy to use.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Performance optimization:</strong> I improve loading times and overall
+                    website performance.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>SEO & accessibility:</strong> I adjust the website to be easier to find
+                    on Google and accessible to all users.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Content review:</strong> I review all website content (texts, images,
+                    links) to ensure everything is correct, up to date, and error-free.</span
+                  >
+                </li>
               </ul>
-              <div class="timeline-deliverable">
-                <strong>Deliverable:</strong> Complete, tested and optimized website
+              <div class="process-step__deliverable">
+                <span class="process-step__label">Deliverables:</span>
+                <span>A detailed report with test results and applied refinements.</span>
               </div>
             </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <span class="phase-number">04</span>
-              <i class="fas fa-rocket"></i>
-            </div>
-            <div class="timeline-content">
-              <h3>Launch & Support</h3>
-              <div class="timeline-duration">2-3 days</div>
-              <p>
-                I publish your website with complete monitoring and continuous support to ensure
-                success
+            <div
+              class="process-flow__panel"
+              role="tabpanel"
+              tabindex="0"
+              id="phase-4"
+              aria-labelledby="phase-4-tab"
+              data-process-panel
+            >
+              <h3 class="process-flow__panel-title">Launch, monitoring & ongoing maintenance</h3>
+              <p class="process-flow__panel-subtitle">
+                Launch with confidence, closely track performance, and continuously improve.
               </p>
-              <ul class="timeline-tasks">
-                <li><i class="fas fa-check"></i> Final testing and adjustments</li>
-                <li><i class="fas fa-check"></i> Deploy and hosting configuration</li>
-                <li><i class="fas fa-check"></i> Analytics and tracking setup</li>
-                <li><i class="fas fa-check"></i> Training and documentation delivery</li>
+              <h4 class="process-flow__section-title">What I do</h4>
+              <ul class="process-step__tasks">
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Website walkthrough & tutorial:</strong> I present the website and
+                    provide a clear tutorial so you can manage content and publish updates with
+                    confidence.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Social media launch kit:</strong> I deliver launch assets with images,
+                    videos, and graphic materials so you can promote your project across social
+                    networks and other channels.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Deployment & monitoring:</strong> I publish your website and monitor it
+                    to ensure everything runs smoothly and to detect any issues.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>1 month of free maintenance:</strong> I provide free maintenance during
+                    the first month to make adjustments, apply fixes, and ensure everything is
+                    working perfectly.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Direct WhatsApp support (basic, unlimited):</strong> you get unlimited
+                    basic support from the moment you become a client, with direct WhatsApp contact
+                    to solve any questions or issues related to the website.</span
+                  >
+                </li>
               </ul>
-              <div class="timeline-deliverable">
-                <strong>Deliverable:</strong> Live website + 30 days free support
+              <div class="process-step__deliverable">
+                <span class="process-step__label">Deliverables:</span>
+                <span
+                  >A fully functional, production-ready website, unlimited basic WhatsApp support, a
+                  social media launch kit, and 30 days of free maintenance.</span
+                >
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="incluidos" aria-label="What's included and Design Online">
+      <div class="container">
+        <div class="incluidos__grid">
+          <div class="incluidos__col">
+            <div class="incluidos__header">
+              <h2 class="incluidos__title">What’s included?</h2>
+              <p class="muted incluidos__subtitle">
+                Everything is included to make sure your website is efficient, secure, and optimized
+                from day one.
+              </p>
+            </div>
+
+            <div class="incluidos__items">
+              <div class="tool-item">
+                <i class="fas fa-handshake"></i>
+                <h3>Initial mentoring</h3>
+                <p>
+                  Personalized guidance to understand your needs and define the ideal strategy for
+                  your project.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-globe"></i>
+                <h3>Domain registration</h3>
+                <p>
+                  Registration of an exclusive domain name for your website, protecting your online
+                  identity.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-server"></i>
+                <h3>Hosting</h3>
+                <p>
+                  Reliable, fast hosting solutions to keep your website online with excellent
+                  performance.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-lock"></i>
+                <h3>SSL certificate</h3>
+                <p>
+                  Security for your users with SSL installation, protecting data and building trust.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-search"></i>
+                <h3>Basic SEO</h3>
+                <p>
+                  Initial SEO setup to help your website be found more easily by search engines.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Responsive design</h3>
+                <p>
+                  Fully responsive layout that delivers a great experience on desktop, tablet, and
+                  mobile.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-life-ring"></i>
+                <h3>Training & post-launch support</h3>
+                <p>
+                  Training on how to use your website and manage your admin panel, plus ongoing
+                  support after launch.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>Metrics & monitoring</h3>
+                <p>
+                  Continuous monitoring of performance metrics, with reports and iterative
+                  improvements to keep your website optimized.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="incluidos__col incluidos__col--design">
+            <div class="incluidos__header">
+              <h2 class="incluidos__title">Design Online</h2>
+              <p class="muted incluidos__subtitle">
+                With <strong>Design Online</strong>, you get access to an exclusive dashboard where
+                you can fine-tune the main elements of your website based on your preferences.
+              </p>
+            </div>
+
+            <div class="design-online">
+              <ul class="design-online__list">
+                <li>
+                  <i class="fas fa-palette"></i>
+                  <div>
+                    <strong>Define the color palette:</strong>
+                    <span>
+                      Choose your website’s main colors to match your brand’s visual identity.
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-font"></i>
+                  <div>
+                    <strong>Choose the fonts:</strong>
+                    <span>
+                      Select fonts for headings, subheadings, and body text, creating a clear,
+                      personalized reading hierarchy.
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-image"></i>
+                  <div>
+                    <strong>Choose the banner style:</strong>
+                    <span>
+                      Customize the main banner style (background image, slider, or video) to make
+                      the best first impression.
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-upload"></i>
+                  <div>
+                    <strong>Upload your logo:</strong>
+                    <span>
+                      Upload your logo or share guidelines so I can create something exclusive for
+                      your brand.
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-box-open"></i>
+                  <div>
+                    <strong>Add images and products:</strong>
+                    <span>
+                      Send product images and other visuals, plus details like price, description,
+                      and size, so I can integrate everything directly into your website.
+                    </span>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="design-online__bottom">
+                <div class="design-online__subhead-row">
+                  <h3 class="design-online__subhead">How does access work?</h3>
+                  <button
+                    type="button"
+                    class="design-online__info"
+                    id="design-online-access-trigger"
+                    aria-label="More information about how access works"
+                  >
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                </div>
+
+                <div class="tool-item">
+                  <i class="fas fa-user-check"></i>
+                  <h3>Client area</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      id="design-online-access-modal"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="design-online-access-title"
+    >
+      <div class="modal">
+        <div class="modal-header">
+          <div class="modal-title-row">
+            <span class="modal-title-icon"><i class="fas fa-question-circle"></i></span>
+            <h2 class="modal-title" id="design-online-access-title">How does access work?</h2>
+          </div>
+          <div class="modal-actions">
+            <button class="modal-close" aria-label="Close modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <ul class="design-online__access">
+            <li>
+              <i class="fas fa-link"></i>
+              <div>
+                <strong>Exclusive access:</strong>
+                <span>
+                  After signing the contract, you’ll receive access to an exclusive dashboard where
+                  you can define key preferences for your website design.
+                </span>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-sliders-h"></i>
+              <div>
+                <strong>Design Online dashboard:</strong>
+                <span>
+                  A space to define the main design elements, organize images, and add product
+                  descriptions or personalized brand content.
+                </span>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-headset"></i>
+              <div>
+                <strong>Support at every step:</strong>
+                <span>
+                  If you need help, I’m available to guide you through each stage of the process.
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <!-- Tools & Technologies -->
     <section class="herramientas" aria-label="Tools I use">
@@ -320,52 +774,50 @@
         <p class="muted">Professional stack for quality results</p>
 
         <div class="servicios-cards">
-          <div class="card">
-            <h3>Design & Prototyping</h3>
-            <div class="tools-list">
-              <div class="tool-item">
-                <i class="fas fa-drafting-compass"></i>
-                <span>Wireframing & Mockups</span>
-              </div>
-              <div class="tool-item">
-                <i class="fas fa-paint-brush"></i>
-                <span>UI Design</span>
-              </div>
-              <div class="tool-item">
-                <i class="fas fa-user-check"></i>
-                <span>UX Research & Testing</span>
-              </div>
-              <div class="tool-item">
-                <i class="fas fa-mouse-pointer"></i>
-                <span>Interactive Prototyping</span>
-              </div>
-              <div class="tool-item">
-                <i class="fas fa-universal-access"></i>
-                <span>Accessibility (A11y)</span>
-              </div>
-              <div class="tool-item">
-                <i class="fab fa-figma"></i>
-                <span>Figma</span>
-              </div>
-              <div class="tool-item">
-                <i class="fas fa-palette"></i>
-                <span>Coolors</span>
-              </div>
-              <div class="tool-item">
-                <div class="custom-icon illustrator-icon">
-                  <span>Ai</span>
+          <div class="herramientas__design-grid">
+            <div class="card ferramentas-card--dark">
+              <h3>Custom development</h3>
+              <div class="tools-list">
+                <div class="tool-item">
+                  <i class="fas fa-code"></i>
+                  <span>VSCode</span>
                 </div>
-                <span>Illustrator</span>
+                <div class="tool-item">
+                  <i class="fab fa-git-alt"></i>
+                  <span>Git</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fab fa-github"></i>
+                  <span>GitHub</span>
+                </div>
               </div>
-              <div class="tool-item">
-                <i class="fas fa-images"></i>
-                <span>Canva</span>
+            </div>
+
+            <div class="card ferramentas-card--dark">
+              <h3>Online platforms development</h3>
+              <div class="tools-list">
+                <div class="tool-item">
+                  <i class="fab fa-wordpress"></i>
+                  <span>WordPress</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span>WooCommerce</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fab fa-elementor"></i>
+                  <span>Elementor</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fab fa-yoast"></i>
+                  <span>Yoast SEO</span>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="card">
-            <h3>Frontend Development</h3>
+            <h3>Frontend development</h3>
             <div class="tools-list">
               <div class="tool-item">
                 <i class="fab fa-html5"></i>
@@ -378,6 +830,12 @@
               <div class="tool-item">
                 <i class="fab fa-js-square"></i>
                 <span>JavaScript</span>
+              </div>
+              <div class="tool-item">
+                <div class="custom-icon typescript-icon">
+                  <span>TS</span>
+                </div>
+                <span>TypeScript</span>
               </div>
               <div class="tool-item">
                 <i class="fab fa-react"></i>
@@ -396,6 +854,10 @@
                 <span>Bootstrap</span>
               </div>
               <div class="tool-item">
+                <i class="fab fa-angular"></i>
+                <span>Angular</span>
+              </div>
+              <div class="tool-item">
                 <i class="fas fa-database"></i>
                 <span>Context API</span>
               </div>
@@ -412,30 +874,106 @@
                 <span>Jest</span>
               </div>
               <div class="tool-item">
+                <i class="fas fa-check"></i>
+                <span>ESLint</span>
+              </div>
+              <div class="tool-item">
                 <i class="fas fa-search"></i>
                 <span>Basic SEO</span>
               </div>
               <div class="tool-item">
                 <i class="fas fa-mobile-alt"></i>
-                <span>Responsive Design</span>
+                <span>Responsive design</span>
               </div>
               <div class="tool-item">
                 <i class="fas fa-adjust"></i>
-                <span>Dark/Light Mode</span>
+                <span>Dark/Light mode</span>
               </div>
             </div>
           </div>
 
           <div class="card">
-            <h3>Custom Development</h3>
+            <h3>Backend development</h3>
             <div class="tools-list">
               <div class="tool-item">
-                <i class="fas fa-code"></i>
-                <span>VsCode</span>
+                <i class="fab fa-node-js"></i>
+                <span>Node.js</span>
               </div>
               <div class="tool-item">
-                <i class="fab fa-github"></i>
-                <span>GitHub</span>
+                <i class="fab fa-python"></i>
+                <span>Python</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-leaf"></i>
+                <span>MongoDB</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-database"></i>
+                <span>MySQL</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-project-diagram"></i>
+                <span>GraphQL</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-flask"></i>
+                <span>Jest</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="herramientas__design-grid">
+            <div class="card">
+              <h3>Design process</h3>
+              <div class="tools-list">
+                <div class="tool-item">
+                  <i class="fas fa-user-check"></i>
+                  <span>UX Research & Testing</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-drafting-compass"></i>
+                  <span>Wireframing</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-images"></i>
+                  <span>Mockups</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-mouse-pointer"></i>
+                  <span>Interactive prototyping</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-paint-brush"></i>
+                  <span>UI design</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Graphic design</h3>
+              <div class="tools-list">
+                <div class="tool-item">
+                  <i class="fas fa-palette"></i>
+                  <span>Adobe Color</span>
+                </div>
+                <div class="tool-item">
+                  <div class="custom-icon illustrator-icon">
+                    <span>Ai</span>
+                  </div>
+                  <span>Adobe Illustrator</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fab fa-figma"></i>
+                  <span>Figma</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-vector-square"></i>
+                  <span>Affinity</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-swatchbook"></i>
+                  <span>Canva</span>
+                </div>
               </div>
             </div>
           </div>
@@ -508,6 +1046,21 @@
             <p>Complete online store with payment gateway and inventory management</p>
           </div>
         </div>
+
+        <div class="proceso-stats" aria-label="Process results">
+          <div class="stat-item">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Projects delivered on time</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4.9/5</div>
+            <div class="stat-label">Customer satisfaction</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Transparent communication</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -516,11 +1069,13 @@
       <div class="container">
         <h2>Ready to start your project?</h2>
         <p class="checklist__subtitle muted">
-          Now that you know my process, the next step is to make your personalized checklist
+          Now that you know my process, the next step is to create your personalized checklist or
+          request your online quote.
         </p>
 
         <div class="checklist__cta">
-          <a href="checklist_en.html" class="chip-cta">Start my project now</a>
+          <a href="checklist_en.html" class="action-btn action-btn--primary">Start my project</a>
+          <a href="presupuesto_en.html" class="action-btn action-btn--secondary">Online quote</a>
         </div>
       </div>
     </section>
@@ -533,8 +1088,8 @@
             <h3>Amanda Cereja</h3>
             <p>Full-Stack Software Engineer<br />Frontend | Backend</p>
             <div class="footer-social">
-              <a href="https://wa.me/34602614398" aria-label="WhatsApp"
-                ><i class="fab fa-whatsapp"></i
+              <a href="mailto:amandacerejaweb@gmail.com" aria-label="Email"
+                ><i class="fas fa-envelope"></i
               ></a>
               <a href="https://www.linkedin.com/in/amandaceereja/" aria-label="LinkedIn"
                 ><i class="fab fa-linkedin-in"></i
@@ -556,7 +1111,7 @@
                 <li><a href="checklist_en.html">Checklist</a></li>
               </ul>
               <ul class="footer-links">
-                <li><a href="presupuesto.html">Budget</a></li>
+                <li><a href="presupuesto_en.html">Budget</a></li>
                 <li><a href="proceso_en.html">My process</a></li>
                 <li><a href="portafolio_en.html">Portfolio</a></li>
               </ul>
@@ -581,18 +1136,129 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- WhatsApp floating button -->
-    <a
-      href="https://wa.me/34602614398"
-      class="whatsapp-button"
-      target="_blank"
-      rel="noopener"
-      aria-label="Open WhatsApp chat"
-    >
-      <i class="fab fa-whatsapp"></i>
-    </a>
-
     <!-- Language Selector System -->
+    <script>
+      (() => {
+        const root = document.querySelector("[data-process-flow]");
+        if (!root) return;
+
+        const tabs = Array.from(root.querySelectorAll("[data-process-tab]"));
+        const panels = Array.from(root.querySelectorAll("[data-process-panel]"));
+        if (!tabs.length || !panels.length) return;
+
+        const byPanelId = new Map(panels.map((panel, index) => [panel.id, index]));
+
+        const setActive = (nextIndex, options = {}) => {
+          const { focus = false } = options;
+          const safeIndex = Math.max(0, Math.min(tabs.length - 1, nextIndex));
+
+          tabs.forEach((tab, index) => {
+            const isActive = index === safeIndex;
+            tab.classList.toggle("is-active", isActive);
+            tab.setAttribute("aria-selected", isActive ? "true" : "false");
+            tab.tabIndex = isActive ? 0 : -1;
+          });
+
+          panels.forEach((panel, index) => {
+            const isActive = index === safeIndex;
+            panel.classList.toggle("is-active", isActive);
+            panel.hidden = !isActive;
+          });
+
+          const activeTab = tabs[safeIndex];
+          const activePanel = panels[safeIndex];
+          if (focus) activeTab.focus();
+
+          if (activePanel?.id && window.location.hash !== `#${activePanel.id}`) {
+            history.replaceState(null, "", `#${activePanel.id}`);
+          }
+        };
+
+        const activateFromHash = () => {
+          const raw = window.location.hash.replace("#", "");
+          if (!raw) return;
+          const index = byPanelId.get(raw);
+          if (typeof index === "number") setActive(index);
+        };
+
+        tabs.forEach((tab, index) => {
+          tab.addEventListener("click", () => setActive(index, { focus: false }));
+
+          tab.addEventListener("keydown", (event) => {
+            const key = event.key;
+            if (
+              key !== "ArrowLeft" &&
+              key !== "ArrowRight" &&
+              key !== "ArrowUp" &&
+              key !== "ArrowDown" &&
+              key !== "Home" &&
+              key !== "End"
+            ) {
+              return;
+            }
+
+            event.preventDefault();
+            const last = tabs.length - 1;
+            if (key === "Home") return setActive(0, { focus: true });
+            if (key === "End") return setActive(last, { focus: true });
+
+            const delta = key === "ArrowLeft" || key === "ArrowUp" ? -1 : 1;
+            const next = (index + delta + tabs.length) % tabs.length;
+            return setActive(next, { focus: true });
+          });
+        });
+
+        panels.forEach((panel, index) => {
+          panel.hidden = index !== 0;
+        });
+
+        tabs.forEach((tab, index) => {
+          tab.tabIndex = index === 0 ? 0 : -1;
+        });
+
+        activateFromHash();
+        window.addEventListener("hashchange", activateFromHash);
+      })();
+    </script>
+    <script>
+      (() => {
+        const trigger = document.getElementById("design-online-access-trigger");
+        const modal = document.getElementById("design-online-access-modal");
+        if (!trigger || !modal) return;
+
+        const closeBtn = modal.querySelector(".modal-close");
+        const dialog = modal.querySelector(".modal");
+
+        const openModal = () => {
+          modal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        };
+
+        const closeModal = () => {
+          modal.classList.remove("active");
+          document.body.style.overflow = "";
+          trigger.focus();
+        };
+
+        trigger.addEventListener("click", openModal);
+
+        closeBtn?.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) closeModal();
+        });
+
+        dialog?.addEventListener("click", (event) => {
+          event.stopPropagation();
+        });
+
+        window.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && modal.classList.contains("active")) {
+            closeModal();
+          }
+        });
+      })();
+    </script>
     <script src="js/language-selector.js"></script>
   </body>
 </html>

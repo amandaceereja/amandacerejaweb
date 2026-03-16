@@ -17,6 +17,7 @@
   min-height: 62vh;
   display: grid;
   place-items: center;
+  text-align: center;
   color: #111;
   overflow: hidden;
 }
@@ -34,8 +35,10 @@
 }
 
 .hero-servicos__content {
+  position: relative;
+  z-index: 2;
   max-width: 1024px;
-  margin: 0 auto;
+  margin-inline: auto;
   padding: 0 2rem;
   text-align: center;
 }
@@ -43,33 +46,49 @@
 .hero-servicos__title {
   display: block;
   text-align: center;
-  white-space: nowrap;
   font-family: var(--font-headline);
   font-weight: 700;
   font-size: clamp(2rem, 6vw, 4.25rem);
   line-height: 1.05;
-  margin-bottom: 1rem;
-  color: #111;
+  margin-bottom: 0.6rem;
+  color: #000;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  white-space: normal;
+}
+
+.hero-servicos__title span {
+  overflow: visible;
+  border-right: 0;
+  white-space: normal;
+  margin: 0 auto;
+  animation: none;
+}
+
+.hero-servicos__title .typer {
+  display: inline-block;
+  max-width: calc(100% - 0.6ch);
 }
 
 .hero-servicos__subtitle {
   max-width: 56ch;
-  margin: 0 auto 1.25rem;
-  font-size: clamp(1rem, 2.2vw, 1.15rem);
-  color: #111;
-  opacity: 1; /* Alterado para visível por padrão */
+  margin: 0 auto;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  color: #000;
+  opacity: 1;
   line-height: 1.6;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease-in-out;
 }
 
-/* Cursor do typewriter */
 .hero-servicos__title .typer::after {
-  content: "|";
-  animation: caretBlink 1s infinite;
-  color: #111;
-  font-weight: 300;
+  content: "│";
+  display: inline-block;
+  margin-left: 0.1ch;
+  animation: caretBlink 1s steps(1) infinite;
+  opacity: 0.85;
+  color: #000;
 }
 
 /* Remover qualquer ::before que possa vir do styles.css */
@@ -80,13 +99,50 @@
 
 @keyframes caretBlink {
   0%,
-  50% {
-    opacity: 1;
-  }
-  51%,
-  100% {
+  49% {
     opacity: 0;
   }
+  50%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-servicos {
+    animation: none;
+    background-position: 50% 50%;
+  }
+
+  .hero-servicos__title .typer::after {
+    animation: none;
+  }
+}
+
+.page-servicos .solucoes-lojas__header h2,
+.page-servicos .lojas-header h2,
+.page-servicos .solucoes-restaurantes__header h2,
+.page-servicos .restaurantes-header h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: var(--fg);
+}
+
+.page-servicos .solucoes-lojas__header p,
+.page-servicos .lojas-header p,
+.page-servicos .solucoes-restaurantes__header p,
+.page-servicos .restaurantes-header p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted-fg, var(--accent));
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Serviços Gerais */
@@ -1825,13 +1881,12 @@
 /* Responsividade */
 @media (max-width: 768px) {
   .hero-servicos {
-    padding: 5rem 1.25rem 2.5rem;
     min-height: 44vh;
+    padding: 5rem 1.25rem 2.5rem;
   }
 
   .hero-servicos__title {
-    font-size: clamp(1.5rem, 8vw, 2.5rem);
-    white-space: normal;
+    font-size: clamp(2rem, 6vw, 4.25rem);
   }
 
   .servicos-grid {
@@ -1855,23 +1910,62 @@
   }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-servicos {
+    min-height: 44vh;
+    padding: 5rem 1.25rem 2.5rem;
+  }
+
+  .hero-servicos__content {
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 640px) {
   .hero-servicos {
     min-height: 52vh;
     padding: 3.25rem 1rem 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
   .hero-servicos__content {
+    width: 100%;
+    max-width: 100%;
     padding: 0 1rem;
+    text-align: center;
+  }
+
+  .hero-servicos {
+    padding: 4rem 1rem 3rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-servicos__title {
-    font-size: clamp(1.25rem, 7vw, 2rem);
+    font-size: 1.9rem;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+    padding: 0 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-servicos__subtitle {
-    font-size: clamp(0.9rem, 4vw, 1rem);
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 0 1rem;
+    margin: 0 auto 2rem;
+    max-width: 90%;
   }
 }

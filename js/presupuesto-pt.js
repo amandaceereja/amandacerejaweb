@@ -671,10 +671,12 @@ ${featuresLines}
 Prazo: ${timeline}
 Total estimado: R$ ${total.toLocaleString("pt-BR")}
 
-Podemos conversar pelo WhatsApp?`;
+Podemos alinhar os próximos passos por email?`;
 
-    const whatsappUrl = `https://wa.me/34602614398?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
+    const emailUrl = `mailto:amandacerejaweb@gmail.com?subject=${encodeURIComponent(
+      "Orçamento"
+    )}&body=${encodeURIComponent(message)}`;
+    window.open(emailUrl, "_blank");
   }
 
   getProjectTypeName(type) {
@@ -763,6 +765,7 @@ Podemos conversar pelo WhatsApp?`;
         modalTitle.textContent = featureName;
         modalDescription.textContent = tooltip.textContent;
         modal.classList.add("active");
+        document.documentElement.classList.add("feature-modal-open");
         document.body.style.overflow = "hidden";
         modalBox?.classList.remove("show-back");
       }
@@ -788,6 +791,7 @@ Podemos conversar pelo WhatsApp?`;
         modalTitle.textContent = exampleTitle;
         modalDescription.innerHTML = tooltip.innerHTML || tooltip.textContent;
         modal.classList.add("active");
+        document.documentElement.classList.add("feature-modal-open");
         document.body.style.overflow = "hidden";
         modalBox?.classList.add("show-back");
         // Liga o botão de voltar
@@ -820,6 +824,7 @@ Podemos conversar pelo WhatsApp?`;
         modalTitle.textContent = projectName;
         modalDescription.innerHTML = tooltip.innerHTML || tooltip.textContent;
         modal.classList.add("active");
+        document.documentElement.classList.add("feature-modal-open");
         document.body.style.overflow = "hidden";
         modalBox?.classList.remove("show-back");
       }
@@ -862,6 +867,7 @@ Podemos conversar pelo WhatsApp?`;
         modalTitle.textContent = sectionTitle;
         modalDescription.innerHTML = tooltip.innerHTML || tooltip.textContent;
         modal.classList.add("active");
+        document.documentElement.classList.add("feature-modal-open");
         document.body.style.overflow = "hidden";
         modal.classList.remove("show-back");
       }
@@ -971,6 +977,7 @@ Podemos conversar pelo WhatsApp?`;
     const modal = document.getElementById("feature-info-modal");
     if (modal) {
       modal.classList.remove("active");
+      document.documentElement.classList.remove("feature-modal-open");
       document.body.style.overflow = "";
       const modalBox = modal.querySelector(".modal");
       modalBox?.classList.remove("show-back");
@@ -986,6 +993,29 @@ document.addEventListener("DOMContentLoaded", () => {
   window.budgetCalculator = new BudgetCalculatorPT();
   initPresupuestoTypewriterPT();
   initTabs();
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!prefersReducedMotion && window.gsap) {
+    window.gsap.from(".hero-content", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      delay: 0.5,
+    });
+
+    if (window.ScrollTrigger) {
+      window.gsap.registerPlugin(window.ScrollTrigger);
+      window.gsap.to(".hero-presupuesto", {
+        scrollTrigger: {
+          trigger: ".hero-presupuesto",
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.5,
+        },
+        backgroundPositionY: "30%",
+      });
+    }
+  }
 });
 
 // Tab System Functionality
@@ -1034,52 +1064,45 @@ function initPresupuestoTypewriterPT() {
   const subtitleEl = document.querySelector(".hero-subtitle");
   if (!el || !subtitleEl) return;
 
-  const phrases = [
-    {
-      title: "Calcula o Orçamento do seu Projeto",
-      subtitle: "Descubra o plano ideal para seu projeto com um cálculo imediato.",
-    },
-    {
-      title: "Sua web, seu orçamento, em tempo real",
-      subtitle: "Faça seu cálculo online e dê o primeiro passo para seu novo projeto.",
-    },
+  const phrases = ["Orçamento Online", "Calculadora Automática", "Preços Personalizados"];
+
+  const subtitles = [
+    "Calcule o preço do seu projeto com apenas alguns cliques.",
+    "Escolha o tipo de projeto, funcionalidades, integrações extras e sistemas essenciais para o seu site, e calcule o orçamento em tempo real.",
+    "Escolha entre desenvolvimento com código puro ou plataforma online e veja a diferença de preços de acordo com a opção escolhida.",
   ];
 
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (prefersReduced) {
-    el.textContent = phrases[0].title;
-    subtitleEl.textContent = phrases[0].subtitle;
+    el.textContent = phrases[0];
+    subtitleEl.textContent = subtitles[0];
     return;
   }
 
   let phraseIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-  const typeDelay = 60; // velocidade de digitação
-  const deleteDelay = 38; // velocidade de apagar
-  const pauseDelay = 1200; // pausa ao terminar frase
+  const typeDelay = 60;
+  const deleteDelay = 38;
+  const pauseDelay = 1800;
 
   function updateSubtitle(index) {
-    if (subtitleEl) {
-      subtitleEl.style.opacity = "0";
-      setTimeout(() => {
-        subtitleEl.textContent = phrases[index].subtitle;
-        subtitleEl.style.opacity = "1";
-      }, 300);
-    }
+    subtitleEl.style.opacity = "0";
+    setTimeout(() => {
+      subtitleEl.textContent = subtitles[index];
+      subtitleEl.style.opacity = "1";
+    }, 300);
   }
 
   function typeChar() {
-    const currentPhrase = phrases[phraseIndex].title;
+    const currentPhrase = phrases[phraseIndex];
 
     if (!isDeleting) {
-      // Digitando
       el.textContent = currentPhrase.slice(0, charIndex + 1);
       charIndex++;
 
       if (charIndex === currentPhrase.length) {
-        // Terminou de digitar, pausa e depois começa a apagar
         setTimeout(() => {
           isDeleting = true;
           typeChar();
@@ -1089,23 +1112,24 @@ function initPresupuestoTypewriterPT() {
 
       setTimeout(typeChar, typeDelay);
     } else {
-      // Apagando
-      el.textContent = currentPhrase.slice(0, charIndex - 1);
+      const current = el.textContent || "";
+      el.textContent = current.slice(0, -1);
       charIndex--;
 
       if (charIndex === 0) {
-        // Terminou de apagar, muda para próxima frase
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
         updateSubtitle(phraseIndex);
+        setTimeout(typeChar, 260);
+        return;
       }
 
       setTimeout(typeChar, deleteDelay);
     }
   }
 
-  // Inicia com o primeiro subtítulo
-  updateSubtitle(0);
+  el.textContent = "";
+  subtitleEl.textContent = subtitles[0];
   typeChar();
 }
 

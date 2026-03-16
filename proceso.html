@@ -60,7 +60,7 @@
     <link rel="canonical" href="https://amandaceereja.github.io/Pagina-web/proceso.html" />
   </head>
 
-  <body>
+  <body class="page-proceso-es">
     <!-- Language Bar -->
     <div class="language-bar">
       <div class="language-bar__container">
@@ -88,6 +88,14 @@
             aria-label="LinkedIn"
           >
             <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://www.facebook.com/people/Amanda-Cereja-Web/61588168921691/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <i class="fab fa-facebook-f"></i>
           </a>
         </div>
         <div class="language-selector">
@@ -184,131 +192,610 @@
     <section id="hero" class="hero" aria-label="Mi Proceso de Trabajo">
       <div class="hero__content">
         <h1 class="hero__title">
-          <span>Mi Proceso de Trabajo</span>
+          <span id="typer" class="typer" aria-live="polite"></span>
         </h1>
-        <p class="hero__subtitle">
-          Metodología probada para entregar proyectos exitosos en tiempo y forma
+        <p id="hero-subtitle" class="hero__subtitle">
+          Un proceso estructurado en 4 etapas para transformar tu visión en soluciones digitales de
+          alto impacto.
         </p>
-        <div class="hero__buttons">
-          <a href="#timeline" class="btn btn--primary">Ver mi metodología</a>
-        </div>
       </div>
     </section>
 
     <!-- Timeline del Proceso -->
     <section id="timeline" class="proceso-timeline" aria-label="Timeline del proceso">
       <div class="container">
-        <h2>Cómo trabajo contigo paso a paso</h2>
+        <h2>De la Idea a la Ejecución</h2>
         <p class="muted">
-          Cada proyecto sigue esta metodología para garantizar resultados excepcionales
+          Design, Código, Testes e Lançamento – Com um processo estruturado em 4 etapas, trazemos
+          sua ideia à vida, sempre buscando o melhor desempenho para seu projeto. E, como parte do
+          nosso compromisso com o sucesso de nossos clientes, você recebe bônus exclusivos que
+          ampliam a visibilidade e o impacto do seu site.
         </p>
 
-        <!-- Estadísticas del proceso -->
-        <div class="proceso-stats">
-          <div class="stat-item">
-            <div class="stat-number">98%</div>
-            <div class="stat-label">Proyectos entregados a tiempo</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">4.9/5</div>
-            <div class="stat-label">Satisfacción del cliente</div>
+        <div class="process-flow" data-process-flow aria-label="Fases del proceso">
+          <div class="process-flow__steps" role="tablist" aria-label="Pasos del proceso">
+            <button
+              class="process-flow__step is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="fase-1"
+              id="fase-1-tab"
+              data-process-tab
+            >
+              <span class="process-flow__icon" aria-hidden="true"
+                ><i class="fas fa-headset"></i
+              ></span>
+              <span class="process-flow__badge">01</span>
+              <span class="process-flow__title">Planificación inicial y briefing estratégico</span>
+            </button>
+
+            <button
+              class="process-flow__step"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="fase-2"
+              id="fase-2-tab"
+              data-process-tab
+            >
+              <span class="process-flow__icon" aria-hidden="true"
+                ><i class="fas fa-laptop"></i
+              ></span>
+              <span class="process-flow__badge">02</span>
+              <span class="process-flow__title">Desarrollo y diseño integrados</span>
+            </button>
+
+            <button
+              class="process-flow__step"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="fase-3"
+              id="fase-3-tab"
+              data-process-tab
+            >
+              <span class="process-flow__icon" aria-hidden="true"><i class="fas fa-code"></i></span>
+              <span class="process-flow__badge">03</span>
+              <span class="process-flow__title">Pruebas, ajustes y garantía de calidad</span>
+            </button>
+
+            <button
+              class="process-flow__step"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="fase-4"
+              id="fase-4-tab"
+              data-process-tab
+            >
+              <span class="process-flow__icon" aria-hidden="true"
+                ><i class="fas fa-rocket"></i
+              ></span>
+              <span class="process-flow__badge">04</span>
+              <span class="process-flow__title"
+                >Lanzamiento, seguimiento y mantenimiento continuo</span
+              >
+            </button>
           </div>
 
-          <div class="stat-item">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Comunicación transparente</div>
-          </div>
-        </div>
-
-        <div class="timeline-wrapper">
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <span class="phase-number">01</span>
-              <i class="fas fa-search"></i>
-            </div>
-            <div class="timeline-content">
-              <h3>Descubrimiento & Análisis</h3>
-              <div class="timeline-duration">3-5 días</div>
-              <p>
-                Entiendo tu negocio, objetivos y audiencia target para crear la estrategia perfecta
+          <div class="process-flow__panels">
+            <div
+              class="process-flow__panel is-active"
+              role="tabpanel"
+              tabindex="0"
+              id="fase-1"
+              aria-labelledby="fase-1-tab"
+              data-process-panel
+            >
+              <h3 class="process-flow__panel-title">
+                Planificación inicial y briefing estratégico
+              </h3>
+              <p class="process-flow__panel-subtitle">
+                Alinear expectativas y comprender a fondo los objetivos de tu proyecto.
               </p>
-              <ul class="timeline-tasks">
-                <li><i class="fas fa-check"></i> Briefing detallado contigo</li>
-                <li><i class="fas fa-check"></i> Análisis de competencia</li>
-                <li><i class="fas fa-check"></i> Definición de buyer personas</li>
-                <li><i class="fas fa-check"></i> Auditoría técnica (si existe sitio previo)</li>
+              <h4 class="process-flow__section-title">Lo que hacemos?</h4>
+              <ul class="process-step__tasks">
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Reunión de briefing:</strong> entendemos tus necesidades, objetivos y
+                    la visión de tu marca para definir con claridad las metas del proyecto.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Análisis de mercado y competencia:</strong> estudiamos tu sector y la
+                    competencia para identificar oportunidades y diferenciales.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Elección de plataformas y herramientas:</strong> seleccionamos las
+                    mejores plataformas, frameworks y tecnologías para garantizar el mejor
+                    rendimiento, escalabilidad y facilidad de mantenimiento.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Diseño inicial:</strong> definimos la paleta de colores, tipografía e
+                    identidad visual, alineando el diseño con tu marca y creando una experiencia
+                    atractiva y funcional.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Wireframe básico:</strong> creamos un wireframe inicial que define la
+                    estructura del sitio para tu aprobación, asegurando que la navegación y el
+                    layout respondan a las necesidades del usuario.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Entrega del PDF informativo personalizado:</strong> elaboramos un
+                    documento con el cronograma detallado, presupuesto, tecnologías elegidas,
+                    alcance de entrega y plan de comunicación, garantizando total claridad y
+                    alineación de expectativas.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Contrato:</strong> formalizamos el alcance, plazos, presupuesto y
+                    responsabilidades, además de definir los términos de pago y garantías.</span
+                  >
+                </li>
               </ul>
-              <div class="timeline-deliverable">
-                <strong>Entregable:</strong> Documento de estrategia y wireframes iniciales
+              <div class="process-step__deliverable">
+                <span class="process-step__label">Lo que Entregamos:</span>
+                <span
+                  >Los entregables incluyen un documento de estrategia detallado, un wireframe
+                  básico, un PDF informativo personalizado con cronograma, presupuesto y
+                  tecnologías, y un contrato formal.</span
+                >
               </div>
             </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <span class="phase-number">02</span>
-              <i class="fas fa-pencil-ruler"></i>
-            </div>
-            <div class="timeline-content">
-              <h3>Diseño UX/UI</h3>
-              <div class="timeline-duration">5-7 días</div>
-              <p>Creo la experiencia de usuario perfecta y el diseño visual que convierte</p>
-              <ul class="timeline-tasks">
-                <li><i class="fas fa-check"></i> Arquitectura de información</li>
-                <li><i class="fas fa-check"></i> Wireframes detallados</li>
-                <li><i class="fas fa-check"></i> Prototipo interactivo</li>
-                <li><i class="fas fa-check"></i> Diseño visual final</li>
+            <div
+              class="process-flow__panel"
+              role="tabpanel"
+              tabindex="0"
+              id="fase-2"
+              aria-labelledby="fase-2-tab"
+              data-process-panel
+            >
+              <h3 class="process-flow__panel-title">Desarrollo y diseño integrados</h3>
+              <p class="process-flow__panel-subtitle">
+                Crear un producto visualmente impactante, funcional y eficiente, integrando diseño y
+                desarrollo de forma continua y colaborativa.
+              </p>
+              <h4 class="process-flow__section-title">Lo que hacemos?</h4>
+              <ul class="process-step__tasks">
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Área del Cliente Personalizada:</strong> ofrecemos acceso a un panel
+                    exclusivo donde puedes personalizar elementos clave de tu sitio, como la paleta
+                    de colores, fuentes, banners, logotipo, imágenes y productos, todo de forma
+                    simple e interactiva.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Desarrollo ágil:</strong> utilizamos metodologías ágiles para construir
+                    el sitio de forma iterativa, desarrollando funcionalidades clave, probando y
+                    ajustando a medida que el proyecto avanza.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Diseño visual y UX/UI:</strong> trabajamos el diseño enfocándonos en
+                    estética y experiencia de usuario, alineando el sitio con la identidad de tu
+                    marca.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Diseño responsivo:</strong> aseguramos que el sitio se adapte
+                    perfectamente a diferentes dispositivos y tamaños de pantalla, garantizando una
+                    experiencia fluida en móviles, tablets y escritorios.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Diseño aprobado y listo para pruebas:</strong> el diseño visual está
+                    aprobado, y todos los elementos de la interfaz están listos para su
+                    implementación final.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Integración continua:</strong> diseño y desarrollo avanzan juntos,
+                    garantizando una experiencia coherente mientras el código se optimiza para
+                    rendimiento y escalabilidad.</span
+                  >
+                </li>
               </ul>
-              <div class="timeline-deliverable">
-                <strong>Entregable:</strong> Prototipo clickeable en Figma
+              <div class="process-step__deliverable">
+                <span class="process-step__label">Lo que Entregamos:</span>
+                <span
+                  >Los entregables incluyen un sitio en desarrollo con funcionalidades
+                  implementadas, diseño aprobado, acceso al panel del cliente personalizado y un
+                  roadmap de desarrollo detallado.</span
+                >
               </div>
             </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <span class="phase-number">03</span>
-              <i class="fas fa-code"></i>
-            </div>
-            <div class="timeline-content">
-              <h3>Desarrollo & Optimización</h3>
-              <div class="timeline-duration">7-14 días</div>
-              <p>Programo tu sitio con las mejores prácticas para máximo rendimiento</p>
-              <ul class="timeline-tasks">
-                <li><i class="fas fa-check"></i> Desarrollo frontend responsive</li>
-                <li><i class="fas fa-check"></i> Integración de CMS (si aplica)</li>
-                <li><i class="fas fa-check"></i> Optimización de velocidad</li>
-                <li><i class="fas fa-check"></i> Testing cross-browser</li>
+            <div
+              class="process-flow__panel"
+              role="tabpanel"
+              tabindex="0"
+              id="fase-3"
+              aria-labelledby="fase-3-tab"
+              data-process-panel
+            >
+              <h3 class="process-flow__panel-title">Pruebas, ajustes y garantía de calidad</h3>
+              <p class="process-flow__panel-subtitle">
+                Garantizar que el producto esté optimizado para todos los dispositivos, con foco en
+                rendimiento, seguridad y experiencia de usuario.
+              </p>
+              <h4 class="process-flow__section-title">Lo que hacemos?</h4>
+              <ul class="process-step__tasks">
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Pruebas de usabilidad y funcionalidad:</strong> validamos todas las
+                    funcionalidades para garantizar que el sitio sea intuitivo y fácil de
+                    usar.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Optimización de rendimiento:</strong> mejoramos los tiempos de carga y
+                    el desempeño general del sitio.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>SEO y accesibilidad:</strong> ajustamos el sitio para que sea
+                    fácilmente encontrado en Google y accesible para todos los usuarios.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Revisión de contenidos:</strong> revisamos todo el contenido del sitio
+                    (textos, imágenes, enlaces) para asegurarnos de que esté correcto, actualizado y
+                    sin errores.</span
+                  >
+                </li>
               </ul>
-              <div class="timeline-deliverable">
-                <strong>Entregable:</strong> Sitio en servidor de staging para revisión
+              <div class="process-step__deliverable">
+                <span class="process-step__label">Lo que Entregamos:</span>
+                <span
+                  >Informe detallado con los resultados de las pruebas realizadas y los ajustes
+                  implementados.</span
+                >
               </div>
             </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <span class="phase-number">04</span>
-              <i class="fas fa-rocket"></i>
-            </div>
-            <div class="timeline-content">
-              <h3>Lanzamiento & Soporte</h3>
-              <div class="timeline-duration">2-3 días</div>
-              <p>Tu sitio va en vivo con todo configurado y listo para generar resultados</p>
-              <ul class="timeline-tasks">
-                <li><i class="fas fa-check"></i> Deploy a producción</li>
-                <li><i class="fas fa-check"></i> Configuración de analytics</li>
-                <li><i class="fas fa-check"></i> Training para gestión de contenido</li>
-                <li><i class="fas fa-check"></i> Documentación técnica</li>
+            <div
+              class="process-flow__panel"
+              role="tabpanel"
+              tabindex="0"
+              id="fase-4"
+              aria-labelledby="fase-4-tab"
+              data-process-panel
+            >
+              <h3 class="process-flow__panel-title">
+                Lanzamiento, seguimiento y mantenimiento continuo
+              </h3>
+              <p class="process-flow__panel-subtitle">
+                Publicar el sitio con total confianza, acompañar de cerca su rendimiento y realizar
+                mejoras continuas.
+              </p>
+              <h4 class="process-flow__section-title">Lo que hacemos?</h4>
+              <ul class="process-step__tasks">
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Presentación de la página y tutorial:</strong> realizamos una
+                    presentación completa del sitio y ofrecemos un tutorial detallado para que el
+                    cliente aprenda a gestionar su contenido y realizar actualizaciones por su
+                    cuenta.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Kit de difusión para redes sociales:</strong> entregamos un kit de
+                    lanzamiento con imágenes, videos y materiales gráficos diseñados para que el
+                    cliente pueda promover el proyecto en redes sociales y otros canales de
+                    comunicación.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Deploy y monitorización:</strong> ponemos el sitio en producción y lo
+                    monitorizamos continuamente para asegurar que todo funcione correctamente y
+                    detectar cualquier posible inconveniente.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Mantenimiento gratuito durante 1 mes:</strong> ofrecemos mantenimiento
+                    gratuito durante el primer mes para realizar ajustes, correcciones y asegurar
+                    que todo esté funcionando perfectamente.</span
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <span class="process-step__task-text"
+                    ><strong>Contacto directo para soporte básico ilimitado:</strong> ofrecemos
+                    soporte básico ilimitado desde el momento en que el cliente se convierte en
+                    nuestro cliente, con contacto directo por WhatsApp para resolver cualquier duda
+                    o problema relacionado con el sitio.</span
+                  >
+                </li>
               </ul>
-              <div class="timeline-deliverable">
-                <strong>Entregable:</strong> Sitio live + 30 días de soporte gratuito
+              <div class="process-step__deliverable">
+                <span class="process-step__label">Lo que Entregamos:</span>
+                <span
+                  >El sitio completamente funcional y accesible en producción, soporte básico
+                  ilimitado por WhatsApp, un kit de difusión para redes sociales y 30 días de
+                  mantenimiento gratuito.</span
+                >
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="incluidos" aria-label="Qué está incluido y Diseño Personalizado">
+      <div class="container">
+        <div class="incluidos__grid">
+          <div class="incluidos__col">
+            <div class="incluidos__header">
+              <h2 class="incluidos__title">¿Qué está incluido?</h2>
+              <p class="muted incluidos__subtitle">
+                Cada detalle está incluido para garantizar que tu sitio sea eficiente, seguro y
+                optimizado desde el inicio.
+              </p>
+            </div>
+
+            <div class="incluidos__items">
+              <div class="tool-item">
+                <i class="fas fa-handshake"></i>
+                <h3>Mentoría Inicial</h3>
+                <p>
+                  Acompañamiento personalizado para entender tus necesidades y definir la estrategia
+                  ideal para tu proyecto.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-globe"></i>
+                <h3>Registro de Dominio</h3>
+                <p>
+                  Registro del nombre de dominio exclusivo para tu sitio, garantizando tu identidad
+                  online.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-server"></i>
+                <h3>Hosting (Alojamiento)</h3>
+                <p>
+                  Soluciones de hosting confiables y rápidas para garantizar que tu sitio esté
+                  siempre online y con excelente rendimiento.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-lock"></i>
+                <h3>Certificado SSL</h3>
+                <p>
+                  Seguridad para tus usuarios con la instalación de un certificado SSL, protegiendo
+                  datos y aumentando la confianza.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-search"></i>
+                <h3>SEO Básico</h3>
+                <p>
+                  Implementación de estrategias iniciales de SEO para ayudar a que tu sitio sea
+                  encontrado fácilmente por los buscadores.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Diseño Responsivo</h3>
+                <p>
+                  Diseño adaptable, garantizando una experiencia de usuario perfecta en todos los
+                  dispositivos: escritorio, tablet y móvil.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-life-ring"></i>
+                <h3>Formación y Soporte Post-Lanzamiento</h3>
+                <p>
+                  Formación completa sobre cómo usar tu sitio y gestionar el panel administrativo,
+                  además de soporte continuo tras el lanzamiento.
+                </p>
+              </div>
+
+              <div class="tool-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>Métricas y Seguimiento</h3>
+                <p>
+                  Seguimiento continuo de métricas de rendimiento, con informes detallados y mejoras
+                  constantes para mantener tu sitio optimizado.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="incluidos__col incluidos__col--design">
+            <div class="incluidos__header">
+              <h2 class="incluidos__title">Design Online</h2>
+              <p class="muted incluidos__subtitle">
+                Con el <strong>Design Online</strong>, tienes acceso a un panel exclusivo donde
+                puedes ajustar los principales elementos de tu sitio según tus preferencias.
+              </p>
+            </div>
+
+            <div class="design-online">
+              <ul class="design-online__list">
+                <li>
+                  <i class="fas fa-palette"></i>
+                  <div>
+                    <strong>Define la paleta de colores:</strong>
+                    <span>
+                      Elige los colores principales de tu sitio para alinearlo con la identidad
+                      visual de tu marca.
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-font"></i>
+                  <div>
+                    <strong>Elige las fuentes:</strong>
+                    <span>
+                      Selecciona fuentes para títulos, subtítulos y cuerpo de texto, creando una
+                      jerarquía de lectura clara y personalizada.
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-image"></i>
+                  <div>
+                    <strong>Elige el estilo del banner:</strong>
+                    <span>
+                      Personaliza el estilo del banner principal (imagen de fondo, slider o vídeo)
+                      para causar la mejor impresión.
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-upload"></i>
+                  <div>
+                    <strong>Envía tu logotipo:</strong>
+                    <span>
+                      Sube tu logo o comparte directrices para que creemos algo exclusivo para tu
+                      marca.
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-box-open"></i>
+                  <div>
+                    <strong>Añade imágenes y productos:</strong>
+                    <span>
+                      Envía imágenes de productos u otros elementos visuales, con información como
+                      precio, descripción y tamaño, para integrarlo directamente en tu sitio.
+                    </span>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="design-online__bottom">
+                <div class="design-online__subhead-row">
+                  <h3 class="design-online__subhead">¿Cómo funciona el acceso?</h3>
+                  <button
+                    type="button"
+                    class="design-online__info"
+                    id="design-online-access-trigger"
+                    aria-label="Más información sobre cómo funciona el acceso"
+                  >
+                    <i class="fas fa-question-circle"></i>
+                  </button>
+                </div>
+
+                <div class="tool-item">
+                  <i class="fas fa-user-check"></i>
+                  <h3>Área del Cliente</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      id="design-online-access-modal"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="design-online-access-title"
+    >
+      <div class="modal">
+        <div class="modal-header">
+          <div class="modal-title-row">
+            <span class="modal-title-icon"><i class="fas fa-question-circle"></i></span>
+            <h2 class="modal-title" id="design-online-access-title">¿Cómo funciona el acceso?</h2>
+          </div>
+          <div class="modal-actions">
+            <button class="modal-close" aria-label="Cerrar modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <ul class="design-online__access">
+            <li>
+              <i class="fas fa-link"></i>
+              <div>
+                <strong>Acceso exclusivo:</strong>
+                <span>
+                  Después de firmar el contrato recibirás acceso a un panel exclusivo donde podrás
+                  determinar las preferencias clave para el diseño de tu sitio.
+                </span>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-sliders-h"></i>
+              <div>
+                <strong>Panel de Design Online:</strong>
+                <span>
+                  Un espacio para definir los elementos de diseño de tu sitio, organizar tus
+                  imágenes e introducir descripciones de productos o contenidos personalizados de tu
+                  marca.
+                </span>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-headset"></i>
+              <div>
+                <strong>Soporte siempre a tu lado:</strong>
+                <span>
+                  Si necesitas ayuda, nuestro equipo está disponible para orientarte en cada etapa
+                  del proceso.
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <!-- Herramientas -->
     <section class="herramientas" aria-label="Herramientas que utilizo">
@@ -317,46 +804,44 @@
         <p class="muted">Stack profesional para resultados de calidad</p>
 
         <div class="servicios-cards">
-          <div class="card">
-            <h3>Diseño & Prototipado</h3>
-            <div class="tools-list">
-              <div class="tool-item">
-                <i class="fas fa-drafting-compass"></i>
-                <span>Wireframing & Mockups</span>
-              </div>
-              <div class="tool-item">
-                <i class="fas fa-paint-brush"></i>
-                <span>UI Design</span>
-              </div>
-              <div class="tool-item">
-                <i class="fas fa-user-check"></i>
-                <span>UX Research & Testing</span>
-              </div>
-              <div class="tool-item">
-                <i class="fas fa-mouse-pointer"></i>
-                <span>Prototipado Interactivo</span>
-              </div>
-              <div class="tool-item">
-                <i class="fas fa-universal-access"></i>
-                <span>Accesibilidad (A11y)</span>
-              </div>
-              <div class="tool-item">
-                <i class="fab fa-figma"></i>
-                <span>Figma</span>
-              </div>
-              <div class="tool-item">
-                <i class="fas fa-palette"></i>
-                <span>Coolors</span>
-              </div>
-              <div class="tool-item">
-                <div class="custom-icon illustrator-icon">
-                  <span>Ai</span>
+          <div class="herramientas__design-grid">
+            <div class="card ferramentas-card--dark">
+              <h3>Desarrollo Personalizado</h3>
+              <div class="tools-list">
+                <div class="tool-item">
+                  <i class="fas fa-code"></i>
+                  <span>VSCode</span>
                 </div>
-                <span>Illustrator</span>
+                <div class="tool-item">
+                  <i class="fab fa-git-alt"></i>
+                  <span>Git</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fab fa-github"></i>
+                  <span>GitHub</span>
+                </div>
               </div>
-              <div class="tool-item">
-                <i class="fas fa-images"></i>
-                <span>Canva</span>
+            </div>
+
+            <div class="card ferramentas-card--dark">
+              <h3>Desarrollo de Plataformas Online</h3>
+              <div class="tools-list">
+                <div class="tool-item">
+                  <i class="fab fa-wordpress"></i>
+                  <span>WordPress</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span>WooCommerce</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fab fa-elementor"></i>
+                  <span>Elementor</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fab fa-yoast"></i>
+                  <span>Yoast SEO</span>
+                </div>
               </div>
             </div>
           </div>
@@ -377,6 +862,12 @@
                 <span>JavaScript</span>
               </div>
               <div class="tool-item">
+                <div class="custom-icon typescript-icon">
+                  <span>TS</span>
+                </div>
+                <span>TypeScript</span>
+              </div>
+              <div class="tool-item">
                 <i class="fab fa-react"></i>
                 <span>React</span>
               </div>
@@ -391,6 +882,10 @@
               <div class="tool-item">
                 <i class="fab fa-bootstrap"></i>
                 <span>Bootstrap</span>
+              </div>
+              <div class="tool-item">
+                <i class="fab fa-angular"></i>
+                <span>Angular</span>
               </div>
               <div class="tool-item">
                 <i class="fas fa-database"></i>
@@ -409,6 +904,10 @@
                 <span>Jest</span>
               </div>
               <div class="tool-item">
+                <i class="fas fa-check"></i>
+                <span>ESLint</span>
+              </div>
+              <div class="tool-item">
                 <i class="fas fa-search"></i>
                 <span>SEO básico</span>
               </div>
@@ -424,15 +923,87 @@
           </div>
 
           <div class="card">
-            <h3>Desarrollo Personalizado</h3>
+            <h3>Desarrollo Backend</h3>
             <div class="tools-list">
               <div class="tool-item">
-                <i class="fas fa-code"></i>
-                <span>VsCode</span>
+                <i class="fab fa-node-js"></i>
+                <span>Node.js</span>
               </div>
               <div class="tool-item">
-                <i class="fab fa-github"></i>
-                <span>GitHub</span>
+                <i class="fab fa-python"></i>
+                <span>Python</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-leaf"></i>
+                <span>MongoDB</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-database"></i>
+                <span>MySQL</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-project-diagram"></i>
+                <span>GraphQL</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-flask"></i>
+                <span>Jest</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="herramientas__design-grid">
+            <div class="card">
+              <h3>Processo de Design</h3>
+              <div class="tools-list">
+                <div class="tool-item">
+                  <i class="fas fa-user-check"></i>
+                  <span>UX Research & Testing</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-drafting-compass"></i>
+                  <span>Wireframing</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-images"></i>
+                  <span>Mockups</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-mouse-pointer"></i>
+                  <span>Prototipado Interactivo</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-paint-brush"></i>
+                  <span>UI Design</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Design Gráfico</h3>
+              <div class="tools-list">
+                <div class="tool-item">
+                  <i class="fas fa-palette"></i>
+                  <span>Adobe Color</span>
+                </div>
+                <div class="tool-item">
+                  <div class="custom-icon illustrator-icon">
+                    <span>Ai</span>
+                  </div>
+                  <span>Adobe Illustrator</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fab fa-figma"></i>
+                  <span>Figma</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-vector-square"></i>
+                  <span>Affinity</span>
+                </div>
+                <div class="tool-item">
+                  <i class="fas fa-swatchbook"></i>
+                  <span>Canva</span>
+                </div>
               </div>
             </div>
           </div>
@@ -507,6 +1078,21 @@
             <p>Tienda online completa con pasarela de pago y gestión de inventario</p>
           </div>
         </div>
+
+        <div class="proceso-stats" aria-label="Resultados del proceso">
+          <div class="stat-item">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Proyectos entregados a tiempo</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4.9/5</div>
+            <div class="stat-label">Satisfacción del cliente</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Comunicación transparente</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -515,11 +1101,13 @@
       <div class="container">
         <h2>¿Listo para empezar tu proyecto?</h2>
         <p class="checklist__subtitle muted">
-          Ahora que conoces mi proceso, el siguiente paso es hacer tu checklist personalizado
+          Ahora que conoces mi proceso, el siguiente paso es crear tu checklist personalizado o
+          solicitar tu presupuesto online.
         </p>
 
         <div class="checklist__cta">
-          <a href="checklist.html" class="chip-cta">Empezar mi proyecto ahora</a>
+          <a href="checklist.html" class="action-btn action-btn--primary">Empezar Proyecto</a>
+          <a href="presupuesto.html" class="action-btn action-btn--secondary">Orçamento Online</a>
         </div>
       </div>
     </section>
@@ -532,8 +1120,8 @@
             <h3>Amanda Cereja</h3>
             <p>Ingeniera de Software Full-Stack<br />Frontend | Backend</p>
             <div class="footer-social">
-              <a href="https://wa.me/34602614398" aria-label="WhatsApp"
-                ><i class="fab fa-whatsapp"></i
+              <a href="mailto:amandacerejaweb@gmail.com" aria-label="Email"
+                ><i class="fas fa-envelope"></i
               ></a>
               <a href="https://www.linkedin.com/in/amandaceereja/" aria-label="LinkedIn"
                 ><i class="fab fa-linkedin-in"></i
@@ -580,16 +1168,185 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Botão WhatsApp flotante -->
-    <a
-      href="https://wa.me/34602614398"
-      class="whatsapp-button"
-      target="_blank"
-      rel="noopener"
-      aria-label="Abrir chat de WhatsApp"
-    >
-      <i class="fab fa-whatsapp"></i>
-    </a>
+    <script>
+      (() => {
+        const root = document.querySelector("[data-process-flow]");
+        if (!root) return;
+
+        const tabs = Array.from(root.querySelectorAll("[data-process-tab]"));
+        const panels = Array.from(root.querySelectorAll("[data-process-panel]"));
+        if (!tabs.length || !panels.length) return;
+
+        const byPanelId = new Map(panels.map((panel, index) => [panel.id, index]));
+
+        const setActive = (nextIndex, options = {}) => {
+          const { focus = false } = options;
+          const safeIndex = Math.max(0, Math.min(tabs.length - 1, nextIndex));
+
+          tabs.forEach((tab, index) => {
+            const isActive = index === safeIndex;
+            tab.classList.toggle("is-active", isActive);
+            tab.setAttribute("aria-selected", isActive ? "true" : "false");
+            tab.tabIndex = isActive ? 0 : -1;
+          });
+
+          panels.forEach((panel, index) => {
+            const isActive = index === safeIndex;
+            panel.classList.toggle("is-active", isActive);
+            panel.hidden = !isActive;
+          });
+
+          const activeTab = tabs[safeIndex];
+          const activePanel = panels[safeIndex];
+          if (focus) activeTab.focus();
+
+          if (activePanel?.id && window.location.hash !== `#${activePanel.id}`) {
+            history.replaceState(null, "", `#${activePanel.id}`);
+          }
+        };
+
+        const activateFromHash = () => {
+          const raw = window.location.hash.replace("#", "");
+          if (!raw) return;
+          const index = byPanelId.get(raw);
+          if (typeof index === "number") setActive(index);
+        };
+
+        tabs.forEach((tab, index) => {
+          tab.addEventListener("click", () => setActive(index, { focus: false }));
+
+          tab.addEventListener("keydown", (event) => {
+            const key = event.key;
+            if (
+              key !== "ArrowLeft" &&
+              key !== "ArrowRight" &&
+              key !== "ArrowUp" &&
+              key !== "ArrowDown" &&
+              key !== "Home" &&
+              key !== "End"
+            ) {
+              return;
+            }
+
+            event.preventDefault();
+            const last = tabs.length - 1;
+            if (key === "Home") return setActive(0, { focus: true });
+            if (key === "End") return setActive(last, { focus: true });
+
+            const delta = key === "ArrowLeft" || key === "ArrowUp" ? -1 : 1;
+            const next = (index + delta + tabs.length) % tabs.length;
+            return setActive(next, { focus: true });
+          });
+        });
+
+        panels.forEach((panel, index) => {
+          panel.hidden = index !== 0;
+        });
+
+        tabs.forEach((tab, index) => {
+          tab.tabIndex = index === 0 ? 0 : -1;
+        });
+
+        activateFromHash();
+        window.addEventListener("hashchange", activateFromHash);
+      })();
+    </script>
+
+    <script>
+      (() => {
+        const el = document.querySelector(".hero__title .typewriter");
+        const subtitleEl = document.querySelector(".hero__subtitle");
+        if (!el) return;
+
+        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        const text = el.textContent?.trim() || "";
+        if (!text) return;
+
+        if (prefersReduced) {
+          el.textContent = text;
+          if (subtitleEl) subtitleEl.style.opacity = "1";
+          return;
+        }
+
+        if (subtitleEl) subtitleEl.style.opacity = "0";
+
+        el.textContent = "";
+        let i = 0;
+        let deleting = false;
+        const typeDelay = 60;
+        const deleteDelay = 38;
+        const holdDelay = 1800;
+
+        const tick = () => {
+          const current = el.textContent || "";
+
+          if (!deleting) {
+            el.textContent = text.slice(0, i + 1);
+            i += 1;
+            if (subtitleEl && subtitleEl.style.opacity !== "1") subtitleEl.style.opacity = "1";
+
+            if (i >= text.length) {
+              deleting = true;
+              return setTimeout(tick, holdDelay);
+            }
+
+            return setTimeout(tick, typeDelay);
+          }
+
+          el.textContent = current.slice(0, -1);
+          i -= 1;
+          if (i <= 0) {
+            deleting = false;
+            i = 0;
+            return setTimeout(tick, 260);
+          }
+          return setTimeout(tick, deleteDelay);
+        };
+
+        tick();
+      })();
+    </script>
+
+    <script>
+      (() => {
+        const trigger = document.getElementById("design-online-access-trigger");
+        const modal = document.getElementById("design-online-access-modal");
+        if (!trigger || !modal) return;
+
+        const closeBtn = modal.querySelector(".modal-close");
+        const dialog = modal.querySelector(".modal");
+
+        const openModal = () => {
+          modal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        };
+
+        const closeModal = () => {
+          modal.classList.remove("active");
+          document.body.style.overflow = "";
+          trigger.focus();
+        };
+
+        trigger.addEventListener("click", openModal);
+
+        closeBtn?.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) closeModal();
+        });
+
+        dialog?.addEventListener("click", (event) => {
+          event.stopPropagation();
+        });
+
+        window.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && modal.classList.contains("active")) {
+            closeModal();
+          }
+        });
+      })();
+    </script>
 
     <!-- Sistema de Seletor de Idiomas -->
     <script src="js/language-selector.js"></script>

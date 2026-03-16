@@ -56,7 +56,7 @@ function initTypewriterServicos() {
         deleting = true;
         return setTimeout(tick, holdDelay);
       }
-      
+
       return setTimeout(tick, typeDelay);
     } else {
       // Apagando
@@ -73,11 +73,27 @@ function initTypewriterServicos() {
   }
 
   el.textContent = "";
-  // Mostrar subtítulo imediatamente (estático)
   if (subtitleEl) {
     subtitleEl.textContent = subtitles[0];
   }
   tick();
+}
+
+function initHeroEntranceServicos() {
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReduced) return;
+  if (!window.gsap) return;
+
+  const contentEl = document.querySelector(".hero-servicos__content");
+  if (!contentEl) return;
+
+  window.gsap.from(contentEl, {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    delay: 0.5,
+    ease: "power2.out",
+  });
 }
 
 // Função para obter slidesPerView baseado na largura da tela
@@ -107,12 +123,12 @@ function initRestaurantesCarousel() {
   const indicatorsContainer = document.querySelector(".services-restaurantes-indicators");
   if (indicatorsContainer) {
     indicatorsContainer.innerHTML = "";
-    
+
     // Desktop: 3 indicadores (grupos de slides)
     // Móvel/Tablet: 8 indicadores (cards individuais)
     const isDesktop = window.innerWidth >= 1025;
     const numIndicators = isDesktop ? Math.ceil(totalSlides / slidesPerView) : 8;
-    
+
     for (let i = 0; i < numIndicators; i++) {
       const indicator = document.createElement("div");
       indicator.classList.add("indicator-restaurante");
@@ -128,7 +144,7 @@ function initRestaurantesCarousel() {
 
     const isDesktop = window.innerWidth >= 1025;
     let offset;
-    
+
     if (isDesktop) {
       // Desktop: navegação por grupos de slides (3 containers por bolinha)
       // Cada bolinha move o carrossel por 3 containers (33.333% cada)
@@ -173,17 +189,20 @@ function initRestaurantesCarousel() {
   }
 
   // Eventos de clique nos indicadores
-  const indicators = document.querySelectorAll(".services-restaurantes-indicators .indicator-restaurante");
+  const indicators = document.querySelectorAll(
+    ".services-restaurantes-indicators .indicator-restaurante"
+  );
   indicators.forEach((indicator, index) => {
     indicator.addEventListener("click", () => {
       const isDesktop = window.innerWidth >= 1025;
-      
+
       if (isDesktop) {
         // Desktop: indicador representa grupo de slides
         updateSlide(index);
       } else {
         // Móvel/Tablet: indicador representa card individual
-        if (index < 8) { // 0-7 para 8 cards
+        if (index < 8) {
+          // 0-7 para 8 cards
           updateSlide(index);
         }
       }
@@ -193,7 +212,7 @@ function initRestaurantesCarousel() {
   // Eventos de clique nas setas - APENAS DESKTOP
   function initArrowEvents() {
     const isDesktop = window.innerWidth >= 1025;
-    
+
     if (isDesktop) {
       const arrowLeft = document.querySelector(".solucoes-restaurantes .slider-arrow-left");
       const arrowRight = document.querySelector(".solucoes-restaurantes .slider-arrow-right");
@@ -210,7 +229,7 @@ function initRestaurantesCarousel() {
 
   // Inicializar eventos das setas
   initArrowEvents();
-  
+
   // Reinicializar eventos das setas no resize
   window.addEventListener("resize", initArrowEvents);
 
@@ -222,27 +241,27 @@ function initRestaurantesCarousel() {
   function handleTouchStart(e) {
     // Só funciona em mobile/tablet
     if (window.innerWidth >= 1025) return;
-    
+
     touchStartX = e.touches[0].clientX;
     isTouching = true;
   }
 
   function handleTouchMove(e) {
     if (!isTouching || window.innerWidth >= 1025) return;
-    
+
     // Previne o scroll da página durante o swipe
     e.preventDefault();
   }
 
   function handleTouchEnd(e) {
     if (!isTouching || window.innerWidth >= 1025) return;
-    
+
     touchEndX = e.changedTouches[0].clientX;
     isTouching = false;
-    
+
     const swipeDistance = touchStartX - touchEndX;
     const minSwipeDistance = 50; // Distância mínima para considerar um swipe
-    
+
     if (Math.abs(swipeDistance) > minSwipeDistance) {
       if (swipeDistance > 0) {
         // Swipe para a esquerda - próximo slide
@@ -255,9 +274,9 @@ function initRestaurantesCarousel() {
   }
 
   // Adicionar event listeners para touch
-  slider.addEventListener('touchstart', handleTouchStart, { passive: true });
-  slider.addEventListener('touchmove', handleTouchMove, { passive: false });
-  slider.addEventListener('touchend', handleTouchEnd, { passive: true });
+  slider.addEventListener("touchstart", handleTouchStart, { passive: true });
+  slider.addEventListener("touchmove", handleTouchMove, { passive: false });
+  slider.addEventListener("touchend", handleTouchEnd, { passive: true });
 
   // Eventos de deslize desativados para permitir navegação apenas com bolinhas
   // Removendo cursor de arrastar
@@ -265,7 +284,6 @@ function initRestaurantesCarousel() {
 
   // Inicializa o carrossel
   updateSlide(0);
-
 }
 
 // Função para inicializar o carrossel de lojas online (idêntico ao de restaurantes)
@@ -305,7 +323,7 @@ function initLojasCarousel() {
 
     const isDesktop = window.innerWidth >= 1025;
     let offset;
-    
+
     if (isDesktop) {
       // Desktop: navegação por grupos de slides (3 containers por bolinha)
       // Cada bolinha move o carrossel por 3 containers (33.333% cada)
@@ -318,7 +336,7 @@ function initLojasCarousel() {
     }
 
     slider.style.transform = `translateX(${offset}%)`;
-    slider.style.transition = 'transform 0.3s ease-in-out';
+    slider.style.transition = "transform 0.3s ease-in-out";
 
     // Atualiza os indicadores
     updateIndicators();
@@ -329,7 +347,7 @@ function initLojasCarousel() {
     console.log("updateSlidesPerView chamada");
     const newSlidesPerView = getSlidesPerView();
     console.log("newSlidesPerView:", newSlidesPerView, "slidesPerView:", slidesPerView);
-    
+
     // Sempre recriar indicadores
     slidesPerView = newSlidesPerView;
     maxSlide = Math.ceil(totalSlides / slidesPerView) - 1;
@@ -338,54 +356,53 @@ function initLojasCarousel() {
     const indicatorsContainer = document.querySelector(".services-lojas-indicators");
     console.log("indicatorsContainer encontrado:", !!indicatorsContainer);
     if (indicatorsContainer) {
-        indicatorsContainer.innerHTML = "";
-        
-        // Desktop: 3 indicadores (grupos de slides)
-        // Móvel/Tablet: 7 indicadores (cards individuais)
-        const isDesktop = window.innerWidth >= 1025;
-        const numIndicators = isDesktop ? Math.ceil(totalSlides / slidesPerView) : 7;
-        
-        for (let i = 0; i < numIndicators; i++) {
-          const indicator = document.createElement("div");
-          indicator.classList.add("indicator-loja");
-          indicator.setAttribute("data-slide", i);
-          if (i === 0) indicator.classList.add("active");
-          indicatorsContainer.appendChild(indicator);
-        }
-        
-        // Readicionar eventos de clique aos novos indicadores
-        const newIndicators = indicatorsContainer.querySelectorAll(".indicator-loja");
-        newIndicators.forEach((indicator, index) => {
-          indicator.addEventListener("click", () => {
-            const isDesktop = window.innerWidth >= 1025;
-            
-            if (isDesktop) {
-              // Desktop: indicador representa grupo de slides
+      indicatorsContainer.innerHTML = "";
+
+      // Desktop: 3 indicadores (grupos de slides)
+      // Móvel/Tablet: 7 indicadores (cards individuais)
+      const isDesktop = window.innerWidth >= 1025;
+      const numIndicators = isDesktop ? Math.ceil(totalSlides / slidesPerView) : 7;
+
+      for (let i = 0; i < numIndicators; i++) {
+        const indicator = document.createElement("div");
+        indicator.classList.add("indicator-loja");
+        indicator.setAttribute("data-slide", i);
+        if (i === 0) indicator.classList.add("active");
+        indicatorsContainer.appendChild(indicator);
+      }
+
+      // Readicionar eventos de clique aos novos indicadores
+      const newIndicators = indicatorsContainer.querySelectorAll(".indicator-loja");
+      newIndicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => {
+          const isDesktop = window.innerWidth >= 1025;
+
+          if (isDesktop) {
+            // Desktop: indicador representa grupo de slides
+            updateSlide(index);
+          } else {
+            // Móvel/Tablet: indicador representa card individual
+            if (index < 7) {
+              // 0-6 para 7 cards
               updateSlide(index);
-            } else {
-              // Móvel/Tablet: indicador representa card individual
-              if (index < 7) { // 0-6 para 7 cards
-                updateSlide(index);
-              }
             }
-          });
+          }
         });
-      }
+      });
+    }
 
-      // Ajusta currentSlide se necessário
-      if (currentSlide > maxSlide) {
-        currentSlide = maxSlide;
-      }
+    // Ajusta currentSlide se necessário
+    if (currentSlide > maxSlide) {
+      currentSlide = maxSlide;
+    }
 
-      // Atualiza a posição do slider
-      updateSlide(currentSlide);
+    // Atualiza a posição do slider
+    updateSlide(currentSlide);
   }
 
   // Função para atualizar os indicadores
   function updateIndicators() {
-    const indicators = document.querySelectorAll(
-      ".services-lojas-indicators .indicator-loja"
-    );
+    const indicators = document.querySelectorAll(".services-lojas-indicators .indicator-loja");
     indicators.forEach((indicator, index) => {
       indicator.classList.toggle("active", index === currentSlide);
     });
@@ -412,13 +429,14 @@ function initLojasCarousel() {
   indicators.forEach((indicator, index) => {
     indicator.addEventListener("click", () => {
       const isDesktop = window.innerWidth >= 1025;
-      
+
       if (isDesktop) {
         // Desktop: indicador representa grupo de slides
         updateSlide(index);
       } else {
         // Móvel/Tablet: indicador representa card individual
-        if (index < 7) { // 0-6 para 7 cards
+        if (index < 7) {
+          // 0-6 para 7 cards
           updateSlide(index);
         }
       }
@@ -428,7 +446,7 @@ function initLojasCarousel() {
   // Eventos de clique nas setas - APENAS DESKTOP
   function initLojasArrowEvents() {
     const isDesktop = window.innerWidth >= 1025;
-    
+
     if (isDesktop) {
       const arrowLeft = document.querySelector(".solucoes-lojas .slider-arrow-left");
       const arrowRight = document.querySelector(".solucoes-lojas .slider-arrow-right");
@@ -453,7 +471,7 @@ function initLojasCarousel() {
 
   // Inicializar eventos das setas
   initLojasArrowEvents();
-  
+
   // Reinicializar eventos das setas no resize
   window.addEventListener("resize", initLojasArrowEvents);
 
@@ -465,27 +483,27 @@ function initLojasCarousel() {
   function handleTouchStart(e) {
     // Só funciona em mobile/tablet
     if (window.innerWidth >= 1025) return;
-    
+
     touchStartX = e.touches[0].clientX;
     isTouching = true;
   }
 
   function handleTouchMove(e) {
     if (!isTouching || window.innerWidth >= 1025) return;
-    
+
     // Previne o scroll da página durante o swipe
     e.preventDefault();
   }
 
   function handleTouchEnd(e) {
     if (!isTouching || window.innerWidth >= 1025) return;
-    
+
     touchEndX = e.changedTouches[0].clientX;
     isTouching = false;
-    
+
     const swipeDistance = touchStartX - touchEndX;
     const minSwipeDistance = 50; // Distância mínima para considerar um swipe
-    
+
     if (Math.abs(swipeDistance) > minSwipeDistance) {
       if (swipeDistance > 0) {
         // Swipe para a esquerda - próximo slide
@@ -498,15 +516,15 @@ function initLojasCarousel() {
   }
 
   // Adicionar event listeners para touch
-  slider.addEventListener('touchstart', handleTouchStart, { passive: true });
-  slider.addEventListener('touchmove', handleTouchMove, { passive: false });
-  slider.addEventListener('touchend', handleTouchEnd, { passive: true });
+  slider.addEventListener("touchstart", handleTouchStart, { passive: true });
+  slider.addEventListener("touchmove", handleTouchMove, { passive: false });
+  slider.addEventListener("touchend", handleTouchEnd, { passive: true });
 
   // Eventos de swipe desativados para permitir navegação apenas com bolinhas
-  
+
   // Inicializa carrossel sem Swiper
   updateSlide(0);
-  
+
   // Chama updateSlidesPerView na inicialização para criar os indicadores corretos
   updateSlidesPerView();
 
@@ -544,7 +562,9 @@ function initCarouselArrowsVisibility() {
 // Removido: Função para controlar visibilidade das setas - não há mais setas
 
 // Inicialização quando o DOM estiver pronto
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+  initHeroEntranceServicos();
+
   // Inicializa o efeito de máquina de escrever
   initTypewriterServicos();
 

@@ -589,10 +589,12 @@ ${featuresLines}
 
 Total estimado: €${total.toLocaleString()}
 
-¿Podemos hablar por WhatsApp?`;
+¿Podemos coordinar los próximos pasos por email?`;
 
-    const whatsappUrl = `https://wa.me/34602614398?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
+    const emailUrl = `mailto:amandacerejaweb@gmail.com?subject=${encodeURIComponent(
+      "Presupuesto"
+    )}&body=${encodeURIComponent(message)}`;
+    window.open(emailUrl, "_blank");
   }
 
   getFeatureName(featureId) {
@@ -699,6 +701,7 @@ Total estimado: €${total.toLocaleString()}
         modalDescription.innerHTML = tooltip.innerHTML || tooltip.textContent;
       }
       modal.classList.add("active");
+      document.documentElement.classList.add("feature-modal-open");
       document.body.style.overflow = "hidden";
     }
   }
@@ -766,6 +769,7 @@ Total estimado: €${total.toLocaleString()}
     if (modal) {
       modal.classList.remove("active");
     }
+    document.documentElement.classList.remove("feature-modal-open");
     document.body.style.overflow = "";
   }
 }
@@ -776,6 +780,29 @@ document.addEventListener("DOMContentLoaded", () => {
   initTabs();
   enforceCalculatorLayout();
   window.addEventListener("resize", enforceCalculatorLayout);
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!prefersReducedMotion && window.gsap) {
+    window.gsap.from(".hero-content", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      delay: 0.5,
+    });
+
+    if (window.ScrollTrigger) {
+      window.gsap.registerPlugin(window.ScrollTrigger);
+      window.gsap.to(".hero-presupuesto", {
+        scrollTrigger: {
+          trigger: ".hero-presupuesto",
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.5,
+        },
+        backgroundPositionY: "30%",
+      });
+    }
+  }
 });
 
 function initPresupuestoTypewriter() {
@@ -783,22 +810,32 @@ function initPresupuestoTypewriter() {
   const subtitleEl = document.querySelector(".hero-subtitle");
   if (!el || !subtitleEl) return;
 
-  const phrases = [
-    {
-      title: "Tu web, tu presupuesto, en tiempo real",
-      subtitle: "Descubre el plan ideal para tu proyecto con un cálculo inmediato.",
-    },
-    {
-      title: "Calcula y da vida a tu proyecto online.",
-      subtitle: "Haz tu cálculo online y da el primer paso hacia tu nuevo proyecto.",
-    },
-  ];
+  const pathname = window.location.pathname;
+
+  let phrases;
+  let subtitles;
+
+  if (pathname.endsWith("presupuesto_en.html")) {
+    phrases = ["Online Quote", "Automatic Calculator", "Custom Prices"];
+    subtitles = [
+      "Calculate your project price in just a few clicks.",
+      "Choose the project type, features, extra integrations and essential systems for your website, and calculate the quote in real time.",
+      "Choose between custom code development or an online platform and see the price difference depending on the option.",
+    ];
+  } else {
+    phrases = ["Presupuesto Online", "Calculadora Automática", "Precios Personalizados"];
+    subtitles = [
+      "Calcula el precio de tu proyecto con solo unos clics.",
+      "Elige el tipo de proyecto, funcionalidades, integraciones extra y sistemas esenciales para tu sitio, y calcula el presupuesto en tiempo real.",
+      "Elige entre desarrollo con código puro o plataforma online y ve la diferencia de precios según la opción elegida.",
+    ];
+  }
 
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (prefersReduced) {
-    el.textContent = phrases[0].title;
-    subtitleEl.textContent = phrases[0].subtitle;
+    el.textContent = phrases[0];
+    subtitleEl.textContent = subtitles[0];
     return;
   }
 
@@ -807,20 +844,18 @@ function initPresupuestoTypewriter() {
   let isDeleting = false;
   const typeDelay = 60;
   const deleteDelay = 38;
-  const pauseDelay = 1200;
+  const pauseDelay = 1800;
 
   function updateSubtitle(index) {
-    if (subtitleEl) {
-      subtitleEl.style.opacity = "0";
-      setTimeout(() => {
-        subtitleEl.textContent = phrases[index].subtitle;
-        subtitleEl.style.opacity = "1";
-      }, 300);
-    }
+    subtitleEl.style.opacity = "0";
+    setTimeout(() => {
+      subtitleEl.textContent = subtitles[index];
+      subtitleEl.style.opacity = "1";
+    }, 300);
   }
 
   function typeChar() {
-    const currentPhrase = phrases[phraseIndex].title;
+    const currentPhrase = phrases[phraseIndex];
 
     if (!isDeleting) {
       el.textContent = currentPhrase.slice(0, charIndex + 1);
@@ -834,19 +869,24 @@ function initPresupuestoTypewriter() {
       }
       setTimeout(typeChar, typeDelay);
     } else {
-      el.textContent = currentPhrase.slice(0, charIndex);
+      const current = el.textContent || "";
+      el.textContent = current.slice(0, -1);
       charIndex--;
+
       if (charIndex === 0) {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
         updateSubtitle(phraseIndex);
-        setTimeout(typeChar, 500);
+        setTimeout(typeChar, 260);
         return;
       }
+
       setTimeout(typeChar, deleteDelay);
     }
   }
-  updateSubtitle(phraseIndex);
+
+  el.textContent = "";
+  subtitleEl.textContent = subtitles[0];
   typeChar();
 }
 

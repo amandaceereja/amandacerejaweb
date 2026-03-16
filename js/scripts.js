@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const h = languageBar ? languageBar.getBoundingClientRect().height : 0;
       document.documentElement.style.setProperty("--language-bar-h", `${h}px`);
       header.style.top = h ? `${h}px` : "0px";
+      const headerH = header.getBoundingClientRect().height;
+      document.documentElement.style.setProperty("--header-h", `${headerH}px`);
+      document.documentElement.style.setProperty("--sticky-offset", `${h + headerH}px`);
     };
 
     const ensureSyncedDuringTransition = () => {
@@ -28,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         header.classList.toggle("is-scrolled", scrolled);
         if (languageBar) languageBar.classList.toggle("is-scrolled", scrolled);
         ensureSyncedDuringTransition();
+        syncHeaderOffset();
         last = scrolled;
       }
     };
@@ -336,8 +340,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let phrases, subtitles;
 
-    // Verificar se estamos na página em português e se as traduções estão disponíveis
-    if (window.location.pathname.includes("_pt") && window.translations_pt) {
+    const pathname = window.location.pathname;
+
+    if (pathname.endsWith("proceso.html")) {
+      phrases = [
+        "Tu Proyecto, Mi Metodología",
+        "Beneficios Exclusivos",
+        "Mis Tecnologías y Herramientas",
+      ];
+
+      subtitles = [
+        "Un proceso estructurado en 4 etapas para transformar tu visión en soluciones digitales de alto impacto.",
+        "Además de un sitio de alta calidad, ganas dominio, hosting, SSL, SEO básico, acceso al panel de diseño y un mes de mantenimiento gratuito.",
+        "Uso las mejores plataformas y herramientas del mercado para garantizar un desarrollo ágil, personalizado y de alto rendimiento.",
+      ];
+    } else if (pathname.endsWith("proceso_pt.html")) {
+      phrases = [
+        "Seu Projeto, Minha Metodologia",
+        "Benefícios Exclusivos",
+        "Minhas Tecnologias e Ferramentas",
+      ];
+
+      subtitles = [
+        "Um processo estruturado em 4 etapas para transformar sua visão em soluções digitais de alto impacto.",
+        "Além de um site de alta qualidade, você ganha domínio, hosting, SSL, SEO básico, acesso ao painel de design e um mês de manutenção gratuita.",
+        "Uso as melhores plataformas e ferramentas do mercado para garantir um desenvolvimento ágil, personalizado e de alta performance.",
+      ];
+    } else if (pathname.endsWith("proceso_en.html")) {
+      phrases = ["Your Project, My Methodology", "Exclusive Benefits", "My Technologies and Tools"];
+
+      subtitles = [
+        "A structured 4-stage process to turn your vision into high-impact digital solutions.",
+        "In addition to a high-quality website, you get domain, hosting, SSL, basic SEO, access to the design panel, and one month of free maintenance.",
+        "I use the best platforms and tools on the market to ensure agile, personalized, high-performance development.",
+      ];
+    } else if (pathname.includes("_pt") && window.translations_pt) {
       // Usar traduções do pt.js
       phrases = [
         window.translations_pt["hero.phrases.frontend"],
@@ -352,7 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.translations_pt["hero.subtitles.freelance"],
         window.translations_pt["hero.subtitles.digital"],
       ];
-    } else if (window.location.pathname.includes("_en")) {
+    } else if (pathname.includes("_en")) {
       // Usar frases em inglês
       phrases = [
         "Frontend Developer",
